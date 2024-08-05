@@ -1,0 +1,49 @@
+name: nutrition
+description: "A new Flutter project for G10"
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Design
+  cupertino_icons: ^1.0.6
+  toastification: ^2.1.0
+  l: ^4.0.2
+
+  # State management
+  flutter_riverpod: ^2.5.1
+
+  # Network
+  dio: ^5.5.0+1
+
+  # Storage
+  flutter_secure_storage: ^9.2.2
+  connectivity_plus: ^6.0.4
+  shared_preferences: ^2.3.1
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
