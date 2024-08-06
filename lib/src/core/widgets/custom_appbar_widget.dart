@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
-import 'package:nutrition/src/core/widgets/app_material_context.dart';
 
 class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -34,10 +33,10 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
               }
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'share',
                 child: ListTile(
-                  leading: SvgPicture.asset("assetName"),
+                  leading: Icon(Icons.share),
                   title: Text('share'),
                 ),
               ),
@@ -63,11 +62,6 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
                 ),
               ),
             ],
-            icon: SvgPicture.asset(
-          "assets/icons/more_apbar_icon.svg",
-          height: 4,
-          width: 18,
-        ),
           ),
         // MaterialButton(
         //   splashColor: Colors.transparent,
