@@ -4,7 +4,7 @@ import 'app_colors.dart';
 
 const ColorScheme lightColorScheme = ColorScheme(
   brightness: Brightness.light,
-  primary: AppColors.primaryColor,
+  primary: AppColors.white,
   onPrimary: Color(0xff141311),
   primaryContainer: Color(0xff141311),
   onPrimaryContainer: Color(0xff141311),
@@ -36,7 +36,7 @@ const ColorScheme lightColorScheme = ColorScheme(
 
 const ColorScheme darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
-  primary: AppColors.darkPrimaryColor,
+  primary: AppColors.black,
   onPrimary: Color(0xff141311),
   primaryContainer: Color(0xff141311),
   onPrimaryContainer: Color(0xffe9ecf1),
