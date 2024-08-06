@@ -6,6 +6,14 @@ class AppTextStyle extends TextTheme {
   const AppTextStyle();
 
   @override
+  TextStyle? get appBarText => const TextStyle(
+      fontWeight: FontWeight.w600,
+      fontSize: FontSize.size18,
+      fontFamily: "Poppins",
+      color: AppColors.black,
+    );
+
+  @override
   TextStyle? get splashTopText => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size18,
