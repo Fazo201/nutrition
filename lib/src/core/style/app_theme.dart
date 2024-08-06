@@ -30,7 +30,7 @@ final class AppThemes {
   static ThemeData light() => ThemeData(
         brightness: Brightness.light,
         colorScheme: lightColorScheme,
-        scaffoldBackgroundColor: AppColors.c129575,
+        scaffoldBackgroundColor: AppColors.white,
       );
 
   static ThemeData dark() => ThemeData(
