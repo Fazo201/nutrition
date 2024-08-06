@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:nutrition/src/feature/search/view/pages/search_recipes_page.dart';
+import 'package:nutrition/src/feature/home/presentaion/pages/home_page.dart';
 
 import '../../feature/settings/inherited_locale_notifier.dart';
 import '../../feature/settings/inherited_theme_notifier.dart';
@@ -25,7 +25,7 @@ class AppMaterialContext extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 theme: InheritedThemeNotifier.maybeOf(context)?.theme,
                 locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-                home: SearchRecipesPage(),
+                home: HomePage(),
                 // home:
               );
             }
