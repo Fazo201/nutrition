@@ -67,9 +67,9 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 100), () {
-      FocusScope.of(context).requestFocus(_focusNode);
-    });
+    // Future.delayed(const Duration(milliseconds: 100), () {
+    //   FocusScope.of(context).requestFocus(_focusNode);
+    // });
     return Scaffold(
       appBar: AppBar(
         title: const Text('Search recipes'),
@@ -85,7 +85,7 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
               focusNode: _focusNode,
               controller: _controller,
               onSubmitted: (value) => _performSearch(),
-              onTapFilter: () => _showFilterBottomSheet(context),
+              // onTapFilter: () => _showFilterBottomSheet(context),
             ),
             const SizedBox(height: 16.0),
 
