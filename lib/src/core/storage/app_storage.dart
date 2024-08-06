@@ -9,7 +9,6 @@ enum StorageKey {
 }
 
 class AppStorage extends FlutterSecureStorage {
-
   factory AppStorage() => _service;
 
   const AppStorage._internal();
@@ -34,6 +33,4 @@ class AppStorage extends FlutterSecureStorage {
   static Future<void> $delete({required StorageKey key}) async {
     await _storage.delete(key: key.name);
   }
-
 }
-
