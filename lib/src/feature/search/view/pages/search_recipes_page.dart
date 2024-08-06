@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/style/app_colors.dart';
 import '../widgets/search_recipes_item_widget.dart';
 
 class SearchRecipesPage extends StatelessWidget {
   final List<String> recentSearches = [
+    'Traditional spare ribs baked',
+    'Lamb chops with fruity couscous and mint',
+    'Spice roasted chicken with flavored rice',
+    'Chinese style Egg fried rice with sliced pork',
     'Traditional spare ribs baked',
     'Lamb chops with fruity couscous and mint',
     'Spice roasted chicken with flavored rice',
@@ -40,28 +45,45 @@ class SearchRecipesPage extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      fillColor: Colors.blue,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: AppColors.cD9D9D9, width: 2.0),
-                        borderRadius: BorderRadius.circular(10),
+                      hintText: 'Search recipe',
+                      hintStyle: const TextStyle(
+                        color: AppColors.cD9D9D9
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: AppColors.cD9D9D9, width: 2.0),
-                        borderRadius: BorderRadius.circular(10),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(11.0),
+                        child: SvgPicture.asset('assets/icons/search_in_textfield_icon.svg'),
                       ),
-                      border: const OutlineInputBorder(),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      enabledBorder: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide.none,
+                      ),
+                      border: const OutlineInputBorder(
+                        // borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                        borderSide: BorderSide.none,
+                      ),
+                      contentPadding: EdgeInsets.symmetric(vertical: 15.0),
                     ),
                   ),
                 ),
                 const SizedBox(width: 20,),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: const SizedBox(
+                  child: SizedBox(
                     height: 50,
                     width: 50,
                     child: DecoratedBox(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: AppColors.c129575
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: SvgPicture.asset('assets/icons/filter_icon.svg'),
                       ),
                     ),
                   ),
