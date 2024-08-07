@@ -26,7 +26,7 @@ class AppMaterialContext extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 theme: InheritedThemeNotifier.maybeOf(context)?.theme,
                 locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-                home: const BookmarkPage(),
+                home: const HomePage(),
                 // home:
               );
             }

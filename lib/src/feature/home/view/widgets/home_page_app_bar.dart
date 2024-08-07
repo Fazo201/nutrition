@@ -12,7 +12,7 @@ class HomePageAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 40),
           Row(
             children: [
               Expanded(
