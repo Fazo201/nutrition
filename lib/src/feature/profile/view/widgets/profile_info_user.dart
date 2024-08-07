@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
 
+import '../../../../core/style/app_colors.dart';
+
 class ProfileInfoUser extends StatelessWidget {
   const ProfileInfoUser({super.key});
 
@@ -16,19 +18,19 @@ class ProfileInfoUser extends StatelessWidget {
         ),
         Column(
           children: [
-            Text("Recipe",style: const AppTextStyle().loginEnter,),
+            Text("Recipe",style: const AppTextStyle().loginEnter?.copyWith(color: AppColors.cA9A9A9),),
             Text("4",style: const AppTextStyle().profileTitle,)
           ],
         ),
         Column(
           children: [
-            Text("Followers",style: const AppTextStyle().loginEnter,),
+            Text("Followers",style: const AppTextStyle().loginEnter?.copyWith(color: AppColors.cA9A9A9),),
             Text("2.5M",style: const AppTextStyle().profileTitle,)
           ],
         ),
         Column(
           children: [
-            Text("Following",style: const AppTextStyle().loginEnter,),
+            Text("Following",style: const AppTextStyle().loginEnter?.copyWith(color: AppColors.cA9A9A9),),
             Text("259",style: const AppTextStyle().profileTitle,)
           ],
         ),

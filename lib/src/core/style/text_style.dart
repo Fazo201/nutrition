@@ -14,7 +14,6 @@ class AppTextStyle extends TextTheme {
   );
 
 
-  @override
   TextStyle? get splashTopText => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size18,
@@ -22,7 +21,6 @@ class AppTextStyle extends TextTheme {
         color: AppColors.white,
       );
 
-  @override
   TextStyle? get splashCenter => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size50,

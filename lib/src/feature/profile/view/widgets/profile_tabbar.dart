@@ -53,7 +53,7 @@ class _ProfileTabbarState extends State<ProfileTabbar> {
               child: Text(
                 tabText,
                 style: AppTextStyle().loginEnter?.copyWith(
-                  color: isSelected ? Colors.white : AppColors.c129575,
+                  color: isSelected ? Colors.white : AppColors.c71B1A1,
                 ),
               ),
             ),

@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:nutrition/src/feature/home/presentaion/pages/home_page.dart';
+import 'package:nutrition/src/core/widgets/custom_appbar_widget.dart';
+import 'package:nutrition/src/feature/bookmark/view/pages/bookmark_page.dart';
+import 'package:nutrition/src/feature/profile/view/pages/profile_page.dart';
 
 import '../../feature/settings/inherited_locale_notifier.dart';
 import '../../feature/settings/inherited_theme_notifier.dart';

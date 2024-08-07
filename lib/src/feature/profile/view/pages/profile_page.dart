@@ -5,13 +5,9 @@ import 'package:nutrition/src/core/style/app_colors.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
 import 'package:nutrition/src/feature/profile/view/widgets/profile_bio_widget.dart';
 import 'package:nutrition/src/feature/profile/view/widgets/profile_info_user.dart';
-import 'package:sizer/sizer.dart';
 
-import '../../view_model/vm/profile_vm.dart';
 import '../widgets/profile_images.dart';
 import '../widgets/profile_tabbar.dart';
-import '../widgets/profile_tag.dart';
-import '../widgets/profile_videos.dart';
 
 // TabBarProvider - Riverpod uchun state provider
 final tabBarProvider = StateNotifierProvider<TabBarProvider, int>((ref) {
@@ -52,33 +48,30 @@ class ProfilePage extends ConsumerWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 10),
-              const ProfileInfoUser(),
-              ProfileBioWidget(
-                userName: "Afuwape Abiodun",
-                userLabel: "Chef",
-                userBio: '''Private Chef
-                  Passionate about food and life 🥘🍲🍝🍱
-                  drtfyguh
-                  ffgyhu
-                  ghhk
-                  fggyjhukj
-                  ''',
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              const ProfileTabbar(),
-              const SizedBox(
-                height: 20,
-              ),
-              ImagesTab(),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 10),
+            const ProfileInfoUser(),
+            ProfileBioWidget(
+              userName: "Asliddin Musulmanov",
+              userLabel: "Chef",
+              userBio: '''Private Chef\nPassionate about food and life 🥘🍲🍝🍱
+ drtfyguh
+ ffgyhu
+ ghhk
+fggyjhukj
+                ''',
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const ProfileTabbar(),
+            const SizedBox(
+              height: 20,
+            ),
+            ImagesTab(),
+          ],
         ),
       ),
     );

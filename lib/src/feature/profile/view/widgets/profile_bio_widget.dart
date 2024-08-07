@@ -26,7 +26,7 @@ class ProfileBioWidget extends StatelessWidget {
         ),
         Text(
           userLabel,
-          style: AppTextStyle().loginEnter,
+          style: AppTextStyle().loginEnter?.copyWith(color: AppColors.cA9A9A9),
         ),
         const SizedBox(
           height: 10,
@@ -40,7 +40,7 @@ class ProfileBioWidget extends StatelessWidget {
                   Text(
                     userBio,
                     maxLines: isExpanded.value == false ? 2 : null,
-                    style: AppTextStyle().loginEnter,
+                    style: AppTextStyle().loginEnter?.copyWith(color: AppColors.cA9A9A9),
                   ),
                   // if (isExpanded.value == false)
                     InkWell(
