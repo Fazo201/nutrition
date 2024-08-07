@@ -68,7 +68,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                             );
                           }),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 15),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

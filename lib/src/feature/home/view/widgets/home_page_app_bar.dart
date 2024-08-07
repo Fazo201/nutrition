@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nutrition/src/core/style/app_colors.dart';
+import 'package:nutrition/src/feature/search/view/pages/search_recipes_page.dart';
 
 class HomePageAppBar extends StatelessWidget {
   const HomePageAppBar({super.key});
@@ -12,7 +14,7 @@ class HomePageAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 40),
           Row(
             children: [
               Expanded(
@@ -57,6 +59,9 @@ class HomePageAppBar extends StatelessWidget {
                 child: SizedBox(
                   height: 40,
                   child: TextField(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
+                    },
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.search),
                       hintText: 'Search recipe',
@@ -82,6 +87,12 @@ class HomePageAppBar extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: AppColors.c129575,
                     borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
+                    },
+                    child: SvgPicture.asset('assets/icons/filter_icon.svg'),
                   ),
                 ),
               ),
