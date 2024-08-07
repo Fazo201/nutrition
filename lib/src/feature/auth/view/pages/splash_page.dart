@@ -64,7 +64,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   opacity: _animation,
                   child: Text(
                     "100K+ Premium Recipe ",
-                    style: const AppTextStyle().splashTopText,
+                    // style: const AppTextStyle().splashTopText,
                   ),
                 ),
               ],

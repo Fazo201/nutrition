@@ -1,16 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nutrition/src/core/style/text_style.dart';
-import 'package:nutrition/src/feature/bookmark/vm/review_vm.dart';
-import '../../../../core/style/app_colors.dart';
-import '../widgets/review_widget.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/style/text_style.dart";
+import "package:nutrition/src/feature/bookmark/vm/review_vm.dart";
+import "../../../../core/style/app_colors.dart";
+import "../widgets/review_widget.dart";
 
 class ReviewPage extends ConsumerWidget {
   const ReviewPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
+  Widget build(BuildContext context, WidgetRef ref) => Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
         backgroundColor: AppColors.white,
@@ -48,7 +48,7 @@ class ReviewPage extends ConsumerWidget {
                 color: AppColors.c121212,
               ),
             ),
-            const SizedBox(height: 10),
+            10.verticalSpace,
             SafeArea(
               child: TextField(
                 controller: ref.watch(reviewVM).commentC,
@@ -95,4 +95,3 @@ class ReviewPage extends ConsumerWidget {
       ),
     );
   }
-}
