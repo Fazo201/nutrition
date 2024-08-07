@@ -56,8 +56,9 @@ class RecipeCard extends StatelessWidget {
               ),
               Positioned(
                 bottom: 0,
-                right: 1,
-                left: 1,
+                right: 0,
+                left: 0,
+                top: 2,
                 child: Container(
                   height: 200,
                   decoration: BoxDecoration(
@@ -84,7 +85,7 @@ class RecipeCard extends StatelessWidget {
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
+                        fontSize: 11.0,
                         shadows: [
                           Shadow(
                             blurRadius: 2.0,
@@ -101,7 +102,7 @@ class RecipeCard extends StatelessWidget {
                       'By $author',
                       style: const TextStyle(
                         color: AppColors.cA9A9A9,
-                        fontSize: 10,
+                        fontSize: 8,
                         shadows: [
                           Shadow(
                             blurRadius: 2.0,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-class HomePageVm with ChangeNotifier {
+class HomeVm with ChangeNotifier {
   void navigateToSearchPage(BuildContext context) {}
 }

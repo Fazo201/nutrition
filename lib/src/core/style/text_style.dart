@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
 @immutable
@@ -6,7 +7,7 @@ class AppTextStyle extends TextTheme {
   const AppTextStyle();
 
   @override
-  TextStyle? get splashTopText => const TextStyle(
+  TextStyle? get bodyMedium => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size18,
         fontFamily: "Poppins",
@@ -225,8 +226,8 @@ class AppTextStyle extends TextTheme {
 class FontSize {
   const FontSize._();
 
-  static const double size6_4 = 6.4;
-  static const double size7_8 = 7.8;
+  static double size6_4 = 6.4.sp;
+  static double size7_8 = 7.8.sp;
   static const double size9_5 = 9.5;
   static const double size8 = 8;
   static const double size10 = 10;
