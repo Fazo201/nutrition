@@ -5,8 +5,9 @@ import '../style/text_style.dart';
 
 class ElevetedButtonWidget extends StatelessWidget {
   final String text;
+  final void Function() onPressed;
 
-  const ElevetedButtonWidget({super.key, required this.text});
+  const ElevetedButtonWidget({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class ElevetedButtonWidget extends StatelessWidget {
         ),
         fixedSize: const Size(double.maxFinite, 60),
       ),
-      onPressed: () {},
+      onPressed: onPressed,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

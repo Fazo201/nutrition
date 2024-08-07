@@ -24,15 +24,15 @@ class _SplashPagesState extends State<SplashPages> with TickerProviderStateMixin
     _animation = Tween(end: 1.0, begin: 0.0).animate(_controller);
     _animationIcons = Tween<Offset>(begin: const Offset(0.0, -1.0), end: const Offset(0.0, 0.0)).animate(_controller);
     _controller.forward();
-    stack();
+    // stack();
     super.initState();
   }
 
-  Future<void> stack() async {
-    return await Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
-    });
-  }
+  // Future<void> stack() async {
+  //   return await Future.delayed(const Duration(seconds: 4), () {
+  //     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +109,14 @@ class _SplashPagesState extends State<SplashPages> with TickerProviderStateMixin
                     ),
                     fixedSize: const Size(double.maxFinite, 60),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(),
+                      ),
+                    );
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

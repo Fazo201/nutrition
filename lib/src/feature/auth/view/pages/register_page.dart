@@ -7,6 +7,7 @@ import 'package:nutrition/src/feature/auth/view/widget/login_or_widget.dart';
 import 'package:nutrition/src/feature/auth/view/widget/login_textfield_widget.dart';
 import 'package:nutrition/src/feature/auth/view/widget/register_text_widget.dart';
 
+import '../../../home/view/pages/home_page.dart';
 import '../widget/login_sizedbox_widget.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -73,7 +74,17 @@ class RegisterPage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 26),
-                const ElevetedButtonWidget(text: "Sign Up"),
+                ElevetedButtonWidget(
+                  text: "Sign Up",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
+                  },
+                ),
                 const SizedBox(height: 14),
                 const LoginOrWidget(),
                 const SizedBox(height: 15),
