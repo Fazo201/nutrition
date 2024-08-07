@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/style/app_colors.dart';
+import '../widgets/filter_search_widget.dart';
 import '../widgets/search_recipes_item_widget.dart';
+import '../widgets/search_recipes_text_field_button_widget.dart';
 
-class SearchRecipesPage extends StatelessWidget {
+class SearchRecipesPage extends StatefulWidget {
+
+  SearchRecipesPage({super.key});
+
+  @override
+  State<SearchRecipesPage> createState() => _SearchRecipesPageState();
+}
+
+class _SearchRecipesPageState extends State<SearchRecipesPage> {
   final List<String> recentSearches = [
     'Traditional spare ribs baked',
     'Lamb chops with fruity couscous and mint',
@@ -16,7 +25,47 @@ class SearchRecipesPage extends StatelessWidget {
     'Chinese style Egg fried rice with sliced pork'
   ];
 
-  SearchRecipesPage({super.key});
+  /// useful variables
+  final FocusNode _focusNode = FocusNode();
+
+  final TextEditingController _controller = TextEditingController();
+
+  List<String> _results = [];
+
+  int _totalResults = 0;
+
+  /// Functions
+
+  // function to show the amount of results
+  void _performSearch() {
+    String query = _controller.text;
+
+    setState(() {
+      _results = List<String>.generate(10, (index) => 'Result ${index + 1} for "$query"');
+      _totalResults = 255; // This is just a static example, replace with actual result count.
+    });
+    FocusScope.of(context).unfocus();
+  }
+
+  // function to show the bottom sheet
+  void _showFilterBottomSheet(BuildContext context) {
+    FocusScope.of(context).unfocus();
+    _focusNode.unfocus();
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25.0),
+        ),
+      ),
+      builder: (context) {
+        return SizedBox(
+          height: MediaQuery.of(context).size.height * 0.6, // 60% of the screen height
+          child: const FilterBottomSheet(),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
