@@ -207,18 +207,18 @@ class AppTextStyle extends TextTheme {
   @override
   TextStyle? get recipeReviews => const TextStyle(
         fontWeight: FontWeight.w400,
-        fontSize: FontSize.size14,
+        fontSize: FontSize.size11,
         fontFamily: "Poppins",
         color: AppColors.cA9A9A9,
       );
 
   @override
-  TextStyle? get appBarText => const TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: FontSize.size18,
-        fontFamily: "Poppins",
-        color: AppColors.black,
-      );
+  TextStyle? get recipeBoxMain => const TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size14,
+    fontFamily: "Poppins",
+    color: AppColors.white,
+  );
 }
 
 @immutable

@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
-import 'package:nutrition/src/feature/auth/view/pages/register_page.dart';
-import 'package:nutrition/src/feature/auth/view/pages/splash_page.dart';
-import 'package:nutrition/src/feature/search/view/pages/search_recipes_page.dart';
 
+import 'package:flutter/material.dart';
+import 'package:nutrition/src/feature/home/view/pages/home_page.dart';
+
+import '../../feature/bookmark/view/pages/bookmark_page.dart';
 import '../../feature/settings/inherited_locale_notifier.dart';
 import '../../feature/settings/inherited_theme_notifier.dart';
 import '../../feature/settings/locale_controller.dart';
