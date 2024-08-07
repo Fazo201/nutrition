@@ -21,6 +21,7 @@ class AppTextStyle extends TextTheme {
         color: AppColors.white,
       );
 
+  @override
   TextStyle? get splashCenter => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size50,
@@ -156,7 +157,7 @@ class AppTextStyle extends TextTheme {
         color: AppColors.c484848,
       );
 
-
+  @override
   TextStyle? get homeFoodsTime => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size11,

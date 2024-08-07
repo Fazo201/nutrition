@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/style/app_colors.dart';
 import '../widgets/filter_search_widget.dart';
@@ -7,6 +6,7 @@ import '../widgets/search_recipes_item_widget.dart';
 import '../widgets/search_recipes_text_field_button_widget.dart';
 
 class SearchRecipesPage extends StatefulWidget {
+
   SearchRecipesPage({super.key});
 
   @override
@@ -14,7 +14,6 @@ class SearchRecipesPage extends StatefulWidget {
 }
 
 class _SearchRecipesPageState extends State<SearchRecipesPage> {
-  /// The list of dishes names
   final List<String> recentSearches = [
     'Traditional spare ribs baked',
     'Lamb chops with fruity couscous and mint',
@@ -28,8 +27,11 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
 
   /// useful variables
   final FocusNode _focusNode = FocusNode();
+
   final TextEditingController _controller = TextEditingController();
+
   List<String> _results = [];
+
   int _totalResults = 0;
 
   /// Functions
@@ -85,7 +87,7 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
               focusNode: _focusNode,
               controller: _controller,
               onSubmitted: (value) => _performSearch(),
-              // onTapFilter: () => _showFilterBottomSheet(context),
+              onTapFilter: () => _showFilterBottomSheet(context),
             ),
             const SizedBox(height: 16.0),
 
@@ -103,6 +105,7 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
               ],
             ),
             const SizedBox(height: 16.0),
+
             /// the cards (The dishes)
             Expanded(
               child: GridView.builder(

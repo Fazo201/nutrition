@@ -3,7 +3,6 @@ import 'package:nutrition/src/core/style/app_colors.dart';
 import 'package:nutrition/src/feature/home/view/widgets/home_page_app_bar.dart';
 import 'package:nutrition/src/feature/home/view/widgets/home_page_bottom_card_widget.dart';
 import 'package:nutrition/src/feature/home/view/widgets/home_page_main_card_widget.dart';
-import 'package:sizer/sizer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
