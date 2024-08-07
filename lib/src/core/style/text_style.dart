@@ -156,7 +156,7 @@ class AppTextStyle extends TextTheme {
         color: AppColors.c484848,
       );
 
-  @override
+
   TextStyle? get homeFoodsTime => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size11,

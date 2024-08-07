@@ -5,9 +5,8 @@ import 'package:nutrition/src/core/style/app_colors.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
 import 'package:nutrition/src/feature/profile/view/widgets/profile_bio_widget.dart';
 import 'package:nutrition/src/feature/profile/view/widgets/profile_info_user.dart';
+import 'package:nutrition/src/feature/profile/view/widgets/user_email_password.dart';
 
-import '../widgets/profile_images.dart';
-import '../widgets/profile_tabbar.dart';
 
 // TabBarProvider - Riverpod uchun state provider
 final tabBarProvider = StateNotifierProvider<TabBarProvider, int>((ref) {
@@ -53,24 +52,18 @@ class ProfilePage extends ConsumerWidget {
           children: [
             const SizedBox(height: 10),
             const ProfileInfoUser(),
-            ProfileBioWidget(
-              userName: "Asliddin Musulmanov",
-              userLabel: "Chef",
-              userBio: '''Private Chef\nPassionate about food and life 🥘🍲🍝🍱
- drtfyguh
- ffgyhu
- ghhk
-fggyjhukj
-                ''',
-            ),
             const SizedBox(
               height: 15,
             ),
-            const ProfileTabbar(),
-            const SizedBox(
-              height: 20,
+            UserNameWidget(
+              userName: "Asliddin Musulmanov",
+
             ),
-            ImagesTab(),
+            const SizedBox(
+              height: 35,
+            ),
+            UserEmailPassword(email: "azimjon@com", password: "1233****")
+
           ],
         ),
       ),

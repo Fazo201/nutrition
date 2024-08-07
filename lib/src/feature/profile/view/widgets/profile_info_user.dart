@@ -8,34 +8,12 @@ class ProfileInfoUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const CircleAvatar(
-            radius: 60,
-            backgroundImage: AssetImage('assets/images/profile_image.png')
+    return const Center(
+      child: CircleAvatar(
+          radius: 60,
+          backgroundImage: AssetImage('assets/images/profile_image.png')
 
-        ),
-        Column(
-          children: [
-            Text("Recipe",style: const AppTextStyle().loginEnter?.copyWith(color: AppColors.cA9A9A9),),
-            Text("4",style: const AppTextStyle().profileTitle,)
-          ],
-        ),
-        Column(
-          children: [
-            Text("Followers",style: const AppTextStyle().loginEnter?.copyWith(color: AppColors.cA9A9A9),),
-            Text("2.5M",style: const AppTextStyle().profileTitle,)
-          ],
-        ),
-        Column(
-          children: [
-            Text("Following",style: const AppTextStyle().loginEnter?.copyWith(color: AppColors.cA9A9A9),),
-            Text("259",style: const AppTextStyle().profileTitle,)
-          ],
-        ),
-
-      ],
+      ),
     );
   }
 }
