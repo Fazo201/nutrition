@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nutrition/src/core/style/app_colors.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
 import 'package:nutrition/src/core/widgets/eleveted_button_widget.dart';
 import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
-import 'package:nutrition/src/feature/auth/view/widget/login_or_widget.dart';
-import 'package:nutrition/src/feature/auth/view/widget/login_textfield_widget.dart';
-import 'package:nutrition/src/feature/auth/view/widget/register_text_widget.dart';
+import 'package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart';
+import 'package:nutrition/src/feature/auth/view/widgets/login_textfield_widget.dart';
+import 'package:nutrition/src/feature/auth/view/widgets/register_text_widget.dart';
+import 'package:nutrition/src/feature/auth/view_model/login_vm.dart';
 
-import '../widget/login_sizedbox_widget.dart';
+import '../widgets/login_sizedbox_widget.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends ConsumerWidget {
   const RegisterPage({super.key});
 
-  final bool isCheck = false;
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -29,18 +30,18 @@ class RegisterPage extends StatelessWidget {
                   'Create an account',
                   style: const AppTextStyle().registerCreateAccount,
                 ),
-                const SizedBox(height: 5),
+                5.verticalSpace,
                 Text(
                   'Let’s help you set up your account,\nit won’t take long.',
                   style: const AppTextStyle().registerLetsHelp,
                 ),
-                const SizedBox(height: 20),
+                20.verticalSpace,
                 const RegisterTextWidget(text: 'Name'),
-                const SizedBox(height: 5),
+                5.verticalSpace,
                 const LoginTextfieldWidget(
                   hintText: 'Enter Name',
                 ),
-                const SizedBox(height: 20),
+                20.verticalSpace,
                 const RegisterTextWidget(text: 'Email'),
                 const SizedBox(height: 5),
                 const LoginTextfieldWidget(
@@ -63,7 +64,7 @@ class RegisterPage extends StatelessWidget {
                   children: [
                     Checkbox(
                       checkColor: AppColors.cFF9C00,
-                      value: isCheck,
+                      value: ref.read(loginVM).isCheck,
                       onChanged: (value) {},
                     ),
                     Text(
