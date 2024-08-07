@@ -210,6 +210,14 @@ class AppTextStyle extends TextTheme {
         fontFamily: "Poppins",
         color: AppColors.cA9A9A9,
       );
+
+  @override
+  TextStyle? get profileTitle => const TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size18,
+    fontFamily: "Poppins",
+    color: AppColors.c121212,
+  );
 }
 
 @immutable
