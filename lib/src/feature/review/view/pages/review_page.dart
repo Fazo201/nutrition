@@ -13,7 +13,7 @@ class ReviewPage extends StatelessWidget {
         backgroundColor: AppColors.white,
         title: Text(
           "Reviews",
-          style: const AppTextStyle().appBarText,
+          // style: const AppTextStyle().appBarText,
         ),
         centerTitle: true,
       ),

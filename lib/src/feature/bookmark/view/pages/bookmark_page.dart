@@ -9,7 +9,7 @@ class BookmarkPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Saved recipes", style: const AppTextStyle().appBarText),
+        title: Text("Saved recipes",),
         centerTitle: true,
       ),
       body: ListView.separated(
