@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:nutrition/src/feature/home/view/pages/home_page.dart';
 
@@ -20,17 +19,14 @@ class AppMaterialContext extends StatelessWidget {
       themeController: themeController,
       child: InheritedLocalNotifier(
         localController: localController,
-        child: Builder(
-            builder: (context) {
-              return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                theme: InheritedThemeNotifier.maybeOf(context)?.theme,
-                locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-                home: const BookmarkPage(),
-                // home:
-              );
-            }
-        ),
+        child: Builder(builder: (context) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: InheritedThemeNotifier.maybeOf(context)?.theme,
+            locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
+            home: SplashPages(),
+          );
+        }),
       ),
     );
   }

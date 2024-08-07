@@ -56,6 +56,7 @@ class SearchRecipesPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16.0),
+
             /// the cards (The dishes)
             Expanded(
               child: GridView.builder(

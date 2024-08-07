@@ -214,11 +214,11 @@ class AppTextStyle extends TextTheme {
 
   @override
   TextStyle? get recipeBoxMain => const TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size14,
-    fontFamily: "Poppins",
-    color: AppColors.white,
-  );
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size14,
+        fontFamily: "Poppins",
+        color: AppColors.white,
+      );
 }
 
 @immutable
