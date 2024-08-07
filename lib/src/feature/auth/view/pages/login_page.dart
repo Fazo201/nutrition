@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
 import 'package:nutrition/src/core/widgets/eleveted_button_widget.dart';
 import 'package:nutrition/src/feature/auth/view/pages/register_page.dart';
-import 'package:nutrition/src/feature/auth/view/widget/login_or_widget.dart';
-import 'package:nutrition/src/feature/auth/view/widget/login_sizedbox_widget.dart';
-import 'package:nutrition/src/feature/auth/view/widget/login_textfield_widget.dart';
-import 'package:nutrition/src/feature/home/view/pages/home_page.dart';
+import 'package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart';
+import 'package:nutrition/src/feature/auth/view/widgets/login_sizedbox_widget.dart';
+import 'package:nutrition/src/feature/auth/view/widgets/login_textfield_widget.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -58,17 +57,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 25),
-                ElevetedButtonWidget(
-                  text: 'Sign In',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomePage(),
-                      ),
-                    );
-                  },
-                ),
+                const ElevatedButtonWidget(text: 'Sign In'),
                 const SizedBox(height: 25),
                 const LoginOrWidget(),
                 const SizedBox(height: 20),

@@ -3,14 +3,14 @@ import 'package:nutrition/src/core/style/app_colors.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
 import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
 
-class SplashPages extends StatefulWidget {
-  const SplashPages({super.key});
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
 
   @override
-  State<SplashPages> createState() => _SplashPagesState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPagesState extends State<SplashPages> with TickerProviderStateMixin {
+class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;
   late final Animation<Offset> _animationIcons;

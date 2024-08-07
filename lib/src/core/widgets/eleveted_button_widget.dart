@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import '../style/app_colors.dart';
 import '../style/text_style.dart';
 
-class ElevetedButtonWidget extends StatelessWidget {
+class ElevatedButtonWidget extends StatelessWidget {
   final String text;
-  final void Function() onPressed;
 
-  const ElevetedButtonWidget({super.key, required this.text, required this.onPressed});
+  const ElevatedButtonWidget({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class ElevetedButtonWidget extends StatelessWidget {
         ),
         fixedSize: const Size(double.maxFinite, 60),
       ),
-      onPressed: onPressed,
+      onPressed: () {},
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
