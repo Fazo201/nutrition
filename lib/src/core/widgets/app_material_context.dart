@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:nutrition/src/feature/home/presentaion/pages/home_page.dart';
+import 'package:nutrition/src/feature/home/view/pages/home_page.dart';
 
 import '../../feature/bookmark/view/pages/bookmark_page.dart';
 import '../../feature/settings/inherited_locale_notifier.dart';
@@ -26,7 +26,7 @@ class AppMaterialContext extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 theme: InheritedThemeNotifier.maybeOf(context)?.theme,
                 locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-                home: const BookmarkPage(),
+                home: const HomePage(),
                 // home:
               );
             }
