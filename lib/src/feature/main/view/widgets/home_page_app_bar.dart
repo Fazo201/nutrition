@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nutrition/src/core/style/app_colors.dart';
-import 'package:nutrition/src/feature/search/view/pages/search_recipes_page.dart';
+import 'package:nutrition/src/feature/main/view/pages/search_recipes_page.dart';
 
 class HomePageAppBar extends StatelessWidget {
   const HomePageAppBar({super.key});
