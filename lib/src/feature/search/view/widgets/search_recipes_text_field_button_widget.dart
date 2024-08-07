@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/style/app_colors.dart';
-import 'filter_search_widget.dart';
 
 class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
   const SearchRecipesTextFieldButtonWidget({
@@ -10,13 +9,13 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
     this.focusNode,
     required this.controller,
     required this.onSubmitted,
-    // required this.onTapFilter,
+    required this.onTapFilter,
   });
 
   final TextEditingController controller;
   final FocusNode? focusNode;
   final Function(String)? onSubmitted;
-  // final Function() onTapFilter;
+  final Function() onTapFilter;
 
   @override
   Widget build(BuildContext context) {
@@ -57,23 +56,7 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
         const SizedBox(width: 20,),
         InkWell(
           onTap: () {
-            // function to show the bottom sheet
-              FocusScope.of(context).unfocus();
-              showModalBottomSheet(
-                context: context,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(25.0),
-                  ),
-                ),
-                builder: (context) {
-                  return SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.6, // 60% of the screen height
-                    child: const FilterBottomSheet(),
-                  );
-                },
-              );
-            // onTapFilter();
+            onTapFilter();
           },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),

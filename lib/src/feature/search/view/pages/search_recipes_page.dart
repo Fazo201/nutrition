@@ -38,7 +38,7 @@ class SearchRecipesPage extends StatelessWidget {
               focusNode: _focusNode,
               controller: _controller,
               onSubmitted: (value) => _performSearch(),
-              // onTapFilter: () => _showFilterBottomSheet(context),
+              onTapFilter: () => _showFilterBottomSheet(context),
             ),
             const SizedBox(height: 16.0),
 
