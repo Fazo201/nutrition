@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nutrition/src/core/style/app_colors.dart';
-import 'package:nutrition/src/feature/search/view/pages/search_recipes_page.dart';
+import 'package:nutrition/src/feature/main/view/pages/search_recipes_page.dart';
 
 class HomePageAppBar extends StatelessWidget {
   const HomePageAppBar({super.key});
@@ -24,7 +24,7 @@ class HomePageAppBar extends StatelessWidget {
                     Text(
                       'Hello Jega',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
@@ -33,7 +33,7 @@ class HomePageAppBar extends StatelessWidget {
                     Text(
                       'What are you cooking today?',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 11,
                         color: Colors.grey,
                       ),
                     ),
@@ -59,6 +59,7 @@ class HomePageAppBar extends StatelessWidget {
                 child: SizedBox(
                   height: 40,
                   child: TextField(
+                    keyboardType: TextInputType.none,
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
                     },
@@ -92,7 +93,12 @@ class HomePageAppBar extends StatelessWidget {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
                     },
-                    child: SvgPicture.asset('assets/icons/filter_icon.svg'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: SvgPicture.asset(
+                        'assets/icons/filter_icon.svg',
+                      ),
+                    ),
                   ),
                 ),
               ),
