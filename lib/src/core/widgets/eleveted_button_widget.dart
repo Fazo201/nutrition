@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../style/app_colors.dart';
 import '../style/text_style.dart';
 
-class ElevetedButtonWidget extends StatelessWidget {
+class ElevatedButtonWidget extends StatelessWidget {
   final String text;
 
-  const ElevetedButtonWidget({super.key, required this.text});
+  const ElevatedButtonWidget({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {

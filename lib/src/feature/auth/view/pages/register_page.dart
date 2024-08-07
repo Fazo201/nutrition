@@ -16,8 +16,7 @@ class RegisterPage extends ConsumerWidget {
   const RegisterPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
+  Widget build(BuildContext context, WidgetRef ref) => Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
@@ -74,7 +73,7 @@ class RegisterPage extends ConsumerWidget {
                   ],
                 ),
                 const SizedBox(height: 26),
-                const ElevetedButtonWidget(text: "Sign Up"),
+                const ElevatedButtonWidget(text: 'Sign Up'),
                 const SizedBox(height: 14),
                 const LoginOrWidget(),
                 const SizedBox(height: 15),
