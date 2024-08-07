@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:nutrition/src/feature/home/view/pages/home_page.dart';
 
 import '../../feature/bookmark/view/pages/bookmark_page.dart';
+import '../../feature/review/view/pages/review_page.dart';
 import '../../feature/settings/inherited_locale_notifier.dart';
 import '../../feature/settings/inherited_theme_notifier.dart';
 import '../../feature/settings/locale_controller.dart';
@@ -21,15 +21,15 @@ class AppMaterialContext extends StatelessWidget {
       child: InheritedLocalNotifier(
         localController: localController,
         child: Builder(
-            builder: (context) {
-              return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                theme: InheritedThemeNotifier.maybeOf(context)?.theme,
-                locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-                home: const BookmarkPage(),
-                // home:
-              );
-            }
+          builder: (context) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: InheritedThemeNotifier.maybeOf(context)?.theme,
+              locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
+              home: const ReviewPage(),
+              // home:
+            );
+          },
         ),
       ),
     );
