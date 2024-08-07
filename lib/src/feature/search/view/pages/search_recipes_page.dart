@@ -7,7 +7,7 @@ import '../widgets/search_recipes_text_field_button_widget.dart';
 
 class SearchRecipesPage extends StatefulWidget {
 
-  SearchRecipesPage({super.key});
+  const SearchRecipesPage({super.key});
 
   @override
   State<SearchRecipesPage> createState() => _SearchRecipesPageState();
@@ -42,7 +42,7 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
 
     setState(() {
       _results = List<String>.generate(10, (index) => 'Result ${index + 1} for "$query"');
-      _totalResults = 255; // This is just a static example, replace with actual result count.
+      _totalResults = 255;
     });
     FocusScope.of(context).unfocus();
   }
@@ -60,7 +60,7 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
       ),
       builder: (context) {
         return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.6, // 60% of the screen height
+          height: MediaQuery.of(context).size.height * 0.6,
           child: const FilterBottomSheet(),
         );
       },
@@ -79,54 +79,57 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /// text field and button
-            SearchRecipesTextFieldButtonWidget(
-              focusNode: _focusNode,
-              controller: _controller,
-              onSubmitted: (value) => _performSearch(),
-              onTapFilter: () => _showFilterBottomSheet(context),
-            ),
-            const SizedBox(height: 16.0),
-
-            /// two texts
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Recent Search',
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black),
-                ),
-                _totalResults != 0
-                    ? Text('$_totalResults results', style: const TextStyle(fontSize: 14, color: AppColors.cA9A9A9))
-                    : const Text("")
-              ],
-            ),
-            const SizedBox(height: 16.0),
-
-            /// the cards (The dishes)
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 15.0,
-                  mainAxisSpacing: 15.0,
-                  childAspectRatio: 0.75,
-                ),
-                itemCount: recentSearches.length,
-                itemBuilder: (context, index) {
-                  return RecipeCard(
-                    title: recentSearches[index],
-                    imageUrl: 'assets/images/search_page_cook_image.png', // Placeholder image URL
-                    rating: '4.0',
-                    author: 'Chef John',
-                  );
-                },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              /// text field and button
+              SearchRecipesTextFieldButtonWidget(
+                focusNode: _focusNode,
+                controller: _controller,
+                onSubmitted: (value) => _performSearch(),
+                onTapFilter: () => _showFilterBottomSheet(context),
               ),
-            ),
-          ],
+              const SizedBox(height: 16.0),
+
+              /// two texts
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Recent Search',
+                    style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600,),
+                  ),
+                  _totalResults != 0
+                      ? Text('$_totalResults results')
+                      : const Text("")
+                ],
+              ),
+              const SizedBox(height: 16.0),
+
+              /// the cards (The dishes)
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 15.0,
+                    mainAxisSpacing: 15.0,
+                    childAspectRatio: 1,
+                  ),
+                  itemCount: recentSearches.length,
+                  itemBuilder: (context, index) {
+                    return RecipeCard(
+                      title: recentSearches[index],
+                      imageUrl: 'assets/images/search_page_cook_image.png', // Placeholder image URL
+                      rating: '4.0',
+                      author: 'Chef John',
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
