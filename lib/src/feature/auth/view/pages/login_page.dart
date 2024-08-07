@@ -25,16 +25,16 @@ class LoginPage extends StatelessWidget {
               children: [
                 Text(
                   'Hello,',
-                  style: const AppTextStyle().loginHello,
+                  // style: const AppTextStyle().loginHello,
                 ),
                 Text(
                   'Welcome Back!',
-                  style: const AppTextStyle().loginWelcomeBack,
+                  // style: const AppTextStyle().loginWelcomeBack,
                 ),
                 const SizedBox(height: 57),
                 Text(
                   'Email',
-                  style: const AppTextStyle().loginEmail,
+                  // style: const AppTextStyle().loginEmail,
                 ),
                 const SizedBox(height: 5),
                 const LoginTextfieldWidget(
@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 30),
                 Text(
                   'Enter Password',
-                  style: const AppTextStyle().loginEmail,
+                  // style: const AppTextStyle().loginEmail,
                 ),
                 const LoginTextfieldWidget(
                   hintText: 'Enter Password',
@@ -53,7 +53,7 @@ class LoginPage extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 10),
                   child: Text(
                     'Forgot Password?',
-                    style: const AppTextStyle().loginForgotPassword,
+                    // style: const AppTextStyle().loginForgotPassword,
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -79,7 +79,7 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Text(
                       "Don’t have an account?",
-                      style: const AppTextStyle().loginDont,
+                      // style: const AppTextStyle().loginDont,
                     ),
                     GestureDetector(
                       onTap: () {
@@ -92,7 +92,7 @@ class LoginPage extends StatelessWidget {
                       },
                       child: Text(
                         " Sign up",
-                        style: const AppTextStyle().loginMinSign,
+                        // style: const AppTextStyle().loginMinSign,
                       ),
                     ),
                   ],
