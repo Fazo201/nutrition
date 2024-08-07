@@ -21,7 +21,7 @@ class ReviewPage extends ConsumerWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: REdgeInsets.symmetric(horizontal: 30),
         child: Column(
           children: [
             Row(
@@ -41,12 +41,16 @@ class ReviewPage extends ConsumerWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
-            Text(
-              "Leave a comment",
-              style: const AppTextStyle().loginEmail?.copyWith(
-                color: AppColors.c121212,
-              ),
+            10.verticalSpace,
+            Row(
+              children: [
+                Text(
+                  "Leave a comment",
+                  style: const AppTextStyle().loginEmail?.copyWith(
+                    color: AppColors.c121212,
+                  ),
+                ),
+              ],
             ),
             10.verticalSpace,
             SafeArea(
@@ -56,24 +60,24 @@ class ReviewPage extends ConsumerWidget {
                   filled: true,
                   fillColor: AppColors.white,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide: BorderSide(
                       color: AppColors.cD9D9D9,
-                      width: 1.5,
+                      width: 1.5.w,
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide: BorderSide(
                       color: AppColors.cD9D9D9,
-                      width: 2,
+                      width: 1.5.w,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide: BorderSide(
                       color: AppColors.cD9D9D9,
-                      width: 2,
+                      width: 1.5.w,
                     ),
                   ),
                   hintText: "Say something...",
@@ -81,13 +85,11 @@ class ReviewPage extends ConsumerWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 15),
+            15.verticalSpace,
             Expanded(
               child: ListView.builder(
                 itemCount: 10,
-                itemBuilder: (_, __) {
-                  return const ReviewWidget();
-                },
+                itemBuilder: (_, __) => const ReviewWidget(),
               ),
             ),
           ],

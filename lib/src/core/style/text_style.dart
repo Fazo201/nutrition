@@ -7,7 +7,7 @@ class AppTextStyle extends TextTheme {
   const AppTextStyle();
 
   @override
-  TextStyle? get bodyMedium => const TextStyle(
+  TextStyle? get bodyMedium => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size18,
         fontFamily: "Poppins",
@@ -15,7 +15,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get splashCenter => const TextStyle(
+  TextStyle? get splashCenter => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size50,
         fontFamily: "Poppins",
@@ -23,7 +23,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get splashButtomText => const TextStyle(
+  TextStyle? get splashButtomText => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size16,
         fontFamily: "Poppins",
@@ -31,7 +31,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get splashButton => const TextStyle(
+  TextStyle? get splashButton => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size16,
         fontFamily: "Poppins",
@@ -39,7 +39,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get loginHello => const TextStyle(
+  TextStyle? get loginHello => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size30,
         fontFamily: "Poppins",
@@ -47,7 +47,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get loginWelcomeBack => const TextStyle(
+  TextStyle? get loginWelcomeBack => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size20,
         fontFamily: "Poppins",
@@ -55,7 +55,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get loginEmail => const TextStyle(
+  TextStyle? get loginEmail => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: "Poppins",
@@ -63,7 +63,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get loginEnter => const TextStyle(
+  TextStyle? get loginEnter => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -71,7 +71,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get loginForgotPassword => const TextStyle(
+  TextStyle? get loginForgotPassword => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -79,7 +79,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get loginOrSign => const TextStyle(
+  TextStyle? get loginOrSign => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -87,7 +87,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get loginDont => const TextStyle(
+  TextStyle? get loginDont => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -95,7 +95,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get loginMinSign => const TextStyle(
+  TextStyle? get loginMinSign => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -103,7 +103,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get registerCreateAccount => const TextStyle(
+  TextStyle? get registerCreateAccount => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size20,
         fontFamily: "Poppins",
@@ -111,7 +111,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get registerLetsHelp => const TextStyle(
+  TextStyle? get registerLetsHelp => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -119,7 +119,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get homeWhatAre => const TextStyle(
+  TextStyle? get homeWhatAre => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -127,7 +127,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get homeAll => const TextStyle(
+  TextStyle? get homeAll => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -135,7 +135,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get homeIndian => const TextStyle(
+  TextStyle? get homeIndian => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -143,7 +143,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get homeFoodsName => const TextStyle(
+  TextStyle? get homeFoodsName => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: "Poppins",
@@ -151,7 +151,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get homeFoodsTime => const TextStyle(
+  TextStyle? get homeFoodsTime => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -159,7 +159,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get homeNewRecipes => const TextStyle(
+  TextStyle? get homeNewRecipes => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size16,
         fontFamily: "Poppins",
@@ -167,7 +167,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get searchRecipes => const TextStyle(
+  TextStyle? get searchRecipes => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size16,
         fontFamily: "Poppins",
@@ -175,7 +175,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get searchStarNumber => const TextStyle(
+  TextStyle? get searchStarNumber => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -183,14 +183,14 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get searchByChef => const TextStyle(
+  TextStyle? get searchByChef => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size8,
         fontFamily: "Poppins",
         color: AppColors.cA9A9A9,
       );
   @override
-  TextStyle? get searchFilter => const TextStyle(
+  TextStyle? get searchFilter => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size8,
         fontFamily: "Poppins",
@@ -198,7 +198,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get searchFilterButton => const TextStyle(
+  TextStyle? get searchFilterButton => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -206,7 +206,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get recipeReviews => const TextStyle(
+  TextStyle? get recipeReviews => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size11,
         fontFamily: "Poppins",
@@ -214,7 +214,7 @@ class AppTextStyle extends TextTheme {
       );
 
   @override
-  TextStyle? get recipeBoxMain => const TextStyle(
+  TextStyle? get recipeBoxMain => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: "Poppins",
@@ -228,32 +228,32 @@ class FontSize {
 
   static double size6_4 = 6.4.sp;
   static double size7_8 = 7.8.sp;
-  static const double size9_5 = 9.5;
-  static const double size8 = 8;
-  static const double size10 = 10;
-  static const double size10_5 = 10.5;
-  static const double size11 = 11;
-  static const double size12 = 12;
-  static const double size12_5 = 12.5;
-  static const double size13 = 13;
-  static const double size13_5 = 13.5;
-  static const double size14 = 14;
-  static const double size14_2 = 14.2;
-  static const double size16 = 16;
-  static const double size17_3 = 17.3;
-  static const double size18 = 18;
-  static const double size19_2 = 19.2;
-  static const double size20 = 20;
-  static const double size21 = 21;
-  static const double size22 = 22;
-  static const double size23_3 = 23.3;
-  static const double size24 = 24;
-  static const double size26 = 26;
-  static const double size28 = 28;
-  static const double size30 = 30;
-  static const double size32 = 32;
-  static const double size42 = 42;
-  static const double size48 = 48;
-  static const double size50 = 50;
-  static const double size62 = 62.2;
+  static double size9_5 = 9.5.sp;
+  static double size8 = 8.sp;
+  static double size10 = 10.sp;
+  static double size10_5 = 10.5.sp;
+  static double size11 = 11.sp;
+  static double size12 = 12.sp;
+  static double size12_5 = 12.5.sp;
+  static double size13 = 13.sp;
+  static double size13_5 = 13.5.sp;
+  static double size14 = 14.sp;
+  static double size14_2 = 14.2.sp;
+  static double size16 = 16.sp;
+  static double size17_3 = 17.3.sp;
+  static double size18 = 18.sp;
+  static double size19_2 = 19.2.sp;
+  static double size20 = 20.sp;
+  static double size21 = 21.sp;
+  static double size22 = 22.sp;
+  static double size23_3 = 23.3.sp;
+  static double size24 = 24.sp;
+  static double size26 = 26.sp;
+  static double size28 = 28.sp;
+  static double size30 = 30.sp;
+  static double size32 = 32.sp;
+  static double size42 = 42.sp;
+  static double size48 = 48.sp;
+  static double size50 = 50.sp;
+  static double size62 = 62.2.sp;
 }

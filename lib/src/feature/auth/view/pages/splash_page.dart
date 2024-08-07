@@ -53,7 +53,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   FadeTransition(
                     opacity: _animation,
                     child: Image.asset(
-                      'assets/images/img.png',
+                      "assets/images/img.png",
                       height: 80,
                       width: 80,
                     ),
