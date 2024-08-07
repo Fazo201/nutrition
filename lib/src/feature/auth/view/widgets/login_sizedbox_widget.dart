@@ -25,7 +25,8 @@ class LoginSizedboxWidget extends StatelessWidget {
             ),
           ],
         ),
-        child: SizedBox(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
           child: SvgPicture.asset(
             svgPicture,
           ),
