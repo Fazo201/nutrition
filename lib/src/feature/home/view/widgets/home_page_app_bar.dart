@@ -22,7 +22,7 @@ class HomePageAppBar extends StatelessWidget {
                     Text(
                       'Hello Jega',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
@@ -31,7 +31,7 @@ class HomePageAppBar extends StatelessWidget {
                     Text(
                       'What are you cooking today?',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 11,
                         color: Colors.grey,
                       ),
                     ),

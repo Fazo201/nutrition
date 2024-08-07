@@ -81,6 +81,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  d_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: d_navigation_bar
+      sha256: "0ca2aeebec859fa046e37987fc0ddf6f0e1b9aac0e3d1ab2be066dfbb9a94c79"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   dbus:
     dependency: transitive
     description:
