@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
-import 'package:nutrition/src/feature/review/view_model/vm/review_vm.dart';
+import 'package:nutrition/src/feature/bookmark/vm/review_vm.dart';
 import '../../../../core/style/app_colors.dart';
 import '../widgets/review_widget.dart';
 
@@ -16,7 +16,7 @@ class ReviewPage extends ConsumerWidget {
         backgroundColor: AppColors.white,
         title: Text(
           "Reviews",
-          // style: const AppTextStyle().appBarText,
+          style: const AppTextStyle().loginEmail,
         ),
         centerTitle: true,
       ),
