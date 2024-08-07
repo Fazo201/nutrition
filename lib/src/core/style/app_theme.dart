@@ -12,14 +12,12 @@ final class AppThemes {
   final ThemeData lightTheme;
 
   AppThemes({required this.mode})
-
       : darkTheme = ThemeData(
           brightness: Brightness.dark,
           colorScheme: darkColorScheme,
           scaffoldBackgroundColor: AppColors.black,
           textTheme: const AppTextStyle(),
         ),
-
         lightTheme = ThemeData(
           brightness: Brightness.light,
           colorScheme: lightColorScheme,
@@ -30,13 +28,13 @@ final class AppThemes {
   static ThemeData light() => ThemeData(
         brightness: Brightness.light,
         colorScheme: lightColorScheme,
-        scaffoldBackgroundColor: AppColors.c129575,
+        scaffoldBackgroundColor: AppColors.white,
       );
 
   static ThemeData dark() => ThemeData(
         brightness: Brightness.dark,
         colorScheme: darkColorScheme,
-        scaffoldBackgroundColor: AppColors.white,
+        scaffoldBackgroundColor: AppColors.black,
       );
 
   ThemeData computeTheme() {

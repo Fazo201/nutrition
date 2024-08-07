@@ -203,12 +203,21 @@ class AppTextStyle extends TextTheme {
         fontFamily: "Poppins",
         color: AppColors.white,
       );
+
   @override
   TextStyle? get recipeReviews => const TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: "Poppins",
         color: AppColors.cA9A9A9,
+      );
+
+  @override
+  TextStyle? get appBarText => const TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size18,
+        fontFamily: "Poppins",
+        color: AppColors.black,
       );
 }
 

@@ -1,5 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
+import 'package:nutrition/src/feature/auth/view/pages/register_page.dart';
+import 'package:nutrition/src/feature/auth/view/pages/splash_page.dart';
 import 'package:nutrition/src/feature/search/view/pages/search_recipes_page.dart';
 
 import '../../feature/settings/inherited_locale_notifier.dart';
@@ -19,17 +21,14 @@ class AppMaterialContext extends StatelessWidget {
       themeController: themeController,
       child: InheritedLocalNotifier(
         localController: localController,
-        child: Builder(
-            builder: (context) {
-              return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                theme: InheritedThemeNotifier.maybeOf(context)?.theme,
-                locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-                home: SearchRecipesPage(),
-                // home:
-              );
-            }
-        ),
+        child: Builder(builder: (context) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: InheritedThemeNotifier.maybeOf(context)?.theme,
+            locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
+            home: SplashPages(),
+          );
+        }),
       ),
     );
   }

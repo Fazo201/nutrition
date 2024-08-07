@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/style/app_colors.dart';
 import '../widgets/search_recipes_item_widget.dart';
@@ -46,9 +46,7 @@ class SearchRecipesPage extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'Search recipe',
-                      hintStyle: const TextStyle(
-                        color: AppColors.cD9D9D9
-                      ),
+                      hintStyle: const TextStyle(color: AppColors.cD9D9D9),
                       prefixIcon: Padding(
                         padding: const EdgeInsets.all(11.0),
                         child: SvgPicture.asset('assets/icons/search_in_textfield_icon.svg'),
@@ -67,20 +65,20 @@ class SearchRecipesPage extends StatelessWidget {
                         // borderRadius: BorderRadius.all(Radius.circular(30.0)),
                         borderSide: BorderSide.none,
                       ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 15.0),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 15.0),
                     ),
                   ),
                 ),
-                const SizedBox(width: 20,),
+                const SizedBox(
+                  width: 20,
+                ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: SizedBox(
                     height: 50,
                     width: 50,
                     child: DecoratedBox(
-                      decoration: const BoxDecoration(
-                          color: AppColors.c129575
-                      ),
+                      decoration: const BoxDecoration(color: AppColors.c129575),
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: SvgPicture.asset('assets/icons/filter_icon.svg'),
@@ -90,11 +88,10 @@ class SearchRecipesPage extends StatelessWidget {
                 )
               ],
             ),
-
             const SizedBox(height: 16.0),
             const Text(
               'Recent Search',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold,color: Colors.black),
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black),
             ),
             const SizedBox(height: 16.0),
             Expanded(
