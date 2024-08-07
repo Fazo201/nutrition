@@ -7,6 +7,7 @@ import '../../feature/settings/inherited_locale_notifier.dart';
 import '../../feature/settings/inherited_theme_notifier.dart';
 import '../../feature/settings/locale_controller.dart';
 import '../../feature/settings/theme_controller.dart';
+import '../routes/router_config.dart';
 
 final ThemeController themeController = ThemeController();
 final LocalController localController = LocalController();
@@ -21,11 +22,11 @@ class AppMaterialContext extends StatelessWidget {
       child: InheritedLocalNotifier(
         localController: localController,
         child: Builder(builder: (context) {
-          return MaterialApp(
+          return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             theme: InheritedThemeNotifier.maybeOf(context)?.theme,
             locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-            home: HomePage(),
+            routerConfig: RouterConfigService.router,
           );
         }),
       ),
