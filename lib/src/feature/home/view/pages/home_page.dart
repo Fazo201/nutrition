@@ -101,6 +101,7 @@ class _HomePageState extends State<HomePage> {
               child: ListView.separated(
                 itemCount: 4,
                 scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(horizontal: 6),
                 itemBuilder: (_, i) {
                   return const HomePageBottomCardWidget(
                     imageUrl: 'https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png',

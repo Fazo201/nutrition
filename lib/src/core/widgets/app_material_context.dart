@@ -20,14 +20,17 @@ class AppMaterialContext extends StatelessWidget {
       themeController: themeController,
       child: InheritedLocalNotifier(
         localController: localController,
-        child: Builder(builder: (context) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: InheritedThemeNotifier.maybeOf(context)?.theme,
-            locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-            home: SplashPages(),
-          );
-        }),
+        child: Builder(
+            builder: (context) {
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                theme: InheritedThemeNotifier.maybeOf(context)?.theme,
+                locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
+                home: const BookmarkPage(),
+                // home:
+              );
+            }
+        ),
       ),
     );
   }
