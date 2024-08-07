@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nutrition/src/core/style/app_colors.dart';
-import 'package:nutrition/src/feature/home/view/widgets/home_page_app_bar.dart';
-import 'package:nutrition/src/feature/home/view/widgets/home_page_bottom_card_widget.dart';
-import 'package:nutrition/src/feature/home/view/widgets/home_page_main_card_widget.dart';
-import 'package:sizer/sizer.dart';
+
+import '../widgets/home_page_app_bar.dart';
+import '../widgets/home_page_bottom_card_widget.dart';
+import '../widgets/home_page_main_card_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -97,12 +98,12 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 5),
             // home page bottom card
             SizedBox(
-              height: 127,
+              height: 127.h,
               width: double.infinity,
               child: ListView.separated(
                 itemCount: 4,
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.symmetric(horizontal: 6),
+                padding: REdgeInsets.symmetric(horizontal: 6),
                 itemBuilder: (_, i) {
                   return const HomePageBottomCardWidget(
                     imageUrl: 'https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png',
