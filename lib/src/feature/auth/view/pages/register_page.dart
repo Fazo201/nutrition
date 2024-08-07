@@ -96,9 +96,7 @@ class RegisterPage extends ConsumerWidget {
                     children: [
                       Text(
                         "Already a member?",
-                        style: context.theme.textTheme.bodyMedium?.copyWith(
-
-                        ),
+                        style: context.theme.textTheme.bodyMedium?.copyWith(),
                       ),
                       GestureDetector(
                         onTap: () {
