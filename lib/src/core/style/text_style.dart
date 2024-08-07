@@ -6,7 +6,7 @@ class AppTextStyle extends TextTheme {
   const AppTextStyle();
 
   @override
-  TextStyle? get splashTopText => const TextStyle(
+  TextStyle? get bodyMedium => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size18,
         fontFamily: "Poppins",

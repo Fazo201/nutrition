@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:nutrition/src/core/constants/context_extension.dart";
 import 'package:nutrition/src/core/style/app_colors.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
 import 'package:nutrition/src/core/widgets/eleveted_button_widget.dart';
@@ -95,7 +96,9 @@ class RegisterPage extends ConsumerWidget {
                     children: [
                       Text(
                         "Already a member?",
-                        style: const AppTextStyle().loginDont,
+                        style: context.theme.textTheme.bodyMedium?.copyWith(
+
+                        ),
                       ),
                       GestureDetector(
                         onTap: () {
