@@ -41,12 +41,12 @@ dev_dependencies:
   dart_code_metrics: ^4.19.0
 
 flutter:
+  generate: true
   uses-material-design: true
 
   assets:
     - assets/icons/
     - assets/images/
-  #   - images/a_dot_ham.jpeg
 
   fonts:
      - family: Poppins
