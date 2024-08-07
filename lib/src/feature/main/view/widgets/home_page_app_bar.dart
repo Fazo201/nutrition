@@ -59,6 +59,7 @@ class HomePageAppBar extends StatelessWidget {
                 child: SizedBox(
                   height: 40,
                   child: TextField(
+                    keyboardType: TextInputType.none,
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
                     },
@@ -92,7 +93,12 @@ class HomePageAppBar extends StatelessWidget {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
                     },
-                    child: SvgPicture.asset('assets/icons/filter_icon.svg'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: SvgPicture.asset(
+                        'assets/icons/filter_icon.svg',
+                      ),
+                    ),
                   ),
                 ),
               ),
