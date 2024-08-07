@@ -24,7 +24,7 @@ class AppMaterialContext extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: InheritedThemeNotifier.maybeOf(context)?.theme,
             locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-            home: SplashPages(),
+            home: HomePage(),
           );
         }),
       ),
