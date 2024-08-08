@@ -1,16 +1,18 @@
-import 'package:d_navigation_bar/d_navigation_bar.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:d_navigation_bar/d_navigation_bar.dart';
+import "package:flutter/material.dart";
+import "package:flutter_svg/flutter_svg.dart";
 
 class PrimaryPage extends StatelessWidget {
   final Widget child;
   const PrimaryPage(this.child, {super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       body: child,
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+
+        },
         backgroundColor: Colors.white,
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -19,23 +21,23 @@ class PrimaryPage extends StatelessWidget {
           BottomNavigationBarItem(
             label: "",
             icon: SvgPicture.asset("assets/icons/home_bottom_navigation_bar_icon.svg"),
-            activeIcon: SvgPicture.asset("assets/icons/home_bottom_navigation_bar_selected_icon.svg")
+            activeIcon: SvgPicture.asset("assets/icons/home_bottom_navigation_bar_selected_icon.svg"),
           ),
           BottomNavigationBarItem(
             label: "",
             icon: SvgPicture.asset("assets/icons/recipe_bottom_navigation_bar_icon.svg"),
-            activeIcon: SvgPicture.asset("assets/icons/recipe_bottom_navigation_bar_selected_icon.svg")
+            activeIcon: SvgPicture.asset("assets/icons/recipe_bottom_navigation_bar_selected_icon.svg"),
           ),
           BottomNavigationBarItem(
             label: "",
             icon: SvgPicture.asset("assets/icons/notification_bottom_navigation_bar_icon.svg"),
-            activeIcon: SvgPicture.asset("assets/icons/notification_bottom_navigation_bar_selected_icon.svg")
+            activeIcon: SvgPicture.asset("assets/icons/notification_bottom_navigation_bar_selected_icon.svg"),
           ),
           BottomNavigationBarItem(
             label: "",
             icon: SvgPicture.asset("assets/icons/profile_bottom_navigation_bar_icon.svg"),
-            activeIcon: SvgPicture.asset("assets/icons/profile_bottom_navigation_bar_selected_icon.svg")
-          )
+            activeIcon: SvgPicture.asset("assets/icons/profile_bottom_navigation_bar_selected_icon.svg"),
+          ),
         ],
       ),
       // bottomNavigationBar: DNavigationBar(
@@ -71,5 +73,4 @@ class PrimaryPage extends StatelessWidget {
       //   ],
       // ),
     );
-  }
 }
