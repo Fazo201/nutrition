@@ -3,6 +3,7 @@ import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
+import "package:nutrition/src/feature/notification/view/pages/notification_page.dart";
 import "package:nutrition/src/feature/profile/view/pages/profile_page.dart";
 import "package:nutrition/src/feature/recipe/view/pages/recipe_page.dart";
 
@@ -16,7 +17,7 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 final class RouterConfigService {
   const RouterConfigService._();
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.primary,
+    initialLocation: AppRouteNames.splash,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       ShellRoute(
@@ -32,11 +33,11 @@ final class RouterConfigService {
             path: AppRouteNames.bookmark,
             builder: (BuildContext context, GoRouterState state) => const BookmarkPage(),
           ),
-          // GoRoute(
-          //   name: "Notification",
-          //   path: AppRouteNames.notification,
-          //   builder: (BuildContext context, GoRouterState state) => Notification(),
-          // ),
+          GoRoute(
+            name: "Notification",
+            path: AppRouteNames.notification,
+            builder: (BuildContext context, GoRouterState state) => NotificationPage(),
+          ),
           //profile page
           GoRoute(
             name: "ProfilePage",
@@ -57,18 +58,6 @@ final class RouterConfigService {
         name: "RegisterPage",
         path: AppRouteNames.register,
         builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
-      ),
-      //profile page
-      GoRoute(
-        name: "ProfilePage",
-        path: AppRouteNames.profile,
-        builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
-      ),
-      // home page
-      GoRoute(
-        name: "HomePage",
-        path: AppRouteNames.homePage,
-        builder: (BuildContext context, GoRouterState state) => HomePage(),
       ),
       //recipe_page
       GoRoute(
