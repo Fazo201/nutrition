@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../style/app_colors.dart';
-import '../style/text_style.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
   final String text;
