@@ -82,7 +82,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                                     radius: 10.r,
                                     backgroundImage: Image.asset(profilImgUrl).image,
                                   ),
-                                  8.verticalSpace,
+                                  8.horizontalSpace,
                                   Text(
                                     owner,
                                     style: TextStyle(
