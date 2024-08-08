@@ -6,7 +6,9 @@ import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
 import "package:nutrition/src/feature/profile/view/pages/profile_page.dart";
 import "package:nutrition/src/feature/recipe/view/pages/recipe_page.dart";
 
+import "../../feature/bookmark/view/pages/bookmark_page.dart";
 import "../../feature/main/view/pages/home_page.dart";
+import "../../feature/main/view/pages/primary_page.dart";
 
 GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -28,7 +30,7 @@ final class RouterConfigService {
           GoRoute(
             name: "Bookmark",
             path: AppRouteNames.bookmark,
-            builder: (BuildContext context, GoRouterState state) => BookmarkPage(),
+            builder: (BuildContext context, GoRouterState state) => const BookmarkPage(),
           ),
           // GoRoute(
           //   name: "Notification",
@@ -39,11 +41,9 @@ final class RouterConfigService {
           GoRoute(
             name: "ProfilePage",
             path: AppRouteNames.profile,
-            builder: (BuildContext context, GoRouterState state) {
-              return const ProfilePage();
-            },
+            builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
           ),
-        ]
+        ],
       ),
 
       //splash page
