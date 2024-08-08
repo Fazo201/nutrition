@@ -7,8 +7,8 @@ import "package:nutrition/src/feature/bookmark/vm/review_vm.dart";
 import "../../../../core/style/app_colors.dart";
 import "../widgets/review_widget.dart";
 
-class ReviewPage extends ConsumerWidget {
-  const ReviewPage({super.key});
+class ReviewsPage extends ConsumerWidget {
+  const ReviewsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
