@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
-import 'package:go_router/go_router.dart';
+import "package:flutter/cupertino.dart";
+import "package:go_router/go_router.dart";
 import 'package:nutrition/src/core/routes/app_route_names.dart';
 import 'package:nutrition/src/feature/auth/view/pages/register_page.dart';
 import 'package:nutrition/src/feature/auth/view/pages/splash_page.dart';
 import "package:nutrition/src/feature/profile/view/pages/profile_page.dart";
+import "package:nutrition/src/feature/recipe/view/pages/recipe_page.dart";
 
 import "../../feature/main/view/pages/home_page.dart";
 
@@ -12,7 +13,7 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 class RouterConfigService {
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.profile,
+    initialLocation: AppRouteNames.recipePage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       //splash page
@@ -44,6 +45,12 @@ class RouterConfigService {
         name: "HomePage",
         path: AppRouteNames.homePage,
         builder: (BuildContext context, GoRouterState state) => HomePage(),
+      ),
+      //recipe_page
+      GoRoute(
+        name: "RecipePage",
+        path: AppRouteNames.recipePage,
+        builder: (BuildContext context, GoRouterState state) => RecipePage(),
       ),
     ],
   );
