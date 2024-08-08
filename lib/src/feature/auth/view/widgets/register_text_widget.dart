@@ -11,7 +11,7 @@ class RegisterTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const AppTextStyle().loginEmail,
+      // style: const AppTextStyle().loginEmail,
     );
   }
 }
