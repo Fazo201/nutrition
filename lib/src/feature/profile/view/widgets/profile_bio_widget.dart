@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:nutrition/src/core/constants/context_extension.dart";
 import 'package:nutrition/src/core/style/text_style.dart';
 
 import '../../../../core/style/app_colors.dart';
@@ -17,7 +18,7 @@ class UserNameWidget extends StatelessWidget {
     return  Center(
       child: Text(
         userName,
-        style: AppTextStyle().profileTitle,
+        style: context.theme.textTheme.bodyLarge,
       ),
     );
   }

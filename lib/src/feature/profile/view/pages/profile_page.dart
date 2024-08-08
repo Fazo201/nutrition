@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import "package:nutrition/src/core/constants/context_extension.dart";
 import 'package:nutrition/src/core/style/app_colors.dart';
 import 'package:nutrition/src/core/style/text_style.dart';
 import 'package:nutrition/src/feature/profile/view/widgets/profile_bio_widget.dart';
@@ -34,7 +35,7 @@ class ProfilePage extends ConsumerWidget {
       appBar: AppBar(
         title: Text(
           'Profile',
-          style: const AppTextStyle().profileTitle,
+          style: context.theme.textTheme.labelLarge,
         ),
         centerTitle: true,
         actions: [

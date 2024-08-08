@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:nutrition/src/core/constants/context_extension.dart";
 
 import '../../../../core/style/text_style.dart';
 
@@ -14,11 +15,11 @@ class UserEmailPassword extends StatelessWidget {
       children:  [
         Text(
           "Email: $email",
-          style: AppTextStyle().profileTitle,
+          style: context.theme.textTheme.bodyLarge,
         ),
         Text(
           "Password: $password",
-          style: AppTextStyle().profileTitle,
+          style: context.theme.textTheme.bodyLarge,
         ),
       ],
     );

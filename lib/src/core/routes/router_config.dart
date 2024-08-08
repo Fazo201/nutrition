@@ -28,6 +28,13 @@ class RouterConfigService {
           return const RegisterPage();
         },
       ),
+      GoRoute(
+        name: "ProfilePage",
+        path: AppRouteNames.profile,
+        builder: (BuildContext context, GoRouterState state) {
+          return const RegisterPage();
+        },
+      ),
 
 
     ],
