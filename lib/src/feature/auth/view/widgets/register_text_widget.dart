@@ -1,6 +1,6 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
-import "../../../../core/style/text_style.dart";
+import '../../../../core/style/text_style.dart';
 
 class RegisterTextWidget extends StatelessWidget {
   final String text;
@@ -8,8 +8,10 @@ class RegisterTextWidget extends StatelessWidget {
   const RegisterTextWidget({super.key, required this.text});
 
   @override
-  Widget build(BuildContext context) => Text(
-        text,
-        style: const AppTextStyle().headlineLarge,
-      );
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: const AppTextStyle().loginEmail,
+    );
+  }
 }

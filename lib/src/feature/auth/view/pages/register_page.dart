@@ -28,12 +28,12 @@ class RegisterPage extends ConsumerWidget {
                 children: [
                   Text(
                     'Create an account',
-                    style: const AppTextStyle().headlineSmall,
+                    // style: const AppTextStyle().registerCreateAccount,
                   ),
                   5.verticalSpace,
                   Text(
                     'Let’s help you set up your account,\nit won’t take long.',
-                    style: const AppTextStyle().headlineSmall?.copyWith(color: AppColors.c121212),
+                    // style: const AppTextStyle().registerLetsHelp,
                   ),
                   20.verticalSpace,
                   const RegisterTextWidget(text: 'Name'),
@@ -69,7 +69,7 @@ class RegisterPage extends ConsumerWidget {
                       ),
                       Text(
                         'Accept terms & Condition',
-                        style: const AppTextStyle().headlineSmall,
+                        // style: const AppTextStyle().loginForgotPassword,
                       ),
                     ],
                   ),
@@ -109,7 +109,7 @@ class RegisterPage extends ConsumerWidget {
                         },
                         child: Text(
                           " Sign In",
-                          style: const AppTextStyle().labelSmall,
+                          // style: const AppTextStyle().loginMinSign,
                         ),
                       ),
                     ],
