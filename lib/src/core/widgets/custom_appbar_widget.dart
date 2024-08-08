@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:nutrition/src/core/style/text_style.dart';
+import "package:flutter/material.dart";
 
 class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -11,13 +10,11 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
   });
 
   @override
-  Widget build(BuildContext context) {
-    return AppBar(
+  Widget build(BuildContext context) => AppBar(
       title: Text(title ?? "", ),
       centerTitle: true,
-      actions: actions
+      actions: actions,
     );
-  }
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

@@ -25,6 +25,7 @@ analyzer:
     close_sinks: error
     valid_regexps: error
     always_require_non_null_named_parameters: error
+    avoid_positional_boolean_parameters: ignore
 
   plugins:
     - dart_code_metrics
