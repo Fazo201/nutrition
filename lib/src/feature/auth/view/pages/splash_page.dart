@@ -1,9 +1,7 @@
 import "package:flutter/material.dart";
-import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:go_router/go_router.dart";
-import "package:nutrition/src/core/constants/context_extension.dart";
-import "package:nutrition/src/core/routes/app_route_names.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
+import 'package:nutrition/src/core/style/app_colors.dart';
+import 'package:nutrition/src/core/style/text_style.dart';
+import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -26,20 +24,15 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     _animation = Tween(end: 1.0, begin: 0.0).animate(_controller);
     _animationIcons = Tween<Offset>(begin: const Offset(0.0, -1.0), end: const Offset(0.0, 0.0)).animate(_controller);
     _controller.forward();
-    stack();
+    // stack();
     super.initState();
   }
 
   // Future<void> stack() async {
-  //   return await Future.delayed(const Duration(seconds: 4), () async {
+  //   return await Future.delayed(const Duration(seconds: 4), () {
   //     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
   //   });
   // }
-
-  Future<void> stack() async => Future.delayed(
-        const Duration(seconds: 4),
-        () async => context.push(AppRouteNames.login),
-      );
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -48,7 +41,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: Image.asset("assets/images/splash_backgraund_image.png").image,
+              image: Image.asset('assets/images/splash_backgraund_image.png').image,
               fit: BoxFit.cover,
             ),
           ),
@@ -61,28 +54,23 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                     opacity: _animation,
                     child: Image.asset(
                       "assets/images/img.png",
-                      height: 80.h,
-                      width: 80.h,
+                      height: 80,
+                      width: 80,
                     ),
                   ),
-                  14.verticalSpace,
+                  const SizedBox(height: 14),
                   FadeTransition(
                     opacity: _animation,
                     child: Text(
                       "100K+ Premium Recipe ",
-                      style: context.theme.textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18.sp,
-                        fontFamily: "Poppins",
-                        color: AppColors.white,
-                      ),
+                      // style: const AppTextStyle().splashTopText,
                     ),
                   ),
                 ],
               ),
               SizedBox(height: MediaQuery.of(context).size.width * 0.45),
               PreferredSize(
-                preferredSize: Size(4.sp, 4.sp),
+                preferredSize: const Size(4, 4),
                 child: FadeTransition(
                   opacity: _animation,
                   child: SlideTransition(
@@ -91,31 +79,16 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       children: [
                         Text(
                           "Get",
-                          style: context.theme.textTheme.headlineSmall?.copyWith(
-                            fontSize: 50.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.white,
-                            fontFamily: "Poppins",
-                          ),
+                          // style: const AppTextStyle().splashCenter,
                         ),
                         Text(
                           "Cooking",
-                          style: context.theme.textTheme.headlineSmall?.copyWith(
-                            fontSize: 50.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.white,
-                            fontFamily: "Poppins",
-                          ),
+                          // style: const AppTextStyle().splashCenter,
                         ),
-                        20.verticalSpace,
+                        const SizedBox(height: 20),
                         Text(
                           "Simple way to find Tasty Recipe",
-                          style: context.theme.textTheme.headlineSmall?.copyWith(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.white,
-                            fontFamily: "Poppins",
-                          ),
+                          // style: const AppTextStyle().splashButtomText,
                         ),
                       ],
                     ),
@@ -124,7 +97,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               ),
               SizedBox(height: MediaQuery.of(context).size.width * 0.2),
               Padding(
-                padding: REdgeInsets.symmetric(horizontal: 66),
+                padding: const EdgeInsets.symmetric(horizontal: 66),
                 child: FadeTransition(
                   opacity: _animation,
                   child: ElevatedButton(
@@ -133,22 +106,24 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      fixedSize: Size(double.maxFinite, 60.h),
+                      fixedSize: const Size(double.maxFinite, 60),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginPage(),
+                        ),
+                      );
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           "Start Cooking",
-                          style: context.theme.textTheme.headlineSmall?.copyWith(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.white,
-                            fontFamily: "Poppins",
-                          ),
+                          // style: const AppTextStyle().splashButton,
                         ),
-                        20.verticalSpace,
+                        const SizedBox(width: 20),
                         const Icon(Icons.arrow_forward_outlined),
                       ],
                     ),
