@@ -25,6 +25,13 @@ class ProfileImagePostWidget extends StatelessWidget {
               ]
               );
               break;
+            case 'Language':
+              showAboutDialog(context: context,
+                  children: [
+                    const Text('Language')
+                  ]
+              );
+              break;
           }
         },
         itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
@@ -38,6 +45,12 @@ class ProfileImagePostWidget extends StatelessWidget {
             value: 'Delete image',
             child: ListTile(
               title: Text('Delete image'),
+            ),
+          ),
+          const PopupMenuItem<String>(
+            value: 'Language',
+            child: ListTile(
+              title: Text('Language'),
             ),
           ),
         ],
