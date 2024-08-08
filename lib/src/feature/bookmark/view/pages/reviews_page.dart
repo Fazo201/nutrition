@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "package:nutrition/src/core/style/text_style.dart";
 import "package:nutrition/src/feature/bookmark/vm/review_vm.dart";
 import "../../../../core/style/app_colors.dart";
 import "../widgets/review_widget.dart";
@@ -17,7 +16,10 @@ class ReviewsPage extends ConsumerWidget {
         backgroundColor: AppColors.white,
         title: Text(
           "Reviews",
-          // style: ,
+          style: context.theme.textTheme.labelLarge?.copyWith(
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         centerTitle: true,
       ),
@@ -83,7 +85,7 @@ class ReviewsPage extends ConsumerWidget {
                   hintStyle: context.theme.textTheme.labelSmall?.copyWith(
                     fontSize: 11.sp,
                   ),
-                  suffixIcon: MaterialApp()
+                  suffixIcon: const MaterialApp()
                 ),
               ),
             ),
