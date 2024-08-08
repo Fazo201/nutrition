@@ -1,8 +1,8 @@
-import 'dart:async';
-import 'package:flutter/services.dart';
-import 'package:l/l.dart';
-import 'package:nutrition/setup.dart';
-import 'package:nutrition/src/app.dart';
+import "dart:async";
+import "package:flutter/services.dart";
+import "package:l/l.dart";
+import "package:nutrition/setup.dart";
+import "package:nutrition/src/app.dart";
 
 void run() => l.capture<void>(
       () => runZonedGuarded<void>(
@@ -16,7 +16,7 @@ void run() => l.capture<void>(
         },
         (final error, final stackTrace) {
           l.e(
-            'io_top_level_error: $error\n $stackTrace',
+            "io_top_level_error: $error\n $stackTrace",
             stackTrace,
           );
         },

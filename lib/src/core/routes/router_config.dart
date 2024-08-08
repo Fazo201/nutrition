@@ -10,23 +10,41 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 final class RouterConfigService {
   const RouterConfigService._();
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.splash,
+    initialLocation: AppRouteNames.recipePage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
-
+      //splash page
       GoRoute(
         name: "SplashPage",
         path: AppRouteNames.splash,
         builder: (BuildContext context, GoRouterState state) => const SplashPage(),
       ),
-
+      //register page
       GoRoute(
         name: "RegisterPage",
         path: AppRouteNames.register,
         builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
       ),
-
-
+      //profile page
+      GoRoute(
+        name: "ProfilePage",
+        path: AppRouteNames.profile,
+        builder: (BuildContext context, GoRouterState state) {
+          return const ProfilePage();
+        },
+      ),
+      // home page
+      GoRoute(
+        name: "HomePage",
+        path: AppRouteNames.homePage,
+        builder: (BuildContext context, GoRouterState state) => HomePage(),
+      ),
+      //recipe_page
+      GoRoute(
+        name: "RecipePage",
+        path: AppRouteNames.recipePage,
+        builder: (BuildContext context, GoRouterState state) => RecipePage(),
+      ),
     ],
   );
 }
