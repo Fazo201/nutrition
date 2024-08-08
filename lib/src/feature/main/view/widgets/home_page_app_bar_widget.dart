@@ -1,12 +1,14 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
+import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
-import "../pages/search_recipes_page.dart";
 
 class HomePageAppBar extends StatelessWidget {
-  const HomePageAppBar({super.key});
+  final BuildContext ctx;
+  const HomePageAppBar({required this.ctx, super.key});
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -62,8 +64,7 @@ class HomePageAppBar extends StatelessWidget {
                     child: TextField(
                       keyboardType: TextInputType.none,
                       onTap: () {
-                        // Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
-                        // context.push("${AppRouteNames.homePage}${AppRouteNames.register}", extra: isFilter);
+                        ctx.push("${AppRouteNames.homePage}/${AppRouteNames.search}", extra: true);
                       },
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.search),
@@ -93,7 +94,7 @@ class HomePageAppBar extends StatelessWidget {
                     ),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
+                        ctx.push("${AppRouteNames.homePage}/${AppRouteNames.search}", extra: false);
                       },
                       child: Padding(
                         padding: REdgeInsets.all(8),

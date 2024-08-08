@@ -13,7 +13,9 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(157.h),
-          child: const HomePageAppBar(),
+          child: HomePageAppBar(
+            ctx: context,
+          ),
         ),
         backgroundColor: AppColors.white,
         body: SingleChildScrollView(

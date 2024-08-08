@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-import '../../../../core/style/app_colors.dart';
-import '../widgets/filter_search_widget.dart';
-import '../widgets/search_recipes_item_widget.dart';
-import '../widgets/search_recipes_text_field_button_widget.dart';
+import "../widgets/filter_search_widget.dart";
+import "../widgets/search_recipes_item_widget.dart";
+import "../widgets/search_recipes_text_field_button_widget.dart";
 
 class SearchRecipesPage extends StatefulWidget {
 
-  const SearchRecipesPage({super.key});
+  const SearchRecipesPage({super.key,  this.isTextField});
+  final bool? isTextField;
 
   @override
   State<SearchRecipesPage> createState() => _SearchRecipesPageState();
@@ -15,14 +15,14 @@ class SearchRecipesPage extends StatefulWidget {
 
 class _SearchRecipesPageState extends State<SearchRecipesPage> {
   final List<String> recentSearches = [
-    'Traditional spare ribs baked',
-    'Lamb chops with fruity couscous and mint',
-    'Spice roasted chicken with flavored rice',
-    'Chinese style Egg fried rice with sliced pork',
-    'Traditional spare ribs baked',
-    'Lamb chops with fruity couscous and mint',
-    'Spice roasted chicken with flavored rice',
-    'Chinese style Egg fried rice with sliced pork'
+    "Traditional spare ribs baked",
+    "Lamb chops with fruity couscous and mint",
+    "Spice roasted chicken with flavored rice",
+    "Chinese style Egg fried rice with sliced pork",
+    "Traditional spare ribs baked",
+    "Lamb chops with fruity couscous and mint",
+    "Spice roasted chicken with flavored rice",
+    "Chinese style Egg fried rice with sliced pork"
   ];
 
   /// useful variables
@@ -74,7 +74,7 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
     // });
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Search recipes'),
+        title: const Text("Search recipes"),
         centerTitle: true,
       ),
       body: Padding(
@@ -98,11 +98,11 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Recent Search',
+                    "Recent Search",
                     style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600,),
                   ),
                   _totalResults != 0
-                      ? Text('$_totalResults results')
+                      ? Text("$_totalResults results")
                       : const Text("")
                 ],
               ),
@@ -121,9 +121,9 @@ class _SearchRecipesPageState extends State<SearchRecipesPage> {
                   itemBuilder: (context, index) {
                     return RecipeCard(
                       title: recentSearches[index],
-                      imageUrl: 'assets/images/search_page_cook_image.png', // Placeholder image URL
-                      rating: '4.0',
-                      author: 'Chef John',
+                      imageUrl: "assets/images/search_page_cook_image.png", // Placeholder image URL
+                      rating: "4.0",
+                      author: "Chef John",
                     );
                   },
                 ),
