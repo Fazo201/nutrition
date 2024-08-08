@@ -6,8 +6,8 @@ import "../widgets/search_recipes_text_field_button_widget.dart";
 
 class SearchRecipesPage extends StatefulWidget {
 
-  const SearchRecipesPage({super.key, required this.isTextField});
-  final bool isTextField;
+  const SearchRecipesPage({super.key,  this.isTextField});
+  final bool? isTextField;
 
   @override
   State<SearchRecipesPage> createState() => _SearchRecipesPageState();
