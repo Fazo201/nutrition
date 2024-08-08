@@ -8,4 +8,5 @@ final class AppRouteNames{
   static const String bookmark = "/bookmark";
   static const String notification = "/notification";
   static const String profile = "/profile";
+  static const String reviewsPage = "/reviews_page";
 }
