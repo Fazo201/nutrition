@@ -4,6 +4,10 @@ import 'package:nutrition/src/core/routes/app_route_names.dart';
 import 'package:nutrition/src/feature/auth/view/pages/register_page.dart';
 import 'package:nutrition/src/feature/auth/view/pages/splash_page.dart';
 
+import "../../feature/main/view/pages/home_page.dart";
+import "../../feature/profile/view/pages/profile_page.dart";
+import "../../feature/recipe/view/pages/recipe_page.dart";
+
 GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 
 @immutable
@@ -29,9 +33,7 @@ final class RouterConfigService {
       GoRoute(
         name: "ProfilePage",
         path: AppRouteNames.profile,
-        builder: (BuildContext context, GoRouterState state) {
-          return const ProfilePage();
-        },
+        builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
       ),
       // home page
       GoRoute(
@@ -43,7 +45,7 @@ final class RouterConfigService {
       GoRoute(
         name: "RecipePage",
         path: AppRouteNames.recipePage,
-        builder: (BuildContext context, GoRouterState state) => RecipePage(),
+        builder: (BuildContext context, GoRouterState state) => const RecipePage(),
       ),
     ],
   );
