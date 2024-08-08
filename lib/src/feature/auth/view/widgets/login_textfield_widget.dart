@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "../../../../core/style/app_colors.dart";
 
 class LoginTextfieldWidget extends StatelessWidget {
@@ -15,7 +17,12 @@ class LoginTextfieldWidget extends StatelessWidget {
         // textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           hintText: hintText,
-          // hintStyle: const AppTextStyle().loginEnter,
+          hintStyle: context.theme.textTheme.bodySmall?.copyWith(
+            fontWeight: FontWeight.w400,
+            fontSize: 11.sp,
+            color: AppColors.cD9D9D9,
+            fontFamily: "Poppins",
+          ),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: AppColors.cD9D9D9,

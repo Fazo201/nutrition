@@ -64,7 +64,7 @@ final class RouterConfigService {
       GoRoute(
         name: "RegisterPage",
         path: AppRouteNames.register,
-        builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
+        builder: (BuildContext context, GoRouterState state) => RegisterPage(),
       ),
       //recipe_page
       GoRoute(

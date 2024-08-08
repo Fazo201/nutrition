@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
@@ -30,7 +32,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   }
 
   Future<void> stack() async => Future.delayed(const Duration(seconds: 4), () {
-        context.go(AppRouteNames.homePage);
+        context.go(AppRouteNames.login);
       });
 
   @override
@@ -62,7 +64,12 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                     opacity: _animation,
                     child: Text(
                       "100K+ Premium Recipe ",
-                      // style: const AppTextStyle().splashTopText,
+                      style: context.theme.textTheme.bodySmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18.sp,
+                        fontFamily: "Poppins",
+                        color: AppColors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -78,16 +85,31 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       children: [
                         Text(
                           "Get",
-                          // style: const AppTextStyle().splashCenter,
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 50.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
                         ),
                         Text(
                           "Cooking",
-                          // style: const AppTextStyle().splashCenter,
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 50.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
                         ),
                         const SizedBox(height: 20),
                         Text(
                           "Simple way to find Tasty Recipe",
-                          // style: const AppTextStyle().splashButtomText,
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
                         ),
                       ],
                     ),
@@ -120,7 +142,12 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       children: [
                         Text(
                           "Start Cooking",
-                          // style: const AppTextStyle().splashButton,
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
                         ),
                         const SizedBox(width: 20),
                         const Icon(Icons.arrow_forward_outlined),
