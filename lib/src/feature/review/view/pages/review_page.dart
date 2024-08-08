@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:nutrition/src/core/constants/context_extension.dart";
 import 'package:nutrition/src/core/style/text_style.dart';
 import '../../../../core/style/app_colors.dart';
 import '../widgets/review_widget.dart';
@@ -26,15 +27,15 @@ class ReviewPage extends StatelessWidget {
               children: [
                 Text(
                   "200 Comments",
-                  style: const AppTextStyle().recipeReviews?.copyWith(
-                    color: AppColors.cA9A9A9,
-                  ),
+                  // style: context.textTheme.recipeReviews?.copyWith(
+                  //   color: AppColors.cA9A9A9,
+                  // ),
                 ),
                 Text(
                   "200 Comments",
-                  style: const AppTextStyle().recipeReviews?.copyWith(
-                    color: AppColors.cA9A9A9,
-                  ),
+                  // style: const AppTextStyle().recipeReviews?.copyWith(
+                  //       color: AppColors.cA9A9A9,
+                  //     ),
                 ),
               ],
             ),

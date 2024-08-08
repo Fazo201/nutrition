@@ -24,16 +24,16 @@ class ReviewWidget extends StatelessWidget {
                 children: [
                   Text(
                     "Bella Throne",
-                    style: const AppTextStyle().homeAll?.copyWith(
-                          color: AppColors.c121212,
-                        ),
+                    // style: const AppTextStyle().homeAll?.copyWith(
+                    //       color: AppColors.c121212,
+                    //     ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     "June 12, 2020 - 19:35",
-                    style: const AppTextStyle().searchFilter?.copyWith(
-                          color: AppColors.cA9A9A9,
-                        ),
+                    // style: const AppTextStyle().searchFilter?.copyWith(
+                    //       color: AppColors.cA9A9A9,
+                    //     ),
                   ),
                 ],
               ),
@@ -44,9 +44,9 @@ class ReviewWidget extends StatelessWidget {
             flex: 0,
             child: Text(
               "Lorem Ipsum tempor incididunt ut labore et dolore, inise voluptate velit esse cillum",
-              style: const AppTextStyle().loginEnter?.copyWith(
-                    color: AppColors.c484848,
-                  ),
+              // style: const AppTextStyle().loginEnter?.copyWith(
+              //       color: AppColors.c484848,
+              //     ),
             ),
           ),
           const SizedBox(height: 10),
@@ -65,13 +65,13 @@ class ReviewWidget extends StatelessWidget {
                     children: [
                       Text(
                         "👍",
-                        style: const AppTextStyle().searchByChef,
+                        // style: const AppTextStyle().searchByChef,
                       ),
                       Text(
                         "9",
-                        style: const AppTextStyle().searchByChef?.copyWith(
-                              color: AppColors.c484848,
-                            ),
+                        // style: const AppTextStyle().searchByChef?.copyWith(
+                        //       color: AppColors.c484848,
+                        //     ),
                       ),
                     ],
                   ),
@@ -91,13 +91,13 @@ class ReviewWidget extends StatelessWidget {
                     children: [
                       Text(
                         "👎",
-                        style: const AppTextStyle().searchByChef,
+                        // style: const AppTextStyle().searchByChef,
                       ),
                       Text(
                         "2",
-                        style: const AppTextStyle().searchByChef?.copyWith(
-                              color: AppColors.c484848,
-                            ),
+                        // style: const AppTextStyle().searchByChef?.copyWith(
+                        //       color: AppColors.c484848,
+                        //     ),
                       ),
                     ],
                   ),

@@ -20,7 +20,7 @@ class LoginOrWidget extends StatelessWidget {
         ),
         Text(
           "Or Sign in With",
-          style: const AppTextStyle().loginOrSign,
+          style: const AppTextStyle().labelLarge,
         ),
         const Expanded(
           child: Divider(
