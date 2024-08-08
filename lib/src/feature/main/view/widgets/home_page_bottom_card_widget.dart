@@ -24,7 +24,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
         alignment: const Alignment(1, 0.8),
         children: [
           SizedBox(
-            height: 95.h,
+            height: 100.h,
             width: 251.w,
             child: DecoratedBox(
               decoration: BoxDecoration(
