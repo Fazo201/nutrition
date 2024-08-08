@@ -18,8 +18,7 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
   final Function() onTapFilter;
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
+  Widget build(BuildContext context) => Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
@@ -77,5 +76,4 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
         ),
       ],
     );
-  }
 }
