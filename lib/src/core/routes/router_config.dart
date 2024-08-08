@@ -3,15 +3,17 @@ import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
-import "package:nutrition/src/feature/main/view/pages/search_recipes_page.dart";
 import "package:nutrition/src/feature/profile/view/pages/profile_page.dart";
 import "package:nutrition/src/feature/recipe/view/pages/recipe_page.dart";
 
 import "../../feature/main/view/pages/home_page.dart";
+import "../../feature/main/view/pages/search_recipes_page.dart";
 
 GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 
-class RouterConfigService {
+@immutable
+final class RouterConfigService {
+  const RouterConfigService._();
   static final GoRouter router = GoRouter(
     initialLocation: AppRouteNames.recipePage,
     debugLogDiagnostics: true,
@@ -20,25 +22,19 @@ class RouterConfigService {
       GoRoute(
         name: "SplashPage",
         path: AppRouteNames.splash,
-        builder: (BuildContext context, GoRouterState state) {
-          return const SplashPage();
-        },
+        builder: (BuildContext context, GoRouterState state) => const SplashPage(),
       ),
       //register page
       GoRoute(
         name: "RegisterPage",
         path: AppRouteNames.register,
-        builder: (BuildContext context, GoRouterState state) {
-          return const RegisterPage();
-        },
+        builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
       ),
       //profile page
       GoRoute(
         name: "ProfilePage",
         path: AppRouteNames.profile,
-        builder: (BuildContext context, GoRouterState state) {
-          return const ProfilePage();
-        },
+        builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
       ),
       // home page
       GoRoute(
@@ -60,7 +56,7 @@ class RouterConfigService {
       GoRoute(
         name: "RecipePage",
         path: AppRouteNames.recipePage,
-        builder: (BuildContext context, GoRouterState state) => RecipePage(),
+        builder: (BuildContext context, GoRouterState state) => const RecipePage(),
       ),
     ],
   );
