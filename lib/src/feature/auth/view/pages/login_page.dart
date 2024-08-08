@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/widgets/eleveted_button_widget.dart";
 import "package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart";
@@ -82,7 +84,12 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   25.verticalSpace,
-                  const ElevatedButtonWidget(text: "Sign In"),
+                  ElevatedButtonWidget(
+                    text: "Sign In",
+                    onPressed: () {
+                      context.pushReplacement(AppRouteNames.homePage);
+                    },
+                  ),
                   25.verticalSpace,
                   const LoginOrWidget(),
                   20.verticalSpace,
@@ -112,7 +119,9 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          context.go(AppRouteNames.register);
+                        },
                         child: Text(
                           " Sign up",
                           style: context.theme.textTheme.bodySmall?.copyWith(

@@ -1,9 +1,8 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
-import 'package:nutrition/src/core/style/app_colors.dart';
-import 'package:nutrition/src/core/style/text_style.dart';
-import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
+import "package:nutrition/src/core/style/app_colors.dart";
+import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -30,12 +29,9 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     super.initState();
   }
 
-  Future<void> stack() async {
-    return await Future.delayed(const Duration(seconds: 4), () {
-      context.go(AppRouteNames.homePage);
-      // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
-    });
-  }
+  Future<void> stack() async => Future.delayed(const Duration(seconds: 4), () {
+        context.go(AppRouteNames.homePage);
+      });
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -44,7 +40,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: Image.asset('assets/images/splash_backgraund_image.png').image,
+              image: Image.asset("assets/images/splash_backgraund_image.png").image,
               fit: BoxFit.cover,
             ),
           ),
