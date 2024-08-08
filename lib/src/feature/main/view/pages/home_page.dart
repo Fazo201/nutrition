@@ -13,7 +13,9 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(157.h),
-          child: const HomePageAppBar(),
+          child: HomePageAppBar(
+            ctx: context,
+          ),
         ),
         backgroundColor: AppColors.white,
         body: SingleChildScrollView(
@@ -36,7 +38,7 @@ class HomePage extends ConsumerWidget {
                       elevation: 0,
                       padding: REdgeInsets.symmetric(horizontal: 20, vertical: 7),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                      color: ref.watch(homeVM).curretIndex == i ? AppColors.c129575 : AppColors.white,
+                      color: ref.watch(homeVM).currentIndex == i ? AppColors.c129575 : AppColors.white,
                       onPressed: () {
                         ref.read(homeVM).changeTapBar(i);
                       },
@@ -45,7 +47,7 @@ class HomePage extends ConsumerWidget {
                         style: TextStyle(
                           fontSize: 11.sp,
                           fontWeight: FontWeight.w600,
-                          color: ref.watch(homeVM).curretIndex == i ? AppColors.white : AppColors.c71B1A1,
+                          color: ref.watch(homeVM).currentIndex == i ? AppColors.white : AppColors.c71B1A1,
                         ),
                       ),
                     ),
