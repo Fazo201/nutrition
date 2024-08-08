@@ -15,7 +15,7 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 final class RouterConfigService {
   const RouterConfigService._();
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.recipePage,
+    initialLocation: AppRouteNames.homePage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       //splash page
@@ -46,7 +46,7 @@ final class RouterConfigService {
             name: "SearchPage",
             path: AppRouteNames.search,
             builder: (context, state) {
-              bool isTextField = state.extra as bool;
+              final isTextField = state.extra! as bool;
               return SearchRecipesPage(isTextField: isTextField);
             },
           )
