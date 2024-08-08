@@ -1,55 +1,66 @@
-import "package:flutter/material.dart";
-import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:nutrition/src/core/constants/context_extension.dart";
-import "../../../../core/style/app_colors.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nutrition/src/core/constants/context_extension.dart';
+import '../../../../core/style/app_colors.dart';
 
 class LoginTextfieldWidget extends StatelessWidget {
   final String hintText;
+  final void Function(String?)? onChanged;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
 
-  const LoginTextfieldWidget({super.key, required this.hintText});
+  const LoginTextfieldWidget({
+    required this.hintText,
+    this.controller,
+    super.key,
+    this.onChanged,
+    this.validator,
+  });
 
   @override
-  Widget build(BuildContext context) => TextFormField(
-        cursorColor: Colors.deepPurple,
-        cursorHeight: 22,
-        // controller: loginEmailC,
-        // focusNode: emailFocusNode,
-        // textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: context.theme.textTheme.bodySmall?.copyWith(
-            fontWeight: FontWeight.w400,
-            fontSize: 11.sp,
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controller,
+      cursorColor: Colors.deepPurple,
+      cursorHeight: 22,
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: context.theme.textTheme.bodySmall?.copyWith(
+          fontWeight: FontWeight.w400,
+          fontSize: 11.sp,
+          color: AppColors.cD9D9D9,
+          fontFamily: "Poppins",
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
             color: AppColors.cD9D9D9,
-            fontFamily: "Poppins",
+            width: 1.5,
           ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColors.cD9D9D9,
-              width: 1.5,
-            ),
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColors.cD9D9D9,
-              width: 1.5,
-            ),
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-          ),
-          border: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColors.cD9D9D9,
-              width: 1.5,
-            ),
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
           ),
         ),
-      );
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.cD9D9D9,
+            width: 1.5,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        border: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.cD9D9D9,
+            width: 1.5,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+      ),
+      validator: validator,
+      onChanged: onChanged,
+    );
+  }
 }
