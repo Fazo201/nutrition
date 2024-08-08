@@ -37,6 +37,11 @@ class RouterConfigService {
       ),
 
 
+      GoRoute(
+        name: "HomePage",
+        path: AppRouteNames.homePage,
+        builder: (BuildContext context, GoRouterState state) => HomePage(),
+      ),
     ],
   );
 }

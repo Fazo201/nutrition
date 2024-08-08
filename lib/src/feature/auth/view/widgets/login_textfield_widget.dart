@@ -18,7 +18,7 @@ class LoginTextfieldWidget extends StatelessWidget {
       // textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const AppTextStyle().loginEnter,
+        // hintStyle: const AppTextStyle().loginEnter,
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.cD9D9D9,

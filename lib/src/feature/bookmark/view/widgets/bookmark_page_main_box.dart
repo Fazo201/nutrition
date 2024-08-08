@@ -45,11 +45,11 @@ class BookmarkPageMainBox extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("spice roasted chicken with flavored rice",
-                        style: const AppTextStyle().recipeBoxMain,
+                        // style: const AppTextStyle().recipeBoxMain,
                       ),
                       const SizedBox(height: 6),
                       Text("By Mark Kelvin",
-                        style: const AppTextStyle().recipeReviews,
+                        // style: const AppTextStyle().recipeReviews,
                       ),
                       const SizedBox(height: 4),
                     ],
@@ -82,7 +82,7 @@ class BookmarkPageMainBox extends StatelessWidget {
                       children: [
                         SvgPicture.asset("assets/icons/timer_in_card_icon.svg"),
                         const SizedBox(width: 5),
-                        Text("20 min", style: const AppTextStyle().recipeBoxMain),
+                        // Text("20 min", style: const AppTextStyle().recipeBoxMain),
                         const SizedBox(width: 5),
                         SizedBox(
                           width: 24,

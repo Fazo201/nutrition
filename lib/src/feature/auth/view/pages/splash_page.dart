@@ -53,7 +53,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   FadeTransition(
                     opacity: _animation,
                     child: Image.asset(
-                      'assets/images/img.png',
+                      "assets/images/img.png",
                       height: 80,
                       width: 80,
                     ),
@@ -79,16 +79,16 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       children: [
                         Text(
                           "Get",
-                          style: const AppTextStyle().splashCenter,
+                          // style: const AppTextStyle().splashCenter,
                         ),
                         Text(
                           "Cooking",
-                          style: const AppTextStyle().splashCenter,
+                          // style: const AppTextStyle().splashCenter,
                         ),
                         const SizedBox(height: 20),
                         Text(
                           "Simple way to find Tasty Recipe",
-                          style: const AppTextStyle().splashButtomText,
+                          // style: const AppTextStyle().splashButtomText,
                         ),
                       ],
                     ),
@@ -121,7 +121,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       children: [
                         Text(
                           "Start Cooking",
-                          style: const AppTextStyle().splashButton,
+                          // style: const AppTextStyle().splashButton,
                         ),
                         const SizedBox(width: 20),
                         const Icon(Icons.arrow_forward_outlined),

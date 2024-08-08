@@ -24,7 +24,7 @@ class ElevatedButtonWidget extends StatelessWidget {
         children: [
           Text(
             text,
-            style: const AppTextStyle().splashButton,
+            // style: const AppTextStyle().splashButton,
           ),
           const SizedBox(width: 20),
           const Icon(Icons.arrow_forward_outlined),
