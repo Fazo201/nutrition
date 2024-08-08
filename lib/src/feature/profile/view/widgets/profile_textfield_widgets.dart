@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_style.dart';
 
-class LoginTextfieldWidget extends StatelessWidget {
+class ProfileTextfieldWidget extends StatelessWidget {
   final String hintText;
 
-  const LoginTextfieldWidget({super.key, required this.hintText});
+  const ProfileTextfieldWidget({super.key, required this.hintText});
 
   @override
   Widget build(BuildContext context) {

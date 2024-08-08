@@ -16,7 +16,7 @@ class ReviewPage extends ConsumerWidget {
         backgroundColor: AppColors.white,
         title: Text(
           "Reviews",
-          style: const AppTextStyle().loginEmail,
+          // style: ,
         ),
         centerTitle: true,
       ),
@@ -29,15 +29,15 @@ class ReviewPage extends ConsumerWidget {
               children: [
                 Text(
                   "200 Comments",
-                  style: const AppTextStyle().recipeReviews?.copyWith(
-                    color: AppColors.cA9A9A9,
-                  ),
+                  // style: const AppTextStyle().recipeReviews?.copyWith(
+                  //   color: AppColors.cA9A9A9,
+                  // ),
                 ),
                 Text(
                   "155 Saved",
-                  style: const AppTextStyle().recipeReviews?.copyWith(
-                    color: AppColors.cA9A9A9,
-                  ),
+                  // style: const AppTextStyle().recipeReviews?.copyWith(
+                  //   color: AppColors.cA9A9A9,
+                  // ),
                 ),
               ],
             ),
@@ -46,9 +46,9 @@ class ReviewPage extends ConsumerWidget {
               children: [
                 Text(
                   "Leave a comment",
-                  style: const AppTextStyle().loginEmail?.copyWith(
-                    color: AppColors.c121212,
-                  ),
+                  // style: const AppTextStyle().loginEmail?.copyWith(
+                  //   color: AppColors.c121212,
+                  // ),
                 ),
               ],
             ),
@@ -81,7 +81,7 @@ class ReviewPage extends ConsumerWidget {
                     ),
                   ),
                   hintText: "Say something...",
-                  hintStyle: const AppTextStyle().loginEnter,
+                  // hintStyle: const AppTextStyle().loginEnter,
                 ),
               ),
             ),

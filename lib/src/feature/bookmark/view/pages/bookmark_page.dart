@@ -1,15 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:nutrition/src/core/style/text_style.dart';
-import 'package:nutrition/src/feature/bookmark/view/widgets/bookmark_page_main_box.dart';
+import "package:flutter/material.dart";
+import "package:nutrition/src/feature/bookmark/view/widgets/bookmark_page_main_box.dart";
 
 class BookmarkPage extends StatelessWidget {
   const BookmarkPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
-        title: Text("Saved recipes",),
+        title: const Text("Saved recipes",),
         centerTitle: true,
       ),
       body: ListView.separated(
@@ -19,5 +17,4 @@ class BookmarkPage extends StatelessWidget {
         itemBuilder: (context, index) => const BookmarkPageMainBox(),
       ),
     );
-  }
 }
