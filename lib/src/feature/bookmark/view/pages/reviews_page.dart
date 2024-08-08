@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/text_style.dart";
 import "package:nutrition/src/feature/bookmark/vm/review_vm.dart";
 import "../../../../core/style/app_colors.dart";
@@ -29,15 +30,15 @@ class ReviewPage extends ConsumerWidget {
               children: [
                 Text(
                   "200 Comments",
-                  // style: const AppTextStyle().recipeReviews?.copyWith(
-                  //   color: AppColors.cA9A9A9,
-                  // ),
+                  style: context.theme.textTheme.labelSmall?.copyWith(
+                    fontSize: 11.sp,
+                  ),
                 ),
                 Text(
                   "155 Saved",
-                  // style: const AppTextStyle().recipeReviews?.copyWith(
-                  //   color: AppColors.cA9A9A9,
-                  // ),
+                  style: context.theme.textTheme.labelSmall?.copyWith(
+                    fontSize: 11.sp,
+                  ),
                 ),
               ],
             ),
@@ -46,9 +47,7 @@ class ReviewPage extends ConsumerWidget {
               children: [
                 Text(
                   "Leave a comment",
-                  // style: const AppTextStyle().loginEmail?.copyWith(
-                  //   color: AppColors.c121212,
-                  // ),
+                  style: context.theme.textTheme.bodyMedium,
                 ),
               ],
             ),
@@ -81,7 +80,10 @@ class ReviewPage extends ConsumerWidget {
                     ),
                   ),
                   hintText: "Say something...",
-                  // hintStyle: const AppTextStyle().loginEnter,
+                  hintStyle: context.theme.textTheme.labelSmall?.copyWith(
+                    fontSize: 11.sp,
+                  ),
+                  suffixIcon: MaterialApp()
                 ),
               ),
             ),
