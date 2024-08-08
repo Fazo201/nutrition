@@ -1,5 +1,8 @@
 import "package:flutter/material.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
+import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
+import 'package:nutrition/src/core/style/app_colors.dart';
+import 'package:nutrition/src/core/style/text_style.dart';
 import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -23,15 +26,16 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     _animation = Tween(end: 1.0, begin: 0.0).animate(_controller);
     _animationIcons = Tween<Offset>(begin: const Offset(0.0, -1.0), end: const Offset(0.0, 0.0)).animate(_controller);
     _controller.forward();
-    // stack();
+    stack();
     super.initState();
   }
 
-  // Future<void> stack() async {
-  //   return await Future.delayed(const Duration(seconds: 4), () {
-  //     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
-  //   });
-  // }
+  Future<void> stack() async {
+    return await Future.delayed(const Duration(seconds: 4), () {
+      context.go(AppRouteNames.homePage);
+      // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+    });
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
