@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nutrition/src/core/routes/app_route_names.dart';
+import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
 import 'package:nutrition/src/feature/auth/view/pages/register_page.dart';
 import 'package:nutrition/src/feature/auth/view/pages/splash_page.dart';
 
 import "../../feature/bookmark/view/pages/bookmark_page.dart";
+import "../../feature/bookmark/view/pages/reviews_page.dart";
 import "../../feature/main/view/pages/home_page.dart";
 import "../../feature/main/view/pages/primary_page.dart";
 import "../../feature/main/view/pages/search_recipes_page.dart";
@@ -18,7 +20,7 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 final class RouterConfigService {
   // const RouterConfigService._();
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.recipePage,
+    initialLocation: AppRouteNames.splash,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       //splash page
@@ -26,6 +28,12 @@ final class RouterConfigService {
         name: "SplashPage",
         path: AppRouteNames.splash,
         builder: (BuildContext context, GoRouterState state) => const SplashPage(),
+      ),
+      //login page
+      GoRoute(
+        name: "LoginPage",
+        path: AppRouteNames.login,
+        builder: (BuildContext context, GoRouterState state) => LoginPage(),
       ),
       //register page
       GoRoute(
