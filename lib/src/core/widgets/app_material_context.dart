@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:nutrition/src/feature/bookmark/view/pages/reviews_page.dart";
-import "package:nutrition/src/feature/main/view/pages/home_page.dart";
+// import "package:nutrition/src/feature/profile/view/pages/profile_page.dart";
 import "../../feature/settings/inherited_locale_notifier.dart";
 import "../../feature/settings/inherited_theme_notifier.dart";
 import "../../feature/settings/locale_controller.dart";
@@ -19,19 +19,18 @@ class AppMaterialContext extends StatelessWidget {
       child: InheritedLocalNotifier(
         localController: localController,
         child: Builder(
-          // builder: (context) => MaterialApp.router(
-          //   debugShowCheckedModeBanner: false,
-          //   theme: InheritedThemeNotifier.maybeOf(context)?.theme,
-          //   locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-          //   routerConfig: RouterConfigService.router,
-          // ),
-          builder: (context) => MaterialApp(
+          builder: (context) => MaterialApp.router(
             debugShowCheckedModeBanner: false,
             theme: InheritedThemeNotifier.maybeOf(context)?.theme,
             locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-            home: const ReviewPage(),
+            routerConfig: RouterConfigService.router,
+          ),
+          // builder: (context) => MaterialApp(
+          //   debugShowCheckedModeBanner: false,
+          //   theme: InheritedThemeNotifier.maybeOf(context)?.theme,
+          //   locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
+          //   home:  ProfilePage(),
           ),
         ),
-      ),
     );
   }

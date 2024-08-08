@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-class ProfileVm with ChangeNotifier{
+class PrimaryVm with ChangeNotifier {
 
 }

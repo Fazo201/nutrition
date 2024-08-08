@@ -4,7 +4,7 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/feature/main/view_model/home_vm.dart";
 
-import "../widgets/home_page_app_bar.dart";
+import "../widgets/home_page_app_bar_widget.dart";
 import "../widgets/home_page_bottom_card_widget.dart";
 import "../widgets/home_page_main_card_widget.dart";
 
@@ -20,7 +20,6 @@ class HomePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // custom tabbar
-
             Padding(
               padding: REdgeInsets.symmetric(vertical: 10),
               child: SizedBox(
@@ -28,23 +27,22 @@ class HomePage extends ConsumerWidget {
                 width: double.infinity,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: ref.watch(homeVM).tabBarItems.length,
-                  padding: REdgeInsets.symmetric(horizontal: 30),
+                  itemCount: ref.read(homeVM).tabBarItems.length,
+                  padding: REdgeInsets.symmetric(horizontal: 30, vertical: 0),
                   itemBuilder: (ctx, i) => MaterialButton(
                     height: 31.h,
                     minWidth: 54.w,
                     elevation: 0,
-                    padding:  REdgeInsets.symmetric(horizontal: 20, vertical: 7),
-                    color: ref.watch(homeVM).curretIndex == i ? AppColors.c129575 : AppColors.white,
+                    padding: REdgeInsets.symmetric(horizontal: 20, vertical: 7),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                    onPressed: () async {
+                    color: ref.watch(homeVM).curretIndex == i ? AppColors.c129575 : AppColors.white,
+                    onPressed: () {
                       ref.read(homeVM).changeTapBar(i);
                     },
                     child: Text(
                       ref.watch(homeVM).tabBarItems[i],
-                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 11.sh,
+                        fontSize: 11.sp,
                         fontWeight: FontWeight.w600,
                         color: ref.watch(homeVM).curretIndex == i ? AppColors.white : AppColors.c71B1A1,
                       ),

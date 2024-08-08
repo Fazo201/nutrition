@@ -62,7 +62,8 @@ class HomePageAppBar extends StatelessWidget {
                     child: TextField(
                       keyboardType: TextInputType.none,
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
+                        // Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
+                        // context.push("${AppRouteNames.homePage}${AppRouteNames.register}", extra: isFilter);
                       },
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.search),
