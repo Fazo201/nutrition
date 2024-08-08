@@ -3,6 +3,7 @@ import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
+import "package:nutrition/src/feature/main/view/pages/search_recipes_page.dart";
 import "package:nutrition/src/feature/profile/view/pages/profile_page.dart";
 import "package:nutrition/src/feature/recipe/view/pages/recipe_page.dart";
 
@@ -44,6 +45,16 @@ class RouterConfigService {
         name: "HomePage",
         path: AppRouteNames.homePage,
         builder: (BuildContext context, GoRouterState state) => HomePage(),
+        routes: [
+          GoRoute(
+            name: "SearchPage",
+            path: AppRouteNames.search,
+            builder: (context, state) {
+              bool isTextField = state.extra as bool;
+              return SearchRecipesPage(isTextField: isTextField);
+            },
+          )
+        ]
       ),
       //recipe_page
       GoRoute(

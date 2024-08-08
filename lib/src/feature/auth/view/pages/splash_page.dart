@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nutrition/src/core/style/app_colors.dart';
-import 'package:nutrition/src/core/style/text_style.dart';
+import "package:nutrition/src/core/style/app_colors.dart";
 import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
 
 class SplashPage extends StatefulWidget {

@@ -93,7 +93,7 @@ class HomePageAppBar extends StatelessWidget {
                     ),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRecipesPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchRecipesPage(isTextField: false,)));
                       },
                       child: Padding(
                         padding: REdgeInsets.all(8),
