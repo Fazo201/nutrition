@@ -6,11 +6,10 @@ import '../../../../core/style/text_style.dart';
 class LoginTextfieldWidget extends StatelessWidget {
   final String hintText;
 
-  const LoginTextfieldWidget({super.key, required this.hintText});
+  const  LoginTextfieldWidget({super.key, required this.hintText});
 
   @override
-  Widget build(BuildContext context) {
-    return TextFormField(
+  Widget build(BuildContext context) => TextFormField(
       cursorColor: Colors.deepPurple,
       cursorHeight: 22,
       // controller: loginEmailC,
@@ -48,5 +47,4 @@ class LoginTextfieldWidget extends StatelessWidget {
         ),
       ),
     );
-  }
 }
