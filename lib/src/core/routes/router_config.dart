@@ -12,7 +12,7 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 
 class RouterConfigService {
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.recipePage,
+    initialLocation: AppRouteNames.login,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       //splash page

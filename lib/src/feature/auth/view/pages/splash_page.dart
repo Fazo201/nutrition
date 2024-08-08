@@ -2,8 +2,8 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     _animation = Tween(end: 1.0, begin: 0.0).animate(_controller);
     _animationIcons = Tween<Offset>(begin: const Offset(0.0, -1.0), end: const Offset(0.0, 0.0)).animate(_controller);
     _controller.forward();
-    // stack();
+    stack();
     super.initState();
   }
 
@@ -36,11 +36,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   //   });
   // }
 
-  // Future<void> stack() async {
-  //   return await Future.delayed(
-  //   }
-  //   );
-  // }
+  Future<void> stack() async => Future.delayed(
+        const Duration(seconds: 4),
+        () async => context.push(AppRouteNames.login),
+      );
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -62,11 +61,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                     opacity: _animation,
                     child: Image.asset(
                       "assets/images/img.png",
-                      height: 80,
-                      width: 80,
+                      height: 80.h,
+                      width: 80.h,
                     ),
                   ),
-                  const SizedBox(height: 14),
+                  14.verticalSpace,
                   FadeTransition(
                     opacity: _animation,
                     child: Text(
@@ -83,7 +82,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               ),
               SizedBox(height: MediaQuery.of(context).size.width * 0.45),
               PreferredSize(
-                preferredSize: const Size(4, 4),
+                preferredSize: Size(4.sp, 4.sp),
                 child: FadeTransition(
                   opacity: _animation,
                   child: SlideTransition(
@@ -108,7 +107,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                             fontFamily: "Poppins",
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        20.verticalSpace,
                         Text(
                           "Simple way to find Tasty Recipe",
                           style: context.theme.textTheme.headlineSmall?.copyWith(
@@ -125,7 +124,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               ),
               SizedBox(height: MediaQuery.of(context).size.width * 0.2),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 66),
+                padding: REdgeInsets.symmetric(horizontal: 66),
                 child: FadeTransition(
                   opacity: _animation,
                   child: ElevatedButton(
@@ -134,7 +133,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      fixedSize: const Size(double.maxFinite, 60),
+                      fixedSize: Size(double.maxFinite, 60.h),
                     ),
                     onPressed: () {},
                     child: Row(
@@ -149,7 +148,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                             fontFamily: "Poppins",
                           ),
                         ),
-                        const SizedBox(width: 20),
+                        20.verticalSpace,
                         const Icon(Icons.arrow_forward_outlined),
                       ],
                     ),

@@ -1,17 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import 'package:nutrition/src/core/style/app_colors.dart';
-import 'package:nutrition/src/core/style/text_style.dart';
-import 'package:nutrition/src/core/widgets/eleveted_button_widget.dart';
-import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
-import 'package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart';
-import 'package:nutrition/src/feature/auth/view/widgets/login_textfield_widget.dart';
-import 'package:nutrition/src/feature/auth/view/widgets/register_text_widget.dart';
-import 'package:nutrition/src/feature/auth/view_model/login_vm.dart';
-
-import '../widgets/login_sizedbox_widget.dart';
+import "package:nutrition/src/core/style/app_colors.dart";
+import "package:nutrition/src/core/widgets/eleveted_button_widget.dart";
+import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
+import "package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart";
+import "package:nutrition/src/feature/auth/view/widgets/login_textfield_widget.dart";
+import "package:nutrition/src/feature/auth/view/widgets/register_text_widget.dart";
+import "package:nutrition/src/feature/auth/view_model/login_vm.dart";
+import "../widgets/login_sizedbox_widget.dart";
 
 class RegisterPage extends ConsumerWidget {
   const RegisterPage({super.key});
@@ -20,46 +18,56 @@ class RegisterPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            padding: REdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: Form(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Create an account',
-                    // style: const AppTextStyle().registerCreateAccount,
+                    "Create an account",
+                    style: context.theme.textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20.sp,
+                      fontFamily: "Poppins",
+                      color: AppColors.black,
+                    ),
                   ),
                   5.verticalSpace,
                   Text(
-                    'Let’s help you set up your account,\nit won’t take long.',
-                    // style: const AppTextStyle().registerLetsHelp,
+                    "Let’s help you set up your account,\nit won’t take long.",
+                    style: context.theme.textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 11.sp,
+                      fontFamily: "Poppins",
+                      color: AppColors.c121212,
+                    ),
                   ),
                   20.verticalSpace,
-                  const RegisterTextWidget(text: 'Name'),
+                  const RegisterTextWidget(text: "Name"),
                   5.verticalSpace,
                   const LoginTextfieldWidget(
-                    hintText: 'Enter Name',
+                    hintText: "Enter Name",
                   ),
                   20.verticalSpace,
-                  const RegisterTextWidget(text: 'Email'),
-                  const SizedBox(height: 5),
+                  const RegisterTextWidget(text: "Email"),
+                  5.verticalSpace,
                   const LoginTextfieldWidget(
-                    hintText: 'Enter Email',
+                    hintText: "Enter Email",
                   ),
-                  const SizedBox(height: 20),
-                  const RegisterTextWidget(text: 'Password'),
-                  const SizedBox(height: 5),
+                  20.verticalSpace,
+                  const RegisterTextWidget(text: "Password"),
+                  5.verticalSpace,
                   const LoginTextfieldWidget(
-                    hintText: 'Enter Password',
+                    hintText: "Enter Password",
                   ),
-                  const SizedBox(height: 20),
-                  const RegisterTextWidget(text: 'Confirm Password'),
-                  const SizedBox(height: 5),
+                  20.verticalSpace,
+                  const RegisterTextWidget(text: "Confirm Password"),
+                  5.verticalSpace,
                   const LoginTextfieldWidget(
-                    hintText: 'Retype Password',
+                    hintText: "Retype Password",
                   ),
-                  const SizedBox(height: 20),
+                  20.verticalSpace,
                   Row(
                     children: [
                       Checkbox(
@@ -68,35 +76,45 @@ class RegisterPage extends ConsumerWidget {
                         onChanged: (value) {},
                       ),
                       Text(
-                        'Accept terms & Condition',
-                        // style: const AppTextStyle().loginForgotPassword,
+                        "Accept terms & Condition",
+                        style: context.theme.textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.sp,
+                          fontFamily: "Poppins",
+                          color: AppColors.cFF9C00,
+                        ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 26),
-                  const ElevatedButtonWidget(text: 'Sign Up'),
-                  const SizedBox(height: 14),
+                  26.verticalSpace,
+                  const ElevatedButtonWidget(text: "Sign Up"),
+                  14.verticalSpace,
                   const LoginOrWidget(),
-                  const SizedBox(height: 15),
-                  const Row(
+                  15.verticalSpace,
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      LoginSizedboxWidget(
-                        svgPicture: 'assets/icons/sign_in_google_icon.svg',
+                      const LoginSizedboxWidget(
+                        svgPicture: "assets/icons/sign_in_google_icon.svg",
                       ),
-                      SizedBox(width: 25),
-                      LoginSizedboxWidget(
-                        svgPicture: 'assets/icons/sign_in_facebook_icon.svg',
+                      25.horizontalSpace,
+                      const LoginSizedboxWidget(
+                        svgPicture: "assets/icons/sign_in_facebook_icon.svg",
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  10.verticalSpace,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "Already a member?",
-                        style: context.theme.textTheme.bodyMedium?.copyWith(),
+                        style: context.theme.textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 11.sp,
+                          fontFamily: "Poppins",
+                          color: AppColors.black,
+                        ),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -109,7 +127,12 @@ class RegisterPage extends ConsumerWidget {
                         },
                         child: Text(
                           " Sign In",
-                          // style: const AppTextStyle().loginMinSign,
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.cFF9C00,
+                          ),
                         ),
                       ),
                     ],
