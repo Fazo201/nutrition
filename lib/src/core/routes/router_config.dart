@@ -1,9 +1,8 @@
-import "package:flutter/cupertino.dart";
-import "package:go_router/go_router.dart";
-import "package:nutrition/src/core/routes/app_route_names.dart";
-import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
-import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
-import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
+import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nutrition/src/core/routes/app_route_names.dart';
+import 'package:nutrition/src/feature/auth/view/pages/register_page.dart';
+import 'package:nutrition/src/feature/auth/view/pages/splash_page.dart';
 
 import "../../feature/bookmark/view/pages/bookmark_page.dart";
 import "../../feature/main/view/pages/home_page.dart";
@@ -19,56 +18,14 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 final class RouterConfigService {
   // const RouterConfigService._();
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.splash,
+    initialLocation: AppRouteNames.recipePage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
-      ShellRoute(
-        builder: (context, state, child) => PrimaryPage(child),
-        routes: [
-          GoRoute(
-            name: "HomePage",
-            path: AppRouteNames.homePage,
-            builder: (BuildContext context, GoRouterState state) => HomePage(),
-            routes: [
-              GoRoute(
-                name: "SearchPage",
-                path: AppRouteNames.search,
-                builder: (context, state) => SearchRecipesPage(
-                  isTextField: state.extra as bool,
-                ),
-              ),
-            ],
-          ),
-          GoRoute(
-            name: "Bookmark",
-            path: AppRouteNames.bookmark,
-            builder: (BuildContext context, GoRouterState state) => const BookmarkPage(),
-          ),
-          GoRoute(
-            name: "Notification",
-            path: AppRouteNames.notification,
-            builder: (BuildContext context, GoRouterState state) => NotificationPage(),
-          ),
-          //profile page
-          GoRoute(
-            name: "ProfilePage",
-            path: AppRouteNames.profile,
-            builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
-          ),
-        ],
-      ),
-
       //splash page
       GoRoute(
         name: "SplashPage",
         path: AppRouteNames.splash,
         builder: (BuildContext context, GoRouterState state) => const SplashPage(),
-      ),
-      //login page
-      GoRoute(
-        name: "LoginPage",
-        path: AppRouteNames.login,
-        builder: (BuildContext context, GoRouterState state) => LoginPage(),
       ),
       //register page
       GoRoute(
@@ -81,6 +38,11 @@ final class RouterConfigService {
         name: "RecipePage",
         path: AppRouteNames.recipePage,
         builder: (BuildContext context, GoRouterState state) => const RecipePage(),
+      ),
+      GoRoute(
+        name: "ReviewsPage",
+        path: AppRouteNames.reviewsPage,
+        builder: (BuildContext context, GoRouterState state) => const ReviewsPage(),
       ),
     ],
   );
