@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../../../../core/style/app_colors.dart';
-import '../../../../core/style/text_style.dart';
 
 class ProfileButtonWidget extends StatelessWidget {
-  final String text;
 
-  const ProfileButtonWidget({super.key, required this.text});
+
+  const ProfileButtonWidget({super.key, });
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +21,8 @@ class ProfileButtonWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            text,
-            style:  AppTextStyle().splashButton,
+            "Save",
+            // style:  AppTextStyle().splashButton,
           ),
         ],
       ),

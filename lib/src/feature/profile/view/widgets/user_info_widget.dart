@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import "package:nutrition/src/core/constants/context_extension.dart";
 
-import '../../../../core/style/text_style.dart';
 
-class UserEmailPassword extends StatelessWidget {
+class UserInfoWidget extends StatelessWidget {
  final String email;
  final String password;
-  const UserEmailPassword({super.key, required this.email, required this.password});
+  const UserInfoWidget({super.key, required this.email, required this.password});
 
   @override
   Widget build(BuildContext context) {
