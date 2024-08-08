@@ -6,8 +6,9 @@ import 'package:nutrition/src/feature/auth/view/pages/splash_page.dart';
 
 GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 
-class RouterConfigService {
-
+@immutable
+final class RouterConfigService {
+  const RouterConfigService._();
   static final GoRouter router = GoRouter(
     initialLocation: AppRouteNames.splash,
     debugLogDiagnostics: true,
@@ -16,17 +17,13 @@ class RouterConfigService {
       GoRoute(
         name: "SplashPage",
         path: AppRouteNames.splash,
-        builder: (BuildContext context, GoRouterState state) {
-          return const SplashPage();
-        },
+        builder: (BuildContext context, GoRouterState state) => const SplashPage(),
       ),
 
       GoRoute(
         name: "RegisterPage",
         path: AppRouteNames.register,
-        builder: (BuildContext context, GoRouterState state) {
-          return const RegisterPage();
-        },
+        builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
       ),
 
 
