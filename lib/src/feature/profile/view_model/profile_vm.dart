@@ -14,6 +14,8 @@ class ProfileVm extends ChangeNotifier {
   File? file;
   bool isImageSelected = false;
   final ImagePicker _picker = ImagePicker();
+  TextEditingController controllerE = TextEditingController();
+  TextEditingController controllerP = TextEditingController();
 
   Future<void> pickAndUploadImage(BuildContext context) async {
     final ImageSource? source = await _showPickerDialog(context);

@@ -12,7 +12,7 @@ import "package:nutrition/src/feature/auth/view/widgets/login_textfield_widget.d
 import "package:nutrition/src/feature/auth/view_model/login_vm.dart";
 
 class LoginPage extends ConsumerWidget {
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,6 +20,7 @@ class LoginPage extends ConsumerWidget {
     ref.watch(loginVM);
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
         child: SafeArea(
           child: Padding(
             padding: REdgeInsets.symmetric(horizontal: 30, vertical: 50),
@@ -95,13 +96,16 @@ class LoginPage extends ConsumerWidget {
                   20.verticalSpace,
                   Padding(
                     padding: REdgeInsets.only(left: 10),
-                    child: Text(
-                      "Forgot Password?",
-                      style: context.theme.textTheme.bodySmall?.copyWith(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 11.sp,
-                        fontFamily: "Poppins",
-                        color: AppColors.cFF9C00,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        "Forgot Password?",
+                        style: context.theme.textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.sp,
+                          fontFamily: "Poppins",
+                          color: AppColors.cFF9C00,
+                        ),
                       ),
                     ),
                   ),

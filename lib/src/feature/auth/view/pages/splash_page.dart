@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   }
 
   Future<void> stack() async => Future.delayed(const Duration(seconds: 4), () {
-        context.go(AppRouteNames.login);
+        context.go(AppRouteNames.homePage);
       });
 
   @override
