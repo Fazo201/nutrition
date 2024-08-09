@@ -97,7 +97,9 @@ class LoginPage extends ConsumerWidget {
                   Padding(
                     padding: REdgeInsets.only(left: 10),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        context.go(AppRouteNames.homePage);
+                      },
                       child: Text(
                         "Forgot Password?",
                         style: context.theme.textTheme.bodySmall?.copyWith(
