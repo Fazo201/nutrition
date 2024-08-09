@@ -16,8 +16,7 @@ class RecipeCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
+  Widget build(BuildContext context) => SizedBox(
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
@@ -120,5 +119,4 @@ class RecipeCard extends StatelessWidget {
         ),
       ),
     );
-  }
 }
