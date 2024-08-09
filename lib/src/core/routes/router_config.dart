@@ -73,7 +73,7 @@ final class RouterConfigService {
       //recipe_page
       GoRoute(
         name: "RecipePage",
-        path: AppRouteNames.recipePage,
+        path: AppRouteNames.foodDetailsPage,
         builder: (BuildContext context, GoRouterState state) => const FoodDetailsPage(),
       ),
       //login page
