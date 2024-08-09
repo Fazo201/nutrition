@@ -24,8 +24,9 @@ class ProfileTextfildWidget extends StatelessWidget {
             // style: const AppTextStyle().loginEmail,
           ),
           5.verticalSpace,
-           ProfileTextfieldWidget(
+          ProfileTextfieldWidget(
              keyboardType: keyboardTypeEmail,
+
             controller: controllerE,
             hintText: 'Enter Email',
           ),
@@ -34,7 +35,7 @@ class ProfileTextfildWidget extends StatelessWidget {
             'Password',
             // style: const AppTextStyle().loginEmail,
           ),
-           ProfileTextfieldWidget(
+          ProfileTextfieldWidget(
              keyboardType: keyboardTypePassword,
              controller: controllerP,
             hintText: 'Enter Password',
