@@ -110,7 +110,7 @@ class LoginPage extends ConsumerWidget {
                     text: "Sign In",
                     onPressed: () {
                       if (ctr.globalKey.currentState?.validate() ?? false) {
-                        context.pushReplacement(AppRouteNames.primary);
+                        context.pushReplacement(AppRouteNames.homePage);
                       } else {
                         // Optionally, show a message or do something when validation fails
                       }

@@ -6,11 +6,7 @@ class DeleteDialog extends BuildShowDialog {
   final String imageUrl;
   final Function() delete;
 
-  DeleteDialog({
-    required super.context,
-    required this.imageUrl,
-    required this.delete
-  });
+  DeleteDialog({required super.context, required this.imageUrl, required this.delete});
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +26,9 @@ class DeleteDialog extends BuildShowDialog {
               ),
               const SizedBox(width: 15),
               const Expanded(
-                child: Text("Profile rasmini o'chirish",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16
-                  ),
+                child: Text(
+                  "Profile rasmini o'chirish",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -44,34 +38,19 @@ class DeleteDialog extends BuildShowDialog {
           const SizedBox(height: 10),
           const Text("Profile rasmi o'chirilsinmi?"),
           const SizedBox(height: 15),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ZoomTapAnimation(
-                  onTap: () => Navigator.pop(context),
-                  child: const Text(
-                      "Bekor qilish",
-                      style: TextStyle(
-                          color: Color(0xff5793C3),
-                          fontWeight: FontWeight.bold
-                      )
-                  ),
-                ),
-                ZoomTapAnimation(
-                  onTap: () {
-                    Navigator.pop(context);
-                    delete();
-                  },
-                  child: const Text(
-                      "Rasmni o'chirish",
-                      style: TextStyle(
-                          color: Color(0xffCE4342),
-                          fontWeight: FontWeight.bold
-                      )
-                  ),
-                ),
-              ]
-          ),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            ZoomTapAnimation(
+              onTap: () => Navigator.pop(context),
+              child: const Text("Bekor qilish", style: TextStyle(color: Color(0xff5793C3), fontWeight: FontWeight.bold)),
+            ),
+            ZoomTapAnimation(
+              onTap: () {
+                Navigator.pop(context);
+                delete();
+              },
+              child: const Text("Rasmni o'chirish", style: TextStyle(color: Color(0xffCE4342), fontWeight: FontWeight.bold)),
+            ),
+          ]),
           const SizedBox(height: 15),
         ],
       ),

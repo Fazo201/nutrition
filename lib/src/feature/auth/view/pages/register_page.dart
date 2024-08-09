@@ -145,7 +145,7 @@ class RegisterPage extends ConsumerWidget {
                           ctr.emailController.text.isNotEmpty &&
                           ctr.passwordController.text.isNotEmpty &&
                           ctr.isCheck) {
-                        context.pushReplacement(AppRouteNames.primary);
+                        context.pushReplacement(AppRouteNames.homePage);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(

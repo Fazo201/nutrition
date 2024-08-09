@@ -1,6 +1,7 @@
 import "package:flutter/cupertino.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
+import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
 
@@ -33,7 +34,7 @@ final class RouterConfigService {
                 name: "SearchPage",
                 path: AppRouteNames.search,
                 builder: (context, state) => SearchRecipesPage(
-                  isTextField: state.extra as bool,
+                  isTextField: state.extra! as bool,
                 ),
               ),
             ],
@@ -74,6 +75,12 @@ final class RouterConfigService {
         name: "RecipePage",
         path: AppRouteNames.recipePage,
         builder: (BuildContext context, GoRouterState state) => const RecipePage(),
+      ),
+      //login page
+      GoRoute(
+        name: "LoginPage",
+        path: AppRouteNames.login,
+        builder: (BuildContext context, GoRouterState state) => LoginPage(),
       ),
     ],
   );
