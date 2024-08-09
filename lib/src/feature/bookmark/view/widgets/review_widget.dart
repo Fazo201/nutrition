@@ -12,11 +12,6 @@ class ActionModel {
     required this.action,
     required this.id,
   });
-
-  @override
-  String toString() {
-    return "$action $id\n\n";
-  }
 }
 
 class ReviewWidget extends ConsumerWidget {
@@ -101,7 +96,7 @@ class ReviewWidget extends ConsumerWidget {
                   height: 30.h,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: ref.read(reviewVM).isLiked(reviewIndex) == true ? AppColors.c71B1A1 : AppColors.cDBEBE7,
+                      color: ref.read(reviewVM).isLiked(reviewIndex)! == true ? AppColors.c71B1A1 : AppColors.cDBEBE7,
                       borderRadius: BorderRadius.all(Radius.circular(17.r)),
                     ),
                     child: Row(
