@@ -39,7 +39,7 @@ class ReviewWidget extends ConsumerWidget {
     ref.watch(reviewVM);
     return SizedBox(
       width: double.infinity,
-      height: 200.h,
+      // height: 200.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -96,7 +96,7 @@ class ReviewWidget extends ConsumerWidget {
                   height: 30.h,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: ref.read(reviewVM).isLiked(reviewIndex)! == true ? AppColors.c71B1A1 : AppColors.cDBEBE7,
+                      color: ref.read(reviewVM).isLiked(reviewIndex) == true ? AppColors.c71B1A1 : AppColors.cDBEBE7,
                       borderRadius: BorderRadius.all(Radius.circular(17.r)),
                     ),
                     child: Row(
@@ -156,6 +156,7 @@ class ReviewWidget extends ConsumerWidget {
               ),
             ],
           ),
+          15.verticalSpace,
         ],
       ),
     );

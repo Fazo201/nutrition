@@ -4,6 +4,7 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/feature/bookmark/vm/review_vm.dart";
 import "../../../../core/style/app_colors.dart";
+import "../widgets/review_page_text_field.dart";
 
 class ReviewsPage extends ConsumerWidget {
   const ReviewsPage({super.key});
@@ -53,44 +54,8 @@ class ReviewsPage extends ConsumerWidget {
               child: Stack(
                 alignment: Alignment.topRight,
                 children: [
-                  TextField(
-                    controller: ref.read(reviewVM).commentC,
-                    cursorColor: AppColors.black,
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: AppColors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide(
-                          color: AppColors.cD9D9D9,
-                          width: 1.5.w,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide(
-                          color: AppColors.cD9D9D9,
-                          width: 1.5.w,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide(
-                          color: AppColors.cD9D9D9,
-                          width: 1.5.w,
-                        ),
-                      ),
-                      hintText: "Say something...",
-                      hintStyle: context.theme.textTheme.labelSmall?.copyWith(
-                        fontSize: 14.sp,
-                        color: AppColors.cD9D9D9,
-                      ),
-                    ),
+                  ReviewPageTextField(
+                    commentC: ref.read(reviewVM).commentC,
                   ),
                   Padding(
                     padding: REdgeInsets.symmetric(horizontal: 10, vertical: 3),
@@ -118,7 +83,6 @@ class ReviewsPage extends ConsumerWidget {
                 ],
               ),
             ),
-            15.verticalSpace,
             Expanded(
               child: ListView.builder(
                 itemCount: ref.read(reviewVM).reviewWidgetList.length,

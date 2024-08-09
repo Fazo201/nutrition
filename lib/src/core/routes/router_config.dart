@@ -4,6 +4,7 @@ import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
+import "package:nutrition/src/feature/bookmark/view/pages/reviews_page.dart";
 import "package:nutrition/src/feature/food_details/view/pages/food_details_page.dart";
 
 import "../../feature/bookmark/view/pages/bookmark_page.dart";
@@ -18,8 +19,9 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 @immutable
 final class RouterConfigService {
   const RouterConfigService._();
+
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.homePage,
+    initialLocation: AppRouteNames.reviewsPage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       ShellRoute(
@@ -71,6 +73,12 @@ final class RouterConfigService {
             builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
           ),
         ],
+      ),
+
+      GoRoute(
+        name: "ReviewsPage",
+        path: AppRouteNames.reviewsPage,
+        builder: (context, state) => const ReviewsPage(),
       ),
 
       //splash page
