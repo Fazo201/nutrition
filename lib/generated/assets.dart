@@ -35,7 +35,6 @@ class Assets {
   static const String iconsRecipeBottomNavigationBarIcon = "assets/icons/recipe_bottom_navigation_bar_icon.svg";
   static const String iconsRecipeBottomNavigationBarSelectedIcon = "assets/icons/recipe_bottom_navigation_bar_selected_icon.svg";
   static const String iconsRecipeDishIcon = "assets/icons/recipe_dish_icon.svg";
-  static const String iconsRecipeLocation = "assets/icons/recipe_location_icon.svg";
   static const String iconsRecipeShareIcon = "assets/icons/recipe_share_icon.svg";
   static const String iconsRecipeUnsaveIcon = "assets/icons/recipe_unsave_icon.svg";
   static const String iconsReviewIcon = "assets/icons/review_icon.svg";
@@ -57,5 +56,6 @@ class Assets {
   static const String imagesSearchPageCookImage = "assets/images/search_page_cook_image.png";
   static const String imagesSplashBackgraundImage = "assets/images/splash_backgraund_image.png";
   static const String imagesSss = "assets/images/sss.png";
+  static const String imagesDefaultProfileImage = "assets/images/default_profile_image.png";
 
 }
