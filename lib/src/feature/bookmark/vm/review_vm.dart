@@ -1,102 +1,65 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:intl/intl.dart";
-import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_images.dart";
-import "../../../core/style/app_colors.dart";
 import "../view/widgets/review_widget.dart";
 
 final reviewVM = ChangeNotifierProvider((ref) => ReviewVm());
 
 class ReviewVm extends ChangeNotifier {
   TextEditingController commentC = TextEditingController();
+  List<ReviewWidget> reviewWidgetList = [];
 
-  int reviewLength = 0;
-  List<GestureDetector> reviewWidgetList = [];
-  List<SizedBox> likeAndDislikeList = [];
-  String comment = "";
+  void addReview(BuildContext context) {
 
-  void listReviewLength(BuildContext context) {
     final now = DateTime.now();
     final formattedDate = DateFormat("MMMM dd, yyyy - HH:mm").format(now);
+
     if (commentC.text.isNotEmpty) {
       reviewWidgetList.insert(
         0,
-        GestureDetector(
-          onLongPress: () {
-            showDialog(
-              context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: Text(
-                  textAlign: TextAlign.center,
-                  "Select",
-                  style: context.theme.textTheme.displaySmall,
-                ),
-                actions: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      MaterialButton(
-                        height: 70.h,
-                        minWidth: 100.w,
-                        color: AppColors.cAFD3CA,
-                        shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: const BorderSide(
-                            color: AppColors.cAFD3CA,
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: Text(
-                          "👍",
-                          style: context.theme.textTheme.titleMedium?.copyWith(
-                            fontSize: 35.sp,
-                          ),
-                        ),
-                      ),
-                      MaterialButton(
-                        height: 70.h,
-                        minWidth: 100.w,
-                        color: AppColors.cAFD3CA,
-                        shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: const BorderSide(
-                            color: AppColors.cAFD3CA,
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: Text(
-                          "👎",
-                          style: context.theme.textTheme.titleMedium?.copyWith(
-                            fontSize: 35.sp,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            );
-          },
-          child: ReviewWidget(
-            profileImage: AppImages.defaultProfileImage,
-            comment: commentC.text,
-            date: formattedDate,
-            disLikeCount: 2,
-            likeCount: 3,
-            name: "Bella",
-          ),
+        ReviewWidget(
+          profileImage: AppImages.defaultProfileImage,
+          comment: commentC.text,
+          date: formattedDate,
+          name: "Bella",
+          reviewIndex: reviewWidgetList.length,
+          isLike: false,
+          isDislike: false,
         ),
       );
+      commentC.clear();
+      notifyListeners();
     }
-    commentC.clear();
+
+  }
+
+  /// Muammo
+  void hasLikePressed(int index) {
+    reviewWidgetList[index].isLike = true;
+    if(reviewWidgetList[index].selected == "like"){
+
+    }
+    reviewWidgetList[index].likeCount++;
+    reviewWidgetList[index].isDislike = false;
+    reviewWidgetList[index].disLikeCount = 0;
+    notifyListeners();
+  }
+
+  void hasDislikePressed(int index) {
+    reviewWidgetList[index].isDislike = true;
+    if(reviewWidgetList[index].selected == "like"){
+
+    }
+    reviewWidgetList[index].disLikeCount++;
+    reviewWidgetList[index].isLike = false;
+    reviewWidgetList[index].likeCount = 0;
     notifyListeners();
   }
 
   @override
   void dispose() {
-    super.dispose();
     commentC.dispose();
+    super.dispose();
   }
 }

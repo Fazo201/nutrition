@@ -1,130 +1,160 @@
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
+import "../../vm/review_vm.dart";
 
-class ReviewWidget extends StatelessWidget {
-
+class ReviewWidget extends ConsumerWidget {
   final String name;
   final String date;
   final String comment;
-  final int likeCount;
-  final int disLikeCount;
+  final int reviewIndex;
+  bool isLike;
+  bool isDislike;
+  int likeCount;
+  int disLikeCount;
+  String selected;
   final Image profileImage;
 
-  const ReviewWidget({required this.name, required this.date, required this.comment, required this.likeCount, required this.disLikeCount, super.key, required this.profileImage});
+  ReviewWidget({
+    required this.name,
+    required this.date,
+    required this.comment,
+    required this.reviewIndex,
+    required this.profileImage,
+    this.isLike = false,
+    this.isDislike = false,
+    this.likeCount = 0,
+    this.disLikeCount = 0,
+    this.selected = "",
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context) => SizedBox(
-    width: double.infinity,
-    height: 200.h,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            CircleAvatar(
-              radius: 26.r,
-              child: profileImage,
-            ),
-            9.horizontalSpace,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: context.theme.textTheme.bodyMedium?.copyWith(
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.c121212,
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(reviewVM);
+    return SizedBox(
+      width: double.infinity,
+      height: 200.h,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 26.r,
+                child: profileImage,
+              ),
+              9.horizontalSpace,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: context.theme.textTheme.bodyMedium?.copyWith(
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.c121212,
+                    ),
                   ),
-                ),
-                2.verticalSpace,
-                Text(
-                  date,
-                  style: context.theme.textTheme.labelSmall?.copyWith(
-                    fontSize: 11.sp,
-                    color: AppColors.cA9A9A9,
+                  2.verticalSpace,
+                  Text(
+                    date,
+                    style: context.theme.textTheme.labelSmall?.copyWith(
+                      fontSize: 11.sp,
+                      color: AppColors.cA9A9A9,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
-        ),
-        18.verticalSpace,
-        Expanded(
-          flex: 0,
-          child: Text(
-            comment,
-            style: context.theme.textTheme.labelSmall?.copyWith(
-              fontSize: 17.sp,
-              color: AppColors.c484848,
+                ],
+              ),
+            ],
+          ),
+          18.verticalSpace,
+          Expanded(
+            flex: 0,
+            child: Text(
+              comment,
+              style: context.theme.textTheme.labelSmall?.copyWith(
+                fontSize: 17.sp,
+                color: AppColors.c484848,
+              ),
             ),
           ),
-        ),
-        10.verticalSpace,
-        Row(
-          children: [
-            SizedBox(
-              width: 55.w,
-              height: 30.h,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  color: Color(0xff71B1A1),
-                  borderRadius: BorderRadius.all(Radius.circular(17)),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "👍",
-                      style: context.theme.textTheme.labelSmall?.copyWith(
-                        fontSize: 15.sp,
-                      ),
+          10.verticalSpace,
+          Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  ref.read(reviewVM).hasLikePressed(reviewIndex.hashCode);
+                },
+                child: SizedBox(
+                  width: 55.w,
+                  height: 30.h,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: isLike != false ? AppColors.c71B1A1 : AppColors.cDBEBE7,
+                      borderRadius: BorderRadius.all(Radius.circular(17.r)),
                     ),
-                    Text(
-                      likeCount.toString(),
-                      style: context.theme.textTheme.labelSmall?.copyWith(
-                        fontSize: 15.sp,
-                        color: AppColors.c484848,
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "👍",
+                          style: context.theme.textTheme.labelSmall?.copyWith(
+                            fontSize: 15.sp,
+                          ),
+                        ),
+                        Text(
+                          likeCount.toString(),
+                          style: context.theme.textTheme.labelSmall?.copyWith(
+                            fontSize: 15.sp,
+                            color: AppColors.c484848,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-            ),
-            10.horizontalSpace,
-            SizedBox(
-              width: 55.w,
-              height: 30.h,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: AppColors.cDBEBE7,
-                  borderRadius: BorderRadius.all(Radius.circular(17.r)),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "👎",
-                      style: context.theme.textTheme.labelSmall?.copyWith(
-                        fontSize: 15.sp,
-                      ),
-                    ),
-                    Text(
-                      disLikeCount.toString(),
-                      style: context.theme.textTheme.labelSmall?.copyWith(
-                        fontSize: 15.sp,
-                        color: AppColors.c484848,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
+              10.horizontalSpace,
+              GestureDetector(
+                onTap: () {
+                  ref.read(reviewVM).hasDislikePressed(reviewIndex);
+                },
+                child: SizedBox(
+                  width: 55.w,
+                  height: 30.h,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: isDislike != false ? AppColors.c71B1A1 : AppColors.cDBEBE7,
+                      borderRadius: BorderRadius.all(Radius.circular(17.r)),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "👎",
+                          style: context.theme.textTheme.labelSmall?.copyWith(
+                            fontSize: 15.sp,
+                          ),
+                        ),
+                        Text(
+                          disLikeCount.toString(),
+                          style: context.theme.textTheme.labelSmall?.copyWith(
+                            fontSize: 15.sp,
+                            color: AppColors.c484848,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }

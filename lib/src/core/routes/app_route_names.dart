@@ -10,4 +10,5 @@ final class AppRouteNames {
   static const String notification = "/notification";
   static const String profile = "/profile";
   static const String search = "search";
+  static const String reviewsPage = "/reviews_page";
 }

@@ -1,15 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:go_router/go_router.dart';
-import 'package:nutrition/src/core/routes/app_route_names.dart';
-import 'package:nutrition/src/feature/auth/view/pages/register_page.dart';
-import 'package:nutrition/src/feature/auth/view/pages/splash_page.dart';
-
-import "../../feature/bookmark/view/pages/bookmark_page.dart";
-import "../../feature/main/view/pages/home_page.dart";
-import "../../feature/main/view/pages/primary_page.dart";
-import "../../feature/main/view/pages/search_recipes_page.dart";
-import "../../feature/notification/view/pages/notification_page.dart";
-import "../../feature/profile/view/pages/profile_page.dart";
+import "package:flutter/cupertino.dart";
+import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
+import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
+import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
+import "../../feature/bookmark/view/pages/reviews_page.dart";
 import "../../feature/recipe/view/pages/recipe_page.dart";
 
 GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
@@ -18,7 +12,7 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 final class RouterConfigService {
   // const RouterConfigService._();
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.recipePage,
+    initialLocation: AppRouteNames.reviewsPage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       //splash page
