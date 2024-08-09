@@ -14,7 +14,7 @@ class HomePage extends ConsumerWidget {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(157.h),
           child: HomePageAppBar(
-            ctx: context,
+            // ctx: context,
           ),
         ),
         backgroundColor: AppColors.white,

@@ -30,12 +30,27 @@ final class RouterConfigService {
             path: AppRouteNames.homePage,
             builder: (BuildContext context, GoRouterState state) => HomePage(),
             routes: [
+              // search page
               GoRoute(
                 name: "SearchPage",
                 path: AppRouteNames.search,
                 builder: (context, state) => SearchRecipesPage(
                   isTextField: state.extra! as bool,
                 ),
+                routes: [
+                  // recipe_page
+                  // GoRoute(
+                  //   name: "Food Detail Page",
+                  //   path: AppRouteNames.foodDetailsPage,
+                  //   builder: (BuildContext context, GoRouterState state) => const FoodDetailsPage(),
+                  // ),
+                ],
+              ),
+              // food detail page
+              GoRoute(
+                name: "Food Detail Page",
+                path: AppRouteNames.foodDetailsPage,
+                builder: (BuildContext context, GoRouterState state) => const FoodDetailsPage(),
               ),
             ],
           ),
@@ -78,13 +93,6 @@ final class RouterConfigService {
             builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
           ),
         ],
-      ),
-
-      //recipe_page
-      GoRoute(
-        name: "RecipePage",
-        path: AppRouteNames.foodDetailsPage,
-        builder: (BuildContext context, GoRouterState state) => const FoodDetailsPage(),
       ),
     ],
   );

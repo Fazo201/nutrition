@@ -1,6 +1,10 @@
+import "dart:developer";
+
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
+import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
 class HomePageBottomCardWidget extends StatelessWidget {
@@ -28,7 +32,10 @@ class HomePageBottomCardWidget extends StatelessWidget {
             minWidth: 251.w,
             height: 100.h,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
-            onPressed: () {},
+            onPressed: () {
+              context.go("${AppRouteNames.homePage}/${AppRouteNames.foodDetailsPage}");
+              log('got to next page home page botton card');
+            },
             child: SizedBox(
               height: 100.h,
               width: 251.w,
