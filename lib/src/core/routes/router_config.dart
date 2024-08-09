@@ -19,7 +19,7 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 final class RouterConfigService {
   const RouterConfigService._();
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.splash,
+    initialLocation: AppRouteNames.homePage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       ShellRoute(

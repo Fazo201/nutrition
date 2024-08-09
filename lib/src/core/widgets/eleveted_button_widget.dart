@@ -3,7 +3,6 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 
 import '../style/app_colors.dart';
-import '../style/text_style.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
   final String text;
