@@ -1,12 +1,12 @@
-import 'dart:developer';
+import "dart:developer";
 
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nutrition/src/feature/main/view_model/search_vm.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/feature/main/view_model/search_vm.dart";
 
-import '../widgets/search_recipes_item_widget.dart';
-import '../widgets/search_recipes_text_field_button_widget.dart';
+import "../widgets/search_recipes_item_widget.dart";
+import "../widgets/search_recipes_text_field_button_widget.dart";
 
 class SearchRecipesPage extends ConsumerStatefulWidget {
   const SearchRecipesPage({super.key, this.isTextField});
