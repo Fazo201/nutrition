@@ -14,7 +14,7 @@ class HomePage extends ConsumerWidget {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(157.h),
           child: HomePageAppBar(
-            ctx: context,
+            // ctx: context,
           ),
         ),
         backgroundColor: AppColors.white,
@@ -36,6 +36,9 @@ class HomePage extends ConsumerWidget {
                       height: 31.h,
                       minWidth: 54.w,
                       elevation: 0,
+                      splashColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      focusColor: Colors.transparent,
                       padding: REdgeInsets.symmetric(horizontal: 20, vertical: 7),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                       color: ref.watch(homeVM).currentIndex == i ? AppColors.c129575 : AppColors.white,
@@ -60,20 +63,19 @@ class HomePage extends ConsumerWidget {
               SizedBox(
                 height: 231.h,
                 width: double.infinity,
-                child: ListView.separated(
-                  padding: REdgeInsets.symmetric(horizontal: 30),
-                  itemCount: 4,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (_, i) => InkWell(
-                    onTap: () {},
-                    child: const HomePageMainCardWidget(
+                child: Center(
+                  child: ListView.separated(
+                    padding: REdgeInsets.symmetric(horizontal: 30),
+                    itemCount: 4,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (_, i) => const HomePageMainCardWidget(
                       imageUrl: "https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png",
                       title: "Classic Greek Salad",
                       time: "15 Mins",
                       rating: 4.5,
                     ),
+                    separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
                   ),
-                  separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
                 ),
               ),
 
@@ -101,15 +103,12 @@ class HomePage extends ConsumerWidget {
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
                   padding: REdgeInsets.symmetric(horizontal: 30),
-                  itemBuilder: (_, i) => InkWell(
-                    onTap: () {},
-                    child: const HomePageBottomCardWidget(
-                      imageUrl: "https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png",
-                      title: "Steak with tomato...",
-                      time: 20,
-                      owner: "By James Milner",
-                      profilImgUrl: "assets/images/mini_profile_image.png",
-                    ),
+                  itemBuilder: (_, i) => const HomePageBottomCardWidget(
+                    imageUrl: "https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png",
+                    title: "Steak with tomato...",
+                    time: 20,
+                    owner: "By James Milner",
+                    profilImgUrl: "assets/images/mini_profile_image.png",
                   ),
                   separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
                 ),

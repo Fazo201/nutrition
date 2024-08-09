@@ -1,6 +1,10 @@
+import "dart:developer";
+
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
+import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
 class HomePageMainCardWidget extends StatelessWidget {
@@ -21,69 +25,79 @@ class HomePageMainCardWidget extends StatelessWidget {
   Widget build(BuildContext context) => Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          SizedBox(
-            width: 150.w,
+          MaterialButton(
+            minWidth: 150.w,
             height: 176.h,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: AppColors.cD9D9D9,
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              child: Padding(
-                padding: REdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    SizedBox(
-                      width: 130.w,
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: AppColors.c484848,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    20.verticalSpace,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Time",
-                              style: TextStyle(
-                                color: AppColors.cA9A9A9,
-                                fontSize: 11.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            5.verticalSpace,
-                            Text(
-                              time,
-                              style: TextStyle(
-                                color: AppColors.c484848,
-                                fontSize: 11.sp,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          width: 24.w,
-                          height: 24.h,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.white,
+            padding: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+            onPressed: () {
+              context.go("${AppRouteNames.homePage}/${AppRouteNames.foodDetailsPage}");
+              log("go to food deatil page home page main card");
+            },
+            child: SizedBox(
+              width: 150.w,
+              height: 176.h,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: AppColors.cD9D9D9,
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Padding(
+                  padding: REdgeInsets.symmetric(horizontal: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        width: 130.w,
+                        child: Text(
+                          title,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: AppColors.c484848,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                      ],
-                    ),
-                    10.verticalSpace,
-                  ],
+                      ),
+                      20.verticalSpace,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Time",
+                                style: TextStyle(
+                                  color: AppColors.cA9A9A9,
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              5.verticalSpace,
+                              Text(
+                                time,
+                                style: TextStyle(
+                                  color: AppColors.c484848,
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            width: 24.w,
+                            height: 24.h,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      10.verticalSpace,
+                    ],
+                  ),
                 ),
               ),
             ),

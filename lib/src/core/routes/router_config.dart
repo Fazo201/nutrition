@@ -19,7 +19,7 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 final class RouterConfigService {
   const RouterConfigService._();
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.splash,
+    initialLocation: AppRouteNames.homePage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       ShellRoute(
@@ -30,12 +30,27 @@ final class RouterConfigService {
             path: AppRouteNames.homePage,
             builder: (BuildContext context, GoRouterState state) => HomePage(),
             routes: [
+              // search page
               GoRoute(
                 name: "SearchPage",
                 path: AppRouteNames.search,
                 builder: (context, state) => SearchRecipesPage(
                   isTextField: state.extra! as bool,
                 ),
+                routes: [
+                  // recipe_page
+                  // GoRoute(
+                  //   name: "Food Detail Page",
+                  //   path: AppRouteNames.foodDetailsPage,
+                  //   builder: (BuildContext context, GoRouterState state) => const FoodDetailsPage(),
+                  // ),
+                ],
+              ),
+              // food detail page
+              GoRoute(
+                name: "Food Detail Page",
+                path: AppRouteNames.foodDetailsPage,
+                builder: (BuildContext context, GoRouterState state) => const FoodDetailsPage(),
               ),
             ],
           ),
@@ -64,23 +79,20 @@ final class RouterConfigService {
         path: AppRouteNames.splash,
         builder: (BuildContext context, GoRouterState state) => const SplashPage(),
       ),
-      //register page
-      GoRoute(
-        name: "RegisterPage",
-        path: AppRouteNames.register,
-        builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
-      ),
-      //recipe_page
-      GoRoute(
-        name: "RecipePage",
-        path: AppRouteNames.foodDetailsPage,
-        builder: (BuildContext context, GoRouterState state) => const FoodDetailsPage(),
-      ),
+
       //login page
       GoRoute(
         name: "LoginPage",
         path: AppRouteNames.login,
         builder: (BuildContext context, GoRouterState state) => LoginPage(),
+        routes: [
+          //register page
+          GoRoute(
+            name: "RegisterPage",
+            path: AppRouteNames.register,
+            builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
+          ),
+        ],
       ),
     ],
   );

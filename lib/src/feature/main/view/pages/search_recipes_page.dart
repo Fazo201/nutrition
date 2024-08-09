@@ -3,6 +3,7 @@ import "dart:developer";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/feature/main/view_model/search_vm.dart";
 
 import "../widgets/search_recipes_item_widget.dart";
@@ -37,8 +38,10 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
       },
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: AppColors.white,
           title: const Text("Search recipes"),
           centerTitle: true,
+          forceMaterialTransparency: true,
         ),
         body: Padding(
           padding: REdgeInsets.all(16),
@@ -70,7 +73,7 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
                     if (ref.watch(searchVm).totalResults != 0) Text("${ref.watch(searchVm).totalResults} results") else const Text(""),
                   ],
                 ),
-                const SizedBox(height: 16.0),
+                16.verticalSpace,
                 Expanded(
                   child: GridView.builder(
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
