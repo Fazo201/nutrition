@@ -1,8 +1,8 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 
-import "../style/app_colors.dart";
+import '../style/app_colors.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
   final String text;
