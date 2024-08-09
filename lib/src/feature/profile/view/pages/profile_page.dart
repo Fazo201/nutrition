@@ -18,44 +18,55 @@ class ProfilePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(profileVM).read();
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-
-        appBar: AppBar(
-          title: Text(
-            "Profile",
-            style: context.theme.textTheme.labelLarge?.copyWith(color: AppColors.black,fontWeight: FontWeight.w600,fontSize: 16.sp),
-          ),
-          centerTitle: true,
-          actions:   [
-            Padding(
-              padding: REdgeInsets.symmetric(horizontal: 10),
-              child: ProfileImagePostWidget(
-                imagesPosts: () => ref.watch(profileVM).pickAndUploadImage(context),
-                imagesDelate:()=>  ref.watch(profileVM).deleteProfilerImage(context),
-                languageChanges: () {},
-              ),
-            ),
-          ],
-          backgroundColor: AppColors.white,
+      appBar: AppBar(
+        title: Text(
+          "Profile",
+          style: context.theme.textTheme.labelLarge?.copyWith(
+              color: AppColors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 16.sp),
         ),
-        body: Padding(
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: REdgeInsets.symmetric(horizontal: 10),
+            child: ProfileImagePostWidget(
+              imagesPosts: () =>
+                  ref.watch(profileVM).pickAndUploadImage(context),
+              imagesDelate: () =>
+                  ref.watch(profileVM).deleteProfilerImage(context),
+              languageChanges: () {},
+            ),
+          ),
+        ],
+        backgroundColor: AppColors.white,
+      ),
+      body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: Padding(
           padding: REdgeInsets.symmetric(horizontal: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               10.verticalSpace,
-               ProfileImageUser(profileImagePath: ref.watch(profileVM).profileImagePath ,),
+              ProfileImageUser(
+                profileImagePath: ref.watch(profileVM).profileImagePath,
+              ),
               15.verticalSpace,
               const UserNameWidget(),
               25.verticalSpace,
               const UserInfoWidget(email: "azimjon@com", password: "1233****"),
               5.verticalSpace,
-              ProfileTextfildWidget(),
+              ProfileTextfildWidget(
+                controllerE: ref.watch(profileVM).controllerE,
+                controllerP: ref.watch(profileVM).controllerP,
+              ),
               15.verticalSpace,
               const ProfileButtonWidget(),
             ],
           ),
         ),
-      );
+      ),
+    );
   }
 }
