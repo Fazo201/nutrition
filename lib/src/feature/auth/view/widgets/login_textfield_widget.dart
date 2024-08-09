@@ -18,49 +18,48 @@ class LoginTextfieldWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      cursorColor: Colors.deepPurple,
-      cursorHeight: 22,
-      decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle: context.theme.textTheme.bodySmall?.copyWith(
-          fontWeight: FontWeight.w400,
-          fontSize: 11.sp,
-          color: AppColors.cD9D9D9,
-          fontFamily: "Poppins",
-        ),
-        focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
+  Widget build(BuildContext context) => TextFormField(
+        controller: controller,
+        cursorColor: Colors.deepPurple,
+        cursorHeight: 22,
+        textInputAction: TextInputAction.next,
+        decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: context.theme.textTheme.bodySmall?.copyWith(
+            fontWeight: FontWeight.w400,
+            fontSize: 11.sp,
             color: AppColors.cD9D9D9,
-            width: 1.5,
+            fontFamily: "Poppins",
           ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: AppColors.cD9D9D9,
+              width: 1.5,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: AppColors.cD9D9D9,
+              width: 1.5,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
+          ),
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: AppColors.cD9D9D9,
+              width: 1.5,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
           ),
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.cD9D9D9,
-            width: 1.5,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-        ),
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.cD9D9D9,
-            width: 1.5,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-        ),
-      ),
-      validator: validator,
-      onChanged: onChanged,
-    );
-  }
+        validator: validator,
+        onChanged: onChanged,
+      );
 }
