@@ -64,7 +64,7 @@ class HomePageAppBar extends StatelessWidget {
                     child: TextField(
                       keyboardType: TextInputType.none,
                       onTap: () {
-                        ctx.push("${AppRouteNames.homePage}/${AppRouteNames.search}", extra: true);
+                        ctx.go("${AppRouteNames.homePage}/${AppRouteNames.search}", extra: true);
                       },
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.search),
@@ -76,7 +76,7 @@ class HomePageAppBar extends StatelessWidget {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
-                          borderSide: const BorderSide(color: AppColors.c129575),
+                          borderSide: const BorderSide(color: AppColors.cD9D9D9),
                         ),
                         contentPadding: REdgeInsets.symmetric(vertical: 10),
                       ),
