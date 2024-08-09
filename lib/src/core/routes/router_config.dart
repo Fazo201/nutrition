@@ -4,7 +4,7 @@ import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
 import "package:nutrition/src/feature/profile/view/pages/profile_page.dart";
-import "package:nutrition/src/feature/recipe/view/pages/recipe_page.dart";
+import "package:nutrition/src/feature/food_details/view/pages/food_details_page.dart";
 
 import "../../feature/main/view/pages/home_page.dart";
 
@@ -49,7 +49,7 @@ class RouterConfigService {
       GoRoute(
         name: "RecipePage",
         path: AppRouteNames.recipePage,
-        builder: (BuildContext context, GoRouterState state) => RecipePage(),
+        builder: (BuildContext context, GoRouterState state) => FoodDetailsPage(),
       ),
     ],
   );
