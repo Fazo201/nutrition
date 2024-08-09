@@ -21,9 +21,10 @@ class RegisterPage extends ConsumerWidget {
     ref.watch(loginVM);
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
         child: SafeArea(
           child: Padding(
-            padding: REdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            padding: REdgeInsets.symmetric(horizontal: 30, vertical: 5),
             child: Form(
               key: ctr.globalKey,
               child: Column(
@@ -49,9 +50,9 @@ class RegisterPage extends ConsumerWidget {
                       color: AppColors.c121212,
                     ),
                   ),
-                  20.verticalSpace,
+                  15.verticalSpace,
                   const RegisterTextWidget(text: "Name"),
-                  5.verticalSpace,
+                  3.verticalSpace,
                   LoginTextfieldWidget(
                     controller: ctr.nameController,
                     hintText: "Enter Name",
@@ -64,9 +65,9 @@ class RegisterPage extends ConsumerWidget {
                     },
                     onChanged: ctr.onChanged,
                   ),
-                  20.verticalSpace,
+                  18.verticalSpace,
                   const RegisterTextWidget(text: "Email"),
-                  5.verticalSpace,
+                  3.verticalSpace,
                   LoginTextfieldWidget(
                     controller: ctr.emailController,
                     hintText: "Enter Email",
@@ -79,9 +80,9 @@ class RegisterPage extends ConsumerWidget {
                     },
                     onChanged: ctr.onChanged,
                   ),
-                  20.verticalSpace,
+                  18.verticalSpace,
                   const RegisterTextWidget(text: "Password"),
-                  5.verticalSpace,
+                  3.verticalSpace,
                   LoginTextfieldWidget(
                     controller: ctr.passwordController,
                     hintText: "Enter Password",
@@ -95,9 +96,9 @@ class RegisterPage extends ConsumerWidget {
                     },
                     onChanged: ctr.onChanged,
                   ),
-                  20.verticalSpace,
+                  18.verticalSpace,
                   const RegisterTextWidget(text: "Confirm Password"),
-                  5.verticalSpace,
+                  3.verticalSpace,
                   LoginTextfieldWidget(
                     controller: ctr.confirmPasswordController,
                     hintText: "Retype Password",
@@ -110,7 +111,7 @@ class RegisterPage extends ConsumerWidget {
                     },
                     onChanged: ctr.onChanged,
                   ),
-                  10.verticalSpace,
+                  5.verticalSpace,
                   Row(
                     children: [
                       Checkbox(
@@ -135,7 +136,7 @@ class RegisterPage extends ConsumerWidget {
                       ),
                     ],
                   ),
-                  10.verticalSpace,
+                  5.verticalSpace,
                   ElevatedButtonWidget(
                     text: "Sign Up",
                     onPressed: () {
@@ -155,7 +156,7 @@ class RegisterPage extends ConsumerWidget {
                       }
                     },
                   ),
-                  14.verticalSpace,
+                  10.verticalSpace,
                   const LoginOrWidget(),
                   15.verticalSpace,
                   Row(
@@ -170,7 +171,7 @@ class RegisterPage extends ConsumerWidget {
                       ),
                     ],
                   ),
-                  15.verticalSpace,
+                  10.verticalSpace,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

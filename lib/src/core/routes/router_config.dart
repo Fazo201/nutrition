@@ -1,8 +1,10 @@
 import "package:flutter/cupertino.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
+import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
+import "package:nutrition/src/feature/food_details/view/pages/food_details_page.dart";
 
 import "../../feature/bookmark/view/pages/bookmark_page.dart";
 import "../../feature/main/view/pages/home_page.dart";
@@ -10,7 +12,6 @@ import "../../feature/main/view/pages/primary_page.dart";
 import "../../feature/main/view/pages/search_recipes_page.dart";
 import "../../feature/notification/view/pages/notification_page.dart";
 import "../../feature/profile/view/pages/profile_page.dart";
-import "../../feature/recipe/view/pages/recipe_page.dart";
 
 GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -18,7 +19,7 @@ GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 final class RouterConfigService {
   const RouterConfigService._();
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.splash,
+    initialLocation: AppRouteNames.homePage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       ShellRoute(
@@ -29,12 +30,27 @@ final class RouterConfigService {
             path: AppRouteNames.homePage,
             builder: (BuildContext context, GoRouterState state) => HomePage(),
             routes: [
+              // search page
               GoRoute(
                 name: "SearchPage",
                 path: AppRouteNames.search,
                 builder: (context, state) => SearchRecipesPage(
-                  isTextField: state.extra as bool,
+                  isTextField: state.extra! as bool,
                 ),
+                routes: [
+                  // recipe_page
+                  // GoRoute(
+                  //   name: "Food Detail Page",
+                  //   path: AppRouteNames.foodDetailsPage,
+                  //   builder: (BuildContext context, GoRouterState state) => const FoodDetailsPage(),
+                  // ),
+                ],
+              ),
+              // food detail page
+              GoRoute(
+                name: "Food Detail Page",
+                path: AppRouteNames.foodDetailsPage,
+                builder: (BuildContext context, GoRouterState state) => const FoodDetailsPage(),
               ),
             ],
           ),
@@ -63,17 +79,20 @@ final class RouterConfigService {
         path: AppRouteNames.splash,
         builder: (BuildContext context, GoRouterState state) => const SplashPage(),
       ),
-      //register page
+
+      //login page
       GoRoute(
-        name: "RegisterPage",
-        path: AppRouteNames.register,
-        builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
-      ),
-      //recipe_page
-      GoRoute(
-        name: "RecipePage",
-        path: AppRouteNames.recipePage,
-        builder: (BuildContext context, GoRouterState state) => const RecipePage(),
+        name: "LoginPage",
+        path: AppRouteNames.login,
+        builder: (BuildContext context, GoRouterState state) => LoginPage(),
+        routes: [
+          //register page
+          GoRoute(
+            name: "RegisterPage",
+            path: AppRouteNames.register,
+            builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
+          ),
+        ],
       ),
     ],
   );

@@ -1,10 +1,11 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
+import "package:nutrition/generated/assets.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
-class RecipePopupMenuButtonWidget extends StatelessWidget {
-  const RecipePopupMenuButtonWidget({super.key});
+class FoodDetailsPopupMenuButtonWidget extends StatelessWidget {
+  const FoodDetailsPopupMenuButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) => PopupMenuButton<String>(
@@ -22,11 +23,11 @@ class RecipePopupMenuButtonWidget extends StatelessWidget {
           }
         },
         itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-          const PopupMenuItem<String>(
+          PopupMenuItem<String>(
             value: "share",
             child: ListTile(
-              leading: Icon(Icons.share),
-              title: Text("share"),
+              leading: SvgPicture.asset(Assets.iconsRecipeShareIcon),
+              title: const Text("share"),
             ),
           ),
           const PopupMenuItem<String>(
@@ -36,18 +37,18 @@ class RecipePopupMenuButtonWidget extends StatelessWidget {
               title: Text("Rate Recipe"),
             ),
           ),
-          const PopupMenuItem<String>(
+          PopupMenuItem<String>(
             value: "review",
             child: ListTile(
-              leading: Icon(Icons.comment),
-              title: Text("Review"),
+              leading: SvgPicture.asset(Assets.iconsReviewIcon),
+              title: const Text("Review"),
             ),
           ),
-          const PopupMenuItem<String>(
+          PopupMenuItem<String>(
             value: "unsave",
             child: ListTile(
-              leading: Icon(Icons.bookmark_remove),
-              title: Text("Unsave"),
+              leading: SvgPicture.asset(Assets.iconsRecipeUnsaveIcon),
+              title: const Text("Unsave"),
             ),
           ),
         ],
@@ -59,7 +60,7 @@ class RecipePopupMenuButtonWidget extends StatelessWidget {
         color: AppColors.white,
         position: PopupMenuPosition.under,
         popUpAnimationStyle: AnimationStyle(duration: Durations.extralong2),
-        constraints: BoxConstraints(maxHeight: 180.h, maxWidth: 164.w),
+        constraints: BoxConstraints(maxWidth: 164.w),
         offset: const Offset(-12, -5),
       );
 }
