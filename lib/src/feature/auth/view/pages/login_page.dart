@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
@@ -8,19 +9,23 @@ import "package:nutrition/src/core/widgets/eleveted_button_widget.dart";
 import "package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart";
 import "package:nutrition/src/feature/auth/view/widgets/login_sizedbox_widget.dart";
 import "package:nutrition/src/feature/auth/view/widgets/login_textfield_widget.dart";
+import "package:nutrition/src/feature/auth/view_model/login_vm.dart";
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
-
-  final GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+class LoginPage extends ConsumerWidget {
+  const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: SafeArea(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ctr = ref.read(loginVM);
+    ref.watch(loginVM);
+    return Scaffold(
+      body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: SafeArea(
           child: Padding(
             padding: REdgeInsets.symmetric(horizontal: 30, vertical: 50),
             child: Form(
-              key: globalKey,
+              key: ctr.globalKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,8 +59,17 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   5.verticalSpace,
-                  const LoginTextfieldWidget(
+                  LoginTextfieldWidget(
+                    controller: ctr.emailController,
                     hintText: "Enter Email",
+                    validator: (value) {
+                      if (value != null && value.contains("@gmail.com") && value.length > 10) {
+                        return null;
+                      } else {
+                        return "Please enter your email address\nExample => (example@gmail.com)";
+                      }
+                    },
+                    onChanged: ctr.onChanged,
                   ),
                   30.verticalSpace,
                   Text(
@@ -67,19 +81,31 @@ class LoginPage extends StatelessWidget {
                       color: AppColors.c121212,
                     ),
                   ),
-                  const LoginTextfieldWidget(
+                  LoginTextfieldWidget(
+                    controller: ctr.passwordController,
                     hintText: "Enter Password",
+                    validator: (value) {
+                      if (value != null && value.isNotEmpty) {
+                        return null;
+                      } else {
+                        return "Please enter your password";
+                      }
+                    },
+                    onChanged: ctr.onChanged,
                   ),
                   20.verticalSpace,
                   Padding(
                     padding: REdgeInsets.only(left: 10),
-                    child: Text(
-                      "Forgot Password?",
-                      style: context.theme.textTheme.bodySmall?.copyWith(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 11.sp,
-                        fontFamily: "Poppins",
-                        color: AppColors.cFF9C00,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        "Forgot Password?",
+                        style: context.theme.textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.sp,
+                          fontFamily: "Poppins",
+                          color: AppColors.cFF9C00,
+                        ),
                       ),
                     ),
                   ),
@@ -87,7 +113,11 @@ class LoginPage extends StatelessWidget {
                   ElevatedButtonWidget(
                     text: "Sign In",
                     onPressed: () {
-                      context.pushReplacement(AppRouteNames.homePage);
+                      if (ctr.globalKey.currentState?.validate() ?? false) {
+                        context.pushReplacement(AppRouteNames.homePage);
+                      } else {
+                        // Optionally, show a message or do something when validation fails
+                      }
                     },
                   ),
                   25.verticalSpace,
@@ -139,5 +169,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 }

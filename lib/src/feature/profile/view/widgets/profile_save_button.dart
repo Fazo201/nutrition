@@ -1,3 +1,5 @@
+import "dart:developer";
+
 import 'package:flutter/material.dart';
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import '../../../../core/style/app_colors.dart';
@@ -16,7 +18,9 @@ class ProfileButtonWidget extends StatelessWidget {
         ),
         fixedSize: const Size(double.maxFinite, 60),
       ),
-      onPressed: () {},
+      onPressed: () {
+        log("Save");
+      },
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

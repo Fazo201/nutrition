@@ -1,20 +1,28 @@
-import "package:flutter/material.dart";
-import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:nutrition/src/core/constants/context_extension.dart";
-import "../../../../core/style/app_colors.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nutrition/src/core/constants/context_extension.dart';
+import '../../../../core/style/app_colors.dart';
 
 class LoginTextfieldWidget extends StatelessWidget {
   final String hintText;
+  final void Function(String?)? onChanged;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
 
-  const LoginTextfieldWidget({super.key, required this.hintText});
+  const LoginTextfieldWidget({
+    required this.hintText,
+    this.controller,
+    super.key,
+    this.onChanged,
+    this.validator,
+  });
 
   @override
   Widget build(BuildContext context) => TextFormField(
+        controller: controller,
         cursorColor: Colors.deepPurple,
         cursorHeight: 22,
-        // controller: loginEmailC,
-        // focusNode: emailFocusNode,
-        // textInputAction: TextInputAction.next,
+        textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: context.theme.textTheme.bodySmall?.copyWith(
@@ -51,5 +59,7 @@ class LoginTextfieldWidget extends StatelessWidget {
             ),
           ),
         ),
+        validator: validator,
+        onChanged: onChanged,
       );
 }
