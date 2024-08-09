@@ -64,11 +64,14 @@ class HomePage extends ConsumerWidget {
                   padding: REdgeInsets.symmetric(horizontal: 30),
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (_, i) => const HomePageMainCardWidget(
-                    imageUrl: "https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png",
-                    title: "Classic Greek Salad",
-                    time: "15 Mins",
-                    rating: 4.5,
+                  itemBuilder: (_, i) => InkWell(
+                    onTap: () {},
+                    child: const HomePageMainCardWidget(
+                      imageUrl: "https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png",
+                      title: "Classic Greek Salad",
+                      time: "15 Mins",
+                      rating: 4.5,
+                    ),
                   ),
                   separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
                 ),
@@ -98,12 +101,15 @@ class HomePage extends ConsumerWidget {
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
                   padding: REdgeInsets.symmetric(horizontal: 30),
-                  itemBuilder: (_, i) => const HomePageBottomCardWidget(
-                    imageUrl: "https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png",
-                    title: "Steak with tomato...",
-                    time: 20,
-                    owner: "By James Milner",
-                    profilImgUrl: "assets/images/mini_profile_image.png",
+                  itemBuilder: (_, i) => InkWell(
+                    onTap: () {},
+                    child: const HomePageBottomCardWidget(
+                      imageUrl: "https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png",
+                      title: "Steak with tomato...",
+                      time: 20,
+                      owner: "By James Milner",
+                      profilImgUrl: "assets/images/mini_profile_image.png",
+                    ),
                   ),
                   separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
                 ),
