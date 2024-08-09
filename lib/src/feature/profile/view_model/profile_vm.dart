@@ -29,18 +29,12 @@ class ProfileVm extends ChangeNotifier {
 
       // Rasm pathini saqlash
       await saveProfileImagePath(savedPath);
-
-
       if (context.mounted) {
         profileImagePath = file.path;
         notifyListeners();
       }
     }
   }
-
-
-
-
 
 
   Future<void> read() async {
