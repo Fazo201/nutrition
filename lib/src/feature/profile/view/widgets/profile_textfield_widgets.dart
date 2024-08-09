@@ -3,19 +3,22 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import '../../../../core/style/app_colors.dart';
 
 class ProfileTextfieldWidget extends StatelessWidget {
+
+  const ProfileTextfieldWidget({super.key, required this.hintText, required this.controller, required this.keyboardType, });
   final String hintText;
-  const ProfileTextfieldWidget({super.key, required this.hintText});
+  final TextEditingController controller;
+  final TextInputType keyboardType;
 
   @override
   Widget build(BuildContext context) => TextFormField(
       cursorColor: Colors.deepPurple,
       cursorHeight: 22.h,
-      // controller: loginEmailC,
-      // focusNode: emailFocusNode,
-      // textInputAction: TextInputAction.next,
+      controller: controller,
+      textInputAction: TextInputAction.next,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hintText,
-        // hintStyle: const AppTextStyle().loginEnter,
+
         focusedBorder:  OutlineInputBorder(
           borderSide: const BorderSide(
             color: AppColors.cD9D9D9,

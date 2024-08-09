@@ -6,6 +6,8 @@ final class AppRouteNames {
 
   // Main
   static const String primary = "/primary";
+  static const String foodDetailsPage = "/food_details_page";
+
   static const String homePage = "/home_page";
   static const String bookmark = "/bookmark";
   static const String notification = "/notification";
