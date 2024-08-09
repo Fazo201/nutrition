@@ -5,16 +5,27 @@ import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "../../vm/review_vm.dart";
 
+class ActionModel {
+  late String id;
+  late bool action; // true= liked, false = disliked
+  ActionModel({
+    required this.action,
+    required this.id,
+  });
+
+  @override
+  String toString() {
+    return "$action $id\n\n";
+  }
+}
+
 class ReviewWidget extends ConsumerWidget {
   final String name;
   final String date;
   final String comment;
   final int reviewIndex;
-  bool isLike;
-  bool isDislike;
-  int likeCount;
-  int disLikeCount;
   String selected;
+  List<ActionModel> actions;
   final Image profileImage;
 
   ReviewWidget({
@@ -23,10 +34,7 @@ class ReviewWidget extends ConsumerWidget {
     required this.comment,
     required this.reviewIndex,
     required this.profileImage,
-    this.isLike = false,
-    this.isDislike = false,
-    this.likeCount = 0,
-    this.disLikeCount = 0,
+    required this.actions,
     this.selected = "",
     super.key,
   });
@@ -86,14 +94,14 @@ class ReviewWidget extends ConsumerWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  ref.read(reviewVM).hasLikePressed(reviewIndex.hashCode);
+                  ref.read(reviewVM).hasLikePressed(reviewIndex);
                 },
                 child: SizedBox(
                   width: 55.w,
                   height: 30.h,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: isLike != false ? AppColors.c71B1A1 : AppColors.cDBEBE7,
+                      color: ref.read(reviewVM).isLiked(reviewIndex) == true ? AppColors.c71B1A1 : AppColors.cDBEBE7,
                       borderRadius: BorderRadius.all(Radius.circular(17.r)),
                     ),
                     child: Row(
@@ -106,7 +114,7 @@ class ReviewWidget extends ConsumerWidget {
                           ),
                         ),
                         Text(
-                          likeCount.toString(),
+                          ref.read(reviewVM).likeCount(reviewIndex).toString(),
                           style: context.theme.textTheme.labelSmall?.copyWith(
                             fontSize: 15.sp,
                             color: AppColors.c484848,
@@ -127,7 +135,7 @@ class ReviewWidget extends ConsumerWidget {
                   height: 30.h,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: isDislike != false ? AppColors.c71B1A1 : AppColors.cDBEBE7,
+                      color: ref.read(reviewVM).isLiked(reviewIndex) == false ? AppColors.c71B1A1 : AppColors.cDBEBE7,
                       borderRadius: BorderRadius.all(Radius.circular(17.r)),
                     ),
                     child: Row(
@@ -140,7 +148,7 @@ class ReviewWidget extends ConsumerWidget {
                           ),
                         ),
                         Text(
-                          disLikeCount.toString(),
+                          ref.read(reviewVM).dislikeCount(reviewIndex).toString(),
                           style: context.theme.textTheme.labelSmall?.copyWith(
                             fontSize: 15.sp,
                             color: AppColors.c484848,
