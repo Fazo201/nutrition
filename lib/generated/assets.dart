@@ -57,5 +57,5 @@ class Assets {
   static const String imagesSplashBackgraundImage = "assets/images/splash_backgraund_image.png";
   static const String imagesSss = "assets/images/sss.png";
   static const String imagesDefaultProfileImage = "assets/images/default_profile_image.png";
-
+  static const String iconsRecipeLocation = "assets/icons/recipe_location_icon.svg";
 }

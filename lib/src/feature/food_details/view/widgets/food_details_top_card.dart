@@ -4,14 +4,14 @@ import "package:flutter_svg/svg.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/style/text_style.dart";
 
-class RecipeTopCard extends StatelessWidget {
-  const RecipeTopCard({super.key});
+class FoodDetailsTopCard extends StatelessWidget {
+  const FoodDetailsTopCard({super.key});
 
   @override
   Widget build(BuildContext context) => ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: SizedBox(
-          height: 150,
+          height: 150.h,
           child: DecoratedBox(
             decoration: const BoxDecoration(
               image: DecorationImage(
