@@ -24,7 +24,7 @@ class RecipeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         child: MaterialButton(
           onPressed: (){
-            context.push(AppRouteNames.recipePage);
+            context.push(AppRouteNames.foodDetailsPage);
           },
           padding: EdgeInsets.zero,
           child: Card(
