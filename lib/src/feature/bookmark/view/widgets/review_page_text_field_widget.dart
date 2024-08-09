@@ -4,11 +4,11 @@ import "package:nutrition/src/core/constants/context_extension.dart";
 
 import "../../../../core/style/app_colors.dart";
 
-class ReviewPageTextField extends StatelessWidget{
+class ReviewPageTextFieldWidget extends StatelessWidget{
 
   final TextEditingController commentC;
 
-  const ReviewPageTextField({
+  const ReviewPageTextFieldWidget({
     required this.commentC,
   });
 

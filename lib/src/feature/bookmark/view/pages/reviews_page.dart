@@ -4,7 +4,8 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/feature/bookmark/vm/review_vm.dart";
 import "../../../../core/style/app_colors.dart";
-import "../widgets/review_page_text_field.dart";
+import "../widgets/review_page_text_field_widget.dart";
+import "../widgets/review_send_button_widget.dart";
 
 class ReviewsPage extends ConsumerWidget {
   const ReviewsPage({super.key});
@@ -54,30 +55,17 @@ class ReviewsPage extends ConsumerWidget {
               child: Stack(
                 alignment: Alignment.topRight,
                 children: [
-                  ReviewPageTextField(
+                  ReviewPageTextFieldWidget(
                     commentC: ref.read(reviewVM).commentC,
                   ),
                   Padding(
                     padding: REdgeInsets.symmetric(horizontal: 10, vertical: 3),
-                    child: MaterialButton(
-                      color: AppColors.c129575,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                      ),
-                      height: 35.h,
-                      minWidth: 59.w,
-                      onPressed: () {
+                    child: ReviewSendButtonWidget(
+                      text: "Send",
+                      onPressed: (){
                         ref.read(reviewVM).addReview(context);
                         FocusScope.of(context).unfocus();
                       },
-                      child: Text(
-                        "Send",
-                        style: context.theme.textTheme.labelSmall?.copyWith(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.white,
-                        ),
-                      ),
                     ),
                   ),
                 ],
