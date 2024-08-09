@@ -1,23 +1,36 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nutrition/src/core/constants/context_extension.dart';
 import '../../../../core/style/app_colors.dart';
-import '../../../../core/style/text_style.dart';
 
 class LoginTextfieldWidget extends StatelessWidget {
   final String hintText;
+  final void Function(String?)? onChanged;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
 
-  const  LoginTextfieldWidget({super.key, required this.hintText});
+  const LoginTextfieldWidget({
+    required this.hintText,
+    this.controller,
+    super.key,
+    this.onChanged,
+    this.validator,
+  });
 
   @override
-  Widget build(BuildContext context) => TextFormField(
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controller,
       cursorColor: Colors.deepPurple,
       cursorHeight: 22,
-      // controller: loginEmailC,
-      // focusNode: emailFocusNode,
-      // textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         hintText: hintText,
-        // hintStyle: const AppTextStyle().loginEnter,
+        hintStyle: context.theme.textTheme.bodySmall?.copyWith(
+          fontWeight: FontWeight.w400,
+          fontSize: 11.sp,
+          color: AppColors.cD9D9D9,
+          fontFamily: "Poppins",
+        ),
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.cD9D9D9,
@@ -46,5 +59,8 @@ class LoginTextfieldWidget extends StatelessWidget {
           ),
         ),
       ),
+      validator: validator,
+      onChanged: onChanged,
     );
+  }
 }

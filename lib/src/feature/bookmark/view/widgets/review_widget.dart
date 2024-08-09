@@ -1,10 +1,18 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/core/style/text_style.dart";
 
 class ReviewWidget extends StatelessWidget {
-  const ReviewWidget({super.key});
+
+  final String name;
+  final String date;
+  final String comment;
+  final int likeCount;
+  final int disLikeCount;
+  final Image profileImage;
+
+  const ReviewWidget({required this.name, required this.date, required this.comment, required this.likeCount, required this.disLikeCount, super.key, required this.profileImage});
 
   @override
   Widget build(BuildContext context) => SizedBox(
@@ -16,24 +24,28 @@ class ReviewWidget extends StatelessWidget {
         Row(
           children: [
             CircleAvatar(
-              radius: 28.r,
+              radius: 26.r,
+              child: profileImage,
             ),
             9.horizontalSpace,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Bella Throne",
-                  // style: const AppTextStyle().homeAll?.copyWith(
-                  //   color: AppColors.c121212,
-                  // ),
+                  name,
+                  style: context.theme.textTheme.bodyMedium?.copyWith(
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.c121212,
+                  ),
                 ),
                 2.verticalSpace,
                 Text(
-                  "June 12, 2020 - 19:35",
-                  // style: const AppTextStyle().searchFilter?.copyWith(
-                  //   color: AppColors.cA9A9A9,
-                  // ),
+                  date,
+                  style: context.theme.textTheme.labelSmall?.copyWith(
+                    fontSize: 11.sp,
+                    color: AppColors.cA9A9A9,
+                  ),
                 ),
               ],
             ),
@@ -43,10 +55,11 @@ class ReviewWidget extends StatelessWidget {
         Expanded(
           flex: 0,
           child: Text(
-            "Lorem Ipsum tempor incididunt ut labore et dolore, inise voluptate velit esse cillum",
-            // style: const AppTextStyle().loginEnter?.copyWith(
-            //   color: AppColors.c484848,
-            // ),
+            comment,
+            style: context.theme.textTheme.labelSmall?.copyWith(
+              fontSize: 17.sp,
+              color: AppColors.c484848,
+            ),
           ),
         ),
         10.verticalSpace,
@@ -65,13 +78,16 @@ class ReviewWidget extends StatelessWidget {
                   children: [
                     Text(
                       "👍",
-                      // style: const AppTextStyle().searchByChef,
+                      style: context.theme.textTheme.labelSmall?.copyWith(
+                        fontSize: 15.sp,
+                      ),
                     ),
                     Text(
-                      "9",
-                      // style: const AppTextStyle().searchByChef?.copyWith(
-                      //   color: AppColors.c484848,
-                      // ),
+                      likeCount.toString(),
+                      style: context.theme.textTheme.labelSmall?.copyWith(
+                        fontSize: 15.sp,
+                        color: AppColors.c484848,
+                      ),
                     ),
                   ],
                 ),
@@ -91,13 +107,16 @@ class ReviewWidget extends StatelessWidget {
                   children: [
                     Text(
                       "👎",
-                      // style: const AppTextStyle().searchByChef,
+                      style: context.theme.textTheme.labelSmall?.copyWith(
+                        fontSize: 15.sp,
+                      ),
                     ),
                     Text(
-                      "2",
-                      // style: const AppTextStyle().searchByChef?.copyWith(
-                      //   color: AppColors.c484848,
-                      // ),
+                      disLikeCount.toString(),
+                      style: context.theme.textTheme.labelSmall?.copyWith(
+                        fontSize: 15.sp,
+                        color: AppColors.c484848,
+                      ),
                     ),
                   ],
                 ),
