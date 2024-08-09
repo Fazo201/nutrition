@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   }
 
   Future<void> stack() async => Future.delayed(const Duration(seconds: 4), () {
-        context.go(AppRouteNames.login);
+        context.go(AppRouteNames.homePage);
       });
 
   @override
@@ -117,45 +117,45 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.width * 0.2),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 66),
-                child: FadeTransition(
-                  opacity: _animation,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.c129575,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      fixedSize: const Size(double.maxFinite, 60),
-                    ),
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LoginPage(),
-                        ),
-                      );
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Start Cooking",
-                          style: context.theme.textTheme.bodySmall?.copyWith(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16.sp,
-                            fontFamily: "Poppins",
-                            color: AppColors.white,
-                          ),
-                        ),
-                        const SizedBox(width: 20),
-                        const Icon(Icons.arrow_forward_outlined),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 66),
+              //   child: FadeTransition(
+              //     opacity: _animation,
+              //     child: ElevatedButton(
+              //       style: ElevatedButton.styleFrom(
+              //         backgroundColor: AppColors.c129575,
+              //         shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(10),
+              //         ),
+              //         fixedSize: const Size(double.maxFinite, 60),
+              //       ),
+              //       onPressed: () {
+              //         Navigator.pushReplacement(
+              //           context,
+              //           MaterialPageRoute(
+              //             builder: (context) => LoginPage(),
+              //           ),
+              //         );
+              //       },
+              //       child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         children: [
+              //           Text(
+              //             "Start Cooking",
+              //             style: context.theme.textTheme.bodySmall?.copyWith(
+              //               fontWeight: FontWeight.w600,
+              //               fontSize: 16.sp,
+              //               fontFamily: "Poppins",
+              //               color: AppColors.white,
+              //             ),
+              //           ),
+              //           const SizedBox(width: 20),
+              //           const Icon(Icons.arrow_forward_outlined),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
