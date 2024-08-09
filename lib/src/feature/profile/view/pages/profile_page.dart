@@ -8,14 +8,18 @@ import 'package:nutrition/src/feature/profile/view/widgets/profile_user_name_wid
 import 'package:nutrition/src/feature/profile/view/widgets/profile_image_user.dart';
 import 'package:nutrition/src/feature/profile/view/widgets/profile_save_button.dart';
 import 'package:nutrition/src/feature/profile/view/widgets/user_info_widget.dart';
+import "../../view_model/profile_vm.dart";
 import '../widgets/profile_textfild_widget.dart';
 
 class ProfilePage extends ConsumerWidget {
   const ProfilePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) => Scaffold(
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(profileVM).read();
+    return Scaffold(
         resizeToAvoidBottomInset: false,
+
         appBar: AppBar(
           title: Text(
             "Profile",
@@ -25,7 +29,11 @@ class ProfilePage extends ConsumerWidget {
           actions:   [
             Padding(
               padding: REdgeInsets.symmetric(horizontal: 10),
-              child: ProfileImagePostWidget(),
+              child: ProfileImagePostWidget(
+                imagesPosts: () => ref.watch(profileVM).pickAndUploadImage(context),
+                imagesDelate:()=>  ref.watch(profileVM).deleteProfilerImage(context),
+                languageChanges: () {},
+              ),
             ),
           ],
           backgroundColor: AppColors.white,
@@ -36,7 +44,7 @@ class ProfilePage extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               10.verticalSpace,
-              const ProfileImageUser(),
+               ProfileImageUser(profileImagePath: ref.watch(profileVM).profileImagePath ,),
               15.verticalSpace,
               const UserNameWidget(),
               25.verticalSpace,
@@ -49,4 +57,5 @@ class ProfilePage extends ConsumerWidget {
           ),
         ),
       );
+  }
 }
