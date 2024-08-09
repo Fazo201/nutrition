@@ -24,4 +24,11 @@ final class AppImages{
     width: 216.w,
   );
 
+  static final defaultProfileImage = Image.asset(
+    Assets.imagesDefaultProfileImage,
+    // width: 31.w,
+    // height: 31.h,
+    fit: BoxFit.cover,
+  );
+
 }
