@@ -46,7 +46,7 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
         body: Padding(
           padding: REdgeInsets.all(16),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            padding: REdgeInsets.symmetric(horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
