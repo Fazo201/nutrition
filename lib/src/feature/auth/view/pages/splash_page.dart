@@ -1,7 +1,10 @@
 import "package:flutter/material.dart";
-import 'package:nutrition/src/core/style/app_colors.dart';
-import 'package:nutrition/src/core/style/text_style.dart';
-import 'package:nutrition/src/feature/auth/view/pages/login_page.dart';
+import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
+import "package:nutrition/src/core/style/app_colors.dart";
+import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -24,15 +27,13 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     _animation = Tween(end: 1.0, begin: 0.0).animate(_controller);
     _animationIcons = Tween<Offset>(begin: const Offset(0.0, -1.0), end: const Offset(0.0, 0.0)).animate(_controller);
     _controller.forward();
-    // stack();
+    stack();
     super.initState();
   }
 
-  // Future<void> stack() async {
-  //   return await Future.delayed(const Duration(seconds: 4), () {
-  //     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
-  //   });
-  // }
+  Future<void> stack() async => Future.delayed(const Duration(seconds: 4), () {
+        context.go(AppRouteNames.login);
+      });
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -41,7 +42,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: Image.asset('assets/images/splash_backgraund_image.png').image,
+              image: Image.asset("assets/images/splash_backgraund_image.png").image,
               fit: BoxFit.cover,
             ),
           ),
@@ -63,7 +64,12 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                     opacity: _animation,
                     child: Text(
                       "100K+ Premium Recipe ",
-                      // style: const AppTextStyle().splashTopText,
+                      style: context.theme.textTheme.bodySmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18.sp,
+                        fontFamily: "Poppins",
+                        color: AppColors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -79,16 +85,31 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       children: [
                         Text(
                           "Get",
-                          // style: const AppTextStyle().splashCenter,
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 50.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
                         ),
                         Text(
                           "Cooking",
-                          // style: const AppTextStyle().splashCenter,
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 50.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
                         ),
                         const SizedBox(height: 20),
                         Text(
                           "Simple way to find Tasty Recipe",
-                          // style: const AppTextStyle().splashButtomText,
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
                         ),
                       ],
                     ),
@@ -121,7 +142,12 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       children: [
                         Text(
                           "Start Cooking",
-                          // style: const AppTextStyle().splashButton,
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
                         ),
                         const SizedBox(width: 20),
                         const Icon(Icons.arrow_forward_outlined),

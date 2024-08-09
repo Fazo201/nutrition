@@ -8,15 +8,15 @@ import "package:nutrition/src/core/routes/app_route_names.dart";
 final homeVM = ChangeNotifierProvider((ref) => HomeVm());
 
 class HomeVm with ChangeNotifier {
-  int curretIndex = 0;
+  int currentIndex = 0;
   List<String> tabBarItems = ["All", "Indian", "Italian", "Asian", "Chinese", "Uzbekistan", "USA", "Turkey"];
-  void navigateToSearchPage(BuildContext context, bool isFilter) {
+  void navigateToSearchPage(BuildContext context, {required bool isFilter}) {
     context.push("${AppRouteNames.homePage}${AppRouteNames.register}", extra: isFilter);
   }
 
   void changeTapBar(int i) {
-    curretIndex = i;
-    log("$curretIndex  == $i    change Tapbar");
+    currentIndex = i;
+    log("$currentIndex  == $i    change Tapbar");
 
     notifyListeners();
   }
