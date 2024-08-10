@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 extension CustomContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
