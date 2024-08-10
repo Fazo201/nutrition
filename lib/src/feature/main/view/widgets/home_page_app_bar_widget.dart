@@ -66,7 +66,7 @@ class HomePageAppBar extends StatelessWidget {
                     child: TextField(
                       keyboardType: TextInputType.none,
                       onTap: () {
-                        context.go("${AppRouteNames.homePage}/${AppRouteNames.search}", extra: true);
+                        context.go("${AppRouteNames.home}/${AppRouteNames.search}", extra: true);
                       },
                       decoration: InputDecoration(
                         prefixIcon: Padding(
@@ -99,7 +99,7 @@ class HomePageAppBar extends StatelessWidget {
                     ),
                     child: InkWell(
                       onTap: () {
-                        context.push("${AppRouteNames.homePage}/${AppRouteNames.search}", extra: false);
+                        context.push("${AppRouteNames.home}/${AppRouteNames.search}", extra: false);
                       },
                       child: Padding(
                         padding: REdgeInsets.all(8),

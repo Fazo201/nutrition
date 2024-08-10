@@ -36,7 +36,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
               elevation: 1,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
               onPressed: () {
-                context.go("${AppRouteNames.homePage}/${AppRouteNames.foodDetailsPage}");
+                context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}");
                 // log('got to next page home page botton card');
               },
               child: Padding(
