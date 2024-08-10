@@ -7,7 +7,9 @@ import '../../../../core/style/app_colors.dart';
 class ProfileButtonWidget extends StatelessWidget {
 
 
-  const ProfileButtonWidget({super.key, });
+   const ProfileButtonWidget({super.key,  this.onPressed , });
+
+ final  void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) => ElevatedButton(
@@ -18,8 +20,9 @@ class ProfileButtonWidget extends StatelessWidget {
         ),
         fixedSize: const Size(double.maxFinite, 60),
       ),
-      onPressed: () {
-        log("Save");
+      onPressed: () => {
+        log("save"),
+        onPressed!()
       },
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
