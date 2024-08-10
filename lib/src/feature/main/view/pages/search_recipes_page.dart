@@ -10,7 +10,7 @@ import "../widgets/search_recipes_item_widget.dart";
 import "../widgets/search_recipes_text_field_button_widget.dart";
 
 class SearchRecipesPage extends ConsumerStatefulWidget {
-  const SearchRecipesPage({super.key, this.isTextField});
+  const SearchRecipesPage({super.key, this. isTextField});
 
   final bool? isTextField;
 
