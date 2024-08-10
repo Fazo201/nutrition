@@ -6,6 +6,7 @@ import "package:flutter_svg/flutter_svg.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
+import "package:nutrition/src/core/widgets/raiting_card_widget.dart";
 
 class HomePageMainCardWidget extends StatelessWidget {
   final String imageUrl;
@@ -35,7 +36,7 @@ class HomePageMainCardWidget extends StatelessWidget {
               padding: REdgeInsets.symmetric(horizontal: 10),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
               onPressed: () {
-                context.go("${AppRouteNames.homePage}/${AppRouteNames.foodDetailsPage}");
+                context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}");
                 log("go to food deatil page home page main card");
               },
               child: Column(
@@ -111,42 +112,8 @@ class HomePageMainCardWidget extends StatelessWidget {
           Positioned(
             top: 30,
             right: 0,
-            child: RatingCard(rating: rating),
+            child: RaitingCardWidget(rating: rating),
           ),
         ],
-      );
-}
-
-class RatingCard extends StatelessWidget {
-  final double rating;
-  const RatingCard({super.key, required this.rating});
-
-  @override
-  Widget build(BuildContext context) => SizedBox(
-        width: 45.w,
-        height: 23.h,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.r),
-            color: AppColors.cFFE1B3,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SvgPicture.asset(
-                "assets/icons/star_selected_icon.svg",
-                height: 10.h,
-              ),
-              Text(
-                "$rating",
-                style: TextStyle(
-                  color: AppColors.black,
-                  fontSize: 11.sp,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
-          ),
-        ),
       );
 }
