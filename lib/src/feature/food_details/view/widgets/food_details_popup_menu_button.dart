@@ -47,7 +47,7 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                     half: SvgPicture.asset(Assets.iconsStarSelectedIcon),
                     empty: SvgPicture.asset(Assets.iconsStarIcon),
                   ),
-                  itemSize: 28.sp,
+                  itemSize: 22.sp,
                   itemPadding: EdgeInsets.symmetric(horizontal: 10.w),
                   onRatingUpdate: (rating) {
                     foodDetailsVM.updateRating(rating);
@@ -57,16 +57,16 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                 actionsPadding: EdgeInsets.zero,
                 actions: [
                   Center(
-                    child: Consumer(
-                      builder: (BuildContext context, WidgetRef ref, Widget? child) => MaterialButton(
+                    child: MaterialButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
+                        elevation: 0,
                         color: ref.watch(foodDetailsProvider).rating > 0
-                            ? const Color.fromRGBO(255, 173, 48, 1)
-                            : const Color.fromRGBO(217, 217, 217, 1),
-                        height: 20.h,
-                        minWidth: 61.w,
+                            ? AppColors.cFFAD30
+                            : AppColors.cD9D9D9,
+                        height: 28.h,
+                        minWidth: 80.w,
                         shape: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.r),
                           borderSide: BorderSide.none,
@@ -76,13 +76,13 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                           style: TextStyle(color: AppColors.white),
                         ),
                       ),
-                    ),
                   ),
                 ],
               ),
             );
             break;
           case "review":
+            context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}/${AppRouteNames.reviews}");
             break;
           case "unsave":
             break;
@@ -108,9 +108,6 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
           child: ListTile(
             leading: SvgPicture.asset(Assets.iconsReviewIcon),
             title: const Text("Review"),
-            onTap: () {
-              context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}/${AppRouteNames.reviews}");
-            },
           ),
         ),
         PopupMenuItem<String>(
