@@ -13,9 +13,9 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(157.h),
-          child: HomePageAppBar(
-            // ctx: context,
-          ),
+          child: const HomePageAppBar(
+              // ctx: context,
+              ),
         ),
         backgroundColor: AppColors.white,
         body: SingleChildScrollView(
@@ -23,43 +23,42 @@ class HomePage extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // custom tabbar
-              Padding(
-                padding: REdgeInsets.symmetric(vertical: 10),
-                child: SizedBox(
-                  height: 51,
-                  width: double.infinity,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: ref.read(homeVM).tabBarItems.length,
-                    padding: REdgeInsets.symmetric(horizontal: 30, vertical: 0),
-                    itemBuilder: (ctx, i) => MaterialButton(
-                      height: 31.h,
-                      minWidth: 54.w,
-                      elevation: 0,
-                      splashColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      padding: REdgeInsets.symmetric(horizontal: 20, vertical: 7),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                      color: ref.watch(homeVM).currentIndex == i ? AppColors.c129575 : AppColors.white,
-                      onPressed: () {
-                        ref.read(homeVM).changeTapBar(i);
-                      },
-                      child: Text(
-                        ref.watch(homeVM).tabBarItems[i],
-                        style: TextStyle(
-                          fontSize: 11.sp,
-                          fontWeight: FontWeight.w600,
-                          color: ref.watch(homeVM).currentIndex == i ? AppColors.white : AppColors.c71B1A1,
-                        ),
+              SizedBox(
+                height: 51.h,
+                width: double.infinity,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: ref.read(homeVM).tabBarItems.length,
+                  padding: REdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                  separatorBuilder: (BuildContext context, int index) => SizedBox(width: 5.w),
+                  itemBuilder: (ctx, i) => MaterialButton(
+                    height: 31.h,
+                    minWidth: 54.w,
+                    elevation: 0,
+                    highlightElevation: 0,
+                    splashColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    padding: REdgeInsets.symmetric(horizontal: 20, vertical: 7),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                    color: ref.watch(homeVM).currentIndex == i ? AppColors.c129575 : AppColors.white,
+                    onPressed: () {
+                      ref.read(homeVM).changeTapBar(i);
+                    },
+                    child: Text(
+                      ref.watch(homeVM).tabBarItems[i],
+                      style: TextStyle(
+                        fontSize: 11.sp,
+                        fontWeight: FontWeight.w600,
+                        color: ref.watch(homeVM).currentIndex == i ? AppColors.white : AppColors.c71B1A1,
                       ),
                     ),
                   ),
                 ),
               ),
-              15.verticalSpace,
 
               // home page main cards
+              15.verticalSpace,
               SizedBox(
                 height: 231.h,
                 width: double.infinity,
@@ -68,20 +67,23 @@ class HomePage extends ConsumerWidget {
                     padding: REdgeInsets.symmetric(horizontal: 30),
                     itemCount: 4,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (_, i) => const HomePageMainCardWidget(
-                      imageUrl: "https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png",
+                    itemBuilder: (context, i) => HomePageMainCardWidget(
+                      imageUrl: "assets/images/food_card.png",
                       title: "Classic Greek Salad",
                       time: "15 Mins",
                       rating: 4.5,
+                      isBookMarkPressed: ref.watch(homeVM).isBookmarked(i),
+                      onTap: () {
+                        ref.read(homeVM.notifier).toggleBookmark(i);
+                      },
                     ),
                     separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
                   ),
                 ),
               ),
 
-              20.verticalSpace,
-
               // home page text
+              20.verticalSpace,
               Padding(
                 padding: REdgeInsets.only(left: 30),
                 child: Text(
@@ -93,18 +95,17 @@ class HomePage extends ConsumerWidget {
                 ),
               ),
 
-              5.verticalSpace,
-
               // home page bottom card
+              5.verticalSpace,
               SizedBox(
-                height: 130.h,
+                height: 140.h,
                 width: double.infinity,
                 child: ListView.separated(
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
-                  padding: REdgeInsets.symmetric(horizontal: 30),
+                  padding: REdgeInsets.only(left: 30, bottom: 12, right: 30),
                   itemBuilder: (_, i) => const HomePageBottomCardWidget(
-                    imageUrl: "https://www.freepnglogos.com/uploads/food-png/food-sutherland-foodservice-12.png",
+                    imageUrl: "assets/images/food_card.png",
                     title: "Steak with tomato...",
                     time: 20,
                     owner: "By James Milner",

@@ -104,7 +104,6 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               _buildFilterOption("Fruit", "category", "Fruit"),
               _buildFilterOption("Breakfast", "category", "Breakfast"),
               _buildFilterOption("Spanish", "category", "Spanish"),
-              _buildFilterOption("Chinese", "category", "Chinese"),
               _buildFilterOption("Lunch", "category", "Lunch"),
             ],
           ),

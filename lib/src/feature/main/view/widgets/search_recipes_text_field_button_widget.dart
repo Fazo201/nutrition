@@ -9,6 +9,7 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
     required this.controller,
     required this.onSubmitted,
     required this.onTapFilter,
+    required this.onChanged,
     super.key,
     this.focusNode,
   });
@@ -16,6 +17,7 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode? focusNode;
   final Function(String)? onSubmitted;
+  final Function(String)? onChanged;
   final Function() onTapFilter;
 
   @override
@@ -30,6 +32,7 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
             controller: controller,
             focusNode: focusNode,
             onSubmitted: onSubmitted,
+            onChanged: onChanged,
             decoration: InputDecoration(
               hintText: "Search recipe",
               hintStyle: const TextStyle(
@@ -52,30 +55,32 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
               border: const OutlineInputBorder(
                 borderSide: BorderSide(color: AppColors.cD9D9D9),
               ),
-              contentPadding: const EdgeInsets.symmetric(vertical: 10.0), // Adjust content padding to match height
+              contentPadding: REdgeInsets.symmetric(vertical: 10), // Adjust content padding to match height
             ),
           ),
         ),
       ),
-      const SizedBox(
-        width: 20,
+      SizedBox(
+        width: 20.w,
       ),
-      InkWell(
-        onTap: () {
-          onTapFilter();
-        },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: SizedBox(
-            height: 40.h, // Set height to 40 px for the filter icon
-            width: 40.h, // Set width to match height for a square button
-            child: DecoratedBox(
-              decoration: const BoxDecoration(
-                color: AppColors.c129575,
-              ),
+      SizedBox(
+        height: 40.h,
+        width: 40.w,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: AppColors.c129575,
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.r),
+            child: MaterialButton(
+              padding: REdgeInsets.all(0),
+              onPressed: onTapFilter,
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: SvgPicture.asset("assets/icons/filter_icon.svg"),
+                padding: REdgeInsets.all(8),
+                child: SvgPicture.asset(
+                  "assets/icons/filter_icon.svg",
+                ),
               ),
             ),
           ),

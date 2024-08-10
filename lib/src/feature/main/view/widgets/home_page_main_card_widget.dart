@@ -6,18 +6,23 @@ import "package:flutter_svg/flutter_svg.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
+import "package:nutrition/src/core/widgets/raiting_card_widget.dart";
 
 class HomePageMainCardWidget extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String time;
   final double rating;
+  final bool isBookMarkPressed;
+  final Function()? onTap;
 
   const HomePageMainCardWidget({
     required this.imageUrl,
     required this.title,
     required this.time,
     required this.rating,
+    required this.onTap,
+    required this.isBookMarkPressed,
     super.key,
   });
 
@@ -25,80 +30,63 @@ class HomePageMainCardWidget extends StatelessWidget {
   Widget build(BuildContext context) => Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          MaterialButton(
-            minWidth: 150.w,
+          SizedBox(
+            width: 150.w,
             height: 176.h,
-            padding: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-            onPressed: () {
-              context.go("${AppRouteNames.homePage}/${AppRouteNames.foodDetailsPage}");
-              log("go to food deatil page home page main card");
-            },
-            child: SizedBox(
-              width: 150.w,
+            child: MaterialButton(
+              minWidth: 150.w,
               height: 176.h,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: AppColors.cD9D9D9,
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: Padding(
-                  padding: REdgeInsets.symmetric(horizontal: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+              color: AppColors.cD9D9D9,
+              elevation: 0,
+              highlightElevation: 0,
+              padding: REdgeInsets.symmetric(horizontal: 10),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+              onPressed: () {
+                context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}");
+                log("go to food deatil page home page main card");
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 130.w,
+                    child: Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: AppColors.c484848,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  20.verticalSpace,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: 130.w,
-                        child: Text(
-                          title,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: AppColors.c484848,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
+                      Text(
+                        "Time",
+                        style: TextStyle(
+                          color: AppColors.cA9A9A9,
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                      20.verticalSpace,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Time",
-                                style: TextStyle(
-                                  color: AppColors.cA9A9A9,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              5.verticalSpace,
-                              Text(
-                                time,
-                                style: TextStyle(
-                                  color: AppColors.c484848,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            width: 24.w,
-                            height: 24.h,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.white,
-                            ),
-                          ),
-                        ],
+                      5.verticalSpace,
+                      Text(
+                        time,
+                        style: TextStyle(
+                          color: AppColors.c484848,
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                      10.verticalSpace,
                     ],
                   ),
-                ),
+                  10.verticalSpace,
+                ],
               ),
             ),
           ),
@@ -111,52 +99,48 @@ class HomePageMainCardWidget extends StatelessWidget {
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                 ),
-                child: Image.network(
+                child: Image.asset(
                   imageUrl,
-                  fit: BoxFit.cover,
+                  // fit: BoxFit.cover,
                 ),
               ),
             ),
           ),
           Positioned(
+            bottom: 0.h,
+            right: 0.w,
+            child: IconButton(
+              splashColor: Colors.blue,
+              padding: REdgeInsets.only(top: 5),
+              // splashRadius: 50,
+              onPressed: onTap,
+              // padding: EdgeInsets.all(0),
+              icon: !isBookMarkPressed
+                  ? Container(
+                      height: 24.h,
+                      width: 24.w,
+                      padding: REdgeInsets.all(3),
+                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                      child: SvgPicture.asset(
+                        "assets/icons/bookmark_icon_off.svg",
+                      ),
+                    )
+                  : Container(
+                      height: 24.h,
+                      width: 24.w,
+                      padding: REdgeInsets.all(4),
+                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                      child: SvgPicture.asset(
+                        "assets/icons/bookmark_icon_on.svg",
+                      ),
+                    ),
+            ),
+          ),
+          Positioned(
             top: 30,
             right: 0,
-            child: RatingCard(rating: rating),
+            child: RaitingCardWidget(rating: rating),
           ),
         ],
-      );
-}
-
-class RatingCard extends StatelessWidget {
-  final double rating;
-  const RatingCard({super.key, required this.rating});
-
-  @override
-  Widget build(BuildContext context) => SizedBox(
-        width: 45.w,
-        height: 23.h,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.r),
-            color: AppColors.cFFE1B3,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SvgPicture.asset(
-                "assets/icons/star_selected_icon.svg",
-                height: 10.h,
-              ),
-              Text(
-                "$rating",
-                style: TextStyle(
-                  color: AppColors.black,
-                  fontSize: 11.sp,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
-          ),
-        ),
       );
 }

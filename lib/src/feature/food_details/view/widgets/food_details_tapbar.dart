@@ -20,6 +20,7 @@ class FoodDetailsTapbar extends ConsumerWidget {
           Expanded(
             child: MaterialButton(
               onPressed: () => state.selectIngredient(),
+              elevation: 0,
               shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
                 borderSide: BorderSide.none,
@@ -38,6 +39,7 @@ class FoodDetailsTapbar extends ConsumerWidget {
           Expanded(
             child: MaterialButton(
               onPressed: () => state.selectProcedure(),
+              elevation: 0,
               shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
                 borderSide: BorderSide.none,
