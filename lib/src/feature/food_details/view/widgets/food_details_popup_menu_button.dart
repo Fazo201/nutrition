@@ -33,8 +33,7 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                 title: Center(
                   child: Text(
                     "Rate recipe",
-                    style: const AppTextStyle().bodySmall?.copyWith(
-                          fontSize: 11.sp,
+                    style: const AppTextStyle().bodyMedium?.copyWith(
                           color: AppColors.black,
                         ),
                   ),
@@ -61,11 +60,12 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                         onPressed: () {
                           Navigator.pop(context);
                         },
+                        elevation: 0,
                         color: ref.watch(foodDetailsProvider).rating > 0
-                            ? const Color.fromRGBO(255, 173, 48, 1)
-                            : const Color.fromRGBO(217, 217, 217, 1),
-                        height: 20.h,
-                        minWidth: 61.w,
+                            ? AppColors.cFFAD30
+                            : AppColors.cD9D9D9,
+                        height: 28.h,
+                        minWidth: 80.w,
                         shape: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.r),
                           borderSide: BorderSide.none,

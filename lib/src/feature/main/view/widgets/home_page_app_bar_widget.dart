@@ -70,7 +70,7 @@ class HomePageAppBar extends StatelessWidget {
                       },
                       decoration: InputDecoration(
                         prefixIcon: Padding(
-                          padding: REdgeInsets.symmetric(vertical: 8),
+                          padding: REdgeInsets.symmetric(vertical: 10),
                           child: SvgPicture.asset("assets/icons/search_in_textfield_icon.svg"),
                         ),
                         hintText: "Search recipe",
