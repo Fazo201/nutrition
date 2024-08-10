@@ -21,7 +21,7 @@ class FoodDetailsIngredientCard extends StatelessWidget {
             ),
             leading: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.network("https://th.bing.com/th/id/OIP.NL54ug-JswPdtmMChNyh6QHaE7?w=218&h=180&c=7&r=0&o=5&dpr=1.6&pid=1.7")),
+                child: Image.network("https://th.bing.com/th/id/OIP.NL54ug-JswPdtmMChNyh6QHaE7?w=218&h=180&c=7&r=0&o=5&dpr=1.6&pid=1.7",height: 52.h,width: 52.w,fit: BoxFit.cover,),),
             subtitle: Text(
               "Vegetables",
               style: const AppTextStyle().titleSmall?.copyWith(
