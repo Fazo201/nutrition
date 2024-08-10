@@ -10,7 +10,7 @@ import "../widgets/search_recipes_item_widget.dart";
 import "../widgets/search_recipes_text_field_button_widget.dart";
 
 class SearchRecipesPage extends ConsumerStatefulWidget {
-  const SearchRecipesPage({super.key, this.isTextField});
+  const SearchRecipesPage({super.key, this. isTextField});
 
   final bool? isTextField;
 
@@ -19,13 +19,15 @@ class SearchRecipesPage extends ConsumerStatefulWidget {
 }
 
 class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
+  late bool value;
   @override
   void initState() {
     super.initState();
+    value = widget.isTextField ?? false;
     log(widget.isTextField.toString());
     log("InitState");
 
-    ref.read(searchVm).checkBooleanValue(widget.isTextField, context);
+    ref.read(searchVm).checkBooleanValue(value, context);
   }
 
   @override
@@ -44,7 +46,7 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
           forceMaterialTransparency: true,
         ),
         body: Padding(
-          padding: REdgeInsets.all(16),
+          padding: REdgeInsets.symmetric(horizontal: 16),
           child: Padding(
             padding: REdgeInsets.symmetric(horizontal: 10),
             child: Column(
@@ -76,6 +78,7 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
                 16.verticalSpace,
                 Expanded(
                   child: GridView.builder(
+                    padding: EdgeInsets.zero,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 15,

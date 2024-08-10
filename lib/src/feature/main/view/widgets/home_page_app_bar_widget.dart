@@ -19,7 +19,7 @@ class HomePageAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            20.verticalSpace,
+            25.verticalSpace,
             Row(
               children: [
                 Expanded(
@@ -66,10 +66,13 @@ class HomePageAppBar extends StatelessWidget {
                     child: TextField(
                       keyboardType: TextInputType.none,
                       onTap: () {
-                        context.go("${AppRouteNames.homePage}/${AppRouteNames.search}", extra: true);
+                        context.go("${AppRouteNames.home}/${AppRouteNames.search}", extra: true);
                       },
                       decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.search),
+                        prefixIcon: Padding(
+                          padding: REdgeInsets.symmetric(vertical: 8),
+                          child: SvgPicture.asset("assets/icons/search_in_textfield_icon.svg"),
+                        ),
                         hintText: "Search recipe",
                         hintStyle: const TextStyle(color: AppColors.cD9D9D9),
                         border: OutlineInputBorder(
@@ -96,7 +99,7 @@ class HomePageAppBar extends StatelessWidget {
                     ),
                     child: InkWell(
                       onTap: () {
-                        context.push("${AppRouteNames.homePage}/${AppRouteNames.search}", extra: false);
+                        context.push("${AppRouteNames.home}/${AppRouteNames.search}", extra: false);
                       },
                       child: Padding(
                         padding: REdgeInsets.all(8),
@@ -109,7 +112,7 @@ class HomePageAppBar extends StatelessWidget {
                 ),
               ],
             ),
-            15.verticalSpace,
+            10.verticalSpace,
           ],
         ),
       );
