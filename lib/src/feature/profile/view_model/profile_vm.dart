@@ -1,8 +1,10 @@
+import "dart:developer";
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import "package:nutrition/src/data/model/user_model.dart";
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../view/widgets/profile_delate_diolog_widget.dart';
@@ -14,8 +16,66 @@ class ProfileVm extends ChangeNotifier {
   File? file;
   bool isImageSelected = false;
   final ImagePicker _picker = ImagePicker();
+  final GlobalKey<FormState> globalKey = GlobalKey<FormState>();
   TextEditingController controllerE = TextEditingController();
   TextEditingController controllerP = TextEditingController();
+  TextEditingController controllerN = TextEditingController();
+  bool isCheck = false;
+     String? username ;
+   String? email ;
+     String? password;
+
+
+  void onChanged(String? value) {
+    globalKey.currentState!.validate();
+    notifyListeners();
+  }
+
+  String? validator(String? value) {
+    if (value != null && value.isNotEmpty) {
+      return null;
+    } else {
+      return "Please enter your name";
+    }
+  }
+
+  void check(bool? value) {
+    isCheck = value ?? false;
+    notifyListeners();
+  }
+
+
+  void updateProfile() {
+    var userModel = UserModel(
+      name: controllerN.text,
+      email: controllerE.text,
+      password: controllerP.text,
+    );
+    if (userModel.name != null && userModel.email != null && userModel.password != null) {
+      if (globalKey.currentState!.validate()) {
+        globalKey.currentState!.save();
+        username = userModel.name;
+        email = userModel.email;
+        password = userModel.password;
+        notifyListeners();
+        log(username!);
+        log(email!);
+        log(password!);
+      }
+    } else {
+    if (globalKey.currentState!.validate()) {
+      globalKey.currentState!.save();
+      notifyListeners();
+    }
+  }
+    notifyListeners();
+    controllerN.clear();
+    controllerE.clear();
+    controllerP.clear();
+    notifyListeners();
+    }
+
+
 
   Future<void> pickAndUploadImage(BuildContext context) async {
     final ImageSource? source = await _showPickerDialog(context);
@@ -77,7 +137,6 @@ class ProfileVm extends ChangeNotifier {
     }
   }
 
-  // Foydalanuvchiga tanlash imkoniyatini beruvchi dialog
   Future<ImageSource?> _showPickerDialog(BuildContext context) async => await showDialog<ImageSource?>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
@@ -108,4 +167,7 @@ class ProfileVm extends ChangeNotifier {
         ),
       ),
     );
+
 }
+
+

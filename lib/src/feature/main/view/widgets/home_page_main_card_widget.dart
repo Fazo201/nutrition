@@ -25,80 +25,61 @@ class HomePageMainCardWidget extends StatelessWidget {
   Widget build(BuildContext context) => Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          MaterialButton(
-            minWidth: 150.w,
+          SizedBox(
+            width: 150.w,
             height: 176.h,
-            padding: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-            onPressed: () {
-              context.go("${AppRouteNames.homePage}/${AppRouteNames.foodDetailsPage}");
-              log("go to food deatil page home page main card");
-            },
-            child: SizedBox(
-              width: 150.w,
+            child: MaterialButton(
+              minWidth: 150.w,
               height: 176.h,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: AppColors.cD9D9D9,
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: Padding(
-                  padding: REdgeInsets.symmetric(horizontal: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+              color: AppColors.cD9D9D9,
+              padding: REdgeInsets.symmetric(horizontal: 10),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+              onPressed: () {
+                context.go("${AppRouteNames.homePage}/${AppRouteNames.foodDetailsPage}");
+                log("go to food deatil page home page main card");
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 130.w,
+                    child: Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: AppColors.c484848,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  20.verticalSpace,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: 130.w,
-                        child: Text(
-                          title,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: AppColors.c484848,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
+                      Text(
+                        "Time",
+                        style: TextStyle(
+                          color: AppColors.cA9A9A9,
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                      20.verticalSpace,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Time",
-                                style: TextStyle(
-                                  color: AppColors.cA9A9A9,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              5.verticalSpace,
-                              Text(
-                                time,
-                                style: TextStyle(
-                                  color: AppColors.c484848,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            width: 24.w,
-                            height: 24.h,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.white,
-                            ),
-                          ),
-                        ],
+                      5.verticalSpace,
+                      Text(
+                        time,
+                        style: TextStyle(
+                          color: AppColors.c484848,
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                      10.verticalSpace,
                     ],
                   ),
-                ),
+                  10.verticalSpace,
+                ],
               ),
             ),
           ),
@@ -111,11 +92,20 @@ class HomePageMainCardWidget extends StatelessWidget {
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                 ),
-                child: Image.network(
+                child: Image.asset(
                   imageUrl,
-                  fit: BoxFit.cover,
+                  // fit: BoxFit.cover,
                 ),
               ),
+            ),
+          ),
+          Positioned(
+            bottom: 14.h,
+            right: 14.w,
+            child: InkWell(
+              onDoubleTap: () {},
+              // padding: EdgeInsets.all(0),
+              child: SvgPicture.asset("assets/icons/bookmark_icon.svg"),
             ),
           ),
           Positioned(
