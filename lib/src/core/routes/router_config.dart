@@ -192,14 +192,12 @@ final class RouterConfigService {
           ),
         ],
       ),
-
       //splash page
       GoRoute(
         name: "SplashPage",
         path: AppRouteNames.splash,
         builder: (BuildContext context, GoRouterState state) => const SplashPage(),
       ),
-
       //login page
       GoRoute(
         name: "LoginPage",

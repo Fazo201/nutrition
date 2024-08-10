@@ -152,7 +152,7 @@ class LoginPage extends ConsumerWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          context.go(AppRouteNames.register);
+                          context.go("${AppRouteNames.login}/${AppRouteNames.register}");
                         },
                         child: Text(
                           " Sign up",
