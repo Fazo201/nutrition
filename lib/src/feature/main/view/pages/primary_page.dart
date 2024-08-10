@@ -17,11 +17,11 @@ class PrimaryPage extends ConsumerWidget {
         onTap: (index) {
           context.go(
             index == 0
-                ? AppRouteNames.homePage
+                ? AppRouteNames.home
                 : index == 1
                 ? AppRouteNames.bookmark
                 : index == 2
-                ? AppRouteNames.notificationPage
+                ? AppRouteNames.notification
                 : AppRouteNames.profile,
           );
 
