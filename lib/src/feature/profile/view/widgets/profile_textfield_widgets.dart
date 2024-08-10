@@ -27,9 +27,6 @@ class ProfileTextfieldWidget extends StatelessWidget {
     cursorHeight: 22,
     textInputAction: TextInputAction.next,
     keyboardType: keyboardType,
-    onTap: () =>{
-      log("onTap")
-    },
     decoration: InputDecoration(
       hintText: hintText,
       hintStyle: context.theme.textTheme.bodySmall?.copyWith(

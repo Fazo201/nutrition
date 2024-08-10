@@ -1,3 +1,5 @@
+import "dart:developer";
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -9,7 +11,7 @@ import 'package:nutrition/src/feature/profile/view/widgets/profile_image_user.da
 import 'package:nutrition/src/feature/profile/view/widgets/profile_save_button.dart';
 import 'package:nutrition/src/feature/profile/view/widgets/user_info_widget.dart';
 import "../../view_model/profile_vm.dart";
-import '../widgets/profile_textfild_widget.dart';
+import '../widgets/profile_custom_textfild_widget.dart';
 
 class ProfilePage extends ConsumerWidget {
   const ProfilePage({super.key});
@@ -51,16 +53,32 @@ class ProfilePage extends ConsumerWidget {
               profileImagePath: ctr.profileImagePath,
             ),
             15.verticalSpace,
-            const UserNameWidget(),
+            UserNameWidget(
+              userName: ref.watch(profileVM).username,
+            ),
             25.verticalSpace,
-            const UserInfoWidget(email: "azimjon@com", password: "1233****"),
+            UserInfoWidget(
+              userEmail: ref.watch(profileVM).email,
+              userPassword: ref.watch(profileVM).password,
+            ),
             5.verticalSpace,
             ProfileTextfildWidget(
               controllerE: ctr.controllerE,
               controllerP: ctr.controllerP,
+              controllerN: ctr.controllerN,
+              globalKey: ctr.globalKey,
             ),
             15.verticalSpace,
-            const ProfileButtonWidget(),
+            ProfileButtonWidget(
+              onPressed: () {
+                if (ctr.globalKey.currentState?.validate() ?? false) {
+                  ctr.updateProfile();
+                  log("message");
+                } else {
+                  // Optionally, show a message or do something when validation fails
+                }
+              },
+            ),
           ],
         ),
       ),
