@@ -21,7 +21,7 @@ class PrimaryPage extends ConsumerWidget {
                 : index == 1
                 ? AppRouteNames.bookmark
                 : index == 2
-                ? AppRouteNames.notification
+                ? AppRouteNames.notificationPage
                 : AppRouteNames.profile,
           );
 
