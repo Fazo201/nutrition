@@ -23,7 +23,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Stack(
-        alignment: const Alignment(1, 0.8),
+        alignment: Alignment.bottomCenter,
         children: [
           SizedBox(
             height: 100.h,

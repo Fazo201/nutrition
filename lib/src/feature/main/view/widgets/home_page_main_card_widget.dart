@@ -1,5 +1,3 @@
-import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
@@ -39,11 +37,11 @@ class HomePageMainCardWidget extends StatelessWidget {
               color: AppColors.cD9D9D9,
               elevation: 0,
               highlightElevation: 0,
+              highlightColor: Colors.grey.shade400,
               padding: REdgeInsets.symmetric(horizontal: 10),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
               onPressed: () {
                 context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}");
-                log("go to food deatil page home page main card");
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -64,7 +62,6 @@ class HomePageMainCardWidget extends StatelessWidget {
                   20.verticalSpace,
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                         "Time",
@@ -111,7 +108,7 @@ class HomePageMainCardWidget extends StatelessWidget {
             right: 0.w,
             child: IconButton(
               splashColor: Colors.blue,
-              padding: REdgeInsets.only(top: 5),
+              // padding: REdgeInsets.only(top: 5),
               // splashRadius: 50,
               onPressed: onTap,
               // padding: EdgeInsets.all(0),
