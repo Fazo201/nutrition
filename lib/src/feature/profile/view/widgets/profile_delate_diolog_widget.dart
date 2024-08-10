@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import "package:nutrition/src/feature/profile/view/widgets/profile_diolog_widget.dart";
-import "package:zoom_tap_animation/zoom_tap_animation.dart";
 
 class DeleteDialog extends BuildShowDialog {
   final String imageUrl;
