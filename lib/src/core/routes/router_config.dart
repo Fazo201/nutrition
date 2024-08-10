@@ -21,7 +21,7 @@ final class RouterConfigService {
   const RouterConfigService._();
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.reviewsPage,
+    initialLocation: AppRouteNames.notificationPage,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       ShellRoute(
@@ -62,8 +62,8 @@ final class RouterConfigService {
             builder: (BuildContext context, GoRouterState state) => const BookmarkPage(),
           ),
           GoRoute(
-            name: "Notification",
-            path: AppRouteNames.notification,
+            name: "NotificationPage",
+            path: AppRouteNames.notificationPage,
             builder: (BuildContext context, GoRouterState state) => NotificationPage(),
           ),
           //profile page

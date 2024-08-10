@@ -156,7 +156,7 @@ class ReviewWidget extends ConsumerWidget {
               ),
             ],
           ),
-          15.verticalSpace,
+          30.verticalSpace,
         ],
       ),
     );

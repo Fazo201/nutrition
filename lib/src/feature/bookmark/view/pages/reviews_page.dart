@@ -12,6 +12,7 @@ class ReviewsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     ref.watch(reviewVM.notifier);
 
     return Scaffold(
