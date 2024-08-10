@@ -29,16 +29,13 @@ class HomePage extends ConsumerWidget {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: ref.read(homeVM).tabBarItems.length,
-                  padding: REdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                  padding: REdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   separatorBuilder: (BuildContext context, int index) => SizedBox(width: 5.w),
                   itemBuilder: (ctx, i) => MaterialButton(
                     height: 31.h,
                     minWidth: 54.w,
                     elevation: 0,
                     highlightElevation: 0,
-                    splashColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    focusColor: Colors.transparent,
                     padding: REdgeInsets.symmetric(horizontal: 20, vertical: 7),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     color: ref.watch(homeVM).currentIndex == i ? AppColors.c129575 : AppColors.white,
@@ -98,12 +95,12 @@ class HomePage extends ConsumerWidget {
               // home page bottom card
               5.verticalSpace,
               SizedBox(
-                height: 140.h,
+                height: 144.h,
                 width: double.infinity,
                 child: ListView.separated(
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
-                  padding: REdgeInsets.only(left: 30, bottom: 12, right: 30),
+                  padding: REdgeInsets.only(left: 30, bottom: 18, right: 30),
                   itemBuilder: (_, i) => const HomePageBottomCardWidget(
                     imageUrl: "assets/images/food_card.png",
                     title: "Steak with tomato...",
