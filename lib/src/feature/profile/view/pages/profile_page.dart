@@ -26,9 +26,10 @@ class ProfilePage extends ConsumerWidget {
         title: Text(
           "Profile",
           style: context.theme.textTheme.labelLarge?.copyWith(
-              color: AppColors.black,
-              fontWeight: FontWeight.w600,
-              fontSize: 16.sp),
+            color: AppColors.black,
+            fontWeight: FontWeight.w600,
+            fontSize: 16.sp,
+          ),
         ),
         centerTitle: true,
         actions: [
@@ -51,8 +52,8 @@ class ProfilePage extends ConsumerWidget {
             10.verticalSpace,
             Consumer(
               builder: (context, ref, child) => ProfileImageUser(
-                  profileImagePath: ref.watch(profileVM).profileImagePath,
-                ),
+                profileImagePath: ref.watch(profileVM).profileImagePath,
+              ),
             ),
             15.verticalSpace,
             UserNameWidget(
