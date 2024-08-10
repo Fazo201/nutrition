@@ -34,8 +34,7 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                 title: Center(
                   child: Text(
                     "Rate recipe",
-                    style: const AppTextStyle().bodySmall?.copyWith(
-                          fontSize: 11.sp,
+                    style: const AppTextStyle().bodyMedium?.copyWith(
                           color: AppColors.black,
                         ),
                   ),
@@ -57,7 +56,8 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                 actionsPadding: EdgeInsets.zero,
                 actions: [
                   Center(
-                    child: MaterialButton(
+                    child: Consumer(
+                      builder: (BuildContext context, WidgetRef ref, Widget? child) => MaterialButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
@@ -76,6 +76,7 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                           style: TextStyle(color: AppColors.white),
                         ),
                       ),
+                    ),
                   ),
                 ],
               ),
