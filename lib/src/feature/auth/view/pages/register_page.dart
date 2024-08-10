@@ -3,25 +3,25 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "package:nutrition/src/core/routes/app_route_names.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/core/widgets/eleveted_button_widget.dart";
-import "package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart";
-import "package:nutrition/src/feature/auth/view/widgets/login_textfield_widget.dart";
-import "package:nutrition/src/feature/auth/view/widgets/register_text_widget.dart";
-import "package:nutrition/src/feature/auth/view_model/login_vm.dart";
+
+import "../../../../core/routes/app_route_names.dart";
+import "../../../../core/style/app_colors.dart";
+import "../../../../core/widgets/eleveted_button_widget.dart";
+import "../../view_model/login_vm.dart";
+import "../widgets/login_or_widget.dart";
 import "../widgets/login_sizedbox_widget.dart";
+import "../widgets/login_textfield_widget.dart";
+import "../widgets/register_text_widget.dart";
 
 class RegisterPage extends ConsumerWidget {
   const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ctr = ref.read(loginVM);
-    ref.watch(loginVM);
+    final ctr = ref.watch(loginVM);
+
     return Scaffold(
       body: SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
         child: SafeArea(
           child: Padding(
             padding: REdgeInsets.symmetric(horizontal: 30, vertical: 5),
@@ -63,7 +63,7 @@ class RegisterPage extends ConsumerWidget {
                         return "Please enter your name";
                       }
                     },
-                    onChanged: ctr.onChanged,
+                    onChanged: (value) => ctr.onChanged,
                   ),
                   18.verticalSpace,
                   const RegisterTextWidget(text: "Email"),
@@ -78,7 +78,7 @@ class RegisterPage extends ConsumerWidget {
                         return "Please enter your email address\nExample => (example@gmail.com)";
                       }
                     },
-                    onChanged: ctr.onChanged,
+                    onChanged: (value) => ctr.onChanged,
                   ),
                   18.verticalSpace,
                   const RegisterTextWidget(text: "Password"),
@@ -88,13 +88,13 @@ class RegisterPage extends ConsumerWidget {
                     hintText: "Enter Password",
                     validator: (value) {
                       final regex = RegExp(r"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
-                      if (value != null && value.contains(regex)) {
+                      if (value != null && regex.hasMatch(value)) {
                         return null;
                       } else {
                         return "Must be 8 or more characters  and contain at least 1\nnumber or special character";
                       }
                     },
-                    onChanged: ctr.onChanged,
+                    onChanged: (value) => ctr.onChanged,
                   ),
                   18.verticalSpace,
                   const RegisterTextWidget(text: "Confirm Password"),
@@ -106,10 +106,10 @@ class RegisterPage extends ConsumerWidget {
                       if (value == ctr.passwordController.text) {
                         return null;
                       } else {
-                        return "Must be 8 or more characters  and contain at least 1\nnumber or special character";
+                        return "Passwords do not match";
                       }
                     },
-                    onChanged: ctr.onChanged,
+                    onChanged: (value) => ctr.onChanged,
                   ),
                   5.verticalSpace,
                   Row(
@@ -120,9 +120,9 @@ class RegisterPage extends ConsumerWidget {
                         ),
                         side: const BorderSide(width: 1, color: AppColors.cFF9C00),
                         checkColor: AppColors.cFF9C00,
-                        value: ref.watch(loginVM).isCheck,
+                        value: ctr.isCheck,
                         onChanged: (value) {
-                          ref.read(loginVM).check(value);
+                          ctr.check(value);
                         },
                       ),
                       Text(
@@ -150,7 +150,7 @@ class RegisterPage extends ConsumerWidget {
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text("Ma`lumotlarni to'liq to`ldiring"),
+                            content: Text("Please fill in all the details correctly."),
                           ),
                         );
                       }
@@ -186,7 +186,7 @@ class RegisterPage extends ConsumerWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          context.go(AppRouteNames.login);
+                          context.go("${AppRouteNames.register}${AppRouteNames.login}");
                         },
                         child: Text(
                           " Sign In",
