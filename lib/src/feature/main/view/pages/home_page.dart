@@ -40,7 +40,7 @@ class HomePage extends ConsumerWidget {
                     hoverColor: Colors.transparent,
                     focusColor: Colors.transparent,
                     padding: REdgeInsets.symmetric(horizontal: 20, vertical: 7),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     color: ref.watch(homeVM).currentIndex == i ? AppColors.c129575 : AppColors.white,
                     onPressed: () {
                       ref.read(homeVM).changeTapBar(i);
