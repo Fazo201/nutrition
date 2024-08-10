@@ -5,12 +5,13 @@ import "../../../../core/style/app_colors.dart";
 
 class UserNameWidget extends StatelessWidget {
   const UserNameWidget({
-    super.key,
+    super.key, required this.userName,
   });
+ final  String? userName;
   @override
   Widget build(BuildContext context) => Center(
         child: Text(
-          "Azimjon ",
+          userName != null? userName! : "User Name",
           style: context.theme.textTheme.labelLarge?.copyWith(
               color: AppColors.black,
               fontWeight: FontWeight.w600,
