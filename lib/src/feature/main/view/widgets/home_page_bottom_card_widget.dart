@@ -34,6 +34,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
               height: 100.h,
               color: Colors.white,
               elevation: 1,
+              highlightElevation: 0,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
               onPressed: () {
                 context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}");
@@ -122,7 +123,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                 ),
                 child: Image.asset(
                   imageUrl,
-                  // fit: BoxFit.cover, 
+                  // fit: BoxFit.cover,
                 ),
               ),
             ),

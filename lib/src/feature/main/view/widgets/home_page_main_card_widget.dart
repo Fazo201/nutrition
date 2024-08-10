@@ -33,6 +33,8 @@ class HomePageMainCardWidget extends StatelessWidget {
               minWidth: 150.w,
               height: 176.h,
               color: AppColors.cD9D9D9,
+              elevation: 0,
+              highlightElevation: 0,
               padding: REdgeInsets.symmetric(horizontal: 10),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
               onPressed: () {
