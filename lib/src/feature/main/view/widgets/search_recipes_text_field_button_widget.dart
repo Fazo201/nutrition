@@ -52,13 +52,13 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
               border: const OutlineInputBorder(
                 borderSide: BorderSide(color: AppColors.cD9D9D9),
               ),
-              contentPadding: const EdgeInsets.symmetric(vertical: 10.0), // Adjust content padding to match height
+              contentPadding: REdgeInsets.symmetric(vertical: 10), // Adjust content padding to match height
             ),
           ),
         ),
       ),
-      const SizedBox(
-        width: 20,
+      SizedBox(
+        width: 20.w,
       ),
       InkWell(
         onTap: () {
@@ -74,7 +74,7 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
                 color: AppColors.c129575,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: REdgeInsets.all(10),
                 child: SvgPicture.asset("assets/icons/filter_icon.svg"),
               ),
             ),

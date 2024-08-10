@@ -37,7 +37,7 @@ class SearchVm extends ChangeNotifier {
   void performSearch() {
     final query = _controller.text;
     _results = List<String>.generate(10, (index) => 'Result ${index + 1} for "$query"');
-    _totalResults = 255;
+    _totalResults = _results.length;
     notifyListeners();
   }
 
