@@ -36,6 +36,7 @@ class HomePage extends ConsumerWidget {
                     height: 31.h,
                     minWidth: 54.w,
                     elevation: 0,
+                    highlightElevation: 0,
                     splashColor: Colors.transparent,
                     hoverColor: Colors.transparent,
                     focusColor: Colors.transparent,
