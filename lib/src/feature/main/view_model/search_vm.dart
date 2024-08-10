@@ -3,6 +3,7 @@ import "dart:developer";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/style/app_colors.dart";
 
 import "../view/widgets/filter_search_widget.dart";
 
@@ -43,6 +44,7 @@ class SearchVm extends ChangeNotifier {
   void showFilterBottomSheet(BuildContext context) {
     FocusScope.of(context).unfocus();  // Unfocus to dismiss the keyboard
     showModalBottomSheet(
+      backgroundColor: AppColors.white,
       context: context,
       isScrollControlled: true,  // Allows the bottom sheet to be dismissible
       shape: RoundedRectangleBorder(

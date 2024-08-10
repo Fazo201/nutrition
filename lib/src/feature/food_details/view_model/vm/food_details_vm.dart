@@ -6,9 +6,11 @@ final foodDetailsProvider = ChangeNotifierProvider((ref) => FoodDetailsVM());
 enum TapType {ingredient, procedure}
 
 class FoodDetailsVM with ChangeNotifier {
-  TapType _selectedTap;
-
   FoodDetailsVM({TapType selectedTap = TapType.ingredient}):_selectedTap = selectedTap;
+  TapType _selectedTap;
+  double _rating = 0;
+
+  double get rating => _rating;
 
   TapType get selectedTap => _selectedTap;
 
@@ -19,6 +21,11 @@ class FoodDetailsVM with ChangeNotifier {
 
   void selectProcedure(){
     _selectedTap = TapType.procedure;
+    notifyListeners();
+  }
+
+  void updateRating(double rating) {
+    _rating = rating;
     notifyListeners();
   }
 }
