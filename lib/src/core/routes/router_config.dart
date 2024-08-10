@@ -21,7 +21,7 @@ final class RouterConfigService {
   const RouterConfigService._();
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.reviewsPage,
+    initialLocation: AppRouteNames.splash,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       ShellRoute(
