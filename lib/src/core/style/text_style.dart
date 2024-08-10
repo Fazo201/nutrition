@@ -128,6 +128,7 @@ class AppTextStyle extends TextTheme {
 class FontSize {
   const FontSize._();
 
+  static double size8 = 8.sp;
   static double size10 = 10.sp;
   static double size11 = 11.sp;
   static double size12 = 12.sp;

@@ -22,12 +22,13 @@ class NotificationPage extends ConsumerWidget{
     ),
     body: ListView.separated(
       itemCount: 10,
-      separatorBuilder: (context, index) => const SizedBox(height: 10),
+      padding: REdgeInsets.symmetric(horizontal: 10),
+      separatorBuilder: (context, index) => SizedBox(height: 10.h),
       itemBuilder: (context, index) => SizedBox(
         height: 92,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
           ),
           child: Row(
             children: [
