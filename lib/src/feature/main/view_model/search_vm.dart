@@ -10,6 +10,9 @@ import "../view/widgets/filter_search_widget.dart";
 final searchVm = ChangeNotifierProvider((ref) => SearchVm());
 
 class SearchVm extends ChangeNotifier {
+  SearchVm() {
+    _filteredRecipes = _recentSearches;
+  }
 
   final List<String> _recentSearches = [
     "Traditional spare ribs baked",
@@ -25,28 +28,41 @@ class SearchVm extends ChangeNotifier {
   final FocusNode _focusNode = FocusNode();
   final TextEditingController _controller = TextEditingController();
 
-  List<String> _results = [];
+  List<String> _filteredRecipes = [];
   int _totalResults = 0;
 
   List<String> get recentSearches => _recentSearches;
-  List<String> get results => _results;
+
+  List<String> get filteredRecipes => _filteredRecipes;
+
   int get totalResults => _totalResults;
+
   FocusNode get focusNode => _focusNode;
+
   TextEditingController get controller => _controller;
 
   void performSearch() {
     final query = _controller.text;
-    _results = List<String>.generate(10, (index) => 'Result ${index + 1} for "$query"');
-    _totalResults = _results.length;
+    filterRecipes(query);
+  }
+
+  void filterRecipes(String query) {
+    if (query.isEmpty) {
+      _filteredRecipes = _recentSearches;
+    } else {
+      _filteredRecipes = _recentSearches.where((recipe) =>
+          recipe.toLowerCase().contains(query.toLowerCase())).toList();
+    }
+    _totalResults = _filteredRecipes.length;
     notifyListeners();
   }
 
   void showFilterBottomSheet(BuildContext context) {
-    FocusScope.of(context).unfocus();  // Unfocus to dismiss the keyboard
+    FocusScope.of(context).unfocus();
     showModalBottomSheet(
       backgroundColor: AppColors.white,
       context: context,
-      isScrollControlled: true,  // Allows the bottom sheet to be dismissible
+      isScrollControlled: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(25.0.r),
