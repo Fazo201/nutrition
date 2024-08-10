@@ -10,7 +10,6 @@ final void Function() imagesPosts;
 final  void Function()  imagesDelate;
 final void Function()  languageChanges;
 
-
   @override
   Widget build(BuildContext context) => PopupMenuButton<String>(
         onSelected: (String result) {

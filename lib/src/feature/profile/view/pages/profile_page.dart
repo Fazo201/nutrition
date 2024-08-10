@@ -1,3 +1,5 @@
+import "dart:developer";
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -9,14 +11,16 @@ import 'package:nutrition/src/feature/profile/view/widgets/profile_image_user.da
 import 'package:nutrition/src/feature/profile/view/widgets/profile_save_button.dart';
 import 'package:nutrition/src/feature/profile/view/widgets/user_info_widget.dart';
 import "../../view_model/profile_vm.dart";
-import '../widgets/profile_textfild_widget.dart';
+import '../widgets/profile_custom_textfild_widget.dart';
 
 class ProfilePage extends ConsumerWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(profileVM).read();
+    final ctr = ref.read(profileVM);
+    // ref.watch(profileVM).read();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -31,10 +35,8 @@ class ProfilePage extends ConsumerWidget {
           Padding(
             padding: REdgeInsets.symmetric(horizontal: 10),
             child: ProfileImagePostWidget(
-              imagesPosts: () =>
-                  ref.watch(profileVM).pickAndUploadImage(context),
-              imagesDelate: () =>
-                  ref.watch(profileVM).deleteProfilerImage(context),
+              imagesPosts: () => ctr.pickAndUploadImage(context),
+              imagesDelate: () => ctr.deleteProfilerImage(context),
               languageChanges: () {},
             ),
           ),
@@ -42,29 +44,44 @@ class ProfilePage extends ConsumerWidget {
         backgroundColor: AppColors.white,
       ),
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
-        child: Padding(
-          padding: REdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              10.verticalSpace,
-              ProfileImageUser(
-                profileImagePath: ref.watch(profileVM).profileImagePath,
-              ),
-              15.verticalSpace,
-              const UserNameWidget(),
-              25.verticalSpace,
-              const UserInfoWidget(email: "azimjon@com", password: "1233****"),
-              5.verticalSpace,
-              ProfileTextfildWidget(
-                controllerE: ref.watch(profileVM).controllerE,
-                controllerP: ref.watch(profileVM).controllerP,
-              ),
-              15.verticalSpace,
-              const ProfileButtonWidget(),
-            ],
-          ),
+        padding: REdgeInsets.symmetric(horizontal: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            10.verticalSpace,
+            Consumer(
+              builder: (context, ref, child) => ProfileImageUser(
+                  profileImagePath: ref.watch(profileVM).profileImagePath,
+                ),
+            ),
+            15.verticalSpace,
+            UserNameWidget(
+              userName: ref.watch(profileVM).username,
+            ),
+            25.verticalSpace,
+            UserInfoWidget(
+              userEmail: ref.watch(profileVM).email,
+              userPassword: ref.watch(profileVM).password,
+            ),
+            5.verticalSpace,
+            ProfileTextfildWidget(
+              controllerE: ctr.controllerE,
+              controllerP: ctr.controllerP,
+              controllerN: ctr.controllerN,
+              globalKey: ctr.globalKey,
+            ),
+            15.verticalSpace,
+            ProfileButtonWidget(
+              onPressed: () {
+                if (ctr.globalKey.currentState?.validate() ?? false) {
+                  ctr.updateProfile();
+                  log("message");
+                } else {
+                  // Optionally, show a message or do something when validation fails
+                }
+              },
+            ),
+          ],
         ),
       ),
     );

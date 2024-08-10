@@ -1,71 +1,108 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:flutter_svg/flutter_svg.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/core/style/text_style.dart";
+import "package:nutrition/src/feature/notification/vm/notification_vm.dart";
+import "../../../../core/style/app_colors.dart";
+import "../widgets/notification_card_widget.dart";
+import "../widgets/notification_page_tab_widget.dart";
 
-class NotificationPage extends ConsumerWidget{
+class NotificationPage extends ConsumerStatefulWidget {
   @override
-  Widget build(BuildContext context, WidgetRef ref) => Scaffold(
-    appBar: AppBar(
-      title: Text(
-        "Notifications",
-        style: context.textTheme.titleLarge?.copyWith(
-          color: AppColors.c121212,
-          fontSize: FontSize.size18,
-          fontWeight: FontWeight.w600,
-       ),
-      ),
-      centerTitle: true,
-    ),
-    body: ListView.separated(
-      itemCount: 10,
-      padding: REdgeInsets.symmetric(horizontal: 10),
-      separatorBuilder: (context, index) => SizedBox(height: 10.h),
-      itemBuilder: (context, index) => SizedBox(
-        height: 92,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.r),
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    Text(
-                      "New Recipe Alert!",
-                      style: context.textTheme.labelSmall?.copyWith(
-                        color: AppColors.c121212,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 11,
-                      ),
-                    ),
-                    20.verticalSpace,
-                    Text(
-                      "Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum",
-                      style: context.textTheme.labelSmall?.copyWith(
-                        fontSize: FontSize.size11,
-                      ),
-                    ),
-                    10.verticalSpace,
-                    Text(
-                      "10 mins ago",
-                      style: context.textTheme.labelSmall?.copyWith(fontSize: 7),
-                    )
-                  ],
-                ),
-              ),
-              Align(
-                alignment: const Alignment(0.9, -0.9),
-                child: SvgPicture.asset("assets/icons/notication_page_icon.svg"),
-              ),
-            ],
+  _NotificationPageState createState() => _NotificationPageState();
+}
+
+class _NotificationPageState extends ConsumerState<NotificationPage> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    final notificationVm = ref.read(notificationVMProvider);
+    _tabController = TabController(length: 3, vsync: this, initialIndex: notificationVm.selectedIndex)
+      ..addListener(() {
+        if (_tabController.index != notificationVm.selectedIndex) {
+          notificationVm.selectTab(_tabController.index);
+        }
+      });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final notificationVm = ref.watch(notificationVMProvider);
+
+    return Scaffold(
+      backgroundColor: AppColors.white,
+      appBar: AppBar(
+        backgroundColor: AppColors.white,
+        surfaceTintColor: AppColors.white,
+        title: Text(
+          "Notifications",
+          style: context.theme.textTheme.bodyLarge?.copyWith(
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w600,
           ),
         ),
+        bottom: TabBar(
+          controller: _tabController,
+          padding: REdgeInsets.symmetric(horizontal: 8),
+          indicatorColor: AppColors.white,
+          indicatorWeight: 1,
+          dividerColor: AppColors.white,
+          tabs: [
+            NotificationPageTabWidget(
+              text: "All",
+              isSelected: notificationVm.selectedIndex == 0,
+              index: 0,
+              onTab: () {
+                _tabController.animateTo(0);
+              },
+            ),
+            NotificationPageTabWidget(
+              text: "Read",
+              isSelected: notificationVm.selectedIndex == 1,
+              index: 1,
+              onTab: () {
+                _tabController.animateTo(1);
+              },
+            ),
+            NotificationPageTabWidget(
+              text: "Unread",
+              isSelected: notificationVm.selectedIndex == 2,
+              index: 2,
+              onTab: () {
+                _tabController.animateTo(2);
+              },
+            ),
+          ],
+        ),
       ),
-    ),
-  );
+      body: Padding(
+        padding: REdgeInsets.symmetric(horizontal: 30),
+        child: TabBarView(
+          controller: _tabController,
+          children: [
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => const NotificationCardWidget(),
+            ),
+            ListView.builder(
+              itemCount: 1,
+              itemBuilder: (context, index) => const NotificationCardWidget(),
+            ),
+            ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) => const NotificationCardWidget(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

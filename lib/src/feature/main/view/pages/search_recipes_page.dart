@@ -3,13 +3,14 @@ import "dart:developer";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/feature/main/view_model/search_vm.dart";
 
 import "../widgets/search_recipes_item_widget.dart";
 import "../widgets/search_recipes_text_field_button_widget.dart";
 
 class SearchRecipesPage extends ConsumerStatefulWidget {
-  const SearchRecipesPage({super.key, this.isTextField});
+  const SearchRecipesPage({super.key, this. isTextField});
 
   final bool? isTextField;
 
@@ -37,13 +38,15 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
       },
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: AppColors.white,
           title: const Text("Search recipes"),
           centerTitle: true,
+          forceMaterialTransparency: true,
         ),
         body: Padding(
           padding: REdgeInsets.all(16),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            padding: REdgeInsets.symmetric(horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -70,7 +73,7 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
                     if (ref.watch(searchVm).totalResults != 0) Text("${ref.watch(searchVm).totalResults} results") else const Text(""),
                   ],
                 ),
-                const SizedBox(height: 16.0),
+                16.verticalSpace,
                 Expanded(
                   child: GridView.builder(
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
