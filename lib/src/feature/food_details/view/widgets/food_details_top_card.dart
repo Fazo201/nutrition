@@ -1,14 +1,21 @@
+import "dart:developer";
+
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/style/text_style.dart";
+import "package:nutrition/src/feature/food_details/view_model/vm/food_details_vm.dart";
 
-class FoodDetailsTopCard extends StatelessWidget {
+class FoodDetailsTopCard extends ConsumerWidget {
   const FoodDetailsTopCard({super.key});
 
   @override
-  Widget build(BuildContext context) => ClipRRect(
+  Widget build(BuildContext context,WidgetRef ref) {
+    final foodDetailsVM = ref.read(foodDetailsProvider.notifier);
+    final state = ref.watch(foodDetailsProvider);
+    return ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: SizedBox(
           height: 150.h,
@@ -68,21 +75,26 @@ class FoodDetailsTopCard extends StatelessWidget {
                           const SizedBox(width: 5),
                           Text("20 min", style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cD9D9D9, fontSize: 11.sp)),
                           const SizedBox(width: 5),
-                          SizedBox(
-                            width: 24.w,
-                            height: 24.h,
-                            child: DecoratedBox(
-                              decoration: const BoxDecoration(
-                                color: AppColors.white,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: SvgPicture.asset(
-                                  "assets/icons/recipe_bottom_navigation_bar_icon.svg",
-                                  // ignore: deprecated_member_use
-                                  color: Colors.green,
-                                  width: 16.w,
-                                  height: 16.h,
+                          InkWell(
+                            onTap: (){
+                              foodDetailsVM.isSavedFood();
+                            },
+                            child: SizedBox(
+                              width: 24.w,
+                              height: 24.h,
+                              child: DecoratedBox(
+                                decoration: const BoxDecoration(
+                                  color: AppColors.white,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                    "assets/icons/recipe_bottom_navigation_bar_icon.svg",
+                                    // ignore: deprecated_member_use
+                                    color: state.saveFood ? Colors.green : null,
+                                    width: 16.w,
+                                    height: 16.h,
+                                  ),
                                 ),
                               ),
                             ),
@@ -96,5 +108,5 @@ class FoodDetailsTopCard extends StatelessWidget {
             ),
           ),
         ),
-      );
+      );}
 }
