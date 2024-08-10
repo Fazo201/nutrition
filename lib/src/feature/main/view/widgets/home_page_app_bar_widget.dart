@@ -112,7 +112,7 @@ class HomePageAppBar extends StatelessWidget {
                 ),
               ],
             ),
-            10.verticalSpace,
+            15.verticalSpace,
           ],
         ),
       );
