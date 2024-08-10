@@ -9,6 +9,7 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
     required this.controller,
     required this.onSubmitted,
     required this.onTapFilter,
+    required this.onChanged,
     super.key,
     this.focusNode,
   });
@@ -16,6 +17,7 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode? focusNode;
   final Function(String)? onSubmitted;
+  final Function(String)? onChanged;
   final Function() onTapFilter;
 
   @override
@@ -30,6 +32,7 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
             controller: controller,
             focusNode: focusNode,
             onSubmitted: onSubmitted,
+            onChanged: onChanged,
             decoration: InputDecoration(
               hintText: "Search recipe",
               hintStyle: const TextStyle(

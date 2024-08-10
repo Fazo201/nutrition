@@ -1,16 +1,16 @@
-import "dart:developer";
+import 'dart:developer';
 
-import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/feature/main/view_model/search_vm.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nutrition/src/core/style/app_colors.dart';
+import 'package:nutrition/src/feature/main/view_model/search_vm.dart';
 
-import "../widgets/search_recipes_item_widget.dart";
-import "../widgets/search_recipes_text_field_button_widget.dart";
+import '../widgets/search_recipes_item_widget.dart';
+import '../widgets/search_recipes_text_field_button_widget.dart';
 
 class SearchRecipesPage extends ConsumerStatefulWidget {
-  const SearchRecipesPage({super.key, this. isTextField});
+  const SearchRecipesPage({super.key, this.isTextField});
 
   final bool? isTextField;
 
@@ -20,6 +20,7 @@ class SearchRecipesPage extends ConsumerStatefulWidget {
 
 class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
   late bool value;
+
   @override
   void initState() {
     super.initState();
@@ -34,9 +35,11 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
   Widget build(BuildContext context) {
     log("Build");
 
+    final searchViewModel = ref.watch(searchVm);
+
     return GestureDetector(
       onTap: () {
-        FocusScope.of(context).unfocus(); // Dismiss the keyboard when tapping outside
+        FocusScope.of(context).unfocus();
       },
       child: Scaffold(
         appBar: AppBar(
@@ -59,6 +62,7 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
                     ref.read(searchVm.notifier).performSearch();
                     FocusScope.of(context).unfocus();
                   },
+                  onChanged:  (value) => ref.read(searchVm.notifier).filterRecipes(value),
                   onTapFilter: () => ref.read(searchVm.notifier).showFilterBottomSheet(context),
                 ),
                 16.verticalSpace,
@@ -68,11 +72,11 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
                     const Text(
                       "Recent Search",
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    if (ref.watch(searchVm).totalResults != 0) Text("${ref.watch(searchVm).totalResults} results") else const Text(""),
+                    if (searchViewModel.totalResults != 0) Text("${searchViewModel.totalResults} results") else const Text(""),
                   ],
                 ),
                 16.verticalSpace,
@@ -85,9 +89,9 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
                       mainAxisSpacing: 15,
                       childAspectRatio: 1,
                     ),
-                    itemCount: ref.watch(searchVm).recentSearches.length,
+                    itemCount: searchViewModel.filteredRecipes.length,
                     itemBuilder: (context, index) => RecipeCard(
-                      title: ref.watch(searchVm).recentSearches[index],
+                      title: searchViewModel.filteredRecipes[index],
                       imageUrl: "assets/images/search_page_cook_image.png",
                       rating: "4.0",
                       author: "Chef John",
