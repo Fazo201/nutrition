@@ -67,11 +67,15 @@ class HomePage extends ConsumerWidget {
                     padding: REdgeInsets.symmetric(horizontal: 30),
                     itemCount: 4,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (_, i) => const HomePageMainCardWidget(
+                    itemBuilder: (context, i) => HomePageMainCardWidget(
                       imageUrl: "assets/images/food_card.png",
                       title: "Classic Greek Salad",
                       time: "15 Mins",
                       rating: 4.5,
+                      isBookMarkPressed: ref.watch(homeVM).isBookmarked(i),
+                      onTap: () {
+                        ref.read(homeVM.notifier).toggleBookmark(i);
+                      },
                     ),
                     separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
                   ),

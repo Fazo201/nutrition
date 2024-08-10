@@ -13,12 +13,16 @@ class HomePageMainCardWidget extends StatelessWidget {
   final String title;
   final String time;
   final double rating;
+  final bool isBookMarkPressed;
+  final Function()? onTap;
 
   const HomePageMainCardWidget({
     required this.imageUrl,
     required this.title,
     required this.time,
     required this.rating,
+    required this.onTap,
+    required this.isBookMarkPressed,
     super.key,
   });
 
@@ -101,12 +105,33 @@ class HomePageMainCardWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 14.h,
-            right: 14.w,
-            child: InkWell(
-              onDoubleTap: () {},
+            bottom: 0.h,
+            right: 0.w,
+            child: IconButton(
+              splashColor: Colors.blue,
+              padding: REdgeInsets.only(top: 5),
+              // splashRadius: 50,
+              onPressed: onTap,
               // padding: EdgeInsets.all(0),
-              child: SvgPicture.asset("assets/icons/bookmark_icon.svg"),
+              icon: !isBookMarkPressed
+                  ? Container(
+                      height: 24.h,
+                      width: 24.w,
+                      padding: REdgeInsets.all(3),
+                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                      child: SvgPicture.asset(
+                        "assets/icons/bookmark_icon_off.svg",
+                      ),
+                    )
+                  : Container(
+                      height: 24.h,
+                      width: 24.w,
+                      padding: REdgeInsets.all(4),
+                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                      child: SvgPicture.asset(
+                        "assets/icons/bookmark_icon_on.svg",
+                      ),
+                    ),
             ),
           ),
           Positioned(
