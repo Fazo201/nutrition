@@ -93,26 +93,30 @@ class HomePageAppBar extends StatelessWidget {
                   height: 40.h,
                   width: 40.w,
                   child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: AppColors.c129575,
-                      borderRadius: BorderRadius.circular(10.r),
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        context.push("${AppRouteNames.home}/${AppRouteNames.search}", extra: false);
-                      },
-                      child: Padding(
-                        padding: REdgeInsets.all(8),
-                        child: SvgPicture.asset(
-                          "assets/icons/filter_icon.svg",
+                      decoration: BoxDecoration(
+                        color: AppColors.c129575,
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.r),
+                        child: MaterialButton(
+                          padding: REdgeInsets.all(0),
+                          onPressed: () {
+                            context.push("${AppRouteNames.home}/${AppRouteNames.search}", extra: false);
+                          },
+                          child: Padding(
+                            padding: REdgeInsets.all(8),
+                            child: SvgPicture.asset(
+                              "assets/icons/filter_icon.svg",
+                            ),
+                          ),
                         ),
                       ),
-                    ),
                   ),
                 ),
               ],
             ),
-            10.verticalSpace,
+            15.verticalSpace,
           ],
         ),
       );

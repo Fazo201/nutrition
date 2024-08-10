@@ -63,22 +63,24 @@ class SearchRecipesTextFieldButtonWidget extends StatelessWidget {
       SizedBox(
         width: 20.w,
       ),
-      InkWell(
-        onTap: () {
-          onTapFilter();
-        },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: SizedBox(
-            height: 40.h, // Set height to 40 px for the filter icon
-            width: 40.h, // Set width to match height for a square button
-            child: DecoratedBox(
-              decoration: const BoxDecoration(
-                color: AppColors.c129575,
-              ),
+      SizedBox(
+        height: 40.h,
+        width: 40.w,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: AppColors.c129575,
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.r),
+            child: MaterialButton(
+              padding: REdgeInsets.all(0),
+              onPressed: onTapFilter,
               child: Padding(
-                padding: REdgeInsets.all(10),
-                child: SvgPicture.asset("assets/icons/filter_icon.svg"),
+                padding: REdgeInsets.all(8),
+                child: SvgPicture.asset(
+                  "assets/icons/filter_icon.svg",
+                ),
               ),
             ),
           ),

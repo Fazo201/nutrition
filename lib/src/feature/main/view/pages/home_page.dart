@@ -23,14 +23,13 @@ class HomePage extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // custom tabbar
-              10.verticalSpace,
               SizedBox(
-                height: 60.h,
+                height: 51.h,
                 width: double.infinity,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: ref.read(homeVM).tabBarItems.length,
-                  padding: REdgeInsets.symmetric(horizontal: 30, vertical: 4),
+                  padding: REdgeInsets.symmetric(horizontal: 30, vertical: 5),
                   separatorBuilder: (BuildContext context, int index) => SizedBox(width: 5.w),
                   itemBuilder: (ctx, i) => MaterialButton(
                     height: 31.h,
@@ -59,7 +58,7 @@ class HomePage extends ConsumerWidget {
               ),
 
               // home page main cards
-              20.verticalSpace,
+              15.verticalSpace,
               SizedBox(
                 height: 231.h,
                 width: double.infinity,
@@ -68,11 +67,15 @@ class HomePage extends ConsumerWidget {
                     padding: REdgeInsets.symmetric(horizontal: 30),
                     itemCount: 4,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (_, i) => const HomePageMainCardWidget(
+                    itemBuilder: (context, i) => HomePageMainCardWidget(
                       imageUrl: "assets/images/food_card.png",
                       title: "Classic Greek Salad",
                       time: "15 Mins",
                       rating: 4.5,
+                      isBookMarkPressed: ref.watch(homeVM).isBookmarked(i),
+                      onTap: () {
+                        ref.read(homeVM.notifier).toggleBookmark(i);
+                      },
                     ),
                     separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
                   ),
@@ -95,12 +98,12 @@ class HomePage extends ConsumerWidget {
               // home page bottom card
               5.verticalSpace,
               SizedBox(
-                height: 130.h,
+                height: 140.h,
                 width: double.infinity,
                 child: ListView.separated(
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
-                  padding: REdgeInsets.symmetric(horizontal: 30),
+                  padding: REdgeInsets.only(left: 30, bottom: 12, right: 30),
                   itemBuilder: (_, i) => const HomePageBottomCardWidget(
                     imageUrl: "assets/images/food_card.png",
                     title: "Steak with tomato...",

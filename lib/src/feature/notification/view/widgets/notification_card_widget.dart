@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-
 import "../../../../core/style/app_colors.dart";
 
 class NotificationCardWidget extends StatelessWidget{
@@ -11,7 +10,7 @@ class NotificationCardWidget extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: REdgeInsets.symmetric(vertical: 10),
+    padding: REdgeInsets.symmetric(vertical: 10, horizontal: 5),
     child: SizedBox(
       width: 315.w,
         child: DecoratedBox(

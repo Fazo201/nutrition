@@ -28,20 +28,28 @@ class HomePageBottomCardWidget extends StatelessWidget {
           SizedBox(
             height: 100.h,
             width: 251.w,
-            child: MaterialButton(
-              padding: REdgeInsets.all(10),
-              minWidth: 251.w,
-              height: 100.h,
-              color: Colors.white,
-              elevation: 1,
-              highlightElevation: 0,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
-              onPressed: () {
-                context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}");
-                // log('got to next page home page botton card');
-              },
-              child: Padding(
-                padding: REdgeInsets.all(0),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF000000).withOpacity(0.1), // Semi-transparent black
+                    spreadRadius: 0,
+                    blurRadius: 20,
+                    // offset: Offset(0, 0),
+                  )
+                ],
+              ),
+              child: MaterialButton(
+                padding: REdgeInsets.all(10),
+                minWidth: 251.w,
+                height: 100.h,
+                color: Colors.white,
+                elevation: 0,
+                highlightElevation: 0,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
+                onPressed: () {
+                  context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}");
+                },
                 child: Row(
                   children: [
                     Expanded(
