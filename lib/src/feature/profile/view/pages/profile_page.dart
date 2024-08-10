@@ -49,8 +49,10 @@ class ProfilePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             10.verticalSpace,
-            ProfileImageUser(
-              profileImagePath: ctr.profileImagePath,
+            Consumer(
+              builder: (context, ref, child) => ProfileImageUser(
+                  profileImagePath: ref.watch(profileVM).profileImagePath,
+                ),
             ),
             15.verticalSpace,
             UserNameWidget(
