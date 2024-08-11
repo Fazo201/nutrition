@@ -1,5 +1,4 @@
 import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_rating_bar/flutter_rating_bar.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
@@ -18,8 +17,7 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final foodDetailsVM = ref.watch(foodDetailsProvider.notifier);
-    // final foodDetailsState = ref.read(foodDetailsProvider);
+    final foodDetailsVM = ref.read(foodDetailsProvider.notifier);
     return PopupMenuButton<String>(
       onSelected: (String result) {
         switch (result) {
@@ -86,6 +84,7 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
             context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}/${AppRouteNames.reviews}");
             break;
           case "unsave":
+            foodDetailsVM.isSavedFood();
             break;
         }
       },
@@ -111,7 +110,7 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
             title: const Text("Review"),
           ),
         ),
-        PopupMenuItem<String>(
+        if(foodDetailsVM.saveFood) PopupMenuItem<String>(
           value: "unsave",
           child: ListTile(
             leading: SvgPicture.asset(Assets.iconsRecipeUnsaveIcon),

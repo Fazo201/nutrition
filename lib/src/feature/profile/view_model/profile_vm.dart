@@ -17,7 +17,7 @@ class ProfileVm extends ChangeNotifier {
 
   ProfileVm() {
   readInfo(StorageKey.userModel);
-  log(StorageKey.userModel.toString());
+
 }
 
   String? profileImagePath;
@@ -53,13 +53,13 @@ class ProfileVm extends ChangeNotifier {
   }
 
   Future<void> readInfo(StorageKey key) async {
-    String? result = await AppStorage.$read(key: StorageKey.userModel);
+    final result = await AppStorage.$read(key: StorageKey.userModel);
     log(result.toString());
     if (result != null) {
       userModel = UserModel.fromJson(jsonDecode(result));
       username = userModel.name;
       email = userModel.email;
-      password = userModel.password;
+      password = replaceHalfWithAsterisk(userModel.password.toString(),);
       log(username!);
       log(email!);
       log(password!);
@@ -67,10 +67,17 @@ class ProfileVm extends ChangeNotifier {
     }
   }
 
+  String replaceHalfWithAsterisk(String input) {
+    final halfLength = (input.length / 2).ceil(); // Matnning yarmidan boshlab belgilarni hisoblash
+    final firstHalf = input.substring(0, halfLength); // Matnning birinchi yarmi
+    final replacedHalf = '*' * (input.length - halfLength); // Ikkinchi yarmini '*' bilan almashtirish
+    return firstHalf + replacedHalf; // Birinchi yarimni va '*'larni birlashtirish
+  }
+
 
 
   void updateProfile() async {
-    var userModel1 = UserModel(
+    final userModel1 = UserModel(
       name: controllerN.text,
       email: controllerE.text,
       password: controllerP.text,
@@ -78,7 +85,7 @@ class ProfileVm extends ChangeNotifier {
     await AppStorage.$write(
         key: StorageKey.userModel, value: jsonEncode(userModel1.toJson()));
     notifyListeners();
-    var result = await AppStorage.$read(key: StorageKey.userModel);
+    final result = await AppStorage.$read(key: StorageKey.userModel);
     log(result.toString());
     if (result != null) {
       userModel = UserModel.fromJson(jsonDecode(result));
@@ -90,7 +97,7 @@ class ProfileVm extends ChangeNotifier {
         globalKey.currentState!.save();
         username = userModel.name;
         email = userModel.email;
-        password = userModel.password;
+        password = replaceHalfWithAsterisk(userModel.password.toString(),);
         notifyListeners();
         log(username!);
         log(email!);
@@ -110,18 +117,18 @@ class ProfileVm extends ChangeNotifier {
   }
 
   Future<void> pickAndUploadImage(BuildContext context) async {
-    final ImageSource? source = await _showPickerDialog(context);
+    final source = await _showPickerDialog(context);
 
     if (source == null) return;
-    final XFile? pickedFile = await _picker.pickImage(
+    final pickedFile = await _picker.pickImage(
       source: source,
       imageQuality: 85,
     );
 
     if (pickedFile != null) {
-      final File file = File(pickedFile.path);
+      final file = File(pickedFile.path);
       final directory = await getApplicationDocumentsDirectory();
-      final String savedPath = "${directory.path}/image.png";
+      final savedPath = "${directory.path}/image.png";
       await file.copy(savedPath);
       await saveProfileImagePath(savedPath);
       isImageSelected = true;

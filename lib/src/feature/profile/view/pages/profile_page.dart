@@ -49,11 +49,9 @@ class ProfilePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             10.verticalSpace,
-            Consumer(
-              builder: (context, ref, child) => ProfileImageUser(
-                  profileImagePath: ref.watch(profileVM).profileImagePath,
-                ),
-            ),
+            ProfileImageUser(
+                profileImagePath: ref.watch(profileVM).profileImagePath,
+              ),
             15.verticalSpace,
             UserNameWidget(
               userName: ref.watch(profileVM).username,
@@ -63,19 +61,18 @@ class ProfilePage extends ConsumerWidget {
               userEmail: ref.watch(profileVM).email,
               userPassword: ref.watch(profileVM).password,
             ),
-            5.verticalSpace,
+            25.verticalSpace,
             ProfileTextfildWidget(
               controllerE: ctr.controllerE,
               controllerP: ctr.controllerP,
               controllerN: ctr.controllerN,
               globalKey: ctr.globalKey,
             ),
-            15.verticalSpace,
+            // 10.verticalSpace,
             ProfileButtonWidget(
               onPressed: () {
                 if (ctr.globalKey.currentState?.validate() ?? false) {
                   ctr.updateProfile();
-                  log("message");
                 } else {
                   // Optionally, show a message or do something when validation fails
                 }

@@ -1,9 +1,7 @@
-import "dart:developer";
-
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nutrition/src/core/constants/context_extension.dart';
-import '../../../../core/style/app_colors.dart';
+import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
+import "../../../../core/style/app_colors.dart";
 
 class ProfileTextfieldWidget extends StatelessWidget {
   final String hintText;
