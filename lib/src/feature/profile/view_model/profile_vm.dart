@@ -1,15 +1,17 @@
 import "dart:convert";
 import "dart:developer";
-import 'dart:io';
-import 'package:flutter/cupertino.dart';
+import "dart:io";
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:image_picker/image_picker.dart';
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:image_picker/image_picker.dart";
+import "package:l/l.dart";
 import "package:nutrition/src/core/storage/app_storage.dart";
 import "package:nutrition/src/data/model/user_model.dart";
-import 'package:path_provider/path_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import '../view/widgets/profile_delate_diolog_widget.dart';
+import "package:path_provider/path_provider.dart";
+import "package:shared_preferences/shared_preferences.dart";
+import "../view/widgets/profile_delate_diolog_widget.dart";
+import "../view/widgets/profile_language_change_widget.dart";
 
 final profileVM = ChangeNotifierProvider((ref) => ProfileVm());
 
@@ -17,6 +19,8 @@ class ProfileVm extends ChangeNotifier {
 
   ProfileVm() {
   readInfo(StorageKey.userModel);
+  read();
+  notifyListeners();
 
 }
 
@@ -62,7 +66,7 @@ class ProfileVm extends ChangeNotifier {
       password = replaceHalfWithAsterisk(userModel.password.toString(),);
       log(username!);
       log(email!);
-      log(password!);
+      log(userModel.email!);
       notifyListeners();
     }
   }
@@ -70,13 +74,13 @@ class ProfileVm extends ChangeNotifier {
   String replaceHalfWithAsterisk(String input) {
     final halfLength = (input.length / 2).ceil(); // Matnning yarmidan boshlab belgilarni hisoblash
     final firstHalf = input.substring(0, halfLength); // Matnning birinchi yarmi
-    final replacedHalf = '*' * (input.length - halfLength); // Ikkinchi yarmini '*' bilan almashtirish
+    final replacedHalf = "*" * (input.length - halfLength); // Ikkinchi yarmini '*' bilan almashtirish
     return firstHalf + replacedHalf; // Birinchi yarimni va '*'larni birlashtirish
   }
 
 
 
-  void updateProfile() async {
+  Future<void> updateProfile() async {
     final userModel1 = UserModel(
       name: controllerN.text,
       email: controllerE.text,
@@ -97,11 +101,12 @@ class ProfileVm extends ChangeNotifier {
         globalKey.currentState!.save();
         username = userModel.name;
         email = userModel.email;
-        password = replaceHalfWithAsterisk(userModel.password.toString(),);
+        password = replaceHalfWithAsterisk(userModel.password.toString());
         notifyListeners();
-        log(username!);
+        l.e(username!);
         log(email!);
         log(password!);
+        log(userModel.password!);
       }
     } else {
       if (globalKey.currentState!.validate()) {
@@ -114,6 +119,22 @@ class ProfileVm extends ChangeNotifier {
     controllerE.clear();
     controllerP.clear();
     notifyListeners();
+  }
+
+  Future<void> read() async {
+    // final savedPath = await getSavedProfileImagePath();
+    // if (savedPath != null && File(savedPath).existsSync()) {
+    //   isImageSelected = true;
+    //   profileImagePath = savedPath;
+    //   notifyListeners();
+    // }
+
+    final savedPath = await AppStorage.$read(key: StorageKey.imagePath);
+    if (savedPath != null && File(savedPath).existsSync()) {
+      isImageSelected = true;
+      profileImagePath = savedPath;
+      notifyListeners();
+    }
   }
 
   Future<void> pickAndUploadImage(BuildContext context) async {
@@ -138,26 +159,6 @@ class ProfileVm extends ChangeNotifier {
       notifyListeners();
     }
   }
-
-  Future<void> read() async {
-    final savedPath = await getSavedProfileImagePath();
-    if (savedPath != null && File(savedPath).existsSync()) {
-      isImageSelected = true;
-      profileImagePath = savedPath;
-      notifyListeners();
-    }
-  }
-
-  Future<void> saveProfileImagePath(String path) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('profile_image_path', path);
-  }
-
-  Future<String?> getSavedProfileImagePath() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getString('profile_image_path');
-  }
-
   Future<void> deleteProfilerImage(BuildContext context) async {
     await Future.delayed(const Duration(milliseconds: 150));
     if (context.mounted) {
@@ -175,13 +176,39 @@ class ProfileVm extends ChangeNotifier {
       );
     }
   }
+  Future<void> languageChange(BuildContext context) async {
+    final selectedLanguage = await LanguagePickerDialog.show(context);
+    if (selectedLanguage != null) {
+      // Tanlangan til bilan biror amalni bajarish
+      log("Tanlangan til: $selectedLanguage");
+      // Masalan, tilni sozlamalarda saqlash yoki UI ni yangilash.
+    } else {
+      log("Til tanlanmadi yoki bekor qilindi.");
+    }
+  }
+
+
+  Future<void> saveProfileImagePath(String path) async {
+    // final prefs = await SharedPreferences.getInstance();
+    // await prefs.setString("profile_image_path", path);
+    await AppStorage.$write(key: StorageKey.imagePath, value: path);
+
+  }
+  Future<String?> getSavedProfileImagePath() async {
+    // final prefs = await SharedPreferences.getInstance();
+    // return prefs.getString("profile_image_path");
+    final result =  await AppStorage.$read(key: StorageKey.imagePath);
+    return result;
+  }
+
+
 
   Future<ImageSource?> _showPickerDialog(BuildContext context) async =>
       await showDialog<ImageSource?>(
         context: context,
         builder: (BuildContext context) => AlertDialog(
           title: const Text(
-            'Rasm tanlash',
+            "Rasm tanlash",
             textAlign: TextAlign.center,
           ),
           content: Column(
@@ -191,14 +218,14 @@ class ProfileVm extends ChangeNotifier {
             children: <Widget>[
               ListTile(
                 leading: const Icon(Icons.camera),
-                title: const Text('Kamera'),
+                title: const Text("Kamera"),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.camera);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title: const Text('Galereya'),
+                title: const Text("Galereya"),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.gallery);
                 },
