@@ -6,14 +6,14 @@ import "package:nutrition/src/feature/bookmark/vm/review_vm.dart";
 import "../../../../core/style/app_colors.dart";
 import "../widgets/review_page_text_field_widget.dart";
 import "../widgets/review_send_button_widget.dart";
+import "../widgets/review_widget.dart";
 
 class ReviewsPage extends ConsumerWidget {
   const ReviewsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
-    ref.watch(reviewVM.notifier);
+     ref.watch(reviewVM);
 
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -25,7 +25,6 @@ class ReviewsPage extends ConsumerWidget {
           style: context.theme.textTheme.labelLarge?.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
-            
           ),
         ),
         centerTitle: true,
@@ -46,7 +45,7 @@ class ReviewsPage extends ConsumerWidget {
                   ),
                 ),
                 Text(
-                  "${ref.read(reviewVM).reviewWidgetList.length} Comments",
+                  "${ref.watch(reviewVM).reviews.length} Comments",
                   style: context.theme.textTheme.labelSmall?.copyWith(
                     fontSize: 14.sp,
                     fontFamily: "Poppins",
@@ -60,12 +59,12 @@ class ReviewsPage extends ConsumerWidget {
                 alignment: Alignment.centerRight,
                 children: [
                   ReviewPageTextFieldWidget(
-                    commentC: ref.read(reviewVM).commentC,
+                    commentC: ref.watch(reviewVM).commentC,
                   ),
                   ReviewSendButtonWidget(
                     text: "Send",
-                    onPressed: (){
-                      ref.read(reviewVM).addReview(context);
+                    onPressed: () {
+                      ref.watch(reviewVM).addReview();
                       FocusScope.of(context).unfocus();
                     },
                   ),
@@ -74,8 +73,10 @@ class ReviewsPage extends ConsumerWidget {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: ref.read(reviewVM).reviewWidgetList.length,
-                itemBuilder: (_, index) => ref.read(reviewVM).reviewWidgetList[index],
+                itemCount: ref.watch(reviewVM).reviews.length,
+                itemBuilder: (_, index) => ReviewWidget(
+                  reviewIndex: index,
+                ),
               ),
             ),
           ],

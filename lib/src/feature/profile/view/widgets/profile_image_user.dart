@@ -14,5 +14,4 @@ class ProfileImageUser extends StatelessWidget {
           backgroundImage:  profileImage(profileImagePath: profileImagePath ),),
     );
 }
-
 ImageProvider<Object>? profileImage({String? profileImagePath,}) => profileImagePath != null ? Image.file(File(profileImagePath)).image : const AssetImage("assets/images/profile_image.png");
