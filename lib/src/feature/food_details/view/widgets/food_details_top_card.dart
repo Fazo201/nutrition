@@ -59,7 +59,7 @@ class FoodDetailsTopCard extends ConsumerWidget {
                               SvgPicture.asset("assets/icons/star_selected_icon.svg", height: 12.h, width: 12.w),
                               Text(
                                 "4.0",
-                                style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.black),
+                                style: const AppTextStyle().labelSmall?.copyWith(color: AppColors.black),
                               ),
                             ],
                           ),
