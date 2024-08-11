@@ -1,3 +1,5 @@
+import "dart:developer";
+
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -5,57 +7,45 @@ import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "../../vm/review_vm.dart";
 
-class ActionModel {
-  late String id;
-  late bool action; // true= liked, false = disliked
-  ActionModel({
-    required this.action,
-    required this.id,
-  });
-}
-
-// ignore: must_be_immutable
 class ReviewWidget extends ConsumerWidget {
-  final String name;
-  final String date;
-  final String comment;
   final int reviewIndex;
-  String selected;
-  List<ActionModel> actions;
-  final Image profileImage;
 
-  ReviewWidget({
-    required this.name,
-    required this.date,
-    required this.comment,
+  const ReviewWidget({
     required this.reviewIndex,
-    required this.profileImage,
-    required this.actions,
-    this.selected = "",
     super.key,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(reviewVM);
+
+    final review = ref.watch(reviewVM.notifier).reviews[reviewIndex];
+
     return SizedBox(
       width: double.infinity,
-      // height: 200.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
               CircleAvatar(
-                radius: 26.r,
-                child: profileImage,
+                backgroundColor: Colors.transparent,
+                child: ClipOval(
+                  child: FadeInImage.assetNetwork(
+                    placeholder: 'assets/placeholder.png', // Add your placeholder image here
+                    image: review.profileImage ??
+                        "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
+
               9.horizontalSpace,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    review.name,
                     style: context.theme.textTheme.bodyMedium?.copyWith(
                       fontSize: 15.sp,
                       fontWeight: FontWeight.w600,
@@ -65,7 +55,7 @@ class ReviewWidget extends ConsumerWidget {
                   ),
                   2.verticalSpace,
                   Text(
-                    date,
+                    review.date,
                     style: context.theme.textTheme.labelSmall?.copyWith(
                       fontSize: 11.sp,
                       color: AppColors.cA9A9A9,
@@ -80,7 +70,7 @@ class ReviewWidget extends ConsumerWidget {
           Expanded(
             flex: 0,
             child: Text(
-              comment,
+              review.comment,
               style: context.theme.textTheme.labelSmall?.copyWith(
                 fontSize: 17.sp,
                 color: AppColors.c484848,
@@ -100,7 +90,9 @@ class ReviewWidget extends ConsumerWidget {
                   height: 30.h,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: ref.read(reviewVM).isLiked(reviewIndex) == true ? AppColors.c71B1A1 : AppColors.cDBEBE7,
+                      color: ref.read(reviewVM).isLiked(reviewIndex) == true
+                          ? AppColors.c71B1A1
+                          : AppColors.cDBEBE7,
                       borderRadius: BorderRadius.all(Radius.circular(17.r)),
                     ),
                     child: Row(
@@ -136,7 +128,9 @@ class ReviewWidget extends ConsumerWidget {
                   height: 30.h,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: ref.read(reviewVM).isLiked(reviewIndex) == false ? AppColors.c71B1A1 : AppColors.cDBEBE7,
+                      color: ref.read(reviewVM).isLiked(reviewIndex) == false
+                          ? AppColors.c71B1A1
+                          : AppColors.cDBEBE7,
                       borderRadius: BorderRadius.all(Radius.circular(17.r)),
                     ),
                     child: Row(
