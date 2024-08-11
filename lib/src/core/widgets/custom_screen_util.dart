@@ -15,12 +15,12 @@ class CustomScreenUtil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ScreenUtilInit(
-    designSize: const Size(375, 812),
-    minTextAdapt: true,
-    splitScreenMode: true,
-    builder: (context, _) => DevicePreview(
-      enabled: kDebugMode && enabledPreview,
-      builder: (context) => child,
-    ),
-  );
+        designSize: const Size(375, 812),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, _) => DevicePreview(
+          enabled: kDebugMode && enabledPreview,
+          builder: (context) => child,
+        ),
+      );
 }

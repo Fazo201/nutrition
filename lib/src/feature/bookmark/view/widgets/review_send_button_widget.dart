@@ -13,21 +13,25 @@ class ReviewSendButtonWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => MaterialButton(
-        color: AppColors.c129575,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.r),
-        ),
-        height: 35.h,
-        minWidth: 59.w,
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: context.theme.textTheme.labelSmall?.copyWith(
-            fontSize: 12.sp,
-            fontWeight: FontWeight.bold,
-            color: AppColors.white,
+  Widget build(BuildContext context) => Padding(
+    padding: REdgeInsets.only(right: 10.w),
+    child: MaterialButton(
+          color: AppColors.c129575,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+          height: 35.h,
+          minWidth: 59.w,
+          onPressed: onPressed,
+          child: Text(
+            text,
+            style: context.theme.textTheme.labelSmall?.copyWith(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.bold,
+              color: AppColors.white,
+              fontFamily: "Poppins",
+            ),
           ),
         ),
-      );
+  );
 }

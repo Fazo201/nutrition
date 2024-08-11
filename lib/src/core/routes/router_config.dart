@@ -57,8 +57,6 @@ final class RouterConfigService {
     pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const ReviewsPage()),
   );
 
-
-
   static Page<dynamic> _customEachTransitionAnimation(BuildContext context, GoRouterState state, Widget child) =>
       CustomTransitionPage<Object>(
         transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
@@ -194,14 +192,12 @@ final class RouterConfigService {
           ),
         ],
       ),
-
       //splash page
       GoRoute(
         name: "SplashPage",
         path: AppRouteNames.splash,
         builder: (BuildContext context, GoRouterState state) => const SplashPage(),
       ),
-
       //login page
       GoRoute(
         name: "LoginPage",

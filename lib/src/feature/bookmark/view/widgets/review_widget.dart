@@ -14,6 +14,7 @@ class ActionModel {
   });
 }
 
+// ignore: must_be_immutable
 class ReviewWidget extends ConsumerWidget {
   final String name;
   final String date;
@@ -59,6 +60,7 @@ class ReviewWidget extends ConsumerWidget {
                       fontSize: 15.sp,
                       fontWeight: FontWeight.w600,
                       color: AppColors.c121212,
+                      fontFamily: "Poppins",
                     ),
                   ),
                   2.verticalSpace,
@@ -67,6 +69,7 @@ class ReviewWidget extends ConsumerWidget {
                     style: context.theme.textTheme.labelSmall?.copyWith(
                       fontSize: 11.sp,
                       color: AppColors.cA9A9A9,
+                      fontFamily: "Poppins",
                     ),
                   ),
                 ],
@@ -81,6 +84,7 @@ class ReviewWidget extends ConsumerWidget {
               style: context.theme.textTheme.labelSmall?.copyWith(
                 fontSize: 17.sp,
                 color: AppColors.c484848,
+                fontFamily: "Poppins",
               ),
             ),
           ),
@@ -106,6 +110,7 @@ class ReviewWidget extends ConsumerWidget {
                           "👍",
                           style: context.theme.textTheme.labelSmall?.copyWith(
                             fontSize: 15.sp,
+                            fontFamily: "Poppins",
                           ),
                         ),
                         Text(
@@ -113,6 +118,7 @@ class ReviewWidget extends ConsumerWidget {
                           style: context.theme.textTheme.labelSmall?.copyWith(
                             fontSize: 15.sp,
                             color: AppColors.c484848,
+                            fontFamily: "Poppins",
                           ),
                         ),
                       ],
@@ -140,6 +146,7 @@ class ReviewWidget extends ConsumerWidget {
                           "👎",
                           style: context.theme.textTheme.labelSmall?.copyWith(
                             fontSize: 15.sp,
+                            fontFamily: "Poppins",
                           ),
                         ),
                         Text(
@@ -147,6 +154,7 @@ class ReviewWidget extends ConsumerWidget {
                           style: context.theme.textTheme.labelSmall?.copyWith(
                             fontSize: 15.sp,
                             color: AppColors.c484848,
+                            fontFamily: "Poppins",
                           ),
                         ),
                       ],

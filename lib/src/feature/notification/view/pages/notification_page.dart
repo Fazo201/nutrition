@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
+import "package:nutrition/src/feature/notification/view/widgets/notification_page_widget.dart";
 import "package:nutrition/src/feature/notification/vm/notification_vm.dart";
 import "../../../../core/style/app_colors.dart";
 import "../widgets/notification_card_widget.dart";
@@ -60,7 +61,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
               text: "All",
               isSelected: notificationVm.selectedIndex == 0,
               index: 0,
-              onTab: () {
+              onPressed: () {
                 _tabController.animateTo(0);
               },
             ),
@@ -68,7 +69,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
               text: "Read",
               isSelected: notificationVm.selectedIndex == 1,
               index: 1,
-              onTab: () {
+              onPressed: () {
                 _tabController.animateTo(1);
               },
             ),
@@ -76,7 +77,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
               text: "Unread",
               isSelected: notificationVm.selectedIndex == 2,
               index: 2,
-              onTab: () {
+              onPressed: () {
                 _tabController.animateTo(2);
               },
             ),
@@ -84,21 +85,18 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
         ),
       ),
       body: Padding(
-        padding: REdgeInsets.symmetric(horizontal: 30),
+        padding: REdgeInsets.symmetric(horizontal: 25),
         child: TabBarView(
           controller: _tabController,
-          children: [
-            ListView.builder(
+          children: const [
+            NotificationPageWidget(
+              itemCount: 4,
+            ),
+            NotificationPageWidget(
               itemCount: 5,
-              itemBuilder: (context, index) => const NotificationCardWidget(),
             ),
-            ListView.builder(
-              itemCount: 1,
-              itemBuilder: (context, index) => const NotificationCardWidget(),
-            ),
-            ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) => const NotificationCardWidget(),
+            NotificationPageWidget(
+              itemCount: 2,
             ),
           ],
         ),

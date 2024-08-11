@@ -25,6 +25,7 @@ class ReviewsPage extends ConsumerWidget {
           style: context.theme.textTheme.labelLarge?.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
+            
           ),
         ),
         centerTitle: true,
@@ -41,12 +42,14 @@ class ReviewsPage extends ConsumerWidget {
                   "Leave a comment",
                   style: context.theme.textTheme.labelSmall?.copyWith(
                     fontSize: 14.sp,
+                    fontFamily: "Poppins",
                   ),
                 ),
                 Text(
-                  "Comments: ${ref.read(reviewVM).reviewWidgetList.length}",
+                  "${ref.read(reviewVM).reviewWidgetList.length} Comments",
                   style: context.theme.textTheme.labelSmall?.copyWith(
                     fontSize: 14.sp,
+                    fontFamily: "Poppins",
                   ),
                 ),
               ],
@@ -54,20 +57,17 @@ class ReviewsPage extends ConsumerWidget {
             10.verticalSpace,
             SafeArea(
               child: Stack(
-                alignment: Alignment.topRight,
+                alignment: Alignment.centerRight,
                 children: [
                   ReviewPageTextFieldWidget(
                     commentC: ref.read(reviewVM).commentC,
                   ),
-                  Padding(
-                    padding: REdgeInsets.symmetric(horizontal: 10, vertical: 3),
-                    child: ReviewSendButtonWidget(
-                      text: "Send",
-                      onPressed: (){
-                        ref.read(reviewVM).addReview(context);
-                        FocusScope.of(context).unfocus();
-                      },
-                    ),
+                  ReviewSendButtonWidget(
+                    text: "Send",
+                    onPressed: (){
+                      ref.read(reviewVM).addReview(context);
+                      FocusScope.of(context).unfocus();
+                    },
                   ),
                 ],
               ),

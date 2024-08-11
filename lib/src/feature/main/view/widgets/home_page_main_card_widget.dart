@@ -1,5 +1,3 @@
-import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
@@ -13,12 +11,16 @@ class HomePageMainCardWidget extends StatelessWidget {
   final String title;
   final String time;
   final double rating;
+  final bool isBookMarkPressed;
+  final Function()? onTap;
 
   const HomePageMainCardWidget({
     required this.imageUrl,
     required this.title,
     required this.time,
     required this.rating,
+    required this.onTap,
+    required this.isBookMarkPressed,
     super.key,
   });
 
@@ -33,11 +35,13 @@ class HomePageMainCardWidget extends StatelessWidget {
               minWidth: 150.w,
               height: 176.h,
               color: AppColors.cD9D9D9,
+              elevation: 0,
+              highlightElevation: 0,
+              highlightColor: Colors.grey.shade400,
               padding: REdgeInsets.symmetric(horizontal: 10),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
               onPressed: () {
                 context.go("${AppRouteNames.home}/${AppRouteNames.foodDetails}");
-                log("go to food deatil page home page main card");
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -58,7 +62,6 @@ class HomePageMainCardWidget extends StatelessWidget {
                   20.verticalSpace,
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                         "Time",
@@ -101,12 +104,33 @@ class HomePageMainCardWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 14.h,
-            right: 14.w,
-            child: InkWell(
-              onDoubleTap: () {},
+            bottom: 0.h,
+            right: 0.w,
+            child: IconButton(
+              splashColor: Colors.blue,
+              // padding: REdgeInsets.only(top: 5),
+              // splashRadius: 50,
+              onPressed: onTap,
               // padding: EdgeInsets.all(0),
-              child: SvgPicture.asset("assets/icons/bookmark_icon.svg"),
+              icon: !isBookMarkPressed
+                  ? Container(
+                      height: 24.h,
+                      width: 24.w,
+                      padding: REdgeInsets.all(3),
+                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                      child: SvgPicture.asset(
+                        "assets/icons/bookmark_icon_off.svg",
+                      ),
+                    )
+                  : Container(
+                      height: 24.h,
+                      width: 24.w,
+                      padding: REdgeInsets.all(4),
+                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                      child: SvgPicture.asset(
+                        "assets/icons/bookmark_icon_on.svg",
+                      ),
+                    ),
             ),
           ),
           Positioned(
