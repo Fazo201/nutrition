@@ -1,13 +1,10 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:flutter_svg/svg.dart";
 import "package:go_router/go_router.dart";
-import "package:nutrition/generated/assets.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -35,7 +32,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       duration: const Duration(seconds: 3),
     );
     _animation = Tween(end: 1.0, begin: 0.0).animate(_controller);
-    _animationIcons = Tween<Offset>(begin: const Offset(0.0, -1.0), end: const Offset(0.0, 0.0)).animate(_controller);
+    _animationIcons = Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero).animate(_controller);
     _controller.forward();
     super.initState();
   }
