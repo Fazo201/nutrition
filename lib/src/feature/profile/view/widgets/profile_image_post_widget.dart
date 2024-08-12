@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
 
 import "../../../../core/style/app_colors.dart";
 
 class ProfileImagePostWidget extends StatelessWidget {
-  const ProfileImagePostWidget({super.key, required this.imagesPosts, required this.imagesDelate, required this.languageChanges});
+  const ProfileImagePostWidget({required this.imagesPosts, required this.imagesDelate, required this.languageChanges, super.key});
 final void Function() imagesPosts;
 final  void Function()  imagesDelate;
 final void Function()  languageChanges;
@@ -14,13 +14,13 @@ final void Function()  languageChanges;
   Widget build(BuildContext context) => PopupMenuButton<String>(
         onSelected: (String result) {
           switch (result) {
-            case 'Posts image':
+            case "Posts image":
 
               break;
-            case 'Delete image':
+            case "Delete image":
 
               break;
-            case 'Language':
+            case "Language":
 
               break;
           }
@@ -28,23 +28,23 @@ final void Function()  languageChanges;
         itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
            PopupMenuItem<String>(
             onTap: imagesPosts,
-            value: 'Posts image',
-            child: ListTile(
-              title: Text('Posts image'),
+            value: "Posts image",
+            child: const ListTile(
+              title: Text("Posts image"),
             ),
           ),
            PopupMenuItem<String>(
             onTap: imagesDelate,
-            value: 'Delete image',
-            child: ListTile(
-              title: Text('Delete image'),
+            value: "Delete image",
+            child: const ListTile(
+              title: Text("Delete image"),
             ),
           ),
            PopupMenuItem<String>(
             onTap: languageChanges,
-            value: 'Language',
-            child: ListTile(
-              title: Text('Language'),
+            value: "Language",
+            child: const ListTile(
+              title: Text("Language"),
             ),
           ),
         ],
@@ -57,6 +57,6 @@ final void Function()  languageChanges;
         position: PopupMenuPosition.under,
         popUpAnimationStyle: AnimationStyle(duration: Durations.extralong2),
         constraints: const BoxConstraints(maxHeight: 180, maxWidth: 164),
-        offset: const Offset(-12.0, -5.0),
+        offset: const Offset(-12, -5.0),
       );
 }

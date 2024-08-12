@@ -28,6 +28,7 @@ class RecipeCard extends StatelessWidget {
             },
             padding: EdgeInsets.zero,
             child: Card(
+              shadowColor: Colors.transparent,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0.r),
               ),
@@ -46,18 +47,19 @@ class RecipeCard extends StatelessWidget {
                       top: 8,
                       right: 8,
                       child: Container(
-                        padding: REdgeInsets.all(4),
+                        // height: ,
+                        padding: REdgeInsets.only(top: 4,bottom: 4,left: 7,right: 7),
                         decoration: BoxDecoration(
                           color: AppColors.cFFE1B3,
                           borderRadius: BorderRadius.circular(12.0.r),
                         ),
                         child: Row(
                           children: [
-                            const Icon(Icons.star, color: Colors.orange, size: 16),
+                            const Icon(Icons.star, color: Colors.orange, size: 10),
                             4.horizontalSpace,
                             Text(
                               rating,
-                              style: const TextStyle(color: Colors.black),
+                              style: TextStyle(color: Colors.black,fontSize: 10.sp,fontWeight: FontWeight.w400),
                             ),
                           ],
                         ),
@@ -90,13 +92,6 @@ class RecipeCard extends StatelessWidget {
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 11.sp,
-                              shadows: const [
-                                Shadow(
-                                  blurRadius: 2,
-                                  color: Colors.black,
-                                  offset: Offset(1, 1),
-                                ),
-                              ],
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -104,16 +99,9 @@ class RecipeCard extends StatelessWidget {
                           const SizedBox(height: 4),
                           Text(
                             "By $author",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: AppColors.cA9A9A9,
-                              fontSize: 8,
-                              shadows: [
-                                Shadow(
-                                  blurRadius: 2,
-                                  color: Colors.black,
-                                  offset: Offset(1, 1),
-                                ),
-                              ],
+                              fontSize: 8.sp,
                             ),
                           ),
                         ],

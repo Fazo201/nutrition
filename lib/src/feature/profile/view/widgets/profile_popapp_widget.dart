@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 class ProfilePopappWidget extends StatelessWidget {
   const ProfilePopappWidget({super.key});
@@ -7,7 +7,7 @@ class ProfilePopappWidget extends StatelessWidget {
   Widget build(BuildContext context) => PopupMenuButton(
       color: Colors.white,
       itemBuilder: (context) => [
-        PopupMenuItem(
+        const PopupMenuItem(
           // onTap: () => controller.pickAndUploadImage(context),
           child: Text("Rasmni o'zgartirish"),
         ),

@@ -22,7 +22,24 @@ class ProfileTextfildWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          57.verticalSpace,
+          const Text(
+            "Name",
+            // style: const AppTextStyle().loginEmail,
+          ),
+          ProfileTextfieldWidget(
+            keyboardType: keyboardTypeName,
+            controller: controllerN,
+            hintText: "Enter Name",
+            validator: (value) {
+              if (value != null && value.isNotEmpty && value.length >= 2) {
+                return null;
+              } else {
+                return "Please enter your name";
+              }
+            },
+            onChanged: onChanged,
+          ),
+          20.verticalSpace,
           const Text(
             "Email",
             // style: const AppTextStyle().loginEmail,
@@ -41,7 +58,7 @@ class ProfileTextfildWidget extends StatelessWidget {
             },
             onChanged: onChanged,
           ),
-          30.verticalSpace,
+          20.verticalSpace,
           const Text(
             "Password",
             // style: const AppTextStyle().loginEmail,
@@ -51,33 +68,17 @@ class ProfileTextfildWidget extends StatelessWidget {
              controller: controllerP,
             hintText: "Enter Password",
             validator: (value) {
-              if (value != null && value.isNotEmpty) {
+              final regex = RegExp(r"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
+              if (value != null && value.contains(regex)) {
                 return null;
               } else {
-                return "Please enter your password";
+                return "Must be 8 or more characters  and contain at least 1\nnumber or special character";
               }
             },
             onChanged: onChanged,
           ),
           20.verticalSpace,
-          const Text(
-            "Name",
-            // style: const AppTextStyle().loginEmail,
-          ),
-          ProfileTextfieldWidget(
-            keyboardType: keyboardTypeName,
-            controller: controllerN,
-            hintText: "Enter Name",
-            validator: (value) {
-              if (value != null && value.isNotEmpty) {
-                return null;
-              } else {
-                return "Please enter your name";
-              }
-            },
-            onChanged: onChanged,
-          ),
-          20.verticalSpace,
+
         ],
       ),
     );
