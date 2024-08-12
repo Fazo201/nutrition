@@ -14,7 +14,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
   int selectedRate = 4;
   String selectedCategory = "Local Dish";
 
-  Widget _buildFilterOption(String text, String group, dynamic value) {
+  Widget _buildFilterOption(String text, String group, dynamic value, {bool showIcon = true}) {
     var isSelected = false;
     if (group == "time") isSelected = (value == selectedTime);
     if (group == "rate") isSelected = (value == selectedRate);
@@ -27,25 +27,27 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
           Text(
             text,
             style: TextStyle(
-              color: isSelected ? Colors.white : const Color(0xFF129575), // Set text color
+              color: isSelected ? Colors.white : const Color(0xFF71B1A1), // Set text color
             ),
           ),
-          const SizedBox(width: 5),
-          Icon(
-            Icons.star, // Tick icon
-            color: isSelected ? Colors.white : const Color(0xFF129575), // Change color based on selection
-            size: 18.sp, // Adjust icon size if needed
-          ),
+          if (showIcon) ...[
+            SizedBox(width: 5.w),
+            Icon(
+              Icons.star, // Tick icon
+              color: isSelected ? Colors.white : const Color(0xFF71B1A1), // Change color based on selection
+              size: 18.sp,
+            ),
+          ]
         ],
       ),
       selected: isSelected,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10), // Set border radius to 10
-        side: const BorderSide(
-          color: Color(0xFF129575), // Set border color
+        side: BorderSide(
+          color: isSelected ? const Color(0xFF129575) : const Color(0xFF71B1A1), // Set border color based on selection
         ),
       ),
-      selectedColor: Color(0xFF129575), // Set background color when selected
+      selectedColor: const Color(0xFF129575), // Set background color when selected
       backgroundColor: Colors.white, // Ensure unselected chip has no color
       showCheckmark: false, // Remove the default left checkmark
       onSelected: (selected) {
@@ -66,16 +68,16 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Center(child: Text("Filter Search", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+          Center(child: Text("Filter Search", style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),)),
           const SizedBox(height: 20),
-          const Text("Time", style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600)),
+          Text("Time", style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w600)),
           Wrap(
             spacing: 10,
             children: [
-              _buildFilterOption("All", "time", "All"),
-              _buildFilterOption("Newest", "time", "Newest"),
-              _buildFilterOption("Oldest", "time", "Oldest"),
-              _buildFilterOption("Popularity", "time", "Popularity"),
+              _buildFilterOption("All", "time", "All", showIcon: false),
+              _buildFilterOption("Newest", "time", "Newest", showIcon: false),
+              _buildFilterOption("Oldest", "time", "Oldest", showIcon: false),
+              _buildFilterOption("Popularity", "time", "Popularity", showIcon: false),
             ],
           ),
           const SizedBox(height: 20),
@@ -91,23 +93,23 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             ],
           ),
           const SizedBox(height: 20),
-          const Text("Category", style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600)),
+          Text("Category", style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w600)),
           Wrap(
             spacing: 10,
             children: [
-              _buildFilterOption("All", "category", "All"),
-              _buildFilterOption("Cereal", "category", "Cereal"),
-              _buildFilterOption("Vegetables", "category", "Vegetables"),
-              _buildFilterOption("Dinner", "category", "Dinner"),
-              _buildFilterOption("Chinese", "category", "Chinese"),
-              _buildFilterOption("Local Dish", "category", "Local Dish"),
-              _buildFilterOption("Fruit", "category", "Fruit"),
-              _buildFilterOption("Breakfast", "category", "Breakfast"),
-              _buildFilterOption("Spanish", "category", "Spanish"),
-              _buildFilterOption("Lunch", "category", "Lunch"),
+              _buildFilterOption("All", "category", "All", showIcon: false),
+              _buildFilterOption("Cereal", "category", "Cereal", showIcon: false),
+              _buildFilterOption("Vegetables", "category", "Vegetables", showIcon: false),
+              _buildFilterOption("Dinner", "category", "Dinner", showIcon: true),
+              _buildFilterOption("Chinese", "category", "Chinese", showIcon: false),
+              _buildFilterOption("Local Dish", "category", "Local Dish", showIcon: false),
+              _buildFilterOption("Fruit", "category", "Fruit", showIcon: false),
+              _buildFilterOption("Breakfast", "category", "Breakfast", showIcon: false),
+              _buildFilterOption("Spanish", "category", "Spanish", showIcon: false),
+              _buildFilterOption("Lunch", "category", "Lunch", showIcon: false),
             ],
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Center(
             child: MaterialButton(
               height: 37.h,
