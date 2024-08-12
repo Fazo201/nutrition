@@ -6,9 +6,7 @@ import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
 class HomePageAppBar extends StatelessWidget {
-  // final BuildContext ctx;
   const HomePageAppBar({
-    // required this.ctx,
     super.key,
   });
 
@@ -93,25 +91,25 @@ class HomePageAppBar extends StatelessWidget {
                   height: 40.h,
                   width: 40.w,
                   child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: AppColors.c129575,
-                        borderRadius: BorderRadius.circular(10.r),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.r),
-                        child: MaterialButton(
-                          padding: REdgeInsets.all(0),
-                          onPressed: () {
-                            context.push("${AppRouteNames.home}/${AppRouteNames.search}", extra: false);
-                          },
-                          child: Padding(
-                            padding: REdgeInsets.all(8),
-                            child: SvgPicture.asset(
-                              "assets/icons/filter_icon.svg",
-                            ),
+                    decoration: BoxDecoration(
+                      color: AppColors.c129575,
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.r),
+                      child: MaterialButton(
+                        padding: REdgeInsets.all(0),
+                        onPressed: () {
+                          context.push("${AppRouteNames.home}/${AppRouteNames.search}", extra: false);
+                        },
+                        child: Padding(
+                          padding: REdgeInsets.all(8),
+                          child: SvgPicture.asset(
+                            "assets/icons/filter_icon.svg",
                           ),
                         ),
                       ),
+                    ),
                   ),
                 ),
               ],
