@@ -111,7 +111,7 @@ final class RouterConfigService {
           //   child: child,
           // );
 
-          final tween = Tween<double>(begin: 0.6, end: 1.0);
+          final tween = Tween<double>(begin: 0.6, end: 1);
           final sizeAnimation = animation.drive(tween);
 
           return SizeTransition(
@@ -164,7 +164,7 @@ final class RouterConfigService {
                 _customNavigatorTransitionAnimation(context, state, const BookmarkPage()),
             routes: [
               foodDetails,
-            ]
+            ],
           ),
 
           /// Notification Page

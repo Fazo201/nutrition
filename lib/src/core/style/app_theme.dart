@@ -29,6 +29,9 @@ final class AppThemes {
         brightness: Brightness.light,
         colorScheme: lightColorScheme,
         scaffoldBackgroundColor: AppColors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.white,
+        ),
       );
 
   static ThemeData dark() => ThemeData(
