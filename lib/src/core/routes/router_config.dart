@@ -136,7 +136,7 @@ final class RouterConfigService {
       );
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.splash,
+    initialLocation: AppRouteNames.home,
     navigatorKey: parentNavigatorKey,
     debugLogDiagnostics: true,
     routes: <RouteBase>[

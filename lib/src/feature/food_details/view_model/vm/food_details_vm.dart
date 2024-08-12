@@ -34,7 +34,6 @@ class FoodDetailsVM with ChangeNotifier {
 
   void isSavedFood(){
     _saveFood = !_saveFood;
-    log("SaveFood: $saveFood");
     notifyListeners();
   }
 }
