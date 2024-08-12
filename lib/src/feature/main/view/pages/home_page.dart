@@ -5,7 +5,6 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/core/widgets/app_material_context.dart";
 import "package:nutrition/src/feature/main/view_model/home_vm.dart";
 import "package:nutrition/src/feature/settings/inherited_locale_notifier.dart";
 import "package:nutrition/src/feature/settings/locale_controller.dart";
