@@ -6,9 +6,7 @@ import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
 class HomePageAppBar extends StatelessWidget {
-  // final BuildContext ctx;
   const HomePageAppBar({
-    // required this.ctx,
     super.key,
   });
 
@@ -70,7 +68,7 @@ class HomePageAppBar extends StatelessWidget {
                       },
                       decoration: InputDecoration(
                         prefixIcon: Padding(
-                          padding: REdgeInsets.symmetric(vertical: 8),
+                          padding: REdgeInsets.symmetric(vertical: 10),
                           child: SvgPicture.asset("assets/icons/search_in_textfield_icon.svg"),
                         ),
                         hintText: "Search recipe",
@@ -97,14 +95,18 @@ class HomePageAppBar extends StatelessWidget {
                       color: AppColors.c129575,
                       borderRadius: BorderRadius.circular(10.r),
                     ),
-                    child: InkWell(
-                      onTap: () {
-                        context.push("${AppRouteNames.home}/${AppRouteNames.search}", extra: false);
-                      },
-                      child: Padding(
-                        padding: REdgeInsets.all(8),
-                        child: SvgPicture.asset(
-                          "assets/icons/filter_icon.svg",
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.r),
+                      child: MaterialButton(
+                        padding: REdgeInsets.all(0),
+                        onPressed: () {
+                          context.push("${AppRouteNames.home}/${AppRouteNames.search}", extra: false);
+                        },
+                        child: Padding(
+                          padding: REdgeInsets.all(8),
+                          child: SvgPicture.asset(
+                            "assets/icons/filter_icon.svg",
+                          ),
                         ),
                       ),
                     ),
@@ -112,7 +114,7 @@ class HomePageAppBar extends StatelessWidget {
                 ),
               ],
             ),
-            10.verticalSpace,
+            15.verticalSpace,
           ],
         ),
       );

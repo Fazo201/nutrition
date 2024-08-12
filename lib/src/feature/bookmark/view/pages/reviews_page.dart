@@ -6,14 +6,14 @@ import "package:nutrition/src/feature/bookmark/vm/review_vm.dart";
 import "../../../../core/style/app_colors.dart";
 import "../widgets/review_page_text_field_widget.dart";
 import "../widgets/review_send_button_widget.dart";
+import "../widgets/review_widget.dart";
 
 class ReviewsPage extends ConsumerWidget {
   const ReviewsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
-    ref.watch(reviewVM.notifier);
+     ref.watch(reviewVM);
 
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -41,12 +41,14 @@ class ReviewsPage extends ConsumerWidget {
                   "Leave a comment",
                   style: context.theme.textTheme.labelSmall?.copyWith(
                     fontSize: 14.sp,
+                    fontFamily: "Poppins",
                   ),
                 ),
                 Text(
-                  "Comments: ${ref.read(reviewVM).reviewWidgetList.length}",
+                  "${ref.watch(reviewVM).reviews.length} Comments",
                   style: context.theme.textTheme.labelSmall?.copyWith(
                     fontSize: 14.sp,
+                    fontFamily: "Poppins",
                   ),
                 ),
               ],
@@ -54,28 +56,27 @@ class ReviewsPage extends ConsumerWidget {
             10.verticalSpace,
             SafeArea(
               child: Stack(
-                alignment: Alignment.topRight,
+                alignment: Alignment.centerRight,
                 children: [
                   ReviewPageTextFieldWidget(
-                    commentC: ref.read(reviewVM).commentC,
+                    commentC: ref.watch(reviewVM).commentC,
                   ),
-                  Padding(
-                    padding: REdgeInsets.symmetric(horizontal: 10, vertical: 3),
-                    child: ReviewSendButtonWidget(
-                      text: "Send",
-                      onPressed: (){
-                        ref.read(reviewVM).addReview(context);
-                        FocusScope.of(context).unfocus();
-                      },
-                    ),
+                  ReviewSendButtonWidget(
+                    text: "Send",
+                    onPressed: () {
+                      ref.watch(reviewVM).addReview();
+                      FocusScope.of(context).unfocus();
+                    },
                   ),
                 ],
               ),
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: ref.read(reviewVM).reviewWidgetList.length,
-                itemBuilder: (_, index) => ref.read(reviewVM).reviewWidgetList[index],
+                itemCount: ref.watch(reviewVM).reviews.length,
+                itemBuilder: (_, index) => ReviewWidget(
+                  reviewIndex: index,
+                ),
               ),
             ),
           ],

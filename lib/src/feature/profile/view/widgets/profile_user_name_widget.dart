@@ -15,7 +15,7 @@ class UserNameWidget extends StatelessWidget {
           style: context.theme.textTheme.labelLarge?.copyWith(
               color: AppColors.black,
               fontWeight: FontWeight.w600,
-              fontSize: 16.sp),
+              fontSize: 16.sp,),
         ),
       );
 }

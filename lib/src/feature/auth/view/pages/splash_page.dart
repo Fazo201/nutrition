@@ -1,10 +1,10 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -17,6 +17,13 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;
   late final Animation<Offset> _animationIcons;
+  int? language;
+
+  void changeLanguage(int n) {
+    setState(() {
+      language = n;
+    });
+  }
 
   @override
   void initState() {
@@ -25,15 +32,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       duration: const Duration(seconds: 3),
     );
     _animation = Tween(end: 1.0, begin: 0.0).animate(_controller);
-    _animationIcons = Tween<Offset>(begin: const Offset(0.0, -1.0), end: const Offset(0.0, 0.0)).animate(_controller);
+    _animationIcons = Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero).animate(_controller);
     _controller.forward();
-    stack();
     super.initState();
   }
-
-  Future<void> stack() async => Future.delayed(const Duration(seconds: 4), () {
-        context.go(AppRouteNames.home);
-      });
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -49,6 +51,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Spacer(flex: 2),
               Column(
                 children: [
                   FadeTransition(
@@ -59,7 +62,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       width: 80,
                     ),
                   ),
-                  const SizedBox(height: 14),
+                  14.verticalSpace,
                   FadeTransition(
                     opacity: _animation,
                     child: Text(
@@ -74,7 +77,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   ),
                 ],
               ),
-              SizedBox(height: MediaQuery.of(context).size.width * 0.45),
+              const Spacer(flex: 3),
               PreferredSize(
                 preferredSize: const Size(4, 4),
                 child: FadeTransition(
@@ -116,46 +119,85 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.width * 0.2),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 66),
-              //   child: FadeTransition(
-              //     opacity: _animation,
-              //     child: ElevatedButton(
-              //       style: ElevatedButton.styleFrom(
-              //         backgroundColor: AppColors.c129575,
-              //         shape: RoundedRectangleBorder(
-              //           borderRadius: BorderRadius.circular(10),
-              //         ),
-              //         fixedSize: const Size(double.maxFinite, 60),
-              //       ),
-              //       onPressed: () {
-              //         Navigator.pushReplacement(
-              //           context,
-              //           MaterialPageRoute(
-              //             builder: (context) => LoginPage(),
-              //           ),
-              //         );
-              //       },
-              //       child: Row(
-              //         mainAxisAlignment: MainAxisAlignment.center,
-              //         children: [
-              //           Text(
-              //             "Start Cooking",
-              //             style: context.theme.textTheme.bodySmall?.copyWith(
-              //               fontWeight: FontWeight.w600,
-              //               fontSize: 16.sp,
-              //               fontFamily: "Poppins",
-              //               color: AppColors.white,
-              //             ),
-              //           ),
-              //           const SizedBox(width: 20),
-              //           const Icon(Icons.arrow_forward_outlined),
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
+              20.verticalSpace,
+              Padding(
+                padding: REdgeInsets.symmetric(horizontal: 20),
+                child: FadeTransition(
+                  opacity: _animation,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: language == 1 ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
+                          minimumSize: Size(90.w, 36.h),
+                        ),
+                        onPressed: () {
+                          changeLanguage(1);
+                        },
+                        child: Text(
+                          "UZBEK",
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: language == 2 ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
+                          minimumSize: Size(90.w, 36.h),
+                        ),
+                        onPressed: () {
+                          changeLanguage(2);
+                        },
+                        child: Text(
+                          "РУССКИЙ",
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            // fontSize: 16.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: language == 3 ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
+                          minimumSize: Size(90.w, 36.h),
+                        ),
+                        onPressed: () {
+                          changeLanguage(3);
+                          // context.go(AppRouteNames.login);
+                        },
+                        child: Text(
+                          "ENGLISH",
+                          style: context.theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            // fontSize: 16.sp,
+                            fontFamily: "Poppins",
+                            color: AppColors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              20.verticalSpace,
+              if (language != null)
+                IconButton.outlined(
+                  onPressed: () {
+                    context.go(AppRouteNames.home);
+                  },
+                  highlightColor: AppColors.c129575,
+                  icon: const Icon(
+                    CupertinoIcons.right_chevron,
+                    color: AppColors.white,
+                  ),
+                ),
+              const Spacer(flex: 1),
             ],
           ),
         ),
