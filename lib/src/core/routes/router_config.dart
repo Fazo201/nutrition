@@ -173,6 +173,9 @@ final class RouterConfigService {
             path: AppRouteNames.bookmark,
             pageBuilder: (BuildContext context, GoRouterState state) =>
                 _customNavigatorTransitionAnimation(context, state, const BookmarkPage()),
+            routes: [
+              foodDetails,
+            ]
           ),
 
           /// Notification Page
