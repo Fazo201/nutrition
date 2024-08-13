@@ -26,7 +26,9 @@ class RegisterPage extends ConsumerWidget {
         leading: Padding(
           padding: const EdgeInsets.only(left: 25),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pop();
+            },
             icon: const Icon(Icons.arrow_back_ios),
           ),
         ),
@@ -41,7 +43,7 @@ class RegisterPage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Create an account",
+                  context.localized.creatAnAccount,
                   style: context.theme.textTheme.bodySmall?.copyWith(
                     fontWeight: FontWeight.w600,
                     fontSize: 20.sp,
@@ -51,7 +53,7 @@ class RegisterPage extends ConsumerWidget {
                 ),
                 5.verticalSpace,
                 Text(
-                  "Let’s help you set up your account,\nit won’t take long.",
+                  context.localized.letsHelp,
                   style: context.theme.textTheme.bodySmall?.copyWith(
                     fontWeight: FontWeight.w400,
                     fontSize: 11.sp,
@@ -60,62 +62,62 @@ class RegisterPage extends ConsumerWidget {
                   ),
                 ),
                 15.verticalSpace,
-                const RegisterTextWidget(text: "Name"),
+                RegisterTextWidget(text: context.localized.name),
                 3.verticalSpace,
                 LoginTextfieldWidget(
                   controller: ctr.nameController,
-                  hintText: "Enter Name",
+                  hintText: context.localized.enterName,
                   validator: (value) {
                     if (value != null && value.isNotEmpty && value.length >= 2) {
                       return null;
                     } else {
-                      return "Please enter your name";
+                      return context.localized.pleaseEnterName;
                     }
                   },
                   onChanged: (value) => ctr.onChanged,
                 ),
                 18.verticalSpace,
-                const RegisterTextWidget(text: "Email"),
+                RegisterTextWidget(text: context.localized.email),
                 3.verticalSpace,
                 LoginTextfieldWidget(
                   controller: ctr.emailController,
-                  hintText: "Enter Email",
+                  hintText: context.localized.enterEmail,
                   validator: (value) {
                     if (value != null && value.contains("@gmail.com") && value.length > 10) {
                       return null;
                     } else {
-                      return "Please enter your email address\nExample => (example@gmail.com)";
+                      return context.localized.errorExample;
                     }
                   },
                   onChanged: (value) => ctr.onChanged,
                 ),
                 18.verticalSpace,
-                const RegisterTextWidget(text: "Password"),
+                RegisterTextWidget(text: context.localized.password),
                 3.verticalSpace,
                 LoginTextfieldWidget(
                   controller: ctr.passwordController,
-                  hintText: "Enter Password",
+                  hintText: context.localized.enterPassword,
                   validator: (value) {
                     final regex = RegExp(r"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
                     if (value != null && regex.hasMatch(value)) {
                       return null;
                     } else {
-                      return "Must be 8 or more characters  and contain at least 1\nnumber or special character";
+                      return context.localized.errorPassword;
                     }
                   },
                   onChanged: (value) => ctr.onChanged,
                 ),
                 18.verticalSpace,
-                const RegisterTextWidget(text: "Confirm Password"),
+                RegisterTextWidget(text: context.localized.confirmPassword),
                 3.verticalSpace,
                 LoginTextfieldWidget(
                   controller: ctr.confirmPasswordController,
-                  hintText: "Retype Password",
+                  hintText: context.localized.retypePassword,
                   validator: (value) {
                     if (value == ctr.passwordController.text) {
                       return null;
                     } else {
-                      return "Passwords do not match";
+                      return context.localized.passwordDoNotMatch;
                     }
                   },
                   onChanged: (value) => ctr.onChanged,
@@ -135,7 +137,7 @@ class RegisterPage extends ConsumerWidget {
                       },
                     ),
                     Text(
-                      "Accept terms & Condition",
+                      context.localized.accept,
                       style: context.theme.textTheme.bodySmall?.copyWith(
                         fontWeight: FontWeight.w400,
                         fontSize: 11.sp,
@@ -147,7 +149,7 @@ class RegisterPage extends ConsumerWidget {
                 ),
                 5.verticalSpace,
                 ElevatedButtonWidget(
-                  text: "Sign Up",
+                  text: context.localized.signUp,
                   onPressed: () {
                     final result = ctr.globalKey.currentState!.validate();
                     if (result &&
@@ -158,8 +160,8 @@ class RegisterPage extends ConsumerWidget {
                       context.pushReplacement(AppRouteNames.home);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text("Please fill in all the details correctly."),
+                        SnackBar(
+                          content: Text(context.localized.pleaseFill),
                         ),
                       );
                     }
@@ -185,7 +187,7 @@ class RegisterPage extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Already a member?",
+                      context.localized.already,
                       style: context.theme.textTheme.bodySmall?.copyWith(
                         fontWeight: FontWeight.w500,
                         fontSize: 11.sp,
@@ -194,7 +196,7 @@ class RegisterPage extends ConsumerWidget {
                       ),
                     ),
                     Text(
-                      " Sign In",
+                      context.localized.signIn,
                       style: context.theme.textTheme.bodySmall?.copyWith(
                         fontWeight: FontWeight.w500,
                         fontSize: 11.sp,
