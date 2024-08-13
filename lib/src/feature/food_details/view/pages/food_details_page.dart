@@ -3,6 +3,7 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
 import "package:nutrition/generated/assets.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/style/text_style.dart";
 import "package:nutrition/src/core/widgets/custom_appbar_widget.dart";
@@ -47,7 +48,7 @@ class FoodDetailsPage extends ConsumerWidget {
                     ),
                   ),
                   Text(
-                    "(13k Reviews)",
+                    "(13k ${context.localized.reviews})",
                     style: const AppTextStyle().bodyMedium?.copyWith(
                           color: AppColors.cA9A9A9,
                         ),
@@ -73,7 +74,7 @@ class FoodDetailsPage extends ConsumerWidget {
                       ),
                       Row(
                         children: [
-                          SvgPicture.asset(Assets.iconsMoreApbarIcon),
+                          SvgPicture.asset(Assets.iconsLocationIcon),
                           Text(" Lagos, Nigeria",
                               style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cA9A9A9, fontSize: 11.sp)),
                         ],
@@ -88,9 +89,9 @@ class FoodDetailsPage extends ConsumerWidget {
               Row(
                 children: [
                   SvgPicture.asset(Assets.iconsRecipeDishIcon),
-                  Text(" 1 serve", style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cA9A9A9, fontSize: 11.sp)),
+                  Text(" 1 ${context.localized.serve}", style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cA9A9A9, fontSize: 11.sp)),
                   const Spacer(),
-                  Text("10 items", style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cA9A9A9, fontSize: 11.sp)),
+                  Text("10 ${context.localized.items}", style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cA9A9A9, fontSize: 11.sp)),
                 ],
               ),
               SizedBox(height: 8.h),

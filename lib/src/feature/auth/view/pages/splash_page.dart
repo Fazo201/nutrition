@@ -73,7 +73,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                FadeTransition(
                  opacity: _animation,
                  child: Text(
-                   "100K+ Premium Recipe ",
+                   context.localized.premiumRecipe,
                    style: context.theme.textTheme.bodySmall?.copyWith(
                      fontWeight: FontWeight.w600,
                      fontSize: 18.sp,
@@ -94,26 +94,18 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                  child: Column(
                    children: [
                      Text(
-                       "Get",
+                       context.localized.getCooking,
                        style: context.theme.textTheme.bodySmall?.copyWith(
                          fontWeight: FontWeight.w600,
                          fontSize: 50.sp,
                          fontFamily: "Poppins",
                          color: AppColors.white,
                        ),
-                     ),
-                     Text(
-                       "Cooking",
-                       style: context.theme.textTheme.bodySmall?.copyWith(
-                         fontWeight: FontWeight.w600,
-                         fontSize: 50.sp,
-                         fontFamily: "Poppins",
-                         color: AppColors.white,
-                       ),
+                       textAlign: TextAlign.center,
                      ),
                      const SizedBox(height: 20),
                      Text(
-                       context.localized.helloWorld,
+                       context.localized.simpleWayToFindTastyRecipe,
                        style: context.theme.textTheme.bodySmall?.copyWith(
                          fontWeight: FontWeight.w400,
                          fontSize: 16.sp,
@@ -140,7 +132,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                        minimumSize: Size(90.w, 36.h),
                      ),
                      onPressed: () {
-                       // changeLanguage(1);
+                       changeLanguage(1);
                        localController.changeLocal(LangCodes.uz);
                      },
                      child: Text(
@@ -158,14 +150,13 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                        minimumSize: Size(90.w, 36.h),
                      ),
                      onPressed: () {
-                       // changeLanguage(2);
+                       changeLanguage(2);
                        localController.changeLocal(LangCodes.ru);
                      },
                      child: Text(
                        "РУССКИЙ",
                        style: context.theme.textTheme.bodySmall?.copyWith(
                          fontWeight: FontWeight.w600,
-                         // fontSize: 16.sp,
                          fontFamily: "Poppins",
                          color: AppColors.white,
                        ),
@@ -177,15 +168,13 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                        minimumSize: Size(90.w, 36.h),
                      ),
                      onPressed: () {
-                       // changeLanguage(3);
+                       changeLanguage(3);
                        localController.changeLocal(LangCodes.en);
-                       // context.go(AppRouteNames.login);
                      },
                      child: Text(
                        "ENGLISH",
                        style: context.theme.textTheme.bodySmall?.copyWith(
                          fontWeight: FontWeight.w600,
-                         // fontSize: 16.sp,
                          fontFamily: "Poppins",
                          color: AppColors.white,
                        ),

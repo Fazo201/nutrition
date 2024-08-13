@@ -4,5 +4,18 @@
   "mainWord": "Get Cooking",
   "main": "Get Cooking",
   "goHome": "Going back to my home",
-  "city": "My City"
+  "city": "My City",
+  "premiumRecipe": "100K+ Premium Recipe",
+  "getCooking": "Get\nCooking",
+  "simpleWayToFindTastyRecipe": "Simple way to find Tasty Recipe",
+  "min": "min",
+  "reviews": "Reviews",
+  "ingredient": "Ingredient",
+  "procedure": "Procedure",
+  "serve": "serve",
+  "items": "items",
+  "share": "share",
+  "rateRecipe": "Rate Recipe",
+  "unsave":"Unsave",
+  "send": "Send"
 }

@@ -74,7 +74,7 @@ class FoodDetailsTopCard extends ConsumerWidget {
                         children: [
                           SvgPicture.asset("assets/icons/timer_in_card_icon.svg"),
                           const SizedBox(width: 5),
-                          Text("20 min", style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cD9D9D9, fontSize: 11.sp)),
+                          Text("20 ${context.localized.min}", style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cD9D9D9, fontSize: 11.sp)),
                           const SizedBox(width: 5),
                           InkWell(
                             onTap: (){
