@@ -43,6 +43,10 @@ class ProfilePage extends ConsumerWidget {
           ),
         ],
         backgroundColor: AppColors.white,
+        surfaceTintColor: AppColors.white,
+        iconTheme: const IconThemeData(color: AppColors.black),
+
+
       ),
       body: SingleChildScrollView(
         padding: REdgeInsets.symmetric(horizontal: 30),
