@@ -2,16 +2,16 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum LangCodes { uz, ru }
+enum LangCodes { uz, ru, en }
 
-const String _spLocalKey = 'app_local';
+const String _spLocalKey = "app_local";
 
 class LocalController extends ChangeNotifier {
 
   String _appLocal;
 
 
-  LocalController() : _appLocal = 'ru' {
+  LocalController() : _appLocal = "uz" {
     SharedPreferences.getInstance().then<void>(
           (sp) {
         final appLocal = sp.getString(_spLocalKey);
@@ -26,7 +26,7 @@ class LocalController extends ChangeNotifier {
     );
   }
 
-  Locale get appLocal => _appLocal == 'uz' ? const Locale('uz', 'UZ') : const Locale('ru', 'RU');
+  Locale get appLocal => _appLocal == "uz" ? const Locale("uz", "UZ") : _appLocal == "ru" ? const Locale("ru", "RU") : const Locale("en", "US");
 
 
 

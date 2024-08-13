@@ -6,6 +6,7 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/generated/assets.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/style/text_style.dart";
@@ -31,7 +32,7 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                 backgroundColor: AppColors.white,
                 title: Center(
                   child: Text(
-                    "Rate recipe",
+                    context.localized.rateRecipe,
                     style: const AppTextStyle().bodyMedium?.copyWith(
                           color: AppColors.black,
                         ),
@@ -69,9 +70,9 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                           borderRadius: BorderRadius.circular(8.r),
                           borderSide: BorderSide.none,
                         ),
-                        child: const Text(
-                          "Send",
-                          style: TextStyle(color: AppColors.white),
+                        child: Text(
+                          context.localized.send,
+                          style: const TextStyle(color: AppColors.white),
                         ),
                       ),
                     ),
@@ -93,28 +94,28 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
           value: "share",
           child: ListTile(
             leading: SvgPicture.asset(Assets.iconsRecipeShareIcon),
-            title: const Text("share"),
+            title: Text(context.localized.share),
           ),
         ),
-        const PopupMenuItem<String>(
+        PopupMenuItem<String>(
           value: "rate",
           child: ListTile(
-            leading: Icon(Icons.star),
-            title: Text("Rate Recipe"),
+            leading: const Icon(Icons.star),
+            title: Text(context.localized.rateRecipe),
           ),
         ),
         PopupMenuItem<String>(
           value: "review",
           child: ListTile(
             leading: SvgPicture.asset(Assets.iconsReviewIcon),
-            title: const Text("Review"),
+            title: Text(context.localized.reviews),
           ),
         ),
         if(foodDetailsVM.saveFood) PopupMenuItem<String>(
           value: "unsave",
           child: ListTile(
             leading: SvgPicture.asset(Assets.iconsRecipeUnsaveIcon),
-            title: const Text("Unsave"),
+            title: Text(context.localized.unsave),
           ),
         ),
       ],

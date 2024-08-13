@@ -1,0 +1,21 @@
+{
+  "@@locale": "uz",
+  "helloWorld": "Salom Dunyo!",
+  "mainWord": "Ovqat pishirishni oling",
+  "main": "Asosiy",
+  "goHome": "Uyimga qaytish",
+  "city": "Mening shaxrim",
+  "premiumRecipe": "100K+ Premium retseptlar",
+  "getCooking": "Ovqat pishiring",
+  "simpleWayToFindTastyRecipe": "Mazali retseptlar topishning oson yo'llari",
+  "min": "daq",
+  "reviews": "Sharhlar",
+  "ingredient": "Tarkibi",
+  "procedure": "Jarayon",
+  "serve": "xizmat",
+  "items": "elementlar",
+  "share": "Ulashish",
+  "rateRecipe": "Retseptni baholash",
+  "unsave":"Olib tashlash",
+  "send": "Yuborish"
+}

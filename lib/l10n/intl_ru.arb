@@ -1,0 +1,21 @@
+{
+  "@@locale": "ru",
+  "helloWorld": "Привет, мир!",
+  "mainWord": "Приготовьте еду",
+  "main": "Get Cooking",
+  "goHome": "Возвращаюсь в свой дом",
+  "city": "tttttt",
+  "premiumRecipe": "100K+ Премиум рецептов",
+  "getCooking": "Готовьте!",
+  "simpleWayToFindTastyRecipe": "Простой способ найти вкусный рецепт",
+  "min": "мин",
+  "reviews": "Отзывы",
+  "ingredient": "Ингредиент",
+  "procedure": "Процедура",
+  "serve": "служить",
+  "items": "элементы",
+  "share": "Поделиться",
+  "rateRecipe": "Оценить рецепт",
+  "unsave":"Убрать",
+  "send": "Посылать"
+}

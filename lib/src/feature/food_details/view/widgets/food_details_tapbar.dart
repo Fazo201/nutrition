@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/style/text_style.dart";
 import "package:nutrition/src/feature/food_details/view_model/vm/food_details_vm.dart";
@@ -28,7 +29,7 @@ class FoodDetailsTapbar extends ConsumerWidget {
               color: selectedTab == TapType.ingredient ? AppColors.c129575 : AppColors.white,
               height: double.infinity,
               child: Text(
-                "Ingredient",
+                context.localized.ingredient,
                 style: const AppTextStyle().labelLarge?.copyWith(
                       color: selectedTab == TapType.ingredient ? AppColors.white : AppColors.c129575,
                     ),
@@ -47,7 +48,7 @@ class FoodDetailsTapbar extends ConsumerWidget {
               color: selectedTab == TapType.procedure ? AppColors.c129575 : AppColors.white,
               height: double.infinity,
               child: Text(
-                "Procedure",
+                context.localized.procedure,
                 style: const AppTextStyle().labelLarge?.copyWith(
                       color: selectedTab == TapType.procedure ? AppColors.white : AppColors.c129575,
                     ),
