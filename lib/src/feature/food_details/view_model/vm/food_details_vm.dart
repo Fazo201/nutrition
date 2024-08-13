@@ -1,4 +1,3 @@
-import "dart:developer";
 
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
@@ -34,7 +33,6 @@ class FoodDetailsVM with ChangeNotifier {
 
   void isSavedFood(){
     _saveFood = !_saveFood;
-    log("SaveFood: $saveFood");
     notifyListeners();
   }
 }

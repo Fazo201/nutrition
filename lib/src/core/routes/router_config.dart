@@ -21,30 +21,20 @@ final class RouterConfigService {
   const RouterConfigService._();
 
   static final GoRoute search = GoRoute(
-    name: "SearchPage",
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteNames.search,
     pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(
       context,
       state,
-      SearchRecipesPage(
-        isTextField: state.extra as bool,
-      ),
+      const SearchRecipesPage(
+          // isTextField: false,
+          ),
     ),
-    // routes: [foodDetailsFromSearch], // Use the new route name here
+    routes: [foodDetails], // Use the new route name here
   );
 
   static final GoRoute foodDetails = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
-    name: "FoodDetailPage",
-    path: AppRouteNames.foodDetails,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const FoodDetailsPage()),
-    routes: [reviews],
-  );
-
-  static final GoRoute foodDetailsFromSearch = GoRoute(
-    parentNavigatorKey: parentNavigatorKey,
-    name: "FoodDetailFromSearchPage",
     path: AppRouteNames.foodDetails,
     pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const FoodDetailsPage()),
     routes: [reviews],
@@ -52,7 +42,6 @@ final class RouterConfigService {
 
   static final GoRoute reviews = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
-    name: "ReviewPage",
     path: AppRouteNames.reviews,
     pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const ReviewsPage()),
   );
@@ -122,7 +111,7 @@ final class RouterConfigService {
           //   child: child,
           // );
 
-          final tween = Tween<double>(begin: 0.6, end: 1.0);
+          final tween = Tween<double>(begin: 0.6, end: 1);
           final sizeAnimation = animation.drive(tween);
 
           return SizeTransition(
@@ -147,7 +136,7 @@ final class RouterConfigService {
       );
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.splash,
+    initialLocation: AppRouteNames.home,
     navigatorKey: parentNavigatorKey,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
@@ -173,6 +162,9 @@ final class RouterConfigService {
             path: AppRouteNames.bookmark,
             pageBuilder: (BuildContext context, GoRouterState state) =>
                 _customNavigatorTransitionAnimation(context, state, const BookmarkPage()),
+            routes: [
+              foodDetails,
+            ],
           ),
 
           /// Notification Page

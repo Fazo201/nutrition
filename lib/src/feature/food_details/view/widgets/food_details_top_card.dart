@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/style/text_style.dart";
 import "package:nutrition/src/feature/food_details/view_model/vm/food_details_vm.dart";
@@ -59,7 +60,9 @@ class FoodDetailsTopCard extends ConsumerWidget {
                               SvgPicture.asset("assets/icons/star_selected_icon.svg", height: 12.h, width: 12.w),
                               Text(
                                 "4.0",
-                                style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.black),
+                                style: context.textTheme.labelSmall?.copyWith(
+                                  fontFamily: "Poppins",
+                                ),
                               ),
                             ],
                           ),

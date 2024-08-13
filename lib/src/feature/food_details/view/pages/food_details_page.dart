@@ -73,7 +73,7 @@ class FoodDetailsPage extends ConsumerWidget {
                       ),
                       Row(
                         children: [
-                          SvgPicture.asset(Assets.iconsRecipeLocation),
+                          SvgPicture.asset(Assets.iconsMoreApbarIcon),
                           Text(" Lagos, Nigeria",
                               style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cA9A9A9, fontSize: 11.sp)),
                         ],
