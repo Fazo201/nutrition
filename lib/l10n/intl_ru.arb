@@ -42,5 +42,7 @@
   "passwordDoNotMatch": "Пароли не совпадают",
   "accept": "Принять условия использования",
   "pleaseFill": "Пожалуйста, заполните все данные правильно.",
-  "already": "Уже являетесь участником?"
+  "already": "Уже являетесь участником?",
+  "homePageWhatAreYouCookingToday" : "Что вы готовите сегодня?",
+  "homePageNewRecipes" : "Новые рецепты"
 }

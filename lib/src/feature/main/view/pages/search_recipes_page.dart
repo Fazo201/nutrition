@@ -76,10 +76,8 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Recent Search",
-                      style: style.titleSmall?.copyWith(fontSize: 16,fontWeight: FontWeight.w600,color: Colors.black  )
-                    ),
+                    Text("Recent Search",
+                        style: style.titleSmall?.copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black)),
                     if (searchViewModel.totalResults != 0) Text("${searchViewModel.totalResults} results") else const Text(""),
                   ],
                 ),

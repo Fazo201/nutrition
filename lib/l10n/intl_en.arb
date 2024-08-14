@@ -42,5 +42,7 @@
   "passwordDoNotMatch": "Passwords do not match",
   "accept": "Accept terms & Condition",
   "pleaseFill": "Please fill in all the details correctly.",
-  "already": "Already a member?"
+  "already": "Already a member?",
+  "homePageWhatAreYouCookingToday" : "What are you cooking today?",
+  "homePageNewRecipes" : "New Recipes"
 }

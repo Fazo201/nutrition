@@ -42,5 +42,7 @@
   "passwordDoNotMatch": "Parollar mos kelmaydi",
   "accept": "Shartlar && shartlarni qabul qiling",
   "pleaseFill": "Iltimos, barcha ma'lumotlarni to'g'ri kiriting.",
-  "already": "Allaqachon a'zomisiz?"
+  "already": "Allaqachon a'zomisiz?",
+  "homePageWhatAreYouCookingToday" : "Bugun nima ovqat tayyorlayapsiz",
+  "homePageNewRecipes" : "Yangi Ritseplar"
 }
