@@ -33,12 +33,11 @@ dependencies:
   image_picker: ^1.1.2
   zoom_tap_animation: ^1.1.0
   file_picker: ^8.0.0+1
-  path_provider: ^2.1.4
 
-
-  # Date
-  intl: ^0.19.0
-  image: ^4.2.0
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 
   # rate my app
@@ -81,3 +80,4 @@ flutter:
          - asset: assets/fonts/Poppins-Thin.ttf
          - asset: assets/fonts/Poppins-ThinItalic.ttf
            style: italic
+

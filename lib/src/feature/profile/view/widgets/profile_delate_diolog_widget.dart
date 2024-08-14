@@ -53,8 +53,8 @@ class DeleteDialog extends BuildShowDialog {
                   style: TextStyle(
                       color: Color(0xffCE4342), fontWeight: FontWeight.bold,),),
             ),
-          ],),
-          15.verticalSpace,
+          ]),
+          const SizedBox(height: 15),
         ],
       ),
     );

@@ -1,5 +1,5 @@
-import 'package:flutter/widgets.dart';
-import 'theme_controller.dart';
+import "package:flutter/widgets.dart";
+import "theme_controller.dart";
 
 @immutable
 class InheritedThemeNotifier extends InheritedNotifier<ThemeController> {
@@ -8,8 +8,8 @@ class InheritedThemeNotifier extends InheritedNotifier<ThemeController> {
     required super.child,
     super.key,
   }) : super(
-    notifier: themeController,
-  );
+          notifier: themeController,
+        );
 
   static ThemeController? maybeOf(BuildContext context, {bool listen = true}) {
     if (listen) {

@@ -23,6 +23,24 @@ class ProfileTextfildWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
+            "Name",
+            // style: const AppTextStyle().loginEmail,
+          ),
+          ProfileTextfieldWidget(
+            keyboardType: keyboardTypeName,
+            controller: controllerN,
+            hintText: "Enter Name",
+            validator: (value) {
+              if (value != null && value.isNotEmpty && value.length >= 2) {
+                return null;
+              } else {
+                return "Please enter your name";
+              }
+            },
+            onChanged: onChanged,
+          ),
+          20.verticalSpace,
+          const Text(
             "Email",
             // style: const AppTextStyle().loginEmail,
           ),
@@ -60,24 +78,7 @@ class ProfileTextfildWidget extends StatelessWidget {
             onChanged: onChanged,
           ),
           20.verticalSpace,
-          const Text(
-            "Name",
-            // style: const AppTextStyle().loginEmail,
-          ),
-          ProfileTextfieldWidget(
-            keyboardType: keyboardTypeName,
-            controller: controllerN,
-            hintText: "Enter Name",
-            validator: (value) {
-              if (value != null && value.isNotEmpty && value.length >= 2) {
-                return null;
-              } else {
-                return "Please enter your name";
-              }
-            },
-            onChanged: onChanged,
-          ),
-          20.verticalSpace,
+
         ],
       ),
     );

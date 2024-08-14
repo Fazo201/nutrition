@@ -1,13 +1,14 @@
-import 'dart:developer';
+import "dart:developer";
 
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nutrition/src/core/style/app_colors.dart';
-import 'package:nutrition/src/feature/main/view_model/search_vm.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/style/app_colors.dart";
+import "package:nutrition/src/core/style/text_style.dart";
+import "package:nutrition/src/feature/main/view_model/search_vm.dart";
 
-import '../widgets/search_recipes_item_widget.dart';
-import '../widgets/search_recipes_text_field_button_widget.dart';
+import "../widgets/search_recipes_item_widget.dart";
+import "../widgets/search_recipes_text_field_button_widget.dart";
 
 class SearchRecipesPage extends ConsumerStatefulWidget {
   const SearchRecipesPage({super.key, this.isTextField});
@@ -19,16 +20,15 @@ class SearchRecipesPage extends ConsumerStatefulWidget {
 }
 
 class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
-  late bool value;
+  AppTextStyle style = const AppTextStyle();
 
   @override
   void initState() {
     super.initState();
-    value = widget.isTextField ?? false;
     log(widget.isTextField.toString());
     log("InitState");
 
-    ref.read(searchVm).checkBooleanValue(value, context);
+    ref.read(searchVm).checkBooleanValue(widget.isTextField, context);
   }
 
   @override
@@ -44,7 +44,14 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.white,
-          title: const Text("Search recipes"),
+          title: Text(
+            "Search recipes",
+            style: style.titleSmall?.copyWith(
+              color: AppColors.c181818,
+              fontWeight: FontWeight.w600,
+              fontSize: 18,
+            ),
+          ),
           centerTitle: true,
           forceMaterialTransparency: true,
         ),
@@ -62,20 +69,15 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
                     ref.read(searchVm.notifier).performSearch();
                     FocusScope.of(context).unfocus();
                   },
-                  onChanged:  (value) => ref.read(searchVm.notifier).filterRecipes(value),
+                  onChanged: (value) => ref.read(searchVm.notifier).filterRecipes(value),
                   onTapFilter: () => ref.read(searchVm.notifier).showFilterBottomSheet(context),
                 ),
                 16.verticalSpace,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "Recent Search",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    Text("Recent Search",
+                        style: style.titleSmall?.copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black)),
                     if (searchViewModel.totalResults != 0) Text("${searchViewModel.totalResults} results") else const Text(""),
                   ],
                 ),

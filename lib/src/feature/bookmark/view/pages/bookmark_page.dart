@@ -9,6 +9,7 @@ class BookmarkPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Saved recipes",),
         centerTitle: true,
+        forceMaterialTransparency: true,
       ),
       body: ListView.separated(
         itemCount: 10,

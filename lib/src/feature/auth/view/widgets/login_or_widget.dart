@@ -8,32 +8,32 @@ class LoginOrWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-      children: [
-        const Expanded(
-          child: Divider(
-            color: AppColors.cD9D9D9,
-            thickness: 1,
-            endIndent: 10,
-            indent: 50,
+        children: [
+          const Expanded(
+            child: Divider(
+              color: AppColors.cD9D9D9,
+              thickness: 1,
+              endIndent: 10,
+              indent: 50,
+            ),
           ),
-        ),
-        Text(
-          "Or Sign in With",
-          style: context.theme.textTheme.bodySmall?.copyWith(
-            fontWeight: FontWeight.w500,
-            fontSize: 11.sp,
-            fontFamily: "Poppins",
-            color: AppColors.cD9D9D9,
+          Text(
+            context.localized.orWith,
+            style: context.theme.textTheme.bodySmall?.copyWith(
+              fontWeight: FontWeight.w500,
+              fontSize: 11.sp,
+              fontFamily: "Poppins",
+              color: AppColors.cD9D9D9,
+            ),
           ),
-        ),
-        const Expanded(
-          child: Divider(
-            color: AppColors.cD9D9D9,
-            endIndent: 50,
-            thickness: 1,
-            indent: 10,
+          const Expanded(
+            child: Divider(
+              color: AppColors.cD9D9D9,
+              endIndent: 50,
+              thickness: 1,
+              indent: 10,
+            ),
           ),
-        ),
-      ],
-    );
+        ],
+      );
 }

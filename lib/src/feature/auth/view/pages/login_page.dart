@@ -1,3 +1,5 @@
+import "dart:developer";
+
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -16,6 +18,7 @@ class LoginPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    log("\n\n\nLoginPage\n\n");
     final ctr = ref.read(loginVM);
     ref.watch(loginVM);
     return Scaffold(
@@ -31,7 +34,7 @@ class LoginPage extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Hello,",
+                    context.localized.hello,
                     style: context.theme.textTheme.bodySmall?.copyWith(
                       fontWeight: FontWeight.w600,
                       fontSize: 30.sp,
@@ -40,7 +43,7 @@ class LoginPage extends ConsumerWidget {
                     ),
                   ),
                   Text(
-                    "Welcome Back!",
+                    context.localized.welcomeBack,
                     style: context.theme.textTheme.bodySmall?.copyWith(
                       fontWeight: FontWeight.w400,
                       fontSize: 20.sp,
@@ -50,7 +53,7 @@ class LoginPage extends ConsumerWidget {
                   ),
                   57.verticalSpace,
                   Text(
-                    "Email",
+                    context.localized.email,
                     style: context.theme.textTheme.bodySmall?.copyWith(
                       fontWeight: FontWeight.w400,
                       fontSize: 14.sp,
@@ -61,19 +64,19 @@ class LoginPage extends ConsumerWidget {
                   5.verticalSpace,
                   LoginTextfieldWidget(
                     controller: ctr.emailController,
-                    hintText: "Enter Email",
+                    hintText: context.localized.enterEmail,
                     validator: (value) {
                       if (value != null && value.contains("@gmail.com") && value.length > 10) {
                         return null;
                       } else {
-                        return "Please enter your email address\nExample => (example@gmail.com)";
+                        return context.localized.errorExample;
                       }
                     },
                     onChanged: ctr.onChanged,
                   ),
                   30.verticalSpace,
                   Text(
-                    "Enter Password",
+                    context.localized.enterPassword,
                     style: context.theme.textTheme.bodySmall?.copyWith(
                       fontWeight: FontWeight.w400,
                       fontSize: 14.sp,
@@ -83,12 +86,12 @@ class LoginPage extends ConsumerWidget {
                   ),
                   LoginTextfieldWidget(
                     controller: ctr.passwordController,
-                    hintText: "Enter Password",
+                    hintText: context.localized.enterPassword,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
                       } else {
-                        return "Please enter your password";
+                        return context.localized.errorPassword;
                       }
                     },
                     onChanged: ctr.onChanged,
@@ -101,7 +104,7 @@ class LoginPage extends ConsumerWidget {
                         context.go(AppRouteNames.home);
                       },
                       child: Text(
-                        "Forgot Password?",
+                        context.localized.forgetPassword,
                         style: context.theme.textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.w400,
                           fontSize: 11.sp,
@@ -113,7 +116,7 @@ class LoginPage extends ConsumerWidget {
                   ),
                   25.verticalSpace,
                   ElevatedButtonWidget(
-                    text: "Sign In",
+                    text: context.localized.signIn,
                     onPressed: () {
                       if (ctr.globalKey.currentState?.validate() ?? false) {
                         context.pushReplacement(AppRouteNames.home);
@@ -142,7 +145,7 @@ class LoginPage extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don’t have an account?",
+                        context.localized.dontHaveAccount,
                         style: context.theme.textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.w500,
                           fontSize: 11.sp,
@@ -155,7 +158,7 @@ class LoginPage extends ConsumerWidget {
                           context.go("${AppRouteNames.login}/${AppRouteNames.register}");
                         },
                         child: Text(
-                          " Sign up",
+                          context.localized.signUp,
                           style: context.theme.textTheme.bodySmall?.copyWith(
                             fontWeight: FontWeight.w500,
                             fontSize: 11.sp,
