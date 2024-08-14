@@ -6,8 +6,8 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/feature/main/view_model/home_vm.dart";
-import "package:nutrition/src/feature/settings/inherited_locale_notifier.dart";
-import "package:nutrition/src/feature/settings/locale_controller.dart";
+// import "package:nutrition/src/feature/settings/inherited_locale_notifier.dart";
+// import "package:nutrition/src/feature/settings/locale_controller.dart";
 
 import "../widgets/home_page_app_bar_widget.dart";
 import "../widgets/home_page_bottom_card_widget.dart";
@@ -21,37 +21,34 @@ class HomePage extends ConsumerWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(157.h),
         child: const HomePageAppBar(
-          // ctx: context,
-        ),
+            // ctx: context,
+            ),
       ),
       backgroundColor: AppColors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // IconButton(
+            //   onPressed: (){
+            //     InheritedLocalNotifier.maybeOf(context)?.changeLocal(LangCodes.en);
+            //   },
+            //   icon: const Text("En"),
+            // ),
 
-            IconButton(
-              onPressed: (){
-                InheritedLocalNotifier.maybeOf(context)?.changeLocal(LangCodes.en);
-              },
-              icon: const Text("En"),
-            ),
+            // IconButton(
+            //   onPressed: (){
+            //     InheritedLocalNotifier.maybeOf(context)?.changeLocal(LangCodes.ru);
+            //   },
+            //   icon: const Text("Ru"),
+            // ),
 
-            IconButton(
-              onPressed: (){
-                InheritedLocalNotifier.maybeOf(context)?.changeLocal(LangCodes.ru);
-              },
-              icon: const Text("Ru"),
-            ),
-
-            IconButton(
-              onPressed: (){
-                InheritedLocalNotifier.maybeOf(context)?.changeLocal(LangCodes.uz);
-              },
-              icon: const Text("Uz"),
-            ),
-
-
+            // IconButton(
+            //   onPressed: (){
+            //     InheritedLocalNotifier.maybeOf(context)?.changeLocal(LangCodes.uz);
+            //   },
+            //   icon: const Text("Uz"),
+            // ),
 
             // custom tabbar
             SizedBox(
