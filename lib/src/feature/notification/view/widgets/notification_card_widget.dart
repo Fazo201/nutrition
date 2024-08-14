@@ -42,13 +42,13 @@ class NotificationCardWidget extends StatelessWidget{
                           color: AppColors.cFFE1B3,
                           borderRadius: BorderRadius.circular(10.r),
                         ),
-                        child: SvgPicture.asset("assets/images/reviews_icon_wich_has_not_read.svg"),
+                        child: SvgPicture.asset("assets/icons/reviews_icon_wich_has_not_read.svg"),
                       ),
                     ),
                   ],
                 ),
                 Text(
-                  "Lorem Ipsum temporskskkskskskskskksksksksksk incididunt ut labore et dolore,in voluptate velit esse cillum",
+                  "Lorem Ipsum ut labore et dolore,in voluptate velit esse cillum",
                   style: context.theme.textTheme.labelSmall?.copyWith(
                     fontSize: 11.sp,
                     fontWeight: FontWeight.w400,
