@@ -44,5 +44,17 @@
   "pleaseFill": "Please fill in all the details correctly.",
   "already": "Already a member?",
   "homePageWhatAreYouCookingToday" : "What are you cooking today?",
-  "homePageNewRecipes" : "New Recipes"
+  "homePageNewRecipes" : "New Recipes",
+  "notification" : "Notification",
+  "all":"All",
+  "profile": "Profile",
+  "read" : "Read",
+  "unread" : "Unread",
+  "new_recipes_alert": "New Recipe Alert!",
+  "reviews" : "Reviews",
+  "leave_a_comment" : "Leave a comment",
+  "send" : "Send",
+  "say_something" : "Say something...",
+  "comments" : "Comments"
+  
 }

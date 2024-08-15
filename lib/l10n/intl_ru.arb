@@ -44,5 +44,8 @@
   "pleaseFill": "Пожалуйста, заполните все данные правильно.",
   "already": "Уже являетесь участником?",
   "homePageWhatAreYouCookingToday" : "Что вы готовите сегодня?",
-  "homePageNewRecipes" : "Новые рецепты"
+  "homePageNewRecipes" : "Новые рецепты",
+  "notification": "Уведомление",
+  "profile": "Уведомление"
+
 }
