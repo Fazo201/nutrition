@@ -23,7 +23,7 @@ final class RouterConfigService {
   static final GoRoute search = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteNames.search,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(
+    pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
       context,
       state,
       const SearchRecipesPage(
@@ -36,14 +36,15 @@ final class RouterConfigService {
   static final GoRoute foodDetails = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteNames.foodDetails,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const FoodDetailsPage()),
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customNavigatorTransitionAnimation(context, state, const FoodDetailsPage()),
     routes: [reviews],
   );
 
   static final GoRoute reviews = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteNames.reviews,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const ReviewsPage()),
+    pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(context, state, const ReviewsPage()),
   );
 
   static Page<dynamic> _customEachTransitionAnimation(BuildContext context, GoRouterState state, Widget child) =>

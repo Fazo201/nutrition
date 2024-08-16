@@ -44,5 +44,9 @@
   "pleaseFill": "Please fill in all the details correctly.",
   "already": "Already a member?",
   "homePageWhatAreYouCookingToday" : "What are you cooking today?",
-  "homePageNewRecipes" : "New Recipes"
+  "homePageNewRecipes" : "New Recipes",
+  "homePageSearchText" : "Search recipe",
+  "homePageHello" : "Hello",
+  "homePageTime" : "Time",
+  "homePageTime2" : "Mins"
 }

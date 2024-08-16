@@ -7,9 +7,7 @@ class HomeVm with ChangeNotifier {
   int currentIndex = 0;
   Map<int, bool> _bookmarkStatus = {};
 
-  List<String> tabBarItems = [
-    "All", "Indian", "Italian", "Asian", "Chinese", "Uzbekistan", "USA", "Turkey"
-  ];
+  List<String> tabBarItems = ["All", "Indian", "Italian", "Asian", "Chinese", "Uzbekistan", "USA", "Turkey"];
 
   bool isBookmarked(int index) => _bookmarkStatus[index] ?? false;
 
