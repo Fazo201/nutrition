@@ -77,61 +77,69 @@ class ReviewsPage extends ConsumerWidget {
             Expanded(
               child: isLoading
                   ? ListView.builder(
-                itemCount: 10, // Number of shimmer placeholders
-                itemBuilder: (_, index) => Shimmer.fromColors(
-                  baseColor: Colors.grey[300]!,
-                  highlightColor: Colors.grey[100]!,
-                  child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 8.h),
-                    padding: EdgeInsets.all(16.w),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8.r),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 24.r,
-                          backgroundColor: Colors.grey,
-                        ),
-                        16.horizontalSpace,
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                color: Colors.grey,
-                                height: 12.h,
-                                width: 100.w,
+                      itemCount: 10,
+                      itemBuilder: (_, index) => Shimmer.fromColors(
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
+                        child: Container(
+                          margin: REdgeInsets.symmetric(vertical: 8),
+                          padding: REdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.r),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.2),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: const Offset(0, 2),
                               ),
-                              8.verticalSpace,
-                              Container(
-                                color: Colors.grey,
-                                height: 8.h,
-                                width: 150.w,
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 24.r,
+                                backgroundColor: Colors.grey,
+                              ),
+                              16.horizontalSpace,
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      height: 12.h,
+                                      width: 100.w,
+                                      child: const DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                    8.verticalSpace,
+                                    SizedBox(
+                                      height: 8.h,
+                                      width: 150.w,
+                                      child: const DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
+                      ),
+                    )
                   : ListView.builder(
-                itemCount: reviews.length,
-                itemBuilder: (_, index) => ReviewWidget(
-                  reviewIndex: index,
-                ),
-              ),
+                      itemCount: reviews.length,
+                      itemBuilder: (_, index) => ReviewWidget(
+                        reviewIndex: index,
+                      ),
+                    ),
             ),
           ],
         ),
