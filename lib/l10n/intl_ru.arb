@@ -66,14 +66,9 @@
   "save": "Сохранить",
   "user_name": "Имя пользователя",
   "user_password": "Пароль пользователя",
-  "user_email": "Электронная почта пользователя"
-  "already": "Уже являетесь участником?",
-  "homePageWhatAreYouCookingToday" : "Что вы готовите сегодня?",
-  "homePageNewRecipes" : "Новые рецепты",
+  "user_email": "Электронная почта пользователя",
   "homePageSearchText" : "Поиск рецепта",
   "homePageHello" : "Привет",
   "homePageTime" : "Время",
-  "homePageTime2" : "Мин.",
-  "notification": "Уведомление",
-  "profile": "Уведомление"
+  "homePageTime2" : "Мин."
 }
