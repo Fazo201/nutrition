@@ -39,10 +39,12 @@ dependencies:
     sdk: flutter
   intl: any
 
-
   # rate my app
   flutter_rating_bar: ^4.0.1
   share_plus: ^7.2.2
+
+  # shimmer
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
