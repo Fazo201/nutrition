@@ -49,4 +49,17 @@
   "homePageHello" : "Hello",
   "homePageTime" : "Time",
   "homePageTime2" : "Mins"
+  "homePageNewRecipes" : "New Recipes",
+  "notification" : "Notification",
+  "all":"All",
+  "profile": "Profile",
+  "read" : "Read",
+  "unread" : "Unread",
+  "new_recipes_alert": "New Recipe Alert!",
+  "reviews" : "Reviews",
+  "leave_a_comment" : "Leave a comment",
+  "send" : "Send",
+  "say_something" : "Say something...",
+  "comments" : "Comments"
+
 }

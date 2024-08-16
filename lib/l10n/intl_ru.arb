@@ -49,4 +49,8 @@
   "homePageHello" : "Привет",
   "homePageTime" : "Время",
   "homePageTime2" : "Мин."
+  "homePageNewRecipes" : "Новые рецепты",
+  "notification": "Уведомление",
+  "profile": "Уведомление"
+
 }

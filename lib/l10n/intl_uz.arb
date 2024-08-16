@@ -49,4 +49,7 @@
   "homePageHello" : "Salom",
   "homePageTime" : "Vaqt",
   "homePageTime2" : "Minut"
+  "homePageNewRecipes" : "Yangi Ritseplar",
+  "notification" : "Xabarlar",
+  "profile": "Profil"
 }

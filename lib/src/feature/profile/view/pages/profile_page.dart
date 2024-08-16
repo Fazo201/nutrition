@@ -23,7 +23,7 @@ class ProfilePage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Profile",
+          context.localized.profile,
           style: context.theme.textTheme.labelLarge?.copyWith(color: AppColors.black, fontWeight: FontWeight.w600, fontSize: 16.sp),
         ),
         centerTitle: true,

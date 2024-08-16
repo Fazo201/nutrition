@@ -26,7 +26,7 @@ class NotificationCardWidget extends StatelessWidget{
                 Row(
                   children: [
                     Text(
-                      "New Recipe Alert!",
+                      context.localized.new_recipes_alert,
                       style: context.theme.textTheme.labelSmall?.copyWith(
                         fontSize: 15.sp,
                         fontWeight: FontWeight.w600,

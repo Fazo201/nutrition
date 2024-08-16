@@ -21,7 +21,7 @@ class ReviewsPage extends ConsumerWidget {
         backgroundColor: AppColors.white,
         surfaceTintColor: AppColors.white,
         title: Text(
-          "Reviews",
+          context.localized.reviews,
           style: context.theme.textTheme.labelLarge?.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
@@ -38,14 +38,14 @@ class ReviewsPage extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Leave a comment",
+                  context.localized.leave_a_comment,
                   style: context.theme.textTheme.labelSmall?.copyWith(
                     fontSize: 14.sp,
                     fontFamily: "Poppins",
                   ),
                 ),
                 Text(
-                  "${ref.watch(reviewVM).reviews.length} Comments",
+                  "${ref.watch(reviewVM).reviews.length} ${context.localized.comments}",
                   style: context.theme.textTheme.labelSmall?.copyWith(
                     fontSize: 14.sp,
                     fontFamily: "Poppins",
@@ -62,7 +62,7 @@ class ReviewsPage extends ConsumerWidget {
                     commentC: ref.watch(reviewVM).commentC,
                   ),
                   ReviewSendButtonWidget(
-                    text: "Send",
+                    text: context.localized.send,
                     onPressed: () {
                       ref.watch(reviewVM).addReview();
                       FocusScope.of(context).unfocus();
