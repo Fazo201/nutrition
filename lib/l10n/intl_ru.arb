@@ -48,9 +48,7 @@
   "homePageSearchText" : "Поиск рецепта",
   "homePageHello" : "Привет",
   "homePageTime" : "Время",
-  "homePageTime2" : "Мин."
-  "homePageNewRecipes" : "Новые рецепты",
+  "homePageTime2" : "Мин.",
   "notification": "Уведомление",
   "profile": "Уведомление"
-
 }

@@ -1,5 +1,4 @@
 {
-  "@@locale": "en",
   "helloWorld": "Hello World!",
   "mainWord": "Get Cooking",
   "main": "Get Cooking",
@@ -44,11 +43,10 @@
   "pleaseFill": "Please fill in all the details correctly.",
   "already": "Already a member?",
   "homePageWhatAreYouCookingToday" : "What are you cooking today?",
-  "homePageNewRecipes" : "New Recipes",
   "homePageSearchText" : "Search recipe",
   "homePageHello" : "Hello",
   "homePageTime" : "Time",
-  "homePageTime2" : "Mins"
+  "homePageTime2" : "Mins",
   "homePageNewRecipes" : "New Recipes",
   "notification" : "Notification",
   "all":"All",
@@ -56,10 +54,7 @@
   "read" : "Read",
   "unread" : "Unread",
   "new_recipes_alert": "New Recipe Alert!",
-  "reviews" : "Reviews",
   "leave_a_comment" : "Leave a comment",
-  "send" : "Send",
   "say_something" : "Say something...",
   "comments" : "Comments"
-
 }
