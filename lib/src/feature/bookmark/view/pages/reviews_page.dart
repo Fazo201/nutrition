@@ -28,6 +28,7 @@ class ReviewsPage extends ConsumerWidget {
           style: context.theme.textTheme.labelLarge?.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
+            fontFamily: "Poppins",
           ),
         ),
         centerTitle: true,

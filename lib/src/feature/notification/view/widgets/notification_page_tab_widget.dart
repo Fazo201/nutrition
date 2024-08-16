@@ -30,6 +30,7 @@ class NotificationPageTabWidget extends StatelessWidget {
           style: context.theme.textTheme.labelSmall?.copyWith(
             fontSize: 14.sp,
             fontWeight: FontWeight.w600,
+            fontFamily: "Poppins",
             color: isSelected ? AppColors.white : AppColors.c71B1A1,
           ),
         ),

@@ -47,6 +47,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
           style: context.theme.textTheme.bodyLarge?.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
+            fontFamily: "Poppins",
           ),
         ),
         bottom: TabBar(
