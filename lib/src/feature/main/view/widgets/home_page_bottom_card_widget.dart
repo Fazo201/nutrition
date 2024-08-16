@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
@@ -59,6 +60,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                           Text(
                             title,
                             style: TextStyle(
+                              fontFamily: "Poppins",
                               fontSize: 14.sp,
                               color: AppColors.c484848,
                               fontWeight: FontWeight.w600,
@@ -89,6 +91,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                                   Text(
                                     owner,
                                     style: TextStyle(
+                                      fontFamily: "Poppins",
                                       fontSize: 11.sp,
                                       color: AppColors.cA9A9A9,
                                     ),
@@ -100,8 +103,10 @@ class HomePageBottomCardWidget extends StatelessWidget {
                                   SvgPicture.asset("assets/icons/timer_in_card_icon.svg"),
                                   5.horizontalSpace,
                                   Text(
-                                    "$time mins",
+                                    "$time ${context.localized.homePageTime2}",
                                     style: TextStyle(
+                                      overflow: TextOverflow.ellipsis,
+                                      fontFamily: "Poppins",
                                       fontSize: 11.sp,
                                       fontWeight: FontWeight.w400,
                                       color: AppColors.cA9A9A9,

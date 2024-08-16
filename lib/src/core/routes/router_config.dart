@@ -49,23 +49,23 @@ final class RouterConfigService {
   static Page<dynamic> _customEachTransitionAnimation(BuildContext context, GoRouterState state, Widget child) =>
       CustomTransitionPage<Object>(
         transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
-          // var begin = Offset(1.0, 0.0); // From right
-          // var end = Offset.zero;
-          // var tween = Tween(begin: begin, end: end);
-          // var offsetAnimation = animation.drive(tween);
-          //
-          // return SlideTransition(
-          //   position: offsetAnimation,
-          //   child: child,
-          // );
+          var begin = Offset(1.0, 0.0); // From right
+          var end = Offset.zero;
+          var tween = Tween(begin: begin, end: end);
+          var offsetAnimation = animation.drive(tween);
 
-          final tween = Tween<double>(begin: 0, end: 1);
-          final scaleAnimation = animation.drive(tween);
-
-          return ScaleTransition(
-            scale: scaleAnimation,
+          return SlideTransition(
+            position: offsetAnimation,
             child: child,
           );
+
+          // final tween = Tween<double>(begin: 0, end: 1);
+          // final scaleAnimation = animation.drive(tween);
+
+          // return ScaleTransition(
+          //   scale: scaleAnimation,
+          //   child: child,
+          // );
 
           // var tween = Tween<double>(begin: 0.6, end: 1.0);
           // var sizeAnimation = animation.drive(tween);

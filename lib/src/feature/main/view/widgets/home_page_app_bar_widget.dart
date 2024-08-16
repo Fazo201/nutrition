@@ -1,12 +1,17 @@
+import "dart:io";
+
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
 class HomePageAppBar extends StatelessWidget {
+  final String? imgPath;
   const HomePageAppBar({
+    required this.imgPath,
     super.key,
   });
 
@@ -14,10 +19,8 @@ class HomePageAppBar extends StatelessWidget {
   Widget build(BuildContext context) => Padding(
         padding: REdgeInsets.symmetric(horizontal: 30),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            25.verticalSpace,
             Row(
               children: [
                 Expanded(
@@ -25,7 +28,7 @@ class HomePageAppBar extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Hello Jega",
+                        "${context.localized.homePageHello} Jega",
                         style: TextStyle(
                           fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
@@ -34,7 +37,7 @@ class HomePageAppBar extends StatelessWidget {
                       ),
                       5.verticalSpace,
                       Text(
-                        "What are you cooking today?",
+                        context.localized.homePageWhatAreYouCookingToday,
                         style: TextStyle(
                           fontSize: 11.sp,
                           color: Colors.grey,
@@ -50,6 +53,10 @@ class HomePageAppBar extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: AppColors.cFFCE80,
                       borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: Image(
+                      image: profileImage(profileImagePath: imgPath)!,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -71,7 +78,7 @@ class HomePageAppBar extends StatelessWidget {
                           padding: REdgeInsets.symmetric(vertical: 10),
                           child: SvgPicture.asset("assets/icons/search_in_textfield_icon.svg"),
                         ),
-                        hintText: "Search recipe",
+                        hintText: context.localized.homePageSearchText,
                         hintStyle: const TextStyle(color: AppColors.cD9D9D9),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
@@ -114,8 +121,17 @@ class HomePageAppBar extends StatelessWidget {
                 ),
               ],
             ),
-            15.verticalSpace,
+            10.verticalSpace,
           ],
         ),
       );
 }
+
+ImageProvider<Object>? profileImage({
+  String? profileImagePath,
+}) =>
+    profileImagePath != null
+        ? Image.file(File(profileImagePath)).image
+        : const AssetImage(
+            "assets/images/default_profile_image.png",
+          );
