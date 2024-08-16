@@ -1,3 +1,5 @@
+import "dart:io";
+
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
@@ -7,7 +9,9 @@ import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
 class HomePageAppBar extends StatelessWidget {
+  final String? imgPath;
   const HomePageAppBar({
+    required this.imgPath,
     super.key,
   });
 
@@ -49,6 +53,10 @@ class HomePageAppBar extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: AppColors.cFFCE80,
                       borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: Image(
+                      image: profileImage(profileImagePath: imgPath)!,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -113,7 +121,17 @@ class HomePageAppBar extends StatelessWidget {
                 ),
               ],
             ),
+            10.verticalSpace,
           ],
         ),
       );
 }
+
+ImageProvider<Object>? profileImage({
+  String? profileImagePath,
+}) =>
+    profileImagePath != null
+        ? Image.file(File(profileImagePath)).image
+        : const AssetImage(
+            "assets/images/default_profile_image.png",
+          );

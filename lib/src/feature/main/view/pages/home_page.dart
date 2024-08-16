@@ -7,6 +7,7 @@ import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/feature/main/view/widgets/home_page_tab_bar_button_widget.dart";
 import "package:nutrition/src/feature/main/view_model/home_vm.dart";
+import "package:nutrition/src/feature/profile/view_model/profile_vm.dart";
 import "../widgets/home_page_app_bar_widget.dart";
 import "../widgets/home_page_bottom_card_widget.dart";
 import "../widgets/home_page_main_card_widget.dart";
@@ -18,7 +19,9 @@ class HomePage extends ConsumerWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(150.h),
-        child: const HomePageAppBar(),
+        child: HomePageAppBar(
+          imgPath: ref.watch(profileVM).profileImagePath,
+        ),
       ),
       backgroundColor: AppColors.white,
       body: SingleChildScrollView(
@@ -26,7 +29,7 @@ class HomePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // custom tabbar
-            25.verticalSpace,
+            15.verticalSpace,
             SizedBox(
               height: 51.h,
               width: double.infinity,
