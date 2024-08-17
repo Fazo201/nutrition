@@ -50,6 +50,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
             fontFamily: "Poppins",
           ),
         ),
+        centerTitle: true,
         bottom: TabBar(
           controller: _tabController,
           padding: REdgeInsets.symmetric(horizontal: 8),

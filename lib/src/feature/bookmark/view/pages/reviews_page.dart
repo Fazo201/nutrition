@@ -75,6 +75,7 @@ class ReviewsPage extends ConsumerWidget {
                 ],
               ),
             ),
+            15.verticalSpace,
             Expanded(
               child: isLoading
                   ? ListView.builder(
