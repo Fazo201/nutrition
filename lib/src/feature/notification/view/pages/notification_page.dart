@@ -86,7 +86,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
         ),
       ),
       body: Padding(
-        padding: REdgeInsets.symmetric(horizontal: 25),
+        padding: REdgeInsets.symmetric(horizontal: 25, vertical: 10),
         child: TabBarView(
           controller: _tabController,
           children: const [
