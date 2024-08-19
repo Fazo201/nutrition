@@ -8,12 +8,11 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:go_router/go_router.dart";
 import "package:image_picker/image_picker.dart";
 import "package:l/l.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
-import "package:nutrition/src/core/routes/router_config.dart";
 import "package:nutrition/src/core/storage/app_storage.dart";
 import "package:nutrition/src/data/model/user_model.dart";
 import "package:path_provider/path_provider.dart";
-import "package:shared_preferences/shared_preferences.dart";
 import "../view/widgets/profile_delate_diolog_widget.dart";
 import "../view/widgets/profile_language_change_widget.dart";
 
@@ -209,8 +208,8 @@ class ProfileVm extends ChangeNotifier {
   Future<ImageSource?> _showPickerDialog(BuildContext context) async => showDialog<ImageSource?>(
         context: context,
         builder: (BuildContext context) => AlertDialog(
-          title: const Text(
-            "Rasm tanlash",
+          title:  Text(
+            context.localized.choose_image,
             textAlign: TextAlign.center,
           ),
           content: Column(
@@ -220,14 +219,14 @@ class ProfileVm extends ChangeNotifier {
             children: <Widget>[
               ListTile(
                 leading: const Icon(Icons.camera),
-                title: const Text("Kamera"),
+                title:  Text(context.localized.camera),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.camera);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title: const Text("Galereya"),
+                title:  Text(context.localized.gallery),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.gallery);
                 },
