@@ -1,11 +1,15 @@
 import "dart:convert";
+import "dart:core";
 import "dart:developer";
 import "dart:io";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:go_router/go_router.dart";
 import "package:image_picker/image_picker.dart";
 import "package:l/l.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
+import "package:nutrition/src/core/routes/router_config.dart";
 import "package:nutrition/src/core/storage/app_storage.dart";
 import "package:nutrition/src/data/model/user_model.dart";
 import "package:path_provider/path_provider.dart";
@@ -16,13 +20,11 @@ import "../view/widgets/profile_language_change_widget.dart";
 final profileVM = ChangeNotifierProvider((ref) => ProfileVm());
 
 class ProfileVm extends ChangeNotifier {
-
   ProfileVm() {
-  readInfo(StorageKey.userModel);
-  read();
-  notifyListeners();
-
-}
+    readInfo(StorageKey.userModel);
+    read();
+    notifyListeners();
+  }
 
   String? profileImagePath;
   File? file;
@@ -63,7 +65,9 @@ class ProfileVm extends ChangeNotifier {
       userModel = UserModel.fromJson(jsonDecode(result));
       username = userModel.name;
       email = userModel.email;
-      password = replaceHalfWithAsterisk(userModel.password.toString(),);
+      password = replaceHalfWithAsterisk(
+        userModel.password.toString(),
+      );
       log(username!);
       log(email!);
       log(userModel.email!);
@@ -78,25 +82,20 @@ class ProfileVm extends ChangeNotifier {
     return firstHalf + replacedHalf; // Birinchi yarimni va '*'larni birlashtirish
   }
 
-
-
   Future<void> updateProfile() async {
     final userModel1 = UserModel(
       name: controllerN.text,
       email: controllerE.text,
       password: controllerP.text,
     );
-    await AppStorage.$write(
-        key: StorageKey.userModel, value: jsonEncode(userModel1.toJson()));
+    await AppStorage.$write(key: StorageKey.userModel, value: jsonEncode(userModel1.toJson()));
     notifyListeners();
     final result = await AppStorage.$read(key: StorageKey.userModel);
     log(result.toString());
     if (result != null) {
       userModel = UserModel.fromJson(jsonDecode(result));
     }
-    if (userModel.name != null &&
-        userModel.email != null &&
-        userModel.password != null) {
+    if (userModel.name != null && userModel.email != null && userModel.password != null) {
       if (globalKey.currentState!.validate()) {
         globalKey.currentState!.save();
         username = userModel.name;
@@ -159,6 +158,7 @@ class ProfileVm extends ChangeNotifier {
       notifyListeners();
     }
   }
+
   Future<void> deleteProfilerImage(BuildContext context) async {
     await Future.delayed(const Duration(milliseconds: 150));
     if (context.mounted) {
@@ -176,6 +176,7 @@ class ProfileVm extends ChangeNotifier {
       );
     }
   }
+
   Future<void> languageChange(BuildContext context) async {
     final selectedLanguage = await LanguagePickerDialog.show(context);
     if (selectedLanguage != null) {
@@ -187,24 +188,25 @@ class ProfileVm extends ChangeNotifier {
     }
   }
 
-
   Future<void> saveProfileImagePath(String path) async {
     // final prefs = await SharedPreferences.getInstance();
     // await prefs.setString("profile_image_path", path);
     await AppStorage.$write(key: StorageKey.imagePath, value: path);
-
   }
+
   Future<String?> getSavedProfileImagePath() async {
     // final prefs = await SharedPreferences.getInstance();
     // return prefs.getString("profile_image_path");
-    final result =  await AppStorage.$read(key: StorageKey.imagePath);
+    final result = await AppStorage.$read(key: StorageKey.imagePath);
     return result;
   }
 
+  Future<void> logOutAccount(BuildContext context) async {
+    await AppStorage.$delete(key: StorageKey.accessToken);
+    context.pushReplacement(AppRouteNames.login);
+  }
 
-
-  Future<ImageSource?> _showPickerDialog(BuildContext context) async =>
-      await showDialog<ImageSource?>(
+  Future<ImageSource?> _showPickerDialog(BuildContext context) async => showDialog<ImageSource?>(
         context: context,
         builder: (BuildContext context) => AlertDialog(
           title: const Text(

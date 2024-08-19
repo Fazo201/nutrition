@@ -6,6 +6,7 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
+import "package:nutrition/src/core/storage/app_storage.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/widgets/app_material_context.dart";
 import "package:nutrition/src/feature/settings/locale_controller.dart";
@@ -186,8 +187,9 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             20.verticalSpace,
             if (language != null)
               IconButton.outlined(
-                onPressed: () {
-                  context.go(AppRouteNames.login);
+                onPressed: () async {
+                  String? yesToken = await AppStorage.$read(key: StorageKey.accessToken);
+                  yesToken != null ? context.go(AppRouteNames.home) : context.go(AppRouteNames.login);
                 },
                 highlightColor: AppColors.c129575,
                 icon: const Icon(

@@ -5,46 +5,59 @@ import "package:flutter_svg/svg.dart";
 import "../../../../core/style/app_colors.dart";
 
 class ProfileImagePostWidget extends StatelessWidget {
-  const ProfileImagePostWidget({required this.imagesPosts, required this.imagesDelate, required this.languageChanges, super.key});
-final void Function() imagesPosts;
-final  void Function()  imagesDelate;
-final void Function()  languageChanges;
+  const ProfileImagePostWidget({
+    required this.imagesPosts,
+    required this.imagesDelate,
+    required this.languageChanges,
+    required this.logOut,
+    super.key,
+  });
+  final void Function() imagesPosts;
+  final void Function() imagesDelate;
+  final void Function() languageChanges;
+  final void Function() logOut;
 
   @override
   Widget build(BuildContext context) => PopupMenuButton<String>(
         onSelected: (String result) {
           switch (result) {
             case "Posts image":
-
               break;
             case "Delete image":
-
               break;
             case "Language":
-
+              break;
+            case "Log out":
               break;
           }
         },
         itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-           PopupMenuItem<String>(
+          PopupMenuItem<String>(
             onTap: imagesPosts,
             value: "Posts image",
             child: const ListTile(
               title: Text("Posts image"),
             ),
           ),
-           PopupMenuItem<String>(
+          PopupMenuItem<String>(
             onTap: imagesDelate,
             value: "Delete image",
             child: const ListTile(
               title: Text("Delete image"),
             ),
           ),
-           PopupMenuItem<String>(
+          PopupMenuItem<String>(
             onTap: languageChanges,
             value: "Language",
             child: const ListTile(
               title: Text("Language"),
+            ),
+          ),
+          PopupMenuItem<String>(
+            onTap: logOut,
+            value: "Log out",
+            child: const ListTile(
+              title: Text("Log out"),
             ),
           ),
         ],
@@ -56,7 +69,7 @@ final void Function()  languageChanges;
         color: AppColors.white,
         position: PopupMenuPosition.under,
         popUpAnimationStyle: AnimationStyle(duration: Durations.extralong2),
-        constraints: const BoxConstraints(maxHeight: 180, maxWidth: 164),
+        // constraints: const BoxConstraints(maxHeight: 180, maxWidth: 164),
         offset: const Offset(-12, -5.0),
       );
 }
