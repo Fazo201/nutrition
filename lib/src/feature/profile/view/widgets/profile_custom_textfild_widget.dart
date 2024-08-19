@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/feature/profile/view/widgets/profile_textfield_widgets.dart";
 
 class ProfileTextfildWidget extends StatelessWidget {
@@ -8,7 +9,7 @@ class ProfileTextfildWidget extends StatelessWidget {
  final TextEditingController controllerP;
  final TextEditingController controllerN;
   final TextInputType keyboardTypeEmail = TextInputType.emailAddress;
-  final TextInputType keyboardTypePassword = TextInputType.visiblePassword;
+  final TextInputType keyboardTypePassword = TextInputType.visiblePassword  ;
   final TextInputType keyboardTypeName = TextInputType.name;
    final void Function(String?)? onChanged;
 
@@ -22,57 +23,57 @@ class ProfileTextfildWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Name",
+           Text(
+            context.localized.name,
             // style: const AppTextStyle().loginEmail,
           ),
           ProfileTextfieldWidget(
             keyboardType: keyboardTypeName,
             controller: controllerN,
-            hintText: "Enter Name",
+            hintText:  context.localized.enterName,
             validator: (value) {
               if (value != null && value.isNotEmpty && value.length >= 2) {
                 return null;
               } else {
-                return "Please enter your name";
+                return context.localized.pleaseEnterName;
               }
             },
             onChanged: onChanged,
           ),
           20.verticalSpace,
-          const Text(
-            "Email",
+           Text(
+            context.localized.email,
             // style: const AppTextStyle().loginEmail,
           ),
           5.verticalSpace,
           ProfileTextfieldWidget(
              keyboardType: keyboardTypeEmail,
             controller: controllerE,
-            hintText: "Enter Email",
+            hintText: context.localized.enterName,
             validator: (value) {
               if (value != null && value.contains("@gmail.com") && value.length > 10) {
                 return null;
               } else {
-                return "Please enter your email address\nExample => (example@gmail.com)";
+                return context.localized.errorExample;
               }
             },
             onChanged: onChanged,
           ),
           20.verticalSpace,
-          const Text(
-            "Password",
+           Text(
+              context.localized.password,
             // style: const AppTextStyle().loginEmail,
           ),
           ProfileTextfieldWidget(
              keyboardType: keyboardTypePassword,
              controller: controllerP,
-            hintText: "Enter Password",
+            hintText: context.localized.enterPassword,
             validator: (value) {
               final regex = RegExp(r"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
               if (value != null && value.contains(regex)) {
                 return null;
               } else {
-                return "Must be 8 or more characters  and contain at least 1\nnumber or special character";
+                return context.localized.errorPasswordProfile;
               }
             },
             onChanged: onChanged,

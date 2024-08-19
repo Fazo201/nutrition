@@ -1,5 +1,3 @@
-import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -32,14 +30,13 @@ class ReviewWidget extends ConsumerWidget {
                 backgroundColor: Colors.transparent,
                 child: ClipOval(
                   child: FadeInImage.assetNetwork(
-                    placeholder: 'assets/placeholder.png', // Add your placeholder image here
+                    placeholder: "assets/images/default_profile_image.png",
                     image: review.profileImage ??
-                        "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg",
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png",
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-
               9.horizontalSpace,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

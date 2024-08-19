@@ -6,16 +6,18 @@ import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 
 import "../../../../core/style/app_colors.dart";
+import "../../../settings/inherited_locale_notifier.dart";
+import "../../../settings/locale_controller.dart";
 
 class LanguagePickerDialog extends StatelessWidget {
-  final List<String> languages = ["English", "Russian", "Uzbek"];
+  final List<String> languages = ["English", "Russian", "Uzbek","Japan"];
   final ValueNotifier<int> selectedIndex = ValueNotifier<int>(0);
 
   LanguagePickerDialog({super.key});
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-      title: Center(child: const Text("Tilni tanlang")),
+      title: Center(child:  Text(context.localized.select_a_language)),
 
       content: SizedBox(
         height: 150.h,
@@ -39,15 +41,17 @@ class LanguagePickerDialog extends StatelessWidget {
       actions: <Widget>[
 
         TextButton(
-          child:  Text("Bekor qilish",style: context.theme.textTheme.labelSmall?.copyWith(color: AppColors.black),),
+          child:  Text(context.localized.cancel,style: context.theme.textTheme.labelSmall?.copyWith(color: AppColors.black),),
           onPressed: () {
             context.pop(); // Diologni yopish
           },
         ),
         TextButton(
-          child:  Text("Tanlash",style: context.theme.textTheme.labelSmall?.copyWith(color: AppColors.black),),
+          child:  Text(context.localized.choose,style: context.theme.textTheme.labelSmall?.copyWith(color: AppColors.black),),
           onPressed: () {
-           context.pop(languages[selectedIndex.value]); // Tanlangan tilni qaytarish
+           context.pop(languages[selectedIndex.value]);
+           InheritedLocalNotifier.maybeOf(context)?.changeLocal( selectedIndex.value ==  0 ? LangCodes.en : selectedIndex.value == 1 ? LangCodes.ru :selectedIndex.value == 2 ? LangCodes.uz : LangCodes.ja  );
+// Tanlangan tilni qaytarish
           },
         ),
       ],

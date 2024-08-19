@@ -14,11 +14,11 @@ class UserInfoWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children:  [
         Text(
-          "Email: ${userEmail != null? userEmail! : "User Name"}",
+          "${context.localized.email}: ${userEmail != null? userEmail! : context.localized.user_email}",
           style: context.theme.textTheme.bodyLarge?.copyWith(color: AppColors.black,fontWeight: FontWeight.w600),
         ),
         Text(
-          "Password: ${userEmail != null? userPassword! : "User Password"}",
+          "${context.localized.password}: ${userEmail != null? userPassword! : context.localized.user_password}",
           style: context.theme.textTheme.bodyLarge?.copyWith(color: AppColors.black,fontWeight: FontWeight.w600,),
         ),
       ],

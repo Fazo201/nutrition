@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:go_router/go_router.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/widgets/raiting_card_widget.dart";
@@ -53,6 +54,7 @@ class HomePageMainCardWidget extends StatelessWidget {
                       title,
                       textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontFamily: "Poppins",
                         color: AppColors.c484848,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
@@ -64,8 +66,9 @@ class HomePageMainCardWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Time",
+                        context.localized.homePageTime,
                         style: TextStyle(
+                          fontFamily: "Poppins",
                           color: AppColors.cA9A9A9,
                           fontSize: 11.sp,
                           fontWeight: FontWeight.w400,
@@ -73,8 +76,9 @@ class HomePageMainCardWidget extends StatelessWidget {
                       ),
                       5.verticalSpace,
                       Text(
-                        time,
+                        "$time ${context.localized.homePageTime2}",
                         style: TextStyle(
+                          fontFamily: "Poppins",
                           color: AppColors.c484848,
                           fontSize: 11.sp,
                           fontWeight: FontWeight.w600,

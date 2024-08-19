@@ -45,10 +45,11 @@ class ReviewPageTextFieldWidget extends StatelessWidget{
             width: 1.5.w,
           ),
         ),
-        hintText: "Say something...",
+        hintText: context.localized.say_something,
         hintStyle: context.theme.textTheme.labelSmall?.copyWith(
           fontSize: 14.sp,
           color: AppColors.cD9D9D9,
+          fontFamily: "Poppins",
         ),
       ),
     );

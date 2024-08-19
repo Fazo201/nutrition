@@ -14,7 +14,7 @@ class ReviewSendButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: REdgeInsets.only(right: 10.w),
+    padding: REdgeInsets.only(right: 10),
     child: MaterialButton(
           color: AppColors.c129575,
           shape: RoundedRectangleBorder(

@@ -5,7 +5,6 @@ import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/feature/notification/view/widgets/notification_page_widget.dart";
 import "package:nutrition/src/feature/notification/vm/notification_vm.dart";
 import "../../../../core/style/app_colors.dart";
-import "../widgets/notification_card_widget.dart";
 import "../widgets/notification_page_tab_widget.dart";
 
 class NotificationPage extends ConsumerStatefulWidget {
@@ -44,12 +43,14 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
         backgroundColor: AppColors.white,
         surfaceTintColor: AppColors.white,
         title: Text(
-          "Notifications",
+          context.localized.notification,
           style: context.theme.textTheme.bodyLarge?.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
+            fontFamily: "Poppins",
           ),
         ),
+        centerTitle: true,
         bottom: TabBar(
           controller: _tabController,
           padding: REdgeInsets.symmetric(horizontal: 8),
@@ -58,7 +59,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
           dividerColor: AppColors.white,
           tabs: [
             NotificationPageTabWidget(
-              text: "All",
+              text: context.localized.all,
               isSelected: notificationVm.selectedIndex == 0,
               index: 0,
               onPressed: () {
@@ -66,7 +67,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
               },
             ),
             NotificationPageTabWidget(
-              text: "Read",
+              text: context.localized.read,
               isSelected: notificationVm.selectedIndex == 1,
               index: 1,
               onPressed: () {
@@ -74,7 +75,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
               },
             ),
             NotificationPageTabWidget(
-              text: "Unread",
+              text: context.localized.unread,
               isSelected: notificationVm.selectedIndex == 2,
               index: 2,
               onPressed: () {
@@ -85,7 +86,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
         ),
       ),
       body: Padding(
-        padding: REdgeInsets.symmetric(horizontal: 25),
+        padding: REdgeInsets.symmetric(horizontal: 25, vertical: 10),
         child: TabBarView(
           controller: _tabController,
           children: const [

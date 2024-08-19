@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/feature/profile/view/widgets/profile_diolog_widget.dart";
 
 import "../../../../core/style/text_style.dart";
@@ -24,7 +25,8 @@ class DeleteDialog extends BuildShowDialog {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Profile rasmini o'chirish",
+
+                context.localized.delete_profile_image,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: FontSize.size16),
                 maxLines: 1,
@@ -33,14 +35,16 @@ class DeleteDialog extends BuildShowDialog {
             ],
           ),
           10.verticalSpace,
-          const Text("         Profile rasmi o'chirilsinmi?"),
+           Text(                context.localized.delete_profile_image_question,
+           ),
          15.verticalSpace,
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween, children:
           [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text("Bekor qilish",
+              child:  Text(                context.localized.cancel
+                  ,
                   style: TextStyle(
                       color: Color(0xff5793C3), fontWeight: FontWeight.bold,),),
             ),
@@ -49,7 +53,7 @@ class DeleteDialog extends BuildShowDialog {
                 Navigator.pop(context);
                 delete();
               },
-              child: const Text("Rasmni o'chirish",
+              child:  Text(context.localized.delete_image,
                   style: TextStyle(
                       color: Color(0xffCE4342), fontWeight: FontWeight.bold,),),
             ),

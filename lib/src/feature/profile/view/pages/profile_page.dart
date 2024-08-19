@@ -1,4 +1,5 @@
 import "dart:developer";
+
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -9,6 +10,7 @@ import "package:nutrition/src/feature/profile/view/widgets/profile_image_user.da
 import "package:nutrition/src/feature/profile/view/widgets/profile_save_button.dart";
 import "package:nutrition/src/feature/profile/view/widgets/profile_user_name_widget.dart";
 import "package:nutrition/src/feature/profile/view/widgets/user_info_widget.dart";
+
 import "../../view_model/profile_vm.dart";
 import "../widgets/profile_custom_textfild_widget.dart";
 
@@ -23,8 +25,11 @@ class ProfilePage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Profile",
-          style: context.theme.textTheme.labelLarge?.copyWith(color: AppColors.black, fontWeight: FontWeight.w600, fontSize: 16.sp),
+          context.localized.profile,
+          style: context.theme.textTheme.labelLarge?.copyWith(
+              color: AppColors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 16.sp),
         ),
         centerTitle: true,
         actions: [
@@ -74,7 +79,7 @@ class ProfilePage extends ConsumerWidget {
               onPressed: () {
                 if (ctr.globalKey.currentState?.validate() ?? false) {
                   ctr.updateProfile();
-                  log("message");
+                  // log("message");
                 } else {
                   // Optionally, show a message or do something when validation fails
                 }

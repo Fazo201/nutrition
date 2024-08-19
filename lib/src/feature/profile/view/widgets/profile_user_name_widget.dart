@@ -11,7 +11,7 @@ class UserNameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
         child: Text(
-          userName != null? userName! : "User Name",
+          userName != null? userName! : context.localized.user_name,
           style: context.theme.textTheme.labelLarge?.copyWith(
               color: AppColors.black,
               fontWeight: FontWeight.w600,

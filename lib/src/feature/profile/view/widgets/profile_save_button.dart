@@ -2,6 +2,7 @@ import "dart:developer";
 
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "../../../../core/style/app_colors.dart";
 
 class ProfileButtonWidget extends StatelessWidget {
@@ -21,14 +22,14 @@ class ProfileButtonWidget extends StatelessWidget {
         fixedSize: const Size(double.maxFinite, 60),
       ),
       onPressed: () => {
-        log("save"),
+        // log("save"),
         onPressed!()
       },
-      child: const Row(
+      child:  Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Save",
+            context.localized.save,
             // style:  AppTextStyle().splashButton,
           ),
         ],
