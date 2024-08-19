@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'intl/messages_all.dart';
+import "package:flutter/material.dart";
+import "package:intl/intl.dart";
+import "intl/messages_all.dart";
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -19,7 +19,7 @@ class S {
 
   static S get current {
     assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+        "No instance of S was loaded. Try to initialize the S delegate before accessing S.current.",);
     return _current!;
   }
 
@@ -42,75 +42,61 @@ class S {
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
     assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+        "No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?",);
     return instance!;
   }
 
-  static S? maybeOf(BuildContext context) {
-    return Localizations.of<S>(context, S);
-  }
+  static S? maybeOf(BuildContext context) => Localizations.of<S>(context, S);
 
   /// `Hello World!`
-  String get helloWorld {
-    return Intl.message(
-      'Hello World!',
-      name: 'helloWorld',
-      desc: '',
+  String get helloWorld => Intl.message(
+      "Hello World!",
+      name: "helloWorld",
+      desc: "",
       args: [],
     );
-  }
 
   /// `Get Cooking`
-  String get mainWord {
-    return Intl.message(
-      'Get Cooking',
-      name: 'mainWord',
-      desc: '',
+  String get mainWord => Intl.message(
+      "Get Cooking",
+      name: "mainWord",
+      desc: "",
       args: [],
     );
-  }
 
   /// `Get Cooking`
-  String get main {
-    return Intl.message(
-      'Get Cooking',
-      name: 'main',
-      desc: '',
+  String get main => Intl.message(
+      "Get Cooking",
+      name: "main",
+      desc: "",
       args: [],
     );
-  }
 
   /// `Going back to my home`
-  String get goHome {
-    return Intl.message(
-      'Going back to my home',
-      name: 'goHome',
-      desc: '',
+  String get goHome => Intl.message(
+      "Going back to my home",
+      name: "goHome",
+      desc: "",
       args: [],
     );
-  }
 
   /// `My City`
-  String get city {
-    return Intl.message(
-      'My City',
-      name: 'city',
-      desc: '',
+  String get city => Intl.message(
+      "My City",
+      name: "city",
+      desc: "",
       args: [],
     );
-  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 
-  List<Locale> get supportedLocales {
-    return const <Locale>[
-      Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'ru'),
-      Locale.fromSubtags(languageCode: 'uz'),
+  List<Locale> get supportedLocales => const <Locale>[
+      Locale.fromSubtags(languageCode: "en"),
+      Locale.fromSubtags(languageCode: "ru"),
+      Locale.fromSubtags(languageCode: "uz"),
     ];
-  }
 
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
