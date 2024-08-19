@@ -6,47 +6,60 @@ import "package:nutrition/src/core/constants/context_extension.dart";
 import "../../../../core/style/app_colors.dart";
 
 class ProfileImagePostWidget extends StatelessWidget {
-  const ProfileImagePostWidget(
-      {required this.imagesPosts,
-      required this.imagesDelate,
-      required this.languageChanges,
-      super.key});
+  const ProfileImagePostWidget({
+    required this.imagesPosts,
+    required this.imagesDelate,
+    required this.languageChanges,
+    required this.logOut,
+    super.key,
+  });
   final void Function() imagesPosts;
   final void Function() imagesDelate;
   final void Function() languageChanges;
+  final void Function() logOut;
 
   @override
   Widget build(BuildContext context) => PopupMenuButton<String>(
+    useRootNavigator: true,
         // onSelected: (String result) {
         //   switch (result) {
-        //     case context.localized.postsImage:
+        //     case context.localized.post_image,:
         //       break;
-        //     case context.localized.deleteImage:
+        //     case "Delete image":
         //       break;
-        //     case context.localized.language:
+        //     case "Language":
+        //       break;
+        //     case "Log out":
         //       break;
         //   }
         // },
         itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
           PopupMenuItem<String>(
             onTap: imagesPosts,
-            value: context.localized.post_image,
-            child: ListTile(
-              title: Text(context.localized.post_image,),
+            value:context.localized.post_image,
+            child:  ListTile(
+              title: Text( context.localized.post_image,),
             ),
           ),
           PopupMenuItem<String>(
             onTap: imagesDelate,
             value: context.localized.delete_image,
-            child: ListTile(
+            child:  ListTile(
               title: Text(context.localized.delete_image,),
             ),
           ),
           PopupMenuItem<String>(
             onTap: languageChanges,
             value: context.localized.language,
-            child: ListTile(
-              title: Text( context.localized.language,),
+            child:  ListTile(
+              title: Text(context.localized.language,),
+            ),
+          ),
+          PopupMenuItem<String>(
+            onTap: logOut,
+            value: context.localized.log_out,
+            child:  ListTile(
+              title: Text(context.localized.log_out),
             ),
           ),
         ],
@@ -58,7 +71,7 @@ class ProfileImagePostWidget extends StatelessWidget {
         color: AppColors.white,
         position: PopupMenuPosition.under,
         popUpAnimationStyle: AnimationStyle(duration: Durations.extralong2),
-        constraints: const BoxConstraints(maxHeight: 180, maxWidth: 164),
+        // constraints: const BoxConstraints(maxHeight: 180, maxWidth: 164),
         offset: const Offset(-12, -5.0),
       );
 }

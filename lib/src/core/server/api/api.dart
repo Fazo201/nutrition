@@ -1,25 +1,25 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
+import "dart:async";
+import "dart:convert";
+import "dart:io";
 
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:dio/dio.dart';
-import 'package:dio/io.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:l/l.dart';
+import "package:connectivity_plus/connectivity_plus.dart";
+import "package:dio/dio.dart";
+import "package:dio/io.dart";
+import "package:flutter/foundation.dart";
+import "package:flutter/services.dart";
+import "package:l/l.dart";
 
-import '../../storage/app_storage.dart';
-import '../interceptors/connectivity_interceptor.dart';
-import 'api_connection.dart';
-import 'api_constants.dart';
+import "../../storage/app_storage.dart";
+import "../interceptors/connectivity_interceptor.dart";
+import "api_connection.dart";
+import "api_constants.dart";
 
 @immutable
 class ApiService {
   const ApiService._();
 
   static Future<Dio> initDio() async {
-    final _dio = Dio(
+    final dio = Dio(
       BaseOptions(
         baseUrl: ApiConst.baseUrl,
         headers: await ApiService.getHeaders(),
@@ -30,23 +30,23 @@ class ApiService {
       ),
     );
 
-    _dio.interceptors.addAll(
+    dio.interceptors.addAll(
       [
         ConnectivityInterceptor(
           requestReceiver: Connection(
-            dio: _dio,
+            dio: dio,
             connectivity: Connectivity(),
           ),
         ),
       ],
     );
 
-    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
+    (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
       client.badCertificateCallback = (X509Certificate cert, String host, int port) => true;
       return client;
     };
 
-    return _dio;
+    return dio;
   }
 
   static Future<Map<String, String>> getHeaders({bool isUpload = false}) async {
@@ -85,7 +85,7 @@ class ApiService {
       final response = await (await initDio()).post<dynamic>(api, data: data, queryParameters: params);
       return jsonEncode(response.data);
     } on TimeoutException catch (_) {
-      l.e('The connection has timed out, Please try again!');
+      l.e("The connection has timed out, Please try again!");
       rethrow;
     } on DioError catch (e) {
       l.e(e.response.toString());
@@ -96,10 +96,10 @@ class ApiService {
   }
 
   static Future<String?> multipart(
-      String api,
-      List<File> paths, {
-        bool picked = false,
-      }) async {
+    String api,
+    List<File> paths, {
+    bool picked = false,
+  }) async {
     final formData = paths.mappedFormData(isPickedFile: picked);
 
     try {
@@ -155,9 +155,9 @@ class ApiService {
   }
 
   static Future<String?> putAccount(
-      String api,
-      Map<String, dynamic> params,
-      ) async {
+    String api,
+    Map<String, dynamic> params,
+  ) async {
     try {
       final response = await (await initDio()).put<dynamic>(api, queryParameters: params);
 
@@ -191,13 +191,13 @@ class ApiService {
 
 extension ListFileToFormData on List<File> {
   Future<FormData> mappedFormData({required bool isPickedFile}) async => FormData.fromMap(
-    <String, MultipartFile>{
-      for (var v in this) ...{
-        DateTime.now().toString(): MultipartFile.fromBytes(
-          isPickedFile ? v.readAsBytesSync() : (await rootBundle.load(v.path)).buffer.asUint8List(),
-          filename: v.path.substring(v.path.lastIndexOf('/')),
-        ),
-      },
-    },
-  );
+        <String, MultipartFile>{
+          for (var v in this) ...{
+            DateTime.now().toString(): MultipartFile.fromBytes(
+              isPickedFile ? v.readAsBytesSync() : (await rootBundle.load(v.path)).buffer.asUint8List(),
+              filename: v.path.substring(v.path.lastIndexOf('/')),
+            ),
+          },
+        },
+      );
 }

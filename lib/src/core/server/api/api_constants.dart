@@ -5,14 +5,18 @@ final class ApiConst {
   static const Duration sendTimeout = Duration(minutes: 1);
   static const Duration receiveTimeout = Duration(minutes: 1);
 
-  static const String baseUrl = "http://185.74.5.104:7090";
+  static const String baseUrl = "http://45.138.158.240";
   static const String version = "/api/v1";
 
   // static const String sendSms = "$version/cabinet/sms/send";
-  static const String apiSendCode = "$version/auth/check-phone";
-  static const String apiCheckCode = "$version/auth/check-code";
-  static const String apiGetCurrentUser = "$version/user/me";
-  static const String apiRefreshToken = "$version/auth/refresh-token";
+  // static const String apiSendCode = "$version/auth/check-phone";
+  // static const String apiCheckCode = "$version/auth/check-code";
+  // static const String apiGetCurrentUser = "$version/user/me";
+  // static const String apiRefreshToken = "$version/auth/refresh-token";
+
+  // auth
+  static const String apiToken = "$version/auth/login";
+  static const String createAccount = "$version/auth/register";
 
   // get all projects list
   static const String apiGetAllProjects = "$version/mobile/project";

@@ -19,6 +19,9 @@ class NotificationPageTabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialButton(
         onPressed: onPressed,
+        height: 60,
+        minWidth: 120,
+        padding: REdgeInsets.symmetric(horizontal: 2),
         color: isSelected ? AppColors.c129575 : AppColors.white,
         elevation: 0,
         shape: OutlineInputBorder(
@@ -27,6 +30,7 @@ class NotificationPageTabWidget extends StatelessWidget {
         ),
         child: Text(
           text,
+          textAlign: TextAlign.center,
           style: context.theme.textTheme.labelSmall?.copyWith(
             fontSize: 14.sp,
             fontWeight: FontWeight.w600,

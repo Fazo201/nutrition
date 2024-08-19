@@ -25,13 +25,16 @@ class NotificationCardWidget extends StatelessWidget{
               children: [
                 Row(
                   children: [
-                    Text(
-                      context.localized.new_recipes_alert,
-                      style: context.theme.textTheme.labelSmall?.copyWith(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: "Poppins",
-                        color: AppColors.c121212,
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        context.localized.new_recipes_alert,
+                        style: context.theme.textTheme.labelSmall?.copyWith(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: "Poppins",
+                          color: AppColors.c121212,
+                        ),
                       ),
                     ),
                     const Spacer(),

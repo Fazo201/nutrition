@@ -70,7 +70,12 @@
   "save": " Save",
   "user_name": " User Name",
   "user_password": " User Password",
-  "user_email": " User Email"
+  "user_email": " User Email",
+  "log_out": " Log Out",
+  "choose_image": "Choose Image",
+  "camera": "Camera",
+  "gallery": "Gallery"
+
 
 
 

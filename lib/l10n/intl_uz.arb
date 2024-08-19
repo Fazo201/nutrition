@@ -8,10 +8,10 @@
   "premiumRecipe": "100K+ Premium Retsept",
   "getCooking": "Oshpazlikni\nboshlang",
   "simpleWayToFindTastyRecipe": "Mazali retseptlarni topishning oson yo'li",
-  "min": "min",
+  "min": "daq",
   "reviews": "Sharhlar",
   "ingredient": "Ingredient",
-  "procedure": "Tayyorlash tartibi",
+  "procedure": "Jarayon",
   "serve": "taqdim etish",
   "items": "buyumlar",
   "share": "ulashish",
@@ -67,15 +67,13 @@
   "user_name": "Foydalanuvchi nomi",
   "user_password": "Foydalanuvchi paroli",
   "user_email": "Foydalanuvchi emaili",
-  "accept": "Shartlar && shartlarni qabul qiling",
-  "pleaseFill": "Iltimos, barcha ma'lumotlarni to'g'ri kiriting.",
-  "already": "Allaqachon a'zomisiz?",
-  "homePageWhatAreYouCookingToday" : "Bugun nima ovqat tayyorlayapsiz",
   "homePageSearchText" : "Repset Qidirish",
   "homePageHello" : "Salom",
   "homePageTime" : "Vaqt",
   "homePageTime2" : "Minut",
-  "homePageNewRecipes" : "Yangi Ritseplar",
-  "notification" : "Xabarlar",
-  "profile": "Profil"
+  "log_out": " Chiqish",
+  "choose_image": "Rasm tanlash",
+  "camera": "Kamera",
+  "gallery": "Gallereya"
+
 }

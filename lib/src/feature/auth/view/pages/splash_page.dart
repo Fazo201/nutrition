@@ -2,48 +2,34 @@ import "dart:developer";
 
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
+import "package:nutrition/src/core/storage/app_storage.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/core/widgets/app_material_context.dart";
+import "package:nutrition/src/feature/auth/view_model/splash_vm.dart";
 import "package:nutrition/src/feature/settings/locale_controller.dart";
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  ConsumerState<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
-  late final AnimationController _controller;
-  late final Animation<double> _animation;
-  late final Animation<Offset> _animationIcons;
-  int? language;
-
-  void changeLanguage(int n) {
-    setState(() {
-      language = n;
-    });
-  }
-
+class _SplashPageState extends ConsumerState<SplashPage> with TickerProviderStateMixin {
   @override
   void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    );
-    _animation = Tween(end: 1.0, begin: 0.0).animate(_controller);
-    _animationIcons = Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero).animate(_controller);
-    _controller.forward();
     super.initState();
+    ref.read(splashVm(this).notifier);
   }
 
   @override
   Widget build(BuildContext context) {
-    log("\n\n\nmessage111111111\n\n");
+    log("\n\n\nSPLASH\n\n");
+    final splashWm = ref.watch(splashVm(this));
     return Scaffold(
       backgroundColor: const Color(0xff171A21),
       body: Container(
@@ -61,7 +47,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             Column(
               children: [
                 FadeTransition(
-                  opacity: _animation,
+                  opacity: splashWm.animation,
                   child: Image.asset(
                     "assets/images/img.png",
                     height: 80,
@@ -70,7 +56,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 ),
                 14.verticalSpace,
                 FadeTransition(
-                  opacity: _animation,
+                  opacity: splashWm.animation,
                   child: Text(
                     context.localized.premiumRecipe,
                     style: context.theme.textTheme.bodySmall?.copyWith(
@@ -87,9 +73,9 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             PreferredSize(
               preferredSize: const Size(4, 4),
               child: FadeTransition(
-                opacity: _animation,
+                opacity: splashWm.animation,
                 child: SlideTransition(
-                  position: _animationIcons,
+                  position: splashWm.animationIcons,
                   child: Column(
                     children: [
                       Text(
@@ -118,21 +104,20 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               ),
             ),
             20.verticalSpace,
-            Padding(
-              padding: REdgeInsets.symmetric(horizontal: 20),
-              child: FadeTransition(
-                opacity: _animation,
+            FadeTransition(
+              opacity: splashWm.animation,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: language == 1 ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
-                        minimumSize: Size(90.w, 36.h),
+                        backgroundColor: splashWm.language == LangCodes.uz ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
+                        minimumSize: Size(80.w, 36.h),
                       ),
                       onPressed: () {
-                        changeLanguage(1);
-                        localController.changeLocal(LangCodes.uz);
+                        splashWm.changeLanguage(LangCodes.uz);
                       },
                       child: Text(
                         "UZBEK",
@@ -145,12 +130,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: language == 2 ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
-                        minimumSize: Size(90.w, 36.h),
+                        backgroundColor: splashWm.language == LangCodes.ru ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
+                        minimumSize: Size(80.w, 36.h),
                       ),
                       onPressed: () {
-                        changeLanguage(2);
-                        localController.changeLocal(LangCodes.ru);
+                        splashWm.changeLanguage(LangCodes.ru);
                       },
                       child: Text(
                         "РУССКИЙ",
@@ -163,15 +147,31 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: language == 3 ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
-                        minimumSize: Size(90.w, 36.h),
+                        backgroundColor: splashWm.language == LangCodes.en ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
+                        minimumSize: Size(80.w, 36.h),
                       ),
                       onPressed: () {
-                        changeLanguage(3);
-                        localController.changeLocal(LangCodes.en);
+                        splashWm.changeLanguage(LangCodes.en);
                       },
                       child: Text(
                         "ENGLISH",
+                        style: context.theme.textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w600,
+                          fontFamily: "Poppins",
+                          color: AppColors.white,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: splashWm.language == LangCodes.ja ? AppColors.c129575 : AppColors.cD9D9D9.withOpacity(0.1),
+                        minimumSize: Size(80.w, 36.h),
+                      ),
+                      onPressed: () {
+                        splashWm.changeLanguage(LangCodes.ja);
+                      },
+                      child: Text(
+                        "JAPAN",
                         style: context.theme.textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.w600,
                           fontFamily: "Poppins",
@@ -184,10 +184,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               ),
             ),
             20.verticalSpace,
-            if (language != null)
+            if (splashWm.language != null)
               IconButton.outlined(
-                onPressed: () {
-                  context.go(AppRouteNames.login);
+                onPressed: () async {
+                  String? yesToken = await AppStorage.$read(key: StorageKey.accessToken);
+                  yesToken != null ? context.go(AppRouteNames.home) : context.go(AppRouteNames.login);
                 },
                 highlightColor: AppColors.c129575,
                 icon: const Icon(
