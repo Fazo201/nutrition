@@ -49,6 +49,7 @@ class ReviewPageTextFieldWidget extends StatelessWidget{
         hintStyle: context.theme.textTheme.labelSmall?.copyWith(
           fontSize: 14.sp,
           color: AppColors.cD9D9D9,
+          fontFamily: "Poppins",
         ),
       ),
     );

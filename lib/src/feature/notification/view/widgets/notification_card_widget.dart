@@ -25,12 +25,16 @@ class NotificationCardWidget extends StatelessWidget{
               children: [
                 Row(
                   children: [
-                    Text(
-                      context.localized.new_recipes_alert,
-                      style: context.theme.textTheme.labelSmall?.copyWith(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.c121212,
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        context.localized.new_recipes_alert,
+                        style: context.theme.textTheme.labelSmall?.copyWith(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: "Poppins",
+                          color: AppColors.c121212,
+                        ),
                       ),
                     ),
                     const Spacer(),
@@ -53,6 +57,7 @@ class NotificationCardWidget extends StatelessWidget{
                     fontSize: 11.sp,
                     fontWeight: FontWeight.w400,
                     color: AppColors.cA9A9A9,
+                    fontFamily: "Poppins",
                   ),
                 ),
                 Row(
@@ -63,6 +68,7 @@ class NotificationCardWidget extends StatelessWidget{
                         fontSize: 10.sp,
                         fontWeight: FontWeight.w400,
                         color: AppColors.c797979,
+                        fontFamily: "Poppins",
                       ),
                     ),
                   ],

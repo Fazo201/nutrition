@@ -1,13 +1,19 @@
 import "dart:convert";
+import "dart:core";
 import "dart:developer";
 import "dart:io";
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:go_router/go_router.dart";
 import "package:image_picker/image_picker.dart";
 import "package:l/l.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
+import "package:nutrition/src/core/routes/router_config.dart";
 import "package:nutrition/src/core/storage/app_storage.dart";
 import "package:nutrition/src/data/model/user_model.dart";
 import "package:path_provider/path_provider.dart";
+import "package:shared_preferences/shared_preferences.dart";
 import "../view/widgets/profile_delate_diolog_widget.dart";
 import "../view/widgets/profile_language_change_widget.dart";
 
@@ -195,7 +201,12 @@ class ProfileVm extends ChangeNotifier {
     return result;
   }
 
-  Future<ImageSource?> _showPickerDialog(BuildContext context) async => await showDialog<ImageSource?>(
+  Future<void> logOutAccount(BuildContext context) async {
+    await AppStorage.$delete(key: StorageKey.accessToken);
+    context.pushReplacement(AppRouteNames.login);
+  }
+
+  Future<ImageSource?> _showPickerDialog(BuildContext context) async => showDialog<ImageSource?>(
         context: context,
         builder: (BuildContext context) => AlertDialog(
           title: const Text(

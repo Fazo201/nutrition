@@ -1,3 +1,4 @@
+import "dart:developer";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:intl/intl.dart";
@@ -33,21 +34,23 @@ class ReviewVm extends ChangeNotifier {
   void hasLikePressed(int index) {
     final action = _action(index);
     final res = _isRemoved(index);
+    log("action: $action res: $res\n\n\n\n");
     if (action == false || res == false) {
       final action = ActionModel(action: true, id: userId);
       reviews[index].actions.add(action);
-      notifyListeners();
     }
+    notifyListeners();
   }
 
   void hasDislikePressed(int index) {
     final action = _action(index);
     final res = _isRemoved(index);
+    log("action: $action res: $res\n\n\n\n");
     if (res == false || action == true) {
       final action = ActionModel(action: false, id: userId);
       reviews[index].actions.add(action);
-      notifyListeners();
     }
+    notifyListeners();
   }
 
   bool? isLiked(int index) {
@@ -61,19 +64,15 @@ class ReviewVm extends ChangeNotifier {
     }
   }
 
-  int likeCount(int index) {
-    return reviews[index]
+  int likeCount(int index) => reviews[index]
         .actions
         .where((action) => action.action == true)
         .length;
-  }
 
-  int dislikeCount(int index) {
-    return reviews[index]
+  int dislikeCount(int index) => reviews[index]
         .actions
         .where((action) => action.action == false)
         .length;
-  }
 
   bool _isRemoved(int index) {
     final before = reviews[index].actions.length;

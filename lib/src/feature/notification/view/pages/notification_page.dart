@@ -47,8 +47,10 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
           style: context.theme.textTheme.bodyLarge?.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
+            fontFamily: "Poppins",
           ),
         ),
+        centerTitle: true,
         bottom: TabBar(
           controller: _tabController,
           padding: REdgeInsets.symmetric(horizontal: 8),
@@ -84,7 +86,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> with Single
         ),
       ),
       body: Padding(
-        padding: REdgeInsets.symmetric(horizontal: 25),
+        padding: REdgeInsets.symmetric(horizontal: 25, vertical: 10),
         child: TabBarView(
           controller: _tabController,
           children: const [

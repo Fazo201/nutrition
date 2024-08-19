@@ -39,14 +39,13 @@ class ProfilePage extends ConsumerWidget {
               imagesPosts: () => ctr.pickAndUploadImage(context),
               imagesDelate: () => ctr.deleteProfilerImage(context),
               languageChanges: () => ctr.languageChange(context),
+              logOut: () => ctr.logOutAccount(context),
             ),
           ),
         ],
         backgroundColor: AppColors.white,
         surfaceTintColor: AppColors.white,
         iconTheme: const IconThemeData(color: AppColors.black),
-
-
       ),
       body: SingleChildScrollView(
         padding: REdgeInsets.symmetric(horizontal: 30),

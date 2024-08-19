@@ -3,8 +3,7 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "../../../../core/routes/app_route_names.dart";
-import "../../../../core/style/app_colors.dart";
+import "package:nutrition/src/core/style/app_colors.dart";
 import "../../../../core/widgets/eleveted_button_widget.dart";
 import "../../view_model/login_vm.dart";
 import "../widgets/login_or_widget.dart";
@@ -150,14 +149,20 @@ class RegisterPage extends ConsumerWidget {
                 5.verticalSpace,
                 ElevatedButtonWidget(
                   text: context.localized.signUp,
-                  onPressed: () {
+                  onPressed: () async {
                     final result = ctr.globalKey.currentState!.validate();
                     if (result &&
                         ctr.nameController.text.isNotEmpty &&
                         ctr.emailController.text.isNotEmpty &&
                         ctr.passwordController.text.isNotEmpty &&
                         ctr.isCheck) {
-                      context.pushReplacement(AppRouteNames.home);
+                      await ctr.postData(
+                        name: ctr.nameController.text,
+                        email: ctr.emailController.text,
+                        password: ctr.passwordController.text,
+                        acceptedPassword: ctr.confirmPasswordController.text,
+                      );
+                      // context.pushReplacement(AppRouteNames.home);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
