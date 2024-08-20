@@ -1,10 +1,15 @@
 import "dart:convert";
+import "dart:core";
 import "dart:developer";
 import "dart:io";
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:go_router/go_router.dart";
 import "package:image_picker/image_picker.dart";
 import "package:l/l.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/storage/app_storage.dart";
 import "package:nutrition/src/data/model/user_model.dart";
 import "package:path_provider/path_provider.dart";
@@ -195,11 +200,16 @@ class ProfileVm extends ChangeNotifier {
     return result;
   }
 
-  Future<ImageSource?> _showPickerDialog(BuildContext context) async => await showDialog<ImageSource?>(
+  Future<void> logOutAccount(BuildContext context) async {
+    await AppStorage.$delete(key: StorageKey.accessToken);
+    context.pushReplacement(AppRouteNames.login);
+  }
+
+  Future<ImageSource?> _showPickerDialog(BuildContext context) async => showDialog<ImageSource?>(
         context: context,
         builder: (BuildContext context) => AlertDialog(
-          title: const Text(
-            "Rasm tanlash",
+          title:  Text(
+            context.localized.choose_image,
             textAlign: TextAlign.center,
           ),
           content: Column(
@@ -209,14 +219,14 @@ class ProfileVm extends ChangeNotifier {
             children: <Widget>[
               ListTile(
                 leading: const Icon(Icons.camera),
-                title: const Text("Kamera"),
+                title:  Text(context.localized.camera),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.camera);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title: const Text("Galereya"),
+                title:  Text(context.localized.gallery),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.gallery);
                 },

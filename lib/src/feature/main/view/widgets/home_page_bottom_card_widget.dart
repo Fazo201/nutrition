@@ -37,7 +37,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                     spreadRadius: 0,
                     blurRadius: 20,
                     // offset: Offset(0, 0),
-                  )
+                  ),
                 ],
               ),
               child: MaterialButton(
