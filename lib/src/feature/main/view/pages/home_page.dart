@@ -4,7 +4,6 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/feature/main/view_model/home_vm.dart";
 import "package:nutrition/src/feature/profile/view_model/profile_vm.dart";
 import "../widgets/home_page_app_bar_widget.dart";
@@ -22,7 +21,6 @@ class HomePage extends ConsumerWidget {
           imgPath: ref.watch(profileVM).profileImagePath,
         ),
       ),
-      backgroundColor: AppColors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
