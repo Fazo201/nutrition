@@ -29,6 +29,8 @@ class ProfileImagePostWidget extends StatelessWidget {
               break;
             case "Log out":
               break;
+            case "Delete Account":
+              break;
           }
         },
         itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
