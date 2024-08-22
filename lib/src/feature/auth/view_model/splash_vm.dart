@@ -3,7 +3,7 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:nutrition/src/core/widgets/app_material_context.dart";
 import "package:nutrition/src/feature/settings/locale_controller.dart";
 
-final splashVm = ChangeNotifierProvider.family((ref, TickerProvider tickerProvider)=> SplashVm(tickerProvider));
+final splashVm = ChangeNotifierProvider.family((ref, TickerProvider tickerProvider) => SplashVm(tickerProvider));
 
 class SplashVm extends ChangeNotifier {
   late final AnimationController controller;
@@ -11,7 +11,7 @@ class SplashVm extends ChangeNotifier {
   late final Animation<Offset> animationIcons;
   LangCodes? language;
 
-  SplashVm(TickerProvider vsync){
+  SplashVm(TickerProvider vsync) {
     controller = AnimationController(
       vsync: vsync,
       duration: const Duration(seconds: 3),
@@ -27,9 +27,9 @@ class SplashVm extends ChangeNotifier {
     notifyListeners();
   }
 
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   controller.dispose();
+  //   super.dispose();
+  // }
 }

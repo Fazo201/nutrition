@@ -14,74 +14,76 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     log("home");
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(224.h),
-        child: HomePageAppBar(
-          imgPath: ref.watch(profileVM).profileImagePath,
+    return SafeArea(
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(224.h),
+          child: HomePageAppBar(
+            imgPath: ref.watch(profileVM).profileImagePath,
+          ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // home page main cards
-            SizedBox(
-              height: 231.h,
-              width: double.infinity,
-              child: Center(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // home page main cards
+              SizedBox(
+                height: 231.h,
+                width: double.infinity,
+                child: Center(
+                  child: ListView.separated(
+                    padding: REdgeInsets.symmetric(horizontal: 30),
+                    itemCount: 6,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, i) => HomePageMainCardWidget(
+                      imageUrl: "assets/images/food_card.png",
+                      title: context.localized.helloWorld,
+                      time: "15",
+                      rating: 4.5,
+                      isBookMarkPressed: ref.watch(homeVM).isBookmarked(i),
+                      onTap: () {
+                        ref.read(homeVM.notifier).toggleBookmark(i);
+                      },
+                    ),
+                    separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
+                  ),
+                ),
+              ),
+
+              // home page text
+              20.verticalSpace,
+              Padding(
+                padding: REdgeInsets.only(left: 30),
+                child: Text(
+                  context.localized.homePageNewRecipes,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+
+              // home page bottom card
+              5.verticalSpace,
+              SizedBox(
+                height: 144.h,
+                width: double.infinity,
                 child: ListView.separated(
-                  padding: REdgeInsets.symmetric(horizontal: 30),
                   itemCount: 6,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, i) => HomePageMainCardWidget(
+                  padding: REdgeInsets.only(left: 30, bottom: 18, right: 30),
+                  itemBuilder: (_, i) => const HomePageBottomCardWidget(
                     imageUrl: "assets/images/food_card.png",
-                    title: context.localized.helloWorld,
-                    time: "15",
-                    rating: 4.5,
-                    isBookMarkPressed: ref.watch(homeVM).isBookmarked(i),
-                    onTap: () {
-                      ref.read(homeVM.notifier).toggleBookmark(i);
-                    },
+                    title: "Steak with tomato...",
+                    time: 20,
+                    owner: "By James Milner",
+                    profilImgUrl: "assets/images/mini_profile_image.png",
                   ),
                   separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
                 ),
               ),
-            ),
-
-            // home page text
-            20.verticalSpace,
-            Padding(
-              padding: REdgeInsets.only(left: 30),
-              child: Text(
-                context.localized.homePageNewRecipes,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-
-            // home page bottom card
-            5.verticalSpace,
-            SizedBox(
-              height: 144.h,
-              width: double.infinity,
-              child: ListView.separated(
-                itemCount: 6,
-                scrollDirection: Axis.horizontal,
-                padding: REdgeInsets.only(left: 30, bottom: 18, right: 30),
-                itemBuilder: (_, i) => const HomePageBottomCardWidget(
-                  imageUrl: "assets/images/food_card.png",
-                  title: "Steak with tomato...",
-                  time: 20,
-                  owner: "By James Milner",
-                  profilImgUrl: "assets/images/mini_profile_image.png",
-                ),
-                separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

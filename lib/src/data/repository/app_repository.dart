@@ -3,7 +3,7 @@ abstract class AppRepo {
 
   void getToken({required String email, required String password});
 
-  void createUser({
+  void postData({
     required String email,
     required String password,
     required String name,
@@ -11,4 +11,6 @@ abstract class AppRepo {
   });
 
   Future<bool> checkToken();
+
+  Future<void> postOtp({required String email, required String code});
 }

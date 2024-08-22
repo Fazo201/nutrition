@@ -36,7 +36,6 @@ class HomePageBottomCardWidget extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.1), // Semi-transparent black
                     spreadRadius: 0,
                     blurRadius: 20,
-                    // offset: Offset(0, 0),
                   ),
                 ],
               ),

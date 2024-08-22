@@ -3,20 +3,22 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
+import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import "../../../../core/widgets/eleveted_button_widget.dart";
-import "../../view_model/login_vm.dart";
-import "../widgets/login_or_widget.dart";
-import "../widgets/login_sizedbox_widget.dart";
-import "../widgets/login_textfield_widget.dart";
-import "../widgets/register_text_widget.dart";
+import "package:nutrition/src/core/widgets/eleveted_button_widget.dart";
+import "package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart";
+import "package:nutrition/src/feature/auth/view/widgets/login_sizedbox_widget.dart";
+import "package:nutrition/src/feature/auth/view/widgets/login_textfield_widget.dart";
+import "package:nutrition/src/feature/auth/view/widgets/register_text_widget.dart";
+import "package:nutrition/src/feature/auth/view_model/register_vm.dart";
 
 class RegisterPage extends ConsumerWidget {
   const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ctr = ref.watch(loginVM);
+    final ctr = ref.read(registerVm);
+    ref.watch(registerVm);
 
     return Scaffold(
       appBar: AppBar(
@@ -156,13 +158,14 @@ class RegisterPage extends ConsumerWidget {
                         ctr.emailController.text.isNotEmpty &&
                         ctr.passwordController.text.isNotEmpty &&
                         ctr.isCheck) {
+                      debugPrint("Register button pressed");
                       await ctr.postData(
                         name: ctr.nameController.text,
                         email: ctr.emailController.text,
                         password: ctr.passwordController.text,
                         acceptedPassword: ctr.confirmPasswordController.text,
                       );
-                      // context.pushReplacement(AppRouteNames.home);
+                      context.go("${AppRouteNames.login}/${AppRouteNames.register}/${AppRouteNames.otp}", extra: ctr.emailController.text);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

@@ -8,9 +8,6 @@ import "package:nutrition/src/data/repository/app_repository.dart";
 
 class AppRepositoryImpl implements AppRepo {
   @override
-  void createUser({required String email, required String password, required String name, required String acceptedPassword}) {}
-
-  @override
   Future<void> getToken({required String email, required String password}) async {
     final data = await ApiService.post(ApiConst.apiToken, {"email": email, "password": password});
     final Map<String, dynamic> jsonMap = jsonDecode(data!);
@@ -27,19 +24,37 @@ class AppRepositoryImpl implements AppRepo {
     return res!.isNotEmpty ? true : false;
   }
 
+  @override
   Future<void> postData({
     required String name,
     required String email,
     required String password,
     required String acceptedPassword,
   }) async {
+    try {
+      debugPrint("Sending API request to create account...");
+      await ApiService.post(
+        ApiConst.createAccount,
+        {
+          "email": email,
+          "name": name,
+          "password": password,
+          "acceptedPassword": acceptedPassword,
+        },
+      );
+      debugPrint("Account creation successful.");
+    } catch (e) {
+      debugPrint("Error occurred while creating account: $e");
+    }
+  }
+
+  @override
+  Future<void> postOtp({required String email, required String code}) async {
     await ApiService.post(
-      ApiConst.createAccount,
+      ApiConst.verifyEmail,
       {
-        "email": "musulmanovasliddin@gmail.com",
-        "name": "Asliddin",
-        "password": "asliddin1234",
-        "acceptedPassword": "asliddin1234",
+        "email": email,
+        "code": code,
       },
     );
   }
