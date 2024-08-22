@@ -4,8 +4,6 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/feature/main/view/widgets/home_page_tab_bar_button_widget.dart";
 import "package:nutrition/src/feature/main/view_model/home_vm.dart";
 import "package:nutrition/src/feature/profile/view_model/profile_vm.dart";
 import "../widgets/home_page_app_bar_widget.dart";
@@ -15,42 +13,19 @@ import "../widgets/home_page_main_card_widget.dart";
 class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    log("");
+    log("home");
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150.h),
+        preferredSize: Size.fromHeight(224.h),
         child: HomePageAppBar(
           imgPath: ref.watch(profileVM).profileImagePath,
         ),
       ),
-      backgroundColor: AppColors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // custom tabbar
-            15.verticalSpace,
-            SizedBox(
-              height: 51.h,
-              width: double.infinity,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemCount: ref.read(homeVM).tabBarItems.length,
-                padding: REdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                separatorBuilder: (BuildContext context, int index) => SizedBox(width: 5.w),
-                itemBuilder: (ctx, i) => HomePageTabBarButtonWidget(
-                  buttonColor: ref.watch(homeVM).currentIndex == i ? AppColors.c129575 : AppColors.white,
-                  textColor: ref.watch(homeVM).currentIndex == i ? AppColors.white : AppColors.c71B1A1,
-                  onPressed: () {
-                    ref.read(homeVM).changeTapBar(i);
-                  },
-                  text: ref.watch(homeVM).tabBarItems[i],
-                ),
-              ),
-            ),
-
             // home page main cards
-            15.verticalSpace,
             SizedBox(
               height: 231.h,
               width: double.infinity,

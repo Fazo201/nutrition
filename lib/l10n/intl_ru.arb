@@ -70,5 +70,10 @@
   "homePageSearchText" : "Поиск рецепта",
   "homePageHello" : "Привет",
   "homePageTime" : "Время",
-  "homePageTime2" : "Мин."
+  "homePageTime2" : "Мин.",
+  "log_out": "Выход",
+  "choose_image": "Выберите изображение",
+  "camera": "Камера",
+  "gallery": "Галерея"
+
 }

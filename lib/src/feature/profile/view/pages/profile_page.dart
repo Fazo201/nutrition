@@ -1,5 +1,3 @@
-import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -27,9 +25,9 @@ class ProfilePage extends ConsumerWidget {
         title: Text(
           context.localized.profile,
           style: context.theme.textTheme.labelLarge?.copyWith(
-            color: AppColors.black,
-            fontWeight: FontWeight.w600,
-            fontSize: 16.sp,
+              color: AppColors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 16.sp,
           ),
         ),
         centerTitle: true,
