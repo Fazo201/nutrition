@@ -1,5 +1,4 @@
 import "package:flutter/material.dart" show ColorScheme, Brightness, Color;
-import "app_colors.dart";
 
 const ColorScheme lightColorScheme = ColorScheme(
 
@@ -10,7 +9,7 @@ const ColorScheme lightColorScheme = ColorScheme(
   primaryContainer: Color(0xFF71B1A1), ///71B1A1
   secondary: Color(0xFFFF9C00), ///FF9C00
   secondaryContainer: Color(0xFFFFAD30), ///FFAD30
-  surface: Color(0xFFFFFFFF), ///FFFFFF For background (Scaffold, app, ...).
+  surface: Color(0xFFFFFFFF), ///FFFFFF For backgrounds of (Scaffold, app, ...).
   surfaceDim: Color(0xFF000000), ///000000 Always darkest at the dark and light mode!
   onSurface: Color(0xFF121212), ///121212 For items on background!
   surfaceBright: Color(0xFFD9D9D9), ///D9D9D9
@@ -50,7 +49,7 @@ const ColorScheme darkColorScheme = ColorScheme(
   onPrimary: Color(0xFFcdcde9), ///cdcde9 For items ex. icons, texts on main components on UI!
   secondary: Color(0xFFa47618), ///a47618
   secondaryContainer: Color(0xFFFFAD30), ///FFAD30
-  surface: Color(0xFF001125), ///001125 For background (Scaffold, app, ...).
+  surface: Color(0xFF001125), ///001125 For backgrounds of (Scaffold, app, ...).
   onSurface: Color(0xffeceded),
 
   ///Don't need ones!!!

@@ -1,12 +1,12 @@
-import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/data/repository/app_repository_impl.dart";
 
-final loginVM = ChangeNotifierProvider((ref) => LoginVm());
+final registerVm = ChangeNotifierProvider((ref) => RegisterVm());
 
-class LoginVm with ChangeNotifier {
+class RegisterVm extends ChangeNotifier {
   final GlobalKey<FormState> globalKey = GlobalKey<FormState>();
   bool isCheck = false;
   final nameController = TextEditingController();
