@@ -1,8 +1,6 @@
 import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:nutrition/src/core/style/text_style.dart";
-
-import "app_colors.dart";
 import "color_schema.dart";
 
 @immutable
@@ -15,29 +13,44 @@ final class AppThemes {
       : darkTheme = ThemeData(
           brightness: Brightness.dark,
           colorScheme: darkColorScheme,
-          scaffoldBackgroundColor: AppColors.black,
+          scaffoldBackgroundColor: darkColorScheme.surface,
           textTheme: const AppTextStyle(),
+          appBarTheme: AppBarTheme(
+            backgroundColor: darkColorScheme.surface,
+          ),
         ),
         lightTheme = ThemeData(
           brightness: Brightness.light,
           colorScheme: lightColorScheme,
-          scaffoldBackgroundColor: AppColors.c121212,
+          scaffoldBackgroundColor: lightColorScheme.surface,
           textTheme: const AppTextStyle(),
+          appBarTheme: AppBarTheme(
+            backgroundColor: lightColorScheme.surface,
+          ),
         );
 
   static ThemeData light() => ThemeData(
         brightness: Brightness.light,
         colorScheme: lightColorScheme,
-        scaffoldBackgroundColor: AppColors.white,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.white,
+        scaffoldBackgroundColor: lightColorScheme.surface,
+        appBarTheme: AppBarTheme(
+          backgroundColor: lightColorScheme.surface,
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: darkColorScheme.surface,
         ),
       );
 
   static ThemeData dark() => ThemeData(
         brightness: Brightness.dark,
         colorScheme: darkColorScheme,
-        scaffoldBackgroundColor: AppColors.black,
+        scaffoldBackgroundColor: darkColorScheme.surface,
+        appBarTheme: AppBarTheme(
+          backgroundColor: darkColorScheme.surface,
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: darkColorScheme.surface,
+        ),
       );
 
   ThemeData computeTheme() {
