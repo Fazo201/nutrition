@@ -37,7 +37,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               color: isSelected ? Colors.white : const Color(0xFF71B1A1), // Change color based on selection
               size: 18.sp,
             ),
-          ]
+          ],
         ],
       ),
       selected: isSelected,

@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
-import 'package:nutrition/src/core/style/app_colors.dart';
+import "package:nutrition/src/core/style/app_colors.dart";
 
 class RecipeCard extends StatelessWidget {
   final String title;
@@ -48,7 +48,7 @@ class RecipeCard extends StatelessWidget {
                       right: 8,
                       child: Container(
                         // height: ,
-                        padding: REdgeInsets.only(top: 4,bottom: 4,left: 7,right: 7),
+                        padding: REdgeInsets.only(top: 4, bottom: 4, left: 7, right: 7),
                         decoration: BoxDecoration(
                           color: AppColors.cFFE1B3,
                           borderRadius: BorderRadius.circular(12.0.r),
@@ -59,7 +59,7 @@ class RecipeCard extends StatelessWidget {
                             4.horizontalSpace,
                             Text(
                               rating,
-                              style: TextStyle(color: Colors.black,fontSize: 10.sp,fontWeight: FontWeight.w400),
+                              style: TextStyle(color: Colors.black, fontSize: 10.sp, fontWeight: FontWeight.w400),
                             ),
                           ],
                         ),
@@ -73,10 +73,12 @@ class RecipeCard extends StatelessWidget {
                       child: Container(
                         height: 200,
                         decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                                colors: [Colors.black.withOpacity(0.86), Colors.black12.withOpacity(0)])),
+                          gradient: LinearGradient(
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                            colors: [Colors.black.withOpacity(0.86), Colors.black12.withOpacity(0)],
+                          ),
+                        ),
                       ),
                     ),
                     Positioned(

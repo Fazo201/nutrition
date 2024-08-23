@@ -3,7 +3,6 @@ import "package:flutter_svg/svg.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/text_style.dart";
-
 import "../../../../core/routes/app_route_names.dart";
 import "../../../../core/style/app_colors.dart";
 

@@ -8,8 +8,8 @@ class AppTextStyle extends TextTheme {
 
   @override
   TextStyle? get displayLarge => TextStyle(
-        fontWeight: FontWeight.w300,
-        fontSize: FontSize.size96,
+        fontWeight: FontWeight.w700,
+        fontSize: FontSize.size20,
         letterSpacing: -1.5,
         fontFamily: "Poppins",
         color: AppColors.white,

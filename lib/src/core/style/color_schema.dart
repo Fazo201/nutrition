@@ -45,11 +45,11 @@ const ColorScheme darkColorScheme = ColorScheme(
 
   brightness: Brightness.dark,
 
-  primary: Color(0xFF003f22), ///003f22 For main components on UI!
-  onPrimary: Color(0xFFcdcde9), ///cdcde9 For items ex. icons, texts on main components on UI!
+  primary: Color(0xFF2ec866), ///2ec866 For main components on UI!
+  onPrimary: Color(0xFF121418), ///121418 For items ex. icons, texts on main components on UI!
   secondary: Color(0xFFa47618), ///a47618
   secondaryContainer: Color(0xFFFFAD30), ///FFAD30
-  surface: Color(0xFF001125), ///001125 For backgrounds of (Scaffold, app, ...).
+  surface: Color(0xFF121418), ///121418 For backgrounds of (Scaffold, app, ...).
   onSurface: Color(0xffeceded),
 
   ///Don't need ones!!!
