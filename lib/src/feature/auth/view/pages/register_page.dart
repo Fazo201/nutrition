@@ -6,6 +6,7 @@ import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/widgets/eleveted_button_widget.dart";
+import "package:nutrition/src/feature/auth/view/pages/otp_page.dart";
 import "package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart";
 import "package:nutrition/src/feature/auth/view/widgets/login_sizedbox_widget.dart";
 import "package:nutrition/src/feature/auth/view/widgets/login_textfield_widget.dart";
@@ -165,7 +166,9 @@ class RegisterPage extends ConsumerWidget {
                         password: ctr.passwordController.text,
                         acceptedPassword: ctr.confirmPasswordController.text,
                       );
-                      context.go("${AppRouteNames.login}/${AppRouteNames.register}/${AppRouteNames.otp}", extra: ctr.emailController.text);
+                      await context.push(
+                        "${AppRouteNames.login}/${AppRouteNames.register}/${AppRouteNames.otp}",
+                      );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

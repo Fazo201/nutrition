@@ -1,45 +1,40 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:go_router/go_router.dart";
-import "package:nutrition/src/core/routes/app_route_names.dart";
-import "package:nutrition/src/core/routes/router_config.dart";
+import "package:nutrition/src/core/storage/app_storage.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/feature/auth/view_model/otp_vm.dart";
-
 import "../widgets/pincode_textfield_widget.dart";
 
 class VerifyAccount extends ConsumerWidget {
-  final String email;
   const VerifyAccount({
-    required this.email,
     super.key,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ctr = ref.read(otpVm);
-    ref.watch(otpVm);
+    final ctr = ref.read(otpVm); //
+    ref.watch(otpVm); // Ensure to use ref.watch to get the latest value of otpVm.
+    // Ensure to use ref.watch to get the latest value of otpVm.
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Wotp(
-            controller: ctr.otp,
+            controller: ctr.otp, // Use the controller from otpVm.
             onChanged: (value) async {
-              debugPrint("$value salommmmmmm");
+              final res = await AppStorage.$read(key: StorageKey.accessToken);
               if (value.length == 4) {
-                debugPrint("$email ${ctr.otp.text}");
-                await ctr.otpPost(email: email, code: ctr.otp.text);
-                context.go(AppRouteNames.home);
+                await ctr.otpPost(email: "$res", code: value, context: context);
               }
             },
           ),
-          ctr.isLoading == false
-              ? Text("Enter Otp")
-              : CircularProgressIndicator(
-                  strokeWidth: 8,
-                  color: Colors.red,
-                ),
+          if (ctr.isLoading == false)
+            const Text("Enter Otp")
+          else
+            const CircularProgressIndicator(
+              strokeWidth: 8,
+              color: Colors.red,
+            ),
           const SizedBox(height: 124),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.4,
@@ -62,8 +57,7 @@ class VerifyAccount extends ConsumerWidget {
                 ),
                 onPressed: () async {
                   ctr.onButtonPressed(ctr.buttons[index]);
-                  ctr.otp.text;
-                  await ctr.otpPost(email: email, code: ctr.otp.text);
+                  // await ctr.otpPost(email: email, code: ctr.otp.text); // Ensure the post happens with the latest text.
                 },
                 child: Text(
                   ctr.buttons[index],

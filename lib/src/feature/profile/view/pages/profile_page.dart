@@ -25,9 +25,9 @@ class ProfilePage extends ConsumerWidget {
         title: Text(
           context.localized.profile,
           style: context.theme.textTheme.labelLarge?.copyWith(
-              color: AppColors.black,
-              fontWeight: FontWeight.w600,
-              fontSize: 16.sp,
+            color: AppColors.black,
+            fontWeight: FontWeight.w600,
+            fontSize: 16.sp,
           ),
         ),
         centerTitle: true,

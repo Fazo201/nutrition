@@ -207,8 +207,8 @@ final class RouterConfigService {
                 name: "VerifyAccount",
                 path: AppRouteNames.otp,
                 builder: (BuildContext context, GoRouterState state) {
-                  final extra = state.extra as String;
-                  return VerifyAccount(email: extra as String);
+                  // final extra = state.extra as String;
+                  return const VerifyAccount();
                 },
               ),
             ],
