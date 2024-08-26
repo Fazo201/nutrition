@@ -58,9 +58,12 @@ class HomePageAppBar extends ConsumerWidget {
                       color: AppColors.cFFCE80,
                       borderRadius: BorderRadius.circular(10.r),
                     ),
-                    child: Image(
-                      image: profileImage(profileImagePath: imgPath)!,
-                      fit: BoxFit.cover,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.r),
+                      child: Image(
+                        image: profileImage(profileImagePath: imgPath)!,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -106,7 +109,7 @@ class HomePageAppBar extends ConsumerWidget {
                   width: 40.w,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: AppColors.c129575,
+                      color: context.theme.colorScheme.primary,
                       borderRadius: BorderRadius.circular(10.r),
                     ),
                     child: ClipRRect(
@@ -139,8 +142,8 @@ class HomePageAppBar extends ConsumerWidget {
               padding: REdgeInsets.symmetric(horizontal: 30, vertical: 10),
               separatorBuilder: (BuildContext context, int index) => SizedBox(width: 5.w),
               itemBuilder: (ctx, i) => HomePageTabBarButtonWidget(
-                buttonColor: ref.watch(homeVM).currentIndex == i ? AppColors.c129575 : AppColors.white,
-                textColor: ref.watch(homeVM).currentIndex == i ? AppColors.white : AppColors.c71B1A1,
+                buttonColor: ref.watch(homeVM).currentIndex == i ? context.theme.colorScheme.primary : AppColors.white,
+                textColor: ref.watch(homeVM).currentIndex == i ? AppColors.white : context.theme.colorScheme.primaryContainer,
                 onPressed: () {
                   ref.read(homeVM).changeTapBar(i);
                 },
