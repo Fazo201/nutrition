@@ -91,7 +91,7 @@ class RegisterPage extends ConsumerWidget {
                       return context.localized.errorExample;
                     }
                   },
-                  onChanged: (value) => ctr.onChanged,
+                  onChanged: (value) => ctr.onChanged, 
                 ),
                 18.verticalSpace,
                 RegisterTextWidget(text: context.localized.password),
