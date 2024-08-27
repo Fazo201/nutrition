@@ -29,7 +29,12 @@ class ProfileButtonWidget extends StatelessWidget {
           children: [
             Text(
               context.localized.save,
-              // style:  AppTextStyle().splashButton,
+              style: context.theme.textTheme.bodySmall?.copyWith(
+                fontWeight: FontWeight.w600,
+                fontSize: 16.sp,
+                fontFamily: "Poppins",
+                color: AppColors.white,
+              ),
             ),
           ],
         ),
