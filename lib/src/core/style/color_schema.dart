@@ -13,8 +13,9 @@ const ColorScheme lightColorScheme = ColorScheme(
   secondaryContainer: Color(0xFFFFAD30), ///FFAD30
   surface: Color(0xFFFFFFFF), ///FFFFFF For backgrounds of (Scaffold, app, ...).
   surfaceDim: Color(0xFF000000), ///000000 Always darkest at the dark and light mode!
-  onSurface: Color(0xFF121212), ///121212 For items on background!
-  surfaceBright: Color(0xFFD9D9D9), ///D9D9D9
+  onSurface: Color.fromRGBO(18, 18, 18, 1), ///121212 For items on background!
+  surfaceBright: Color.fromRGBO(217, 217, 217, 1), ///D9D9D9
+  onSurfaceVariant: Color.fromRGBO(169, 169, 169, 1),
   outline: Color(0xFFD9D9D9), ///D9D9D9 For outlines!
   errorContainer: Color(0xFFFFE1E7),
   onErrorContainer: Color(0xFFFD3654),
@@ -33,7 +34,6 @@ const ColorScheme lightColorScheme = ColorScheme(
   // onTertiaryContainer: Color(0xff141413),
   // onPrimaryContainer: Color(0xff141311),
   // surfaceContainerHighest: Color(0xffeee8e3),
-  // onSurfaceVariant: Color(0xff121211),
   // outline: Color(0xff837676),
   // outlineVariant: Color(0xffccc6c6),
   // shadow: Color(0xff000000),
@@ -59,6 +59,7 @@ const ColorScheme darkColorScheme = ColorScheme(
   onSurface: Color(0xffeceded),
   surfaceDim: Color(0xFFF5F5F5),
   surfaceBright: Color(0xFFf3f9f9),
+  onSurfaceVariant: Color.fromRGBO(169, 169, 169, 1),
   inverseSurface: Color.fromRGBO(0, 0, 0, 1),
   shadow: Color(0xFFF5F5F5), /// For all shadows.
   outline: Color(0xFF30363d),
