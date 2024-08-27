@@ -1,4 +1,3 @@
-import "dart:developer";
 
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
@@ -19,10 +18,12 @@ class ProfilePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     final ctr = ref.read(profileVM);
     // ref.watch(profileVM).read();
 
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: AppBar(
         title: Text(
           context.localized.profile,
@@ -37,7 +38,7 @@ class ProfilePage extends ConsumerWidget {
             padding: REdgeInsets.symmetric(horizontal: 10),
             child: ProfileImagePostWidget(
               imagesPosts: () => ctr.pickAndUploadImage(context),
-              imagesDelate: () => ctr.deleteProfilerImage(context),
+              imagesDelete: () => ctr.deleteProfilerImage(context),
               languageChanges: () => ctr.languageChange(context),
               logOut: () => ctr.logOutAccount(context),
             ),

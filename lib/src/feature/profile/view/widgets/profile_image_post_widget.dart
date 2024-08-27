@@ -8,13 +8,13 @@ import "../../../../core/style/app_colors.dart";
 class ProfileImagePostWidget extends StatelessWidget {
   const ProfileImagePostWidget({
     required this.imagesPosts,
-    required this.imagesDelate,
+    required this.imagesDelete,
     required this.languageChanges,
     required this.logOut,
     super.key,
   });
   final void Function() imagesPosts;
-  final void Function() imagesDelate;
+  final void Function() imagesDelete;
   final void Function() languageChanges;
   final void Function() logOut;
 
@@ -42,7 +42,7 @@ class ProfileImagePostWidget extends StatelessWidget {
             ),
           ),
           PopupMenuItem<String>(
-            onTap: imagesDelate,
+            onTap: imagesDelete,
             value: context.localized.delete_image,
             child:  ListTile(
               title: Text(context.localized.delete_image,),
@@ -72,6 +72,6 @@ class ProfileImagePostWidget extends StatelessWidget {
         position: PopupMenuPosition.under,
         popUpAnimationStyle: AnimationStyle(duration: Durations.extralong2),
         // constraints: const BoxConstraints(maxHeight: 180, maxWidth: 164),
-        offset: const Offset(-12, -5.0),
+        offset: const Offset(-12, - 5),
       );
 }

@@ -6,12 +6,12 @@ class ProfilePopappWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => PopupMenuButton(
-      color: Colors.white,
-      itemBuilder: (context) => [
-         PopupMenuItem(
-          // onTap: () => controller.pickAndUploadImage(context),
-          child: Text(context.localized.change_the_picture),
-        ),
-      ],
-    );
+        color: Colors.white,
+        itemBuilder: (context) => [
+          PopupMenuItem(
+            // onTap: () => controller.pickAndUploadImage(context),
+            child: Text(context.localized.change_the_picture),
+          ),
+        ],
+      );
 }
