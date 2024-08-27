@@ -20,7 +20,7 @@ class ProfileImagePostWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => PopupMenuButton<String>(
-    useRootNavigator: true,
+        useRootNavigator: true,
         // onSelected: (String result) {
         //   switch (result) {
         //     case context.localized.post_image,:
@@ -36,29 +36,35 @@ class ProfileImagePostWidget extends StatelessWidget {
         itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
           PopupMenuItem<String>(
             onTap: imagesPosts,
-            value:context.localized.post_image,
-            child:  ListTile(
-              title: Text( context.localized.post_image,),
+            value: context.localized.post_image,
+            child: ListTile(
+              title: Text(
+                context.localized.post_image,
+              ),
             ),
           ),
           PopupMenuItem<String>(
             onTap: imagesDelete,
             value: context.localized.delete_image,
-            child:  ListTile(
-              title: Text(context.localized.delete_image,),
+            child: ListTile(
+              title: Text(
+                context.localized.delete_image,
+              ),
             ),
           ),
           PopupMenuItem<String>(
             onTap: languageChanges,
             value: context.localized.language,
-            child:  ListTile(
-              title: Text(context.localized.language,),
+            child: ListTile(
+              title: Text(
+                context.localized.language,
+              ),
             ),
           ),
           PopupMenuItem<String>(
             onTap: logOut,
             value: context.localized.log_out,
-            child:  ListTile(
+            child: ListTile(
               title: Text(context.localized.log_out),
             ),
           ),

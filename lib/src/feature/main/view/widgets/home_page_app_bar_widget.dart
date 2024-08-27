@@ -1,14 +1,17 @@
 import "dart:io";
 
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
+import "package:nutrition/src/feature/main/view/widgets/home_page_tab_bar_button_widget.dart";
+import "package:nutrition/src/feature/main/view_model/home_vm.dart";
 
-class HomePageAppBar extends StatelessWidget {
+class HomePageAppBar extends ConsumerWidget {
   final String? imgPath;
   const HomePageAppBar({
     required this.imgPath,
@@ -16,12 +19,13 @@ class HomePageAppBar extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: REdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Row(
+  Widget build(BuildContext context, WidgetRef ref) => Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          20.verticalSpace,
+          Padding(
+            padding: REdgeInsets.symmetric(horizontal: 30),
+            child: Row(
               children: [
                 Expanded(
                   child: Column(
@@ -54,16 +58,22 @@ class HomePageAppBar extends StatelessWidget {
                       color: AppColors.cFFCE80,
                       borderRadius: BorderRadius.circular(10.r),
                     ),
-                    child: Image(
-                      image: profileImage(profileImagePath: imgPath)!,
-                      fit: BoxFit.cover,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.r),
+                      child: Image(
+                        image: profileImage(profileImagePath: imgPath)!,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
-            30.verticalSpace,
-            Row(
+          ),
+          30.verticalSpace,
+          Padding(
+            padding: REdgeInsets.symmetric(horizontal: 30),
+            child: Row(
               children: [
                 Expanded(
                   child: SizedBox(
@@ -99,7 +109,7 @@ class HomePageAppBar extends StatelessWidget {
                   width: 40.w,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: AppColors.c129575,
+                      color: context.theme.colorScheme.primary,
                       borderRadius: BorderRadius.circular(10.r),
                     ),
                     child: ClipRRect(
@@ -121,9 +131,28 @@ class HomePageAppBar extends StatelessWidget {
                 ),
               ],
             ),
-            10.verticalSpace,
-          ],
-        ),
+          ),
+          15.verticalSpace,
+          SizedBox(
+            height: 51.h,
+            width: double.infinity,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: ref.read(homeVM).tabBarItems.length,
+              padding: REdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              separatorBuilder: (BuildContext context, int index) => SizedBox(width: 5.w),
+              itemBuilder: (ctx, i) => HomePageTabBarButtonWidget(
+                buttonColor: ref.watch(homeVM).currentIndex == i ? context.theme.colorScheme.primary : AppColors.white,
+                textColor: ref.watch(homeVM).currentIndex == i ? AppColors.white : context.theme.colorScheme.primaryContainer,
+                onPressed: () {
+                  ref.read(homeVM).changeTapBar(i);
+                },
+                text: ref.watch(homeVM).tabBarItems[i],
+              ),
+            ),
+          ),
+          15.verticalSpace,
+        ],
       );
 }
 

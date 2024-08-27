@@ -17,6 +17,7 @@ final class ApiConst {
   // auth
   static const String apiToken = "$version/auth/login";
   static const String createAccount = "$version/auth/register";
+  static const String verifyEmail = "$version/auth/verify/email";
 
   // get all projects list
   static const String apiGetAllProjects = "$version/mobile/project";

@@ -24,6 +24,7 @@ class LoginTextfieldWidget extends StatelessWidget {
         cursorHeight: 22,
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          errorStyle: TextStyle(color: Colors.red.shade900),
           hintText: hintText,
           hintStyle: context.theme.textTheme.bodySmall?.copyWith(
             fontWeight: FontWeight.w400,

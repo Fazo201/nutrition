@@ -2,6 +2,7 @@ import "package:flutter/cupertino.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/feature/auth/view/pages/login_page.dart";
+import "package:nutrition/src/feature/auth/view/pages/otp_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
 import "package:nutrition/src/feature/bookmark/view/pages/reviews_page.dart";
@@ -201,6 +202,16 @@ final class RouterConfigService {
             name: "RegisterPage",
             path: AppRouteNames.register,
             builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
+            routes: [
+              GoRoute(
+                name: "VerifyAccount",
+                path: AppRouteNames.otp,
+                builder: (BuildContext context, GoRouterState state) {
+                  // final extra = state.extra as String;
+                  return const VerifyAccount();
+                },
+              ),
+            ],
           ),
         ],
       ),

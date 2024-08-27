@@ -1,12 +1,10 @@
 import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
-import "package:nutrition/src/core/storage/app_storage.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/widgets/eleveted_button_widget.dart";
 import "package:nutrition/src/feature/auth/view/widgets/login_or_widget.dart";
@@ -119,15 +117,12 @@ class LoginPage extends ConsumerWidget {
                   ElevatedButtonWidget(
                     text: context.localized.signIn,
                     onPressed: () async {
-                      // await AppStorage.$delete(key: StorageKey.accessToken);
                       if (ctr.globalKey.currentState?.validate() ?? false) {
-                        debugPrint("1111111`1111111111");
+                        debugPrint("Form validation passed");
                         await ctr.getToken(email: ctr.emailController.text, password: ctr.passwordController.text, context: context);
                         ctr.emailController.clear();
                         ctr.passwordController.clear();
-                      } else {
-                        // Optionally, show a message or do something when validation fails
-                      }
+                      } else {}
                     },
                   ),
                   25.verticalSpace,
