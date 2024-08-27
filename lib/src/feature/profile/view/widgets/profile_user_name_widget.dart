@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "../../../../core/style/app_colors.dart";
 
 class UserNameWidget extends StatelessWidget {
   const UserNameWidget({
-    super.key, required this.userName,
+    required this.userName, super.key,
   });
  final  String? userName;
   @override

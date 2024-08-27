@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import 'package:pin_code_fields/pin_code_fields.dart';
+import "package:pin_code_fields/pin_code_fields.dart";
 
 class Wotp extends StatelessWidget {
   final String? otpText;
@@ -18,8 +18,7 @@ class Wotp extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
+  Widget build(BuildContext context) => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 26),
       child: Column(
         children: [
@@ -52,5 +51,4 @@ class Wotp extends StatelessWidget {
         ],
       ),
     );
-  }
 }

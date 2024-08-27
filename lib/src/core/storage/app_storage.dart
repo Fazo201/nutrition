@@ -1,15 +1,7 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter_secure_storage/flutter_secure_storage.dart";
 
-enum StorageKey {
-  accessToken,
-  refreshToken,
-  pinCode,
-  locale,
-  theme,
-  userModel,
-  imagePath,
-}
+enum StorageKey { accessToken, refreshToken, pinCode, locale, theme, userModel, imagePath, email, password }
 
 class AppStorage extends FlutterSecureStorage {
   factory AppStorage() => _service;
