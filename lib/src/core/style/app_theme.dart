@@ -37,8 +37,9 @@ final class AppThemes {
           backgroundColor: lightColorScheme.surface,
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: darkColorScheme.surface,
+          backgroundColor: lightColorScheme.surface,
         ),
+        shadowColor: lightColorScheme.shadow,
       );
 
   static ThemeData dark() => ThemeData(
@@ -51,6 +52,7 @@ final class AppThemes {
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: darkColorScheme.surface,
         ),
+        shadowColor: darkColorScheme.shadow,
       );
 
   ThemeData computeTheme() {
