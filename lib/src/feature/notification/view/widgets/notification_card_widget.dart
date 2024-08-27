@@ -2,7 +2,8 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "../../../../core/style/app_colors.dart";
+import "package:nutrition/src/core/style/color_schema.dart";
+import "package:nutrition/src/core/widgets/app_material_context.dart";
 
 class NotificationCardWidget extends StatelessWidget {
   const NotificationCardWidget();
@@ -14,7 +15,7 @@ class NotificationCardWidget extends StatelessWidget {
           width: 315.w,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              color: AppColors.cD9D9D9,
+              color: context.theme.colorScheme.surfaceBright,
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Padding(
@@ -28,11 +29,8 @@ class NotificationCardWidget extends StatelessWidget {
                         flex: 4,
                         child: Text(
                           context.localized.new_recipes_alert,
-                          style: context.theme.textTheme.labelSmall?.copyWith(
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: "Poppins",
-                            color: AppColors.c121212,
+                          style: context.textTheme.titleSmall?.copyWith(
+                            color: themeController.isLight ? lightColorScheme.onSurface : darkColorScheme.onPrimary,
                           ),
                         ),
                       ),
@@ -42,7 +40,6 @@ class NotificationCardWidget extends StatelessWidget {
                         width: 28.w,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                            color: AppColors.cFFE1B3,
                             borderRadius: BorderRadius.circular(10.r),
                           ),
                           child: SvgPicture.asset("assets/icons/reviews_icon_wich_has_not_read.svg"),
@@ -52,23 +49,14 @@ class NotificationCardWidget extends StatelessWidget {
                   ),
                   Text(
                     "Lorem Ipsum ut labore et dolore,in voluptate velit esse cillum",
-                    style: context.theme.textTheme.labelSmall?.copyWith(
-                      fontSize: 11.sp,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.cA9A9A9,
-                      fontFamily: "Poppins",
-                    ),
+                    style: context.textTheme.bodySmall,
                   ),
+                  5.verticalSpace,
                   Row(
                     children: [
                       Text(
                         "30 mins ago",
-                        style: context.theme.textTheme.labelSmall?.copyWith(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.c797979,
-                          fontFamily: "Poppins",
-                        ),
+                        style: context.textTheme.labelLarge,
                       ),
                     ],
                   ),

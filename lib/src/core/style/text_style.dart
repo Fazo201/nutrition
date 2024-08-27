@@ -35,9 +35,9 @@ class AppTextStyle extends TextTheme {
   @override
   TextStyle? get headlineMedium => TextStyle(
         fontWeight: FontWeight.w400,
-        fontSize: FontSize.size34,
+        fontSize: FontSize.size14,
         fontFamily: "Poppins",
-        color: AppColors.white,
+        color: themeController.isLight ? lightColorScheme.onSurface : darkColorScheme.onSurface,
       ); /// If you have problem or any question with headlineMedium tell me! Abdulloh Muminov.
 
   @override
@@ -98,10 +98,10 @@ class AppTextStyle extends TextTheme {
 
   @override
   TextStyle? get labelLarge => TextStyle(
-        fontWeight: FontWeight.w500,
-        fontSize: FontSize.size14,
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size7,
         fontFamily: "Poppins",
-        color: AppColors.white,
+        color: themeController.isLight ? lightColorScheme.onSurfaceVariant : darkColorScheme.onSurfaceVariant,
       ); /// If you have problem or any question with labelLarge tell me! Abdulloh Muminov.
 
   @override
@@ -117,6 +117,7 @@ class AppTextStyle extends TextTheme {
 class FontSize {
   const FontSize._();
 
+  static double size7 = 7.sp;
   static double size8 = 8.sp;
   static double size10 = 10.sp;
   static double size11 = 11.sp;

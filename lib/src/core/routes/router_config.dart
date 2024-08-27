@@ -7,7 +7,6 @@ import "package:nutrition/src/feature/auth/view/pages/register_page.dart";
 import "package:nutrition/src/feature/auth/view/pages/splash_page.dart";
 import "package:nutrition/src/feature/bookmark/view/pages/reviews_page.dart";
 import "package:nutrition/src/feature/food_details/view/pages/food_details_page.dart";
-
 import "../../feature/bookmark/view/pages/bookmark_page.dart";
 import "../../feature/main/view/pages/home_page.dart";
 import "../../feature/main/view/pages/primary_page.dart";

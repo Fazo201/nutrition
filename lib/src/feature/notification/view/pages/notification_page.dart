@@ -10,7 +10,6 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) => DefaultTabController(
         length: 3,
         child: Scaffold(
-          backgroundColor: context.theme.colorScheme.surface,
           appBar: CustomAppBarWithTabBarWidget(
             tabs: [
               CustomTabWidget(text: context.localized.all),
