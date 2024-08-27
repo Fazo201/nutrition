@@ -4,19 +4,22 @@ const ColorScheme lightColorScheme = ColorScheme(
 
   brightness: Brightness.light,
 
-  primary: Color(0xFF129575), ///129575 For main components on UI!
-  onPrimary: Color(0xFFFFFFFF), ///FFFFFF For items ex. icons, texts on main components on UI!
-  primaryContainer: Color(0xFF71B1A1), ///71B1A1
-  secondary: Color(0xFFFF9C00), ///FF9C00
-  secondaryContainer: Color(0xFFFFAD30), ///FFAD30
-  surface: Color(0xFFFFFFFF), ///FFFFFF For backgrounds of (Scaffold, app, ...).
-  surfaceDim: Color(0xFF000000), ///000000 Always darkest at the dark and light mode!
-  onSurface: Color(0xFF121212), ///121212 For items on background!
-  surfaceBright: Color(0xFFD9D9D9), ///D9D9D9
-  outline: Color(0xFFD9D9D9), ///D9D9D9 For outlines!
-  errorContainer: Color(0xFFFD3654), ///FD3654
-  onErrorContainer: Color(0xFFFFE1E7), ///FFE1E7
-  inverseSurface: Color.fromRGBO(0, 0, 0, 1), /// When components take up like popups or dropdowns!
+  primary: Color.fromRGBO(18, 149, 117, 1),// ///129575 For main components on UI!
+  onPrimary: Color(0xFFFFFFFF),// ///FFFFFF For items ex. icons, texts on main components on UI!
+  primaryContainer: Color.fromRGBO(219, 235, 231, 1), //
+  primaryFixedDim: Color.fromRGBO(113, 177, 161, 1), //
+  primaryFixed: Color.fromRGBO(113, 177, 161, 1), //
+  secondary: Color(0xFFFF9C00),// ///FF9C00
+  secondaryContainer: Color(0xFFFFAD30),// ///FFAD30
+  surface: Color(0xFFFFFFFF),// ///FFFFFF For backgrounds of (Scaffold, app, ...).
+  surfaceDim: Color(0xFF000000), // ///000000 Always darkest at the dark and light mode!
+  onSurface: Color(0xFF121212), // ///121212 For items on background!
+  surfaceBright: Color(0xFFD9D9D9), // ///D9D9D9
+  outline: Color(0xFFD9D9D9), // ///D9D9D9 For outlines!
+  errorContainer: Color(0xFFFFE1E7),//
+  onErrorContainer: Color(0xFFFD3654),//
+  inverseSurface: Color.fromRGBO(0, 0, 0, 1),// /// When components take up like popups or dropdowns!
+  shadow: Color.fromRGBO(105, 105, 105, 0.1),// /// For shadows
 
   ///Don't need ones!!!
   onSecondary: Color(0xFF000000),
@@ -45,12 +48,22 @@ const ColorScheme darkColorScheme = ColorScheme(
 
   brightness: Brightness.dark,
 
-  primary: Color(0xFF2ec866), ///2ec866 For main components on UI!
-  onPrimary: Color(0xFF121418), ///121418 For items ex. icons, texts on main components on UI!
-  secondary: Color(0xFFa47618), ///a47618
-  secondaryContainer: Color(0xFFFFAD30), ///FFAD30
-  surface: Color(0xFF121418), ///121418 For backgrounds of (Scaffold, app, ...).
-  onSurface: Color(0xffeceded),
+  primary: Color(0xFF2ec866), // ///2ec866 For main components on UI!
+  onPrimary: Color(0xFF121418), // ///121418 For items ex. icons, texts on main components on UI!
+  primaryContainer: Color(0xFF00cc90), //
+  primaryFixedDim: Color(0xFF00be3a), //
+  primaryFixed: Color(0xFF25d28b), //
+  secondary: Color(0xFFa47618), // ///a47618
+  secondaryContainer: Color(0xFFFFAD30), // ///FFAD30
+  surface: Color(0xFF1e2227), // ///121418 For backgrounds of (Scaffold, app, ...).
+  onSurface: Color(0xffeceded), //
+  surfaceDim: Color(0xFFF5F5F5), //
+  surfaceBright: Color(0xFFf3f9f9), //
+  inverseSurface: Color.fromRGBO(0, 0, 0, 1), //
+  shadow: Color(0xFFF5F5F5), // /// For all shadows.
+  outline: Color(0xFF30363d), //
+  errorContainer: Color(0xFFFFE1E7), //
+  onErrorContainer: Color(0xFFFD3654), //
 
   ///Don't need ones!!!
   onSecondary: Color(0xff141210),
