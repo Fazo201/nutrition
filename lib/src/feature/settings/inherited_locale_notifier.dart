@@ -1,5 +1,5 @@
-import 'package:flutter/widgets.dart';
-import 'locale_controller.dart';
+import "package:flutter/widgets.dart";
+import "locale_controller.dart";
 
 @immutable
 class InheritedLocalNotifier extends InheritedNotifier<LocalController> {

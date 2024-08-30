@@ -239,10 +239,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_plugin_android_lifecycle
-      sha256: "9d98bd47ef9d34e803d438f17fd32b116d31009f534a6fa5ce3a1167f189a6de"
+      sha256: "9ee02950848f61c4129af3d6ec84a1cfc0e47931abc746b03e7a3bc3e8ff6eda"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.21"
+    version: "2.0.22"
   flutter_rating_bar:
     dependency: "direct main"
     description:
@@ -345,10 +345,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: ddc16d34b0d74cb313986918c0f0885a7ba2fc24d8fb8419de75f0015144ccfe
+      sha256: "2ddb88e9ad56ae15ee144ed10e33886777eb5ca2509a914850a5faa7b52ff459"
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.3"
+    version: "14.2.7"
   http:
     dependency: transitive
     description:
@@ -537,10 +537,10 @@ packages:
     dependency: transitive
     description:
       name: mime
-      sha256: "2e123074287cc9fd6c09de8336dae606d1ddb88d9ac47358826db698c176a1f2"
+      sha256: "801fd0b26f14a4a58ccb09d5892c3fbdeff209594300a542492cf13fba9d247a"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.5"
+    version: "1.0.6"
   nested:
     dependency: transitive
     description:
@@ -713,10 +713,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_android
-      sha256: a7e8467e9181cef109f601e3f65765685786c1a738a83d7fbbde377589c0d974
+      sha256: "480ba4345773f56acda9abf5f50bd966f581dac5d514e5fc4a18c62976bbba7e"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   shared_preferences_foundation:
     dependency: transitive
     description:
@@ -838,10 +838,10 @@ packages:
     dependency: "direct main"
     description:
       name: toastification
-      sha256: ffd10916d4cd0e8b944f3df334c7892ef55cdc7c1875b1c7b007780b9f5fc756
+      sha256: "441adf261f03b82db7067cba349756f70e9e2c0b7276bcba856210742f85f394"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.0"
   typed_data:
     dependency: transitive
     description:

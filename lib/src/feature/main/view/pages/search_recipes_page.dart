@@ -1,12 +1,10 @@
 import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/style/text_style.dart";
 import "package:nutrition/src/feature/main/view_model/search_vm.dart";
-
 import "../widgets/search_recipes_item_widget.dart";
 import "../widgets/search_recipes_text_field_button_widget.dart";
 
@@ -76,8 +74,10 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Recent Search",
-                        style: style.titleSmall?.copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black)),
+                    Text(
+                      "Recent Search",
+                      style: style.titleSmall?.copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
+                    ),
                     if (searchViewModel.totalResults != 0) Text("${searchViewModel.totalResults} results") else const Text(""),
                   ],
                 ),

@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "../../../../core/style/app_colors.dart";
 import "custom_tab_widget.dart";
 
 class CustomAppBarWithTabBarWidget extends StatelessWidget implements PreferredSizeWidget {
@@ -16,11 +15,7 @@ class CustomAppBarWithTabBarWidget extends StatelessWidget implements PreferredS
   Widget build(BuildContext context) => AppBar(
         title: Text(
           context.localized.notification,
-          style: context.theme.textTheme.bodyLarge?.copyWith(
-            fontSize: 18.sp,
-            fontWeight: FontWeight.w600,
-            fontFamily: "Poppins",
-          ),
+          style: context.textTheme.titleLarge,
         ),
         centerTitle: true,
         bottom: TabBar(
@@ -28,20 +23,13 @@ class CustomAppBarWithTabBarWidget extends StatelessWidget implements PreferredS
           dividerColor: Colors.transparent,
           padding: REdgeInsets.symmetric(horizontal: 20),
           indicator: BoxDecoration(
-            color: AppColors.c129575,
+            color: context.theme.colorScheme.primary,
             borderRadius: BorderRadius.all(Radius.circular(10.r)),
           ),
-          labelColor: AppColors.white,
-          labelStyle: context.theme.textTheme.bodyLarge?.copyWith(
-            fontSize: 11.sp,
-            fontWeight: FontWeight.w600,
-            fontFamily: "Poppins",
-          ),
-          unselectedLabelColor: AppColors.c71B1A1,
-          unselectedLabelStyle: context.theme.textTheme.bodyLarge?.copyWith(
-            fontSize: 11.sp,
-            fontWeight: FontWeight.w600,
-            fontFamily: "Poppins",
+          labelColor: context.theme.colorScheme.onPrimary,
+          labelStyle: context.textTheme.bodyMedium,
+          unselectedLabelStyle: context.textTheme.bodyMedium?.copyWith(
+            color: context.theme.colorScheme.primaryFixedDim,
           ),
           tabs: tabs,
         ),
