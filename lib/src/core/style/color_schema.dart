@@ -50,9 +50,9 @@ const ColorScheme darkColorScheme = ColorScheme(
 
   primary: Color(0xFF2ec866), ///2ec866 For main components on UI!
   onPrimary: Color(0xFF121418), ///121418 For items ex. icons, texts on main components on UI!
-  primaryContainer: Color(0xFF00cc90),
+  primaryContainer: Color(0xFF008175),
   primaryFixedDim: Color(0xFF00be3a),
-  primaryFixed: Color(0xFF25d28b),
+  primaryFixed: Color(0xFF009851),
   secondary: Color(0xFFa47618), ///a47618
   secondaryContainer: Color(0xFFFFAD30), ///FFAD30
   surface: Color(0xFF1e2227), ///121418 For backgrounds of (Scaffold, app, ...).

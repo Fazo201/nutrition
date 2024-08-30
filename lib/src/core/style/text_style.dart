@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
 import "package:nutrition/src/core/style/color_schema.dart";
 import "package:nutrition/src/core/widgets/app_material_context.dart";
 
@@ -13,6 +12,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size30, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.surfaceDim : darkColorScheme.surfaceDim,
       ); /// If you have problem or any question with displayLarge tell me! Abdulloh Muminov.
 
@@ -21,6 +21,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size20, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.onSurface : darkColorScheme.onSurface,
       ); /// If you have problem or any question with displayMedium tell me! Abdulloh Muminov.
 
@@ -29,6 +30,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size11, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.surfaceBright : darkColorScheme.surfaceBright,
       ); /// If you have problem or any question with displaySmall tell me! Abdulloh Muminov.
 
@@ -37,6 +39,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.onSurface : darkColorScheme.onSurface,
       ); /// If you have problem or any question with headlineMedium tell me! Abdulloh Muminov.
 
@@ -45,6 +48,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size8, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.surfaceBright : darkColorScheme.surfaceBright,
       ); /// If you have problem or any question with headlineSmall tell me! Abdulloh Muminov.
 
@@ -53,6 +57,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size18, ///
         fontFamily: "Poppins",
+        letterSpacing: 2,
         color: themeController.isLight ? lightColorScheme.surfaceDim : darkColorScheme.surfaceDim,
       ); /// If you have problem or any question with titleLarge tell me! Abdulloh Muminov.
 
@@ -61,6 +66,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size16, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.surfaceDim : darkColorScheme.surfaceDim,
       ); /// If you have problem or any question with titleMedium tell me! Abdulloh Muminov.
 
@@ -69,6 +75,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size11, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.surfaceBright : darkColorScheme.surfaceBright,
       ); /// If you have problem or any question with titleSmall tell me! Abdulloh Muminov.
 
@@ -77,6 +84,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size11, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.onSurface : darkColorScheme.onSurface,
       ); /// If you have problem or any question with bodyLarge tell me! Abdulloh Muminov.
 
@@ -85,6 +93,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600, /// for MAIN (primary) button and ...
         fontSize: FontSize.size11, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.onPrimary : darkColorScheme.onPrimary,
       ); /// If you have problem or any question with bodyMedium tell me! Abdulloh Muminov.
 
@@ -93,6 +102,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size11, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.onSurfaceVariant : darkColorScheme.onSurfaceVariant,
       ); /// If you have problem or any question with bodySmall tell me! Abdulloh Muminov.
 
@@ -101,6 +111,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size7,
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.onSurfaceVariant : darkColorScheme.onSurfaceVariant,
       ); /// If you have problem or any question with labelLarge tell me! Abdulloh Muminov.
 
@@ -109,6 +120,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size11, ///
         fontFamily: "Poppins",
+        letterSpacing: 1,
         color: themeController.isLight ? lightColorScheme.surfaceBright : darkColorScheme.surfaceBright,
       ); /// If you have problem or any question with labelSmall tell me! Abdulloh Muminov.
 }

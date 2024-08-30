@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
 import "../../vm/review_vm.dart";
 
 class ReviewWidget extends ConsumerWidget {
@@ -43,20 +42,15 @@ class ReviewWidget extends ConsumerWidget {
                 children: [
                   Text(
                     review.name,
-                    style: context.theme.textTheme.bodyMedium?.copyWith(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.c121212,
-                      fontFamily: "Poppins",
+                    style: context.textTheme.titleSmall?.copyWith(
+                      color: context.theme.colorScheme.onSurface,
                     ),
                   ),
                   2.verticalSpace,
                   Text(
                     review.date,
-                    style: context.theme.textTheme.labelSmall?.copyWith(
-                      fontSize: 11.sp,
-                      color: AppColors.cA9A9A9,
-                      fontFamily: "Poppins",
+                    style: context.textTheme.headlineSmall?.copyWith(
+                      color: context.theme.colorScheme.onSurfaceVariant,
                     ),
                   ),
                 ],
@@ -68,10 +62,8 @@ class ReviewWidget extends ConsumerWidget {
             flex: 0,
             child: Text(
               review.comment,
-              style: context.theme.textTheme.labelSmall?.copyWith(
-                fontSize: 17.sp,
-                color: AppColors.c484848,
-                fontFamily: "Poppins",
+              style: context.textTheme.bodySmall?.copyWith(
+                color: context.theme.colorScheme.onSurface,
               ),
             ),
           ),
@@ -87,9 +79,9 @@ class ReviewWidget extends ConsumerWidget {
                   height: 30.h,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: ref.read(reviewVM).isLiked(reviewIndex) == true
-                          ? AppColors.c71B1A1
-                          : AppColors.cDBEBE7,
+                      color: true == ref.read(reviewVM).isLiked(reviewIndex)
+                          ? context.theme.colorScheme.primaryFixed
+                          : context.theme.colorScheme.primaryContainer,
                       borderRadius: BorderRadius.all(Radius.circular(17.r)),
                     ),
                     child: Row(
@@ -97,18 +89,11 @@ class ReviewWidget extends ConsumerWidget {
                       children: [
                         Text(
                           "👍",
-                          style: context.theme.textTheme.labelSmall?.copyWith(
-                            fontSize: 15.sp,
-                            fontFamily: "Poppins",
-                          ),
+                          style: context.textTheme.headlineMedium,
                         ),
                         Text(
                           ref.read(reviewVM).likeCount(reviewIndex).toString(),
-                          style: context.theme.textTheme.labelSmall?.copyWith(
-                            fontSize: 15.sp,
-                            color: AppColors.c484848,
-                            fontFamily: "Poppins",
-                          ),
+                          style: context.textTheme.headlineMedium,
                         ),
                       ],
                     ),
@@ -126,8 +111,8 @@ class ReviewWidget extends ConsumerWidget {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       color: ref.read(reviewVM).isLiked(reviewIndex) == false
-                          ? AppColors.c71B1A1
-                          : AppColors.cDBEBE7,
+                          ? context.theme.colorScheme.primaryFixed
+                          : context.theme.colorScheme.primaryContainer,
                       borderRadius: BorderRadius.all(Radius.circular(17.r)),
                     ),
                     child: Row(
@@ -135,18 +120,11 @@ class ReviewWidget extends ConsumerWidget {
                       children: [
                         Text(
                           "👎",
-                          style: context.theme.textTheme.labelSmall?.copyWith(
-                            fontSize: 15.sp,
-                            fontFamily: "Poppins",
-                          ),
+                          style: context.textTheme.headlineMedium,
                         ),
                         Text(
                           ref.read(reviewVM).dislikeCount(reviewIndex).toString(),
-                          style: context.theme.textTheme.labelSmall?.copyWith(
-                            fontSize: 15.sp,
-                            color: AppColors.c484848,
-                            fontFamily: "Poppins",
-                          ),
+                          style: context.textTheme.headlineMedium,
                         ),
                       ],
                     ),
