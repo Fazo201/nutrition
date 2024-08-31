@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 
 class HomePageTabBarButtonWidget extends StatelessWidget {
   final Color buttonColor;
@@ -26,12 +27,7 @@ class HomePageTabBarButtonWidget extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontSize: 11.sp,
-            fontWeight: FontWeight.w600,
-            color: textColor,
-          ),
+          style: context.textTheme.titleSmall!.copyWith(color: textColor),
         ),
       );
 }

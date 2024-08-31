@@ -33,18 +33,16 @@ class HomePageAppBar extends ConsumerWidget {
                     children: [
                       Text(
                         "${context.localized.homePageHello} Jega",
-                        style: TextStyle(
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                        style: context.textTheme.displayMedium!.copyWith(
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       5.verticalSpace,
                       Text(
                         context.localized.homePageWhatAreYouCookingToday,
-                        style: TextStyle(
-                          fontSize: 11.sp,
-                          color: Colors.grey,
+                        style: context.textTheme.titleSmall!.copyWith(
+                          fontWeight: FontWeight.w400,
+                          color: context.theme.colorScheme.onSurfaceVariant,
                         ),
                       ),
                     ],
@@ -89,16 +87,17 @@ class HomePageAppBar extends ConsumerWidget {
                           child: SvgPicture.asset("assets/icons/search_in_textfield_icon.svg"),
                         ),
                         hintText: context.localized.homePageSearchText,
-                        hintStyle: const TextStyle(color: AppColors.cD9D9D9),
+                        // hintStyle:  TextStyle(color: ),
+                        hintStyle: context.textTheme.titleSmall!.copyWith(fontWeight: FontWeight.w400, fontSize: 12.sp),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
-                          borderSide: const BorderSide(color: AppColors.cD9D9D9),
+                          borderSide: BorderSide(color: context.theme.colorScheme.outline),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
-                          borderSide: const BorderSide(color: AppColors.cD9D9D9),
+                          borderSide: BorderSide(color: context.theme.colorScheme.outline),
                         ),
-                        contentPadding: REdgeInsets.symmetric(vertical: 10),
+                        contentPadding: REdgeInsets.symmetric(vertical: 12),
                       ),
                     ),
                   ),
@@ -143,7 +142,7 @@ class HomePageAppBar extends ConsumerWidget {
               separatorBuilder: (BuildContext context, int index) => SizedBox(width: 5.w),
               itemBuilder: (ctx, i) => HomePageTabBarButtonWidget(
                 buttonColor: ref.watch(homeVM).currentIndex == i ? context.theme.colorScheme.primary : AppColors.white,
-                textColor: ref.watch(homeVM).currentIndex == i ? AppColors.white : context.theme.colorScheme.primaryContainer,
+                textColor: ref.watch(homeVM).currentIndex == i ? AppColors.white : context.theme.colorScheme.primaryFixedDim,
                 onPressed: () {
                   ref.read(homeVM).changeTapBar(i);
                 },

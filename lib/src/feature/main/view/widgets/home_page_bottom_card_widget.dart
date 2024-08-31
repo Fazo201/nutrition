@@ -33,7 +33,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF000000).withOpacity(0.1), // Semi-transparent black
+                    color: context.theme.colorScheme.shadow,
                     spreadRadius: 0,
                     blurRadius: 20,
                   ),
@@ -43,7 +43,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                 padding: REdgeInsets.all(10),
                 minWidth: 251.w,
                 height: 100.h,
-                color: Colors.white,
+                color: context.theme.colorScheme.surface,
                 elevation: 0,
                 highlightElevation: 0,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
@@ -58,11 +58,9 @@ class HomePageBottomCardWidget extends StatelessWidget {
                         children: [
                           Text(
                             title,
-                            style: TextStyle(
-                              fontFamily: "Poppins",
+                            style: context.textTheme.titleMedium!.copyWith(
                               fontSize: 14.sp,
                               color: AppColors.c484848,
-                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           5.verticalSpace,
@@ -89,10 +87,9 @@ class HomePageBottomCardWidget extends StatelessWidget {
                                   8.horizontalSpace,
                                   Text(
                                     owner,
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 11.sp,
-                                      color: AppColors.cA9A9A9,
+                                    style: context.textTheme.titleSmall!.copyWith(
+                                      fontWeight: FontWeight.w400,
+                                      color: context.theme.colorScheme.onSurfaceVariant,
                                     ),
                                   ),
                                 ],
@@ -103,12 +100,9 @@ class HomePageBottomCardWidget extends StatelessWidget {
                                   5.horizontalSpace,
                                   Text(
                                     "$time ${context.localized.homePageTime2}",
-                                    style: TextStyle(
-                                      overflow: TextOverflow.ellipsis,
-                                      fontFamily: "Poppins",
-                                      fontSize: 11.sp,
+                                    style: context.textTheme.titleSmall!.copyWith(
                                       fontWeight: FontWeight.w400,
-                                      color: AppColors.cA9A9A9,
+                                      color: context.theme.colorScheme.onSurfaceVariant,
                                     ),
                                   ),
                                 ],

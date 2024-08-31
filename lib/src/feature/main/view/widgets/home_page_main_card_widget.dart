@@ -35,7 +35,7 @@ class HomePageMainCardWidget extends StatelessWidget {
             child: MaterialButton(
               minWidth: 150.w,
               height: 176.h,
-              color: AppColors.cD9D9D9,
+              color: context.theme.colorScheme.outline,
               elevation: 0,
               highlightElevation: 0,
               highlightColor: Colors.grey.shade400,
@@ -53,12 +53,7 @@ class HomePageMainCardWidget extends StatelessWidget {
                     child: Text(
                       title,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: "Poppins",
-                        color: AppColors.c484848,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: context.textTheme.titleMedium!.copyWith(color: AppColors.c484848),
                     ),
                   ),
                   20.verticalSpace,
@@ -67,22 +62,15 @@ class HomePageMainCardWidget extends StatelessWidget {
                     children: [
                       Text(
                         context.localized.homePageTime,
-                        style: TextStyle(
-                          fontFamily: "Poppins",
-                          color: AppColors.cA9A9A9,
-                          fontSize: 11.sp,
+                        style: context.textTheme.titleSmall!.copyWith(
                           fontWeight: FontWeight.w400,
+                          color: context.theme.colorScheme.onSurfaceVariant,
                         ),
                       ),
                       5.verticalSpace,
                       Text(
                         "$time ${context.localized.homePageTime2}",
-                        style: TextStyle(
-                          fontFamily: "Poppins",
-                          color: AppColors.c484848,
-                          fontSize: 11.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style: context.textTheme.titleSmall!.copyWith(color: AppColors.c484848),
                       ),
                     ],
                   ),

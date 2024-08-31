@@ -55,10 +55,7 @@ class HomePage extends ConsumerWidget {
                 padding: REdgeInsets.only(left: 30),
                 child: Text(
                   context.localized.homePageNewRecipes,
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: context.textTheme.titleMedium,
                 ),
               ),
 
