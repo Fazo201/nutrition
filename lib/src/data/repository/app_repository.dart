@@ -12,5 +12,5 @@ abstract class AppRepo {
 
   Future<bool> checkToken();
 
-  Future<void> postOtp({required String email, required String code});
+  Future<bool> postOtp({required String email, required String code});
 }

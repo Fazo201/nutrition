@@ -74,10 +74,13 @@ class ProfileVm extends ChangeNotifier {
   }
 
   String replaceHalfWithAsterisk(String input) {
-    final halfLength = (input.length / 2).ceil(); // Matnning yarmidan boshlab belgilarni hisoblash
+    final halfLength = (input.length / 2)
+        .ceil(); // Matnning yarmidan boshlab belgilarni hisoblash
     final firstHalf = input.substring(0, halfLength); // Matnning birinchi yarmi
-    final replacedHalf = "*" * (input.length - halfLength); // Ikkinchi yarmini '*' bilan almashtirish
-    return firstHalf + replacedHalf; // Birinchi yarimni va '*'larni birlashtirish
+    final replacedHalf = "*" *
+        (input.length - halfLength); // Ikkinchi yarmini '*' bilan almashtirish
+    return firstHalf +
+        replacedHalf; // Birinchi yarimni va '*'larni birlashtirish
   }
 
   Future<void> updateProfile() async {
@@ -86,14 +89,17 @@ class ProfileVm extends ChangeNotifier {
       email: controllerE.text,
       password: controllerP.text,
     );
-    await AppStorage.$write(key: StorageKey.userModel, value: jsonEncode(userModel1.toJson()));
+    await AppStorage.$write(
+        key: StorageKey.userModel, value: jsonEncode(userModel1.toJson()));
     notifyListeners();
     final result = await AppStorage.$read(key: StorageKey.userModel);
     log(result.toString());
     if (result != null) {
       userModel = UserModel.fromJson(jsonDecode(result));
     }
-    if (userModel.name != null && userModel.email != null && userModel.password != null) {
+    if (userModel.name != null &&
+        userModel.email != null &&
+        userModel.password != null) {
       if (globalKey.currentState!.validate()) {
         globalKey.currentState!.save();
         username = userModel.name;
@@ -204,10 +210,11 @@ class ProfileVm extends ChangeNotifier {
     context.pushReplacement(AppRouteNames.login);
   }
 
-  Future<ImageSource?> _showPickerDialog(BuildContext context) async => showDialog<ImageSource?>(
+  Future<ImageSource?> _showPickerDialog(BuildContext context) async =>
+      showDialog<ImageSource?>(
         context: context,
         builder: (BuildContext context) => AlertDialog(
-          title:  Text(
+          title: Text(
             context.localized.choose_image,
             textAlign: TextAlign.center,
           ),
@@ -218,14 +225,14 @@ class ProfileVm extends ChangeNotifier {
             children: <Widget>[
               ListTile(
                 leading: const Icon(Icons.camera),
-                title:  Text(context.localized.camera),
+                title: Text(context.localized.camera),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.camera);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title:  Text(context.localized.gallery),
+                title: Text(context.localized.gallery),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.gallery);
                 },

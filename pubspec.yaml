@@ -14,7 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   toastification: ^2.1.0
   l: ^4.0.2
-  sizer: ^2.0.15
+#  sizer: ^2.0.15
 
   # State management
   flutter_riverpod: ^2.5.1

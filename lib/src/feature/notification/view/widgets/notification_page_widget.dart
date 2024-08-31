@@ -3,6 +3,7 @@ import "package:nutrition/src/feature/notification/view/widgets/notification_car
 
 class NotificationPageWidget extends StatelessWidget {
   final int itemCount;
+
   const NotificationPageWidget({
     required this.itemCount,
     super.key,
