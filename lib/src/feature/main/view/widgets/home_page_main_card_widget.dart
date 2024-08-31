@@ -4,7 +4,8 @@ import "package:flutter_svg/flutter_svg.dart";
 import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
+import "package:nutrition/src/core/style/color_schema.dart";
+import "package:nutrition/src/core/widgets/app_material_context.dart";
 import "package:nutrition/src/core/widgets/raiting_card_widget.dart";
 
 class HomePageMainCardWidget extends StatelessWidget {
@@ -53,7 +54,9 @@ class HomePageMainCardWidget extends StatelessWidget {
                     child: Text(
                       title,
                       textAlign: TextAlign.center,
-                      style: context.textTheme.titleMedium!.copyWith(color: AppColors.c484848),
+                      style: context.textTheme.titleMedium!.copyWith(
+                        fontSize: 14.sp,
+                      ),
                     ),
                   ),
                   20.verticalSpace,
@@ -62,15 +65,14 @@ class HomePageMainCardWidget extends StatelessWidget {
                     children: [
                       Text(
                         context.localized.homePageTime,
-                        style: context.textTheme.titleSmall!.copyWith(
-                          fontWeight: FontWeight.w400,
-                          color: context.theme.colorScheme.onSurfaceVariant,
-                        ),
+                        style: context.textTheme.bodySmall,
                       ),
                       5.verticalSpace,
                       Text(
                         "$time ${context.localized.homePageTime2}",
-                        style: context.textTheme.titleSmall!.copyWith(color: AppColors.c484848),
+                        style: context.textTheme.titleSmall?.copyWith(
+                          color: context.theme.colorScheme.surfaceDim,
+                        ),
                       ),
                     ],
                   ),
@@ -109,7 +111,10 @@ class HomePageMainCardWidget extends StatelessWidget {
                       height: 24.h,
                       width: 24.w,
                       padding: REdgeInsets.all(3),
-                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: themeController.isLight ? lightColorScheme.onPrimary : darkColorScheme.surfaceBright,
+                      ),
                       child: SvgPicture.asset(
                         "assets/icons/bookmark_icon_off.svg",
                       ),
@@ -118,7 +123,10 @@ class HomePageMainCardWidget extends StatelessWidget {
                       height: 24.h,
                       width: 24.w,
                       padding: REdgeInsets.all(4),
-                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: themeController.isLight ? lightColorScheme.onPrimary : darkColorScheme.surfaceBright,
+                      ),
                       child: SvgPicture.asset(
                         "assets/icons/bookmark_icon_on.svg",
                       ),

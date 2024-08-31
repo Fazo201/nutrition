@@ -44,7 +44,7 @@ class HomePage extends ConsumerWidget {
                         ref.read(homeVM.notifier).toggleBookmark(i);
                       },
                     ),
-                    separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
+                    separatorBuilder: (BuildContext context, int index) => 15.horizontalSpace,
                   ),
                 ),
               ),
@@ -75,7 +75,7 @@ class HomePage extends ConsumerWidget {
                     owner: "By James Milner",
                     profilImgUrl: "assets/images/mini_profile_image.png",
                   ),
-                  separatorBuilder: (BuildContext context, int index) => SizedBox(width: 15.w),
+                  separatorBuilder: (BuildContext context, int index) => 15.horizontalSpace,
                 ),
               ),
             ],

@@ -1,6 +1,7 @@
 import "package:flutter/widgets.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
+import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
 
 class RaitingCardWidget extends StatelessWidget {
@@ -25,10 +26,8 @@ class RaitingCardWidget extends StatelessWidget {
               ),
               Text(
                 "$rating",
-                style: TextStyle(
-                  color: AppColors.black,
-                  fontSize: 11.sp,
-                  fontWeight: FontWeight.w400,
+                style: context.textTheme.bodySmall?.copyWith(
+                  color: context.theme.colorScheme.inverseSurface,
                 ),
               ),
             ],

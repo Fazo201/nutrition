@@ -22,7 +22,7 @@ class HomePageTabBarButtonWidget extends StatelessWidget {
         elevation: 0,
         highlightElevation: 0,
         padding: REdgeInsets.symmetric(horizontal: 20, vertical: 7),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
         color: buttonColor,
         onPressed: onPressed,
         child: Text(

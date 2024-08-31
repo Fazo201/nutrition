@@ -5,6 +5,8 @@ import "package:go_router/go_router.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
+import "package:nutrition/src/core/style/color_schema.dart";
+import "package:nutrition/src/core/widgets/app_material_context.dart";
 
 class HomePageBottomCardWidget extends StatelessWidget {
   final String imageUrl;
@@ -36,6 +38,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                     color: context.theme.colorScheme.shadow,
                     spreadRadius: 0,
                     blurRadius: 20,
+                    offset: Offset.zero,
                   ),
                 ],
               ),
@@ -60,7 +63,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                             title,
                             style: context.textTheme.titleMedium!.copyWith(
                               fontSize: 14.sp,
-                              color: AppColors.c484848,
+                              color: themeController.isLight ? AppColors.c484848 : darkColorScheme.onSurfaceVariant,
                             ),
                           ),
                           5.verticalSpace,
@@ -87,10 +90,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                                   8.horizontalSpace,
                                   Text(
                                     owner,
-                                    style: context.textTheme.titleSmall!.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      color: context.theme.colorScheme.onSurfaceVariant,
-                                    ),
+                                    style: context.textTheme.bodySmall,
                                   ),
                                 ],
                               ),
@@ -100,10 +100,7 @@ class HomePageBottomCardWidget extends StatelessWidget {
                                   5.horizontalSpace,
                                   Text(
                                     "$time ${context.localized.homePageTime2}",
-                                    style: context.textTheme.titleSmall!.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      color: context.theme.colorScheme.onSurfaceVariant,
-                                    ),
+                                    style: context.textTheme.bodySmall,
                                   ),
                                 ],
                               ),
