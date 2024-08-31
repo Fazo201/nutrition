@@ -16,7 +16,7 @@ class HomePage extends ConsumerWidget {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(224.h),
+          preferredSize: Size.fromHeight(226.h),
           child: HomePageAppBar(
             imgPath: ref.watch(profileVM).profileImagePath,
           ),

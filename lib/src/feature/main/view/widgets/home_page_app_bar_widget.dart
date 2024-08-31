@@ -153,7 +153,7 @@ class HomePageAppBar extends ConsumerWidget {
               ),
             ),
           ),
-          15.verticalSpace,
+          14.verticalSpace,
         ],
       );
 }
