@@ -2,8 +2,6 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/core/style/text_style.dart";
 import "package:nutrition/src/feature/food_details/view_model/vm/food_details_vm.dart";
 
 class FoodDetailsTapbar extends ConsumerWidget {
@@ -26,17 +24,17 @@ class FoodDetailsTapbar extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(12.r),
                 borderSide: BorderSide.none,
               ),
-              color: selectedTab == TapType.ingredient ? AppColors.c129575 : AppColors.white,
+              color: selectedTab == TapType.ingredient ? context.theme.colorScheme.primary : context.theme.colorScheme.surface,
               height: double.infinity,
               child: Text(
                 context.localized.ingredient,
-                style: const AppTextStyle().labelLarge?.copyWith(
-                      color: selectedTab == TapType.ingredient ? AppColors.white : AppColors.c129575,
+                style: context.textTheme.bodyMedium?.copyWith(
+                      color: selectedTab == TapType.ingredient ? context.theme.colorScheme.onPrimary : context.theme.colorScheme.primaryFixed,
                     ),
               ),
             ),
           ),
-          SizedBox(width: 12.w),
+          12.verticalSpace,
           Expanded(
             child: MaterialButton(
               onPressed: () => state.selectProcedure(),
@@ -45,12 +43,12 @@ class FoodDetailsTapbar extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(12.r),
                 borderSide: BorderSide.none,
               ),
-              color: selectedTab == TapType.procedure ? AppColors.c129575 : AppColors.white,
+              color: selectedTab == TapType.procedure ? context.theme.colorScheme.primary : context.theme.colorScheme.surface,
               height: double.infinity,
               child: Text(
                 context.localized.procedure,
-                style: const AppTextStyle().labelLarge?.copyWith(
-                      color: selectedTab == TapType.procedure ? AppColors.white : AppColors.c129575,
+                style: context.textTheme.bodyMedium?.copyWith(
+                      color: selectedTab == TapType.procedure ? context.theme.colorScheme.onPrimary : context.theme.colorScheme.primaryFixed,
                     ),
               ),
             ),

@@ -9,7 +9,6 @@ import "package:nutrition/generated/assets.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/routes/app_route_names.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/core/style/text_style.dart";
 import "package:nutrition/src/feature/food_details/view_model/vm/food_details_vm.dart";
 import "package:share_plus/share_plus.dart";
 
@@ -29,12 +28,11 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                backgroundColor: AppColors.white,
                 title: Center(
                   child: Text(
                     context.localized.rateRecipe,
-                    style: const AppTextStyle().bodyMedium?.copyWith(
-                          color: AppColors.black,
+                    style: context.textTheme.bodySmall?.copyWith(
+                          color: context.theme.colorScheme.onSurface,
                         ),
                   ),
                 ),
@@ -46,7 +44,7 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
                     empty: SvgPicture.asset(Assets.iconsStarIcon),
                   ),
                   itemSize: 22.sp,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 10.w),
+                  itemPadding: REdgeInsets.symmetric(horizontal: 10),
                   onRatingUpdate: (rating) {
                     foodDetailsVM.updateRating(rating);
                     log("Rating: ${foodDetailsVM.rating}");
@@ -93,38 +91,38 @@ class FoodDetailsPopupMenuButtonWidget extends ConsumerWidget {
         PopupMenuItem<String>(
           value: "share",
           child: ListTile(
-            leading: SvgPicture.asset(Assets.iconsRecipeShareIcon),
+            leading: SvgPicture.asset(Assets.iconsRecipeShareIcon,color: context.theme.colorScheme.onSurface,),
             title: Text(context.localized.share),
           ),
         ),
         PopupMenuItem<String>(
           value: "rate",
           child: ListTile(
-            leading: const Icon(Icons.star),
+            leading: Icon(Icons.star,color: context.theme.colorScheme.onSurface,),
             title: Text(context.localized.rateRecipe),
           ),
         ),
         PopupMenuItem<String>(
           value: "review",
           child: ListTile(
-            leading: SvgPicture.asset(Assets.iconsReviewIcon),
+            leading: SvgPicture.asset(Assets.iconsReviewIcon,color: context.theme.colorScheme.onSurface,),
             title: Text(context.localized.reviews),
           ),
         ),
         if(foodDetailsVM.saveFood) PopupMenuItem<String>(
           value: "unsave",
           child: ListTile(
-            leading: SvgPicture.asset(Assets.iconsRecipeUnsaveIcon),
+            leading: SvgPicture.asset(Assets.iconsRecipeUnsaveIcon,color: context.theme.colorScheme.onSurface,),
             title: Text(context.localized.unsave),
           ),
         ),
       ],
       icon: SvgPicture.asset(
         "assets/icons/more_apbar_icon.svg",
-        height: 4,
-        width: 18,
+        height: 4.h,
+        width: 18.w,
+        color: context.theme.colorScheme.onSurface,
       ),
-      color: AppColors.white,
       position: PopupMenuPosition.under,
       popUpAnimationStyle: AnimationStyle(duration: Durations.extralong2),
       constraints: BoxConstraints(maxWidth: 164.w),

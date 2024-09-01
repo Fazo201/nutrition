@@ -4,7 +4,6 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
 import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/core/style/text_style.dart";
 import "package:nutrition/src/feature/food_details/view_model/vm/food_details_vm.dart";
 
 class FoodDetailsTopCard extends ConsumerWidget {
@@ -42,7 +41,7 @@ class FoodDetailsTopCard extends ConsumerWidget {
                   child: Center(),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                  padding: REdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
@@ -51,17 +50,17 @@ class FoodDetailsTopCard extends ConsumerWidget {
                         height: 16.h,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(20.r),
                             color: AppColors.cFFE1B3,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              SvgPicture.asset("assets/icons/star_selected_icon.svg", height: 12.h, width: 12.w),
+                              SvgPicture.asset("assets/icons/star_selected_icon.svg", height: 9.h, width: 9.w),
                               Text(
                                 "4.0",
-                                style: context.textTheme.labelSmall?.copyWith(
-                                  fontFamily: "Poppins",
+                                style: context.textTheme.headlineSmall?.copyWith(
+                                  color: AppColors.black,
                                 ),
                               ),
                             ],
@@ -73,9 +72,9 @@ class FoodDetailsTopCard extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           SvgPicture.asset("assets/icons/timer_in_card_icon.svg"),
-                          const SizedBox(width: 5),
-                          Text("20 ${context.localized.min}", style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cD9D9D9, fontSize: 11.sp)),
-                          const SizedBox(width: 5),
+                          5.horizontalSpace,
+                          Text("20 ${context.localized.min}", style: context.textTheme.labelSmall?.copyWith(color: AppColors.cD9D9D9)),
+                          5.horizontalSpace,
                           InkWell(
                             onTap: (){
                               foodDetailsVM.isSavedFood();

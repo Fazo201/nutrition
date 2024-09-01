@@ -4,8 +4,7 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
 import "package:nutrition/generated/assets.dart";
 import "package:nutrition/src/core/constants/context_extension.dart";
-import "package:nutrition/src/core/style/app_colors.dart";
-import "package:nutrition/src/core/style/text_style.dart";
+import "package:nutrition/src/core/widgets/app_material_context.dart";
 import "package:nutrition/src/core/widgets/custom_appbar_widget.dart";
 import "package:nutrition/src/feature/food_details/view/widgets/food_details_ingredient_card.dart";
 import "package:nutrition/src/feature/food_details/view/widgets/food_details_popup_menu_button.dart";
@@ -22,63 +21,65 @@ class FoodDetailsPage extends ConsumerWidget {
     final state = ref.watch(foodDetailsProvider);
     final selectedTab = state.selectedTap;
     return Scaffold(
-      appBar: const CustomAppbarWidget(
+      appBar: CustomAppbarWidget(
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 12),
-            child: FoodDetailsPopupMenuButtonWidget(),
+            padding: REdgeInsets.only(right: 12),
+            child: const FoodDetailsPopupMenuButtonWidget(),
           ),
+          IconButton(onPressed: (){themeController.switchTheme();}, icon: const Icon(Icons.dark_mode)),
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 25.w),
+        padding: REdgeInsets.symmetric(horizontal: 25),
         child: Column(
           children: [
             const FoodDetailsTopCard(),
-            SizedBox(height: 8.h),
+            8.verticalSpace,
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: Text(
                     "Spicy chicken burger with French fries",
-                    style: const AppTextStyle().titleSmall?.copyWith(
-                          color: AppColors.black,
+                    style: context.textTheme.titleMedium?.copyWith(
+                          fontSize: 14.sp,
                         ),
                   ),
                 ),
                 Text(
                   "(13k ${context.localized.reviews})",
-                  style: const AppTextStyle().bodyMedium?.copyWith(
-                        color: AppColors.cA9A9A9,
+                  style: context.textTheme.headlineMedium?.copyWith(
+                        color: context.theme.colorScheme.onSurfaceVariant,
                       ),
                 ),
               ],
             ),
-            SizedBox(height: 8.h),
+            8.verticalSpace,
             Row(
               children: [
                 CircleAvatar(
                   radius: 20.r,
-                  child: Image.network(
+                  backgroundImage: const NetworkImage(
                     "https://th.bing.com/th?q=Cook+Clip&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.6&pid=InlineBlock&mkt=en-WW&cc=UZ&setlang=ru&adlt=moderate&t=1&mw=247",
                   ),
                 ),
-                SizedBox(
-                  width: 6.w,
-                ),
+                6.horizontalSpace,
                 Column(
                   children: [
                     Text(
                       "Laura wilson",
-                      style: const AppTextStyle().bodyMedium?.copyWith(color: AppColors.c121212, fontWeight: FontWeight.w600),
+                      style: context.textTheme.titleMedium?.copyWith(
+                        color: context.theme.colorScheme.onSurface,
+                        fontSize: 14.sp,
+                      ),
                     ),
                     Row(
                       children: [
                         SvgPicture.asset(Assets.iconsLocationIcon),
                         Text(
                           " Lagos, Nigeria",
-                          style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cA9A9A9, fontSize: 11.sp),
+                          style: context.textTheme.bodySmall,
                         ),
                       ],
                     ),
@@ -86,29 +87,29 @@ class FoodDetailsPage extends ConsumerWidget {
                 ),
               ],
             ),
-            SizedBox(height: 18.h),
+            18.verticalSpace,
             const FoodDetailsTapbar(),
-            SizedBox(height: 24.h),
+            24.verticalSpace,
             Row(
               children: [
                 SvgPicture.asset(Assets.iconsRecipeDishIcon),
                 Text(
                   " 1 ${context.localized.serve}",
-                  style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cA9A9A9, fontSize: 11.sp),
+                  style: context.textTheme.bodySmall,
                 ),
                 const Spacer(),
                 Text(
                   "10 ${context.localized.items}",
-                  style: const AppTextStyle().bodySmall?.copyWith(color: AppColors.cA9A9A9, fontSize: 11.sp),
+                  style: context.textTheme.bodySmall,
                 ),
               ],
             ),
-            SizedBox(height: 8.h),
+            8.verticalSpace,
             Expanded(
               child: ListView.separated(
                 itemCount: 10,
                 padding: const EdgeInsets.symmetric(vertical: 10),
-                separatorBuilder: (context, index) => const SizedBox(height: 12),
+                separatorBuilder: (context, index) => 12.verticalSpace,
                 itemBuilder: (context, index) => selectedTab == TapType.ingredient
                     ? const FoodDetailsIngredientCard()
                     : FoodDetailsProcedureCard(
