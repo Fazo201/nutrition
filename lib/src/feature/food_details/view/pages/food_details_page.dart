@@ -27,7 +27,7 @@ class FoodDetailsPage extends ConsumerWidget {
             padding: REdgeInsets.only(right: 12),
             child: const FoodDetailsPopupMenuButtonWidget(),
           ),
-          IconButton(onPressed: (){themeController.switchTheme();}, icon: const Icon(Icons.dark_mode)),
+          // IconButton(onPressed: (){themeController.switchTheme();}, icon: const Icon(Icons.dark_mode)),
         ],
       ),
       body: Padding(
